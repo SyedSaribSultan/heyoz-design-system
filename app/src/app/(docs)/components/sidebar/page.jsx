@@ -19,14 +19,14 @@ export default function SidebarPage() {
         </div>
       </Section>
 
-      <Section title="Menu items" desc={<>Each menu item: default, hover, and active (the page you are on). <Info info="v0-menu-item (707:14163)\n40 tall · padding 8 / 12 · gap 6 · 20 icon · body/lg\nPointing and current add an inset border and the inner shade">The details</Info></>}>
+      <Section title="Menu items" desc={<>Each menu item: default, hover, and active (the page you are on). <Info info="40 tall · padding 8 / 12 · gap 6 · 20 icon · body/lg\nPointing and current add an inset border and the inner shade">The details</Info></>}>
         <Panel tone="surface/primary" pad={24}>
           <div className="sd-row"><ItemStates /></div>
           <div className="sd-row" style={{ marginTop: 'var(--space-24)' }}><ItemStates collapsed /></div>
         </Panel>
       </Section>
 
-      <Section title="Brand picker" desc={<>Where you switch brands. On hover its chevron turns into a double chevron. <Info info="v0-brand-picker (707:14150)\nTertiary fill and border, inner shade\nFolded: the logo alone, 28 in a 36 box">The details</Info></>}>
+      <Section title="Brand picker" desc={<>Where you switch brands. On hover its chevron turns into a double chevron. <Info info="Tertiary fill and border, inner shade\nFolded: the logo alone, 28 in a 36 box">The details</Info></>}>
         <Panel tone="surface/primary" pad={24}>
           <div className="sd-row"><BrandStates /></div>
           <div className="sd-row" style={{ marginTop: 'var(--space-24)' }}><BrandStates collapsed /></div>

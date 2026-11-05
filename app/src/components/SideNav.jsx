@@ -87,6 +87,8 @@ export default function SideNav({ groups, collapsed = false, onToggle, brand, sl
       if (!(e.ctrlKey || e.metaKey) || e.altKey || e.shiftKey || e.key.toLowerCase() !== 'b' || !toggleRef.current) return;
       if (e.target.closest?.('input, textarea, select, [contenteditable=""], [contenteditable="true"]')) return;
       e.preventDefault();
+      // Focus on a logo-row toggle hands over to its counterpart, as with a click; anywhere else it stays put.
+      if (document.activeElement?.matches?.('.sn-logo-open, .sn-close button') && ref.current?.contains(document.activeElement)) refocus.current = true;
       toggleRef.current();
     };
     window.addEventListener('keydown', key);
@@ -95,6 +97,15 @@ export default function SideNav({ groups, collapsed = false, onToggle, brand, sl
   // The active item is one highlight that slides from item to item, across groups (D-032).
   const activeKey = groups.flatMap((g) => g.items).find((i) => i.active)?.label;
   const { vars, ready } = useIndicator(groupsRef, '.sn-item[data-active]', [activeKey, collapsed]);
+  // Toggling from the logo row keeps keyboard focus on the toggle: the control that was used becomes inert or unmounts,
+  // so focus moves to its counterpart (open ↔ close) instead of dropping to the page. Ctrl+B does the same when focus is on one of these toggles; anywhere else it leaves focus where it was.
+  const refocus = useRef(false);
+  const toggleHere = () => { refocus.current = true; onToggle(); };
+  useEffect(() => {
+    if (!refocus.current) return;
+    refocus.current = false;
+    ref.current?.querySelector(collapsed ? '.sn-logo-open' : '.sn-close button')?.focus({ preventScroll: true });
+  }, [collapsed]);
   // While the nav collapses or opens, the highlight follows its item frame by frame instead of easing behind it.
   const [resizing, setResizing] = useState(false);
   useEffect(() => {
@@ -108,13 +119,12 @@ export default function SideNav({ groups, collapsed = false, onToggle, brand, sl
       {...rec(`side nav · ${collapsed ? 'collapsed' : 'expanded'}`, [['background', 'surface/primary'], ['width', `layout · ${collapsed ? 54 : 300}px`], ['padding', collapsed ? 'space/8' : 'space/16'], ['gap', 'space/16'], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']])}>
       <div className="sn-body">
         <div className="sn-top">
+          {/* One logo, always mounted, so it glides with the nav instead of being swapped mid-animation.
+              Collapsed, the open button lies over the logomark and the link is inert; the wordmark and close button fade. */}
           <div className="sn-logo-row">
-            {collapsed && onToggle
-              ? <button type="button" className="sn-logo sn-logo-open" onClick={onToggle} aria-label="Open sidebar" data-tip="Open sidebar">
-                  <img src="/home/logomark.svg" alt="" width={32} height={32} /><Lucide name="panel-left-open" className="sn-open-icon" />
-                </button>
-              : <Link href={logoHref} className="sn-logo"><img src="/home/logomark.svg" alt="" width={32} height={32} /><span className={`sn-label ${TY.logo}`}>HeyOz</span></Link>}
-            {!collapsed && onToggle && <span data-tip="Close sidebar" className="sn-tip-host"><Button type="ghost" size="xs" icon={lucide('panel-left-close')} label="Close sidebar" onClick={onToggle} /></span>}
+            <Link href={logoHref} className="sn-logo" inert={(collapsed && !!onToggle) || undefined}><img src="/home/logomark.svg" alt="" width={32} height={32} /><span className={`sn-label ${TY.logo}`}>HeyOz</span></Link>
+            {onToggle && collapsed && <button type="button" className="sn-logo-open" onClick={toggleHere} aria-label="Open sidebar" data-tip="Open sidebar"><Lucide name="panel-left-open" className="sn-open-icon" /></button>}
+            {onToggle && <span data-tip={collapsed ? undefined : 'Close sidebar'} className="sn-tip-host sn-close" inert={collapsed || undefined}><Button type="ghost" size="xs" icon={lucide('panel-left-close')} label="Close sidebar" onClick={toggleHere} /></span>}
           </div>
           {brand}
           {slot}

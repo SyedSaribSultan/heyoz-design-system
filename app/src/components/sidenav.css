@@ -7,7 +7,7 @@
   background: var(--sn-nav-background); box-shadow: var(--sn-shade); color: var(--sn-item-color); }
 /* Collapse / expand is a larger move (D-031): width and every spacing change animate together at duration/slow;
    labels fade at duration/fast; hover colours keep duration/fast. Off while a saved state is restored (data-animate). */
-.sn[data-animate], .sn[data-animate] :is(.sn-body, .sn-logo, .sn-group, .sn-title, .sn-item, .sn-brand, .sn-brand-logo, .sn-profile, .sn-profile-row, .sn-label, .sn-ext, .sn-chev, .d-search) {
+.sn[data-animate], .sn[data-animate] :is(.sn-body, .sn-logo-row, .sn-logo, .sn-group, .sn-title, .sn-item, .sn-brand, .sn-brand-logo, .sn-profile, .sn-profile-row, .sn-label, .sn-ext, .sn-chev, .d-search) {
   transition: width var(--duration-slow) var(--easing-standard), height var(--duration-slow) var(--easing-standard), min-height var(--duration-slow) var(--easing-standard),
     max-height var(--duration-slow) var(--easing-standard), padding var(--duration-slow) var(--easing-standard), margin var(--duration-slow) var(--easing-standard),
     gap var(--duration-slow) var(--easing-standard), border-radius var(--duration-slow) var(--easing-standard), opacity var(--duration-fast) var(--easing-standard),
@@ -36,16 +36,32 @@
    on one line from its expanded place to the rail (icon centres on one vertical line). Labels fade and clip. */
 .sn[data-collapsed] .sn-label, .sn[data-collapsed] .sn-ext { opacity: 0; }
 
-/* Logo row: logomark + wordmark, close button on the right. Collapsed: the logomark opens the nav. */
-.sn-logo-row { display: flex; align-items: center; justify-content: space-between; gap: var(--sn-logo-gap); }
-.sn-logo { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--sn-logo-gap); cursor: pointer; border-radius: var(--radius-md); }
-.sn-logo img { display: block; flex: none; width: var(--sn-logo-size); height: var(--sn-logo-size); }
-.sn[data-collapsed] .sn-logo { margin-left: var(--space-2); } /* logomark centre on the rail line (8 + 2 + 16) */
-.sn-logo-open { position: relative; width: var(--sn-logo-size); height: var(--sn-logo-size); justify-content: center; }
+/* Logo row: logomark + wordmark, close button on the right. Collapsed: the logomark opens the nav.
+   The logo is one element that is never swapped, and the row's margin animates with the nav padding, so the
+   logomark glides in one direction (16 → 10 and back) with no jump at the start. */
+/* While the nav widens, the row is briefly narrower than its content: it clips, keeping stroke/2 of room on every side
+   for focus rings (padding, pulled back by a matching negative margin, D-037), and the logo never shrinks or centres,
+   so the logomark stays put on the left. */
+.sn-logo-row { position: relative; display: flex; flex: none; align-items: center; justify-content: space-between; gap: var(--sn-logo-gap);
+  overflow: hidden; padding: var(--stroke-2); margin: calc(-1 * var(--stroke-2)); }
+.sn[data-collapsed] .sn-logo-row { margin-left: calc(var(--space-2) - var(--stroke-2)); } /* logomark centre on the rail line (8 + 2 + 16) */
+.sn .sn-logo-row > .sn-logo { box-sizing: border-box; display: inline-flex; flex: none; align-items: center; justify-content: flex-start; gap: var(--sn-logo-gap); cursor: pointer; border-radius: var(--radius-md); }
+.sn .sn-logo-row > .sn-logo:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
+.sn-logo img { display: block; flex: none; width: var(--sn-logo-size); height: var(--sn-logo-size); transition: opacity var(--duration-fast) var(--easing-standard); }
+.sn-logo > .sn-label { white-space: nowrap; }
+.sn[data-collapsed] .sn-logo-row > .sn-logo { gap: 0; }
+.sn[data-collapsed] .sn-logo > .sn-label { flex: 0 0 0; width: 0; overflow: hidden; } /* fades and clips like the item labels */
+/* Collapsed: the open button lies exactly over the logomark (the selector outranks the tooltip rule `.sn [data-tip]`, which sets position: relative); on hover or focus the logomark gives way to the icon. */
+.sn .sn-logo-row > .sn-logo-open { all: unset; box-sizing: border-box; position: absolute; left: var(--stroke-2); top: var(--stroke-2); display: inline-flex; align-items: center; justify-content: center;
+  width: var(--sn-logo-size); height: var(--sn-logo-size); border-radius: var(--radius-md); cursor: pointer; }
+.sn .sn-logo-row > .sn-logo-open:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
 .sn-open-icon.lu { width: var(--sn-logo-toggle-icon); height: var(--sn-logo-toggle-icon); } /* same as the close button: Button xs → 16 */
-.sn-open-icon { position: absolute; opacity: 0; color: var(--sn-item-color); transition: opacity var(--duration-fast) var(--easing-standard); }
-.sn-logo-open:hover img, .sn-logo-open:focus-visible img { opacity: 0; }
-.sn-logo-open:hover .sn-open-icon, .sn-logo-open:focus-visible .sn-open-icon { opacity: 1; }
+.sn-open-icon { opacity: 0; color: var(--sn-item-color); transition: opacity var(--duration-fast) var(--easing-standard); }
+.sn-logo-row:has(.sn-logo-open:is(:hover, :focus-visible)) .sn-logo img { opacity: 0; }
+.sn-logo-open:is(:hover, :focus-visible) .sn-open-icon { opacity: 1; }
+/* The close button stays mounted: collapsed it leaves the flow and fades, so it never pops in or out. */
+.sn-close { transition: opacity var(--duration-fast) var(--easing-standard); }
+.sn[data-collapsed] .sn-close { position: absolute; right: var(--stroke-2); opacity: 0; pointer-events: none; }
 .sn-tip-host { display: inline-flex; }
 
 /* Groups: title, then items */

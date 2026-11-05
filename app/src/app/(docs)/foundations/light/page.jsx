@@ -34,7 +34,7 @@ export default function LightPage() {
           </div>
         </div>
       </Section>
-      <Section title="The numbers" desc={<>Everything that shapes the glow. <Info info="Source: tokens/light.json · from Figma 693:3121">Where these live</Info></>}>
+      <Section title="The numbers" desc={<>Everything that shapes the glow. <Info info="Source: tokens/light.json">Where these live</Info></>}>
         <Table first={260} cols={['Token', 'Value']} rows={[
           [<Token key="1">light/cursor/fill</Token>, `${L.fill} (${L.fillHex})`],
           [<Token key="2">light/cursor/blend</Token>, L.blend],

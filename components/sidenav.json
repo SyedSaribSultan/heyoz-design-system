@@ -9,7 +9,7 @@
     "light": "Lit by light/cursor like everything else (D-020).",
     "scroll": "Only the link list scrolls on short screens, so the brand menu and the footer are never clipped. It never passes the scroll to the page (overscroll contain). Its scrollbar is an 8px gutter kept in the nav's padding (items never change width), with the thumb shown only while the pointer is over the nav (D-037). Tooltips are fixed to the window.",
     "icons": "Lucide. Item icons in a size/icon/md frame (20, vector 15). The 'opens in a new tab' arrow is a hint one step smaller: item.ext-icon, size/icon/sm (16, vector 12).",
-    "collapse": "Collapsed (54 rail), every item is 36 x 36 with its icon anchored left, never centred, so icons glide on one line while the width animates. Labels stay in place at zero width and fade (never display: none), so opening mirrors closing. Item height is fixed (40 open, 36 collapsed) so it animates instead of snapping. Width, spacing and size move at duration/slow; labels fade at duration/fast (D-031).",
+    "collapse": "Collapsed (54 rail), every item is 36 x 36 with its icon anchored left, never centred, so icons glide on one line while the width animates. Labels stay in place at zero width and fade (never display: none), so opening mirrors closing. Item height is fixed (40 open, 36 collapsed) so it animates instead of snapping. The logo row is never swapped: collapsed, the open button lies over the logomark, the wordmark fades and clips like a label and the close button fades out of the flow, so the logomark glides one way (16 to 10 from the nav edge) with no jump. Toggling from the logo row keeps keyboard focus on the toggle (open and close hand focus to each other); Ctrl+B leaves focus where it is, unless it is on one of those toggles, which hands over the same way. Width, spacing and size move at duration/slow; labels fade at duration/fast (D-031).",
     "shortcut": "Ctrl+B / Cmd+B opens and closes the page's main nav. Ignored while typing in a field."
   },
   "parts": {
@@ -23,7 +23,7 @@
       "gap": "{space/16}"
     },
     "logo": {
-      "$about": "Logomark 32 and the wordmark. The open / close toggle is one control in two states: a 32 ghost Button (xs) with a 16 icon, panel-left-close / panel-left-open.",
+      "$about": "Logomark 32 and the wordmark. Close: a 32 ghost Button (xs) with a 16 panel-left-close icon. Collapsed: a 32 open button lies over the logomark; on hover or focus the logomark fades to a 16 panel-left-open icon.",
       "size": 32,
       "gap": "{space/8}",
       "type": "{type/heading/md/medium}",
@@ -60,7 +60,7 @@
       }
     },
     "brand": {
-      "$about": "v0-brand-picker (707:14150). 50 tall, as designed.",
+      "$about": "Brand picker. 50 tall.",
       "height": 50,
       "size-collapsed": 36,
       "padding": "{space/4}",

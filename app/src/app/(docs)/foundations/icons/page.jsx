@@ -47,7 +47,7 @@ export default function Icons() {
         ]} />
       </Section>
 
-      <Section title="Good icons" desc={<>The rules that keep every icon clear. <Info info="From the Iconography page in Figma (25:6154)">Where these come from</Info></>}>
+      <Section title="Good icons" desc="The rules that keep every icon clear.">
         <div className="ic-do">
           <div className="d-card lit"><span className="type-label-lg-medium" style={{ color: 'var(--content-success)' }}>Do</span>{DO.map(([d]) => <Meta key={d}>{d}</Meta>)}</div>
           <div className="d-card lit"><span className="type-label-lg-medium" style={{ color: 'var(--content-critical)' }}>Don’t</span>{DO.map(([, d]) => <Meta key={d}>{d}</Meta>)}</div>
@@ -61,7 +61,7 @@ export default function Icons() {
         ]} />
       </Section>
 
-      <Section title="HeyOz icons" desc={<>Our own {icons.heyoz.length} icons. One-colour icons take the colour of the words around them; logos, flags and emoji keep their own colours. Click an icon to download it. <Info info="From Figma: Icons (25:48), as drawn">Where they come from</Info></>}>
+      <Section title="HeyOz icons" desc={<>Our own {icons.heyoz.length} icons. One-colour icons take the colour of the words around them; logos, flags and emoji keep their own colours. Click an icon to download it.</>}>
         <IconLibrary lib="heyoz" initial={slimIcons('heyoz', icons.heyoz.slice(0, INITIAL))} total={icons.heyoz.length} sprite="/icons/heyoz.svg" dir="heyoz" groupBy="set" placeholder="Search HeyOz icons" />
       </Section>
 

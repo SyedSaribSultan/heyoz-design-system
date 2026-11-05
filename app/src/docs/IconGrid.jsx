@@ -1,6 +1,6 @@
 import { ICON_GRID } from '@/components/Button';
 
-// The icon grid from Figma (Iconography, 25:6154), drawn from the size/icon/grid/* ratios.
+// The icon grid, drawn from the size/icon/grid/* ratios.
 // Draw it over any icon frame: it scales with the frame.
 export default function IconGrid({ className = '', style }) {
   const F = 24, p = ICON_GRID.padding * F, sq = ICON_GRID.square * F, r = (ICON_GRID.circle * F) / 2, w = 0.3;

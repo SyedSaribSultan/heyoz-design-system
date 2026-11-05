@@ -15,6 +15,8 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ## 2026-11-05
 
+- fix(sidebar): the logomark no longer jerks when the nav opens or closes. It was two elements (a link open, a button collapsed) swapped at the start of the motion, so it jumped 2px against the direction of travel, and on opening its link was squeezed to 0 wide and centred, throwing the logomark 46px left for a frame. Now one logo stays mounted, the open button lies over it, the wordmark and close button fade; measured frame by frame: 16 → 10 and 10 → 16, one direction, no jump. Also: the logo link has a focus ring, the row keeps stroke/2 of clip room (D-037), and toggling from the logo row hands keyboard focus between the open and close buttons instead of dropping it (Ctrl+B too, when focus is on a toggle). The sidebar, icons and light pages (and the sidebar spec) no longer cite Figma node ids.
+
 - feat(repo): the repository is on GitHub (private): https://github.com/SyedSaribSultan/heyoz-design-system. `.gitignore` covers dependencies, builds, test output and secrets at any depth; `.gitattributes` keeps LF line endings on every machine.
 
 - fix(repo): the review gate also counts added, removed and renamed files (a folder's date changes), its skip list is anchored to the repository root, its timestamp stays out of version control; README shows `.claude/` in the folder tree and says what the gate ignores and that the build writes only changed files. Found by the gate's own first review.
