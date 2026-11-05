@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1528 1074 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint67_linear_25_14" x1="1530.83" y1="1080.81" x2="1549.17" y2="1080.81" gradientUnits="userSpaceOnUse">
+<stop offset="0.08" stop-color="#FF63A0" />
+<stop offset="0.3" stop-color="#FC413D" />
+<stop offset="0.5" stop-color="#FC413D" />
+<stop offset="0.65" stop-color="#FC413D" />
+<stop offset="0.72" stop-color="#FC5C30" />
+<stop offset="0.86" stop-color="#FEB10C" />
+<stop offset="0.91" stop-color="#FEC700" />
+<stop offset="0.96" stop-color="#FFDB0F" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint66_linear_25_14" x1="1547.19" y1="1080.58" x2="1547.19" y2="1093.29" gradientUnits="userSpaceOnUse">
+<stop stop-color="#60D673" />
+<stop offset="0.17" stop-color="#42C868" />
+<stop offset="0.39" stop-color="#0EBC5F" />
+<stop offset="0.62" stop-color="#00A9BB" />
+<stop offset="0.86" stop-color="#3C90FF" />
+<stop offset="1" stop-color="#3186FF" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=gmail v2">
+<g id="gmail-2026 1">
+<path id="Vector_90" d="M1545.21 1080.58H1549.17V1092.04C1549.17 1092.73 1548.61 1093.29 1547.92 1093.29H1545.83C1545.67 1093.29 1545.51 1093.23 1545.39 1093.11C1545.27 1092.99 1545.21 1092.83 1545.21 1092.67V1080.58Z" fill="url(#paint66_linear_25_14)" />
+<path id="Vector_91" d="M1534.79 1080.58H1530.83V1092.04C1530.83 1092.73 1531.39 1093.29 1532.08 1093.29H1534.17C1534.33 1093.29 1534.49 1093.23 1534.61 1093.11C1534.73 1092.99 1534.79 1092.83 1534.79 1092.67V1080.58Z" fill="#FC413D" />
+<path id="Vector_92" d="M1534.09 1079.17C1533.25 1078.47 1532 1078.58 1531.3 1079.41C1530.59 1080.25 1530.7 1081.5 1531.54 1082.2L1539.46 1088.86C1539.61 1088.99 1539.8 1089.06 1540 1089.06C1540.2 1089.06 1540.39 1088.99 1540.54 1088.86L1548.46 1082.2C1549.3 1081.5 1549.41 1080.25 1548.7 1079.41C1548 1078.58 1546.75 1078.47 1545.91 1079.17L1540 1084.14L1534.09 1079.17Z" fill="url(#paint67_linear_25_14)" />
+</g>
+</g>
+</svg>

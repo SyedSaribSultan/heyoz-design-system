@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="949 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip141_25_14">
+<rect x="949" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Seychelles, Style=Flag, Radius=On">
+<g clip-path="url(#clip141_25_14)">
+<rect x="949" y="2207" width="21" height="15" rx="3" fill="#FED23F" />
+<path id="Vector_849" fill-rule="evenodd" clip-rule="evenodd" d="M949 2222L958 2207H949V2222Z" fill="#002B6C" />
+<path id="Vector_850" fill-rule="evenodd" clip-rule="evenodd" d="M949 2222L965 2207H970V2211L949 2222Z" fill="#D3222C" />
+<path id="Vector_851" fill-rule="evenodd" clip-rule="evenodd" d="M949 2222L970 2216V2211L949 2222Z" fill="#F4F5F5" />
+<path id="Vector_852" fill-rule="evenodd" clip-rule="evenodd" d="M949 2222L970 2216V2222H949Z" fill="#007B30" />
+</g>
+</g>
+</svg>

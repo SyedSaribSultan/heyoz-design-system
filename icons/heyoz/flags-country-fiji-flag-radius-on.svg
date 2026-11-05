@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="744 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip72_25_14">
+<rect x="744" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Fiji, Style=Flag, Radius=On">
+<g clip-path="url(#clip72_25_14)">
+<rect x="744" y="2137" width="21" height="15" rx="3" fill="#62B6E6" />
+<g id="Group 39">
+<rect id="Rectangle 60" x="744" y="2137" width="11" height="7" fill="#1A47B8" />
+<path id="Vector_549" fill-rule="evenodd" clip-rule="evenodd" d="M762 2147V2143.5C762 2142.67 761.328 2142 760.5 2142H758.5C757.674 2142 757 2142.67 757 2143.5V2147C757 2147.18 758 2149 759.5 2149C761 2149 762 2147.18 762 2147Z" fill="#F4F5F5" />
+<path id="Vector_550" fill-rule="evenodd" clip-rule="evenodd" d="M760 2145V2146.12H762V2147.08H760V2149H759V2147.08H757V2146.12H759V2145H757V2142H762V2145H760Z" fill="#F93939" />
+<path id="Vector_551" fill-rule="evenodd" clip-rule="evenodd" d="M758 2143H761V2144H758V2143Z" fill="#FFDA2C" />
+<g id="Element_13">
+<g id="Element_14">
+<mask id="mask34_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="744" y="2136" width="12" height="8">
+<g id="Element_15">
+<path id="Element_16" d="M744 2136.66H755.003V2143.97H744V2136.66Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask34_25_14)">
+<g id="Element_17">
+<path d="M744 2136.66L755.003 2143.97L744 2136.66ZM755.003 2136.66L744 2143.97L755.003 2136.66Z" fill="#000008" />
+<path d="M744 2136.66L755.003 2143.97M755.003 2136.66L744 2143.97" stroke="white" stroke-width="1.46369" />
+</g>
+</g>
+</g>
+<g id="Element_18">
+<mask id="mask35_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="744" y="2136" width="12" height="8">
+<g id="Element_19">
+<path id="Element_20" d="M744 2136.66V2140.31H755.003V2143.97L744 2136.66ZM755.003 2136.66H749.501V2143.97H744L755.003 2136.66Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask35_25_14)">
+<g id="Element_21">
+<path d="M744 2136.66L755.003 2143.97L744 2136.66ZM755.003 2136.66L744 2143.97L755.003 2136.66Z" fill="#000008" />
+<path d="M744 2136.66L755.003 2143.97M755.003 2136.66L744 2143.97" stroke="#F93939" stroke-width="0.975793" />
+</g>
+</g>
+</g>
+<g id="Element_22">
+<path d="M749.501 2136.66V2143.97V2136.66ZM744 2140.31H755.003H744Z" fill="#000008" />
+<path d="M749.501 2136.66V2143.97M744 2140.31H755.003" stroke="white" stroke-width="2.43948" />
+</g>
+<g id="Element_23">
+<path d="M749.501 2136.66V2143.97V2136.66ZM744 2140.31H755.003H744Z" fill="#000008" />
+<path d="M749.501 2136.66V2143.97M744 2140.31H755.003" stroke="#F93939" stroke-width="1.46369" />
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

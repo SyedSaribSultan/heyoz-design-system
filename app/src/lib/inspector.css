@@ -1,0 +1,13 @@
+/* Token inspector: hold Ctrl + Alt and point at anything. Fixed above the light (100) and menus.
+   Surface: the secondary tier (it floats over primary panels), inner shade (Figma effect, D-021), and
+   lit by light/cursor at the real pointer position (D-020: open menus catch the light). */
+[data-inspected] { outline: var(--stroke-1) solid var(--border-focus); outline-offset: -1px; }
+.inspector { position: fixed; overflow: hidden; z-index: 1000; pointer-events: none; min-width: 300px; max-width: 400px; display: flex; flex-direction: column; gap: var(--space-4);
+  padding: var(--space-8) var(--space-12); border-radius: var(--radius-md); background: var(--surface-secondary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary), inset 0 -4px 10px rgba(0, 0, 0, 0.5); color: var(--content-primary); }
+.insp-dim { color: var(--content-tertiary); }
+.insp-row { display: grid; grid-template-columns: 96px 1fr auto; gap: var(--space-8); align-items: center; }
+.insp-token { display: inline-flex; align-items: center; gap: var(--space-4); color: var(--content-primary); }
+.insp-token i { width: 10px; height: 10px; border-radius: var(--radius-xs); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary); flex: none; }
+.insp-layer { display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-6); border-top: var(--stroke-1) solid var(--border-secondary); }
+.insp-layer.insp-top { border-top: 0; padding-top: var(--space-2); }
+.inspector.lit { position: fixed; } /* a light root: it positions itself and catches the light (LightField) */

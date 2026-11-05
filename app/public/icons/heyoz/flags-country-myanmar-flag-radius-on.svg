@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1400 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip115_25_14">
+<rect x="1400" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Myanmar, Style=Flag, Radius=On">
+<g clip-path="url(#clip115_25_14)">
+<rect x="1400" y="2172" width="21" height="15" rx="3" fill="#30B330" />
+<path id="Vector_734" fill-rule="evenodd" clip-rule="evenodd" d="M1400 2182H1421V2187H1400V2182Z" fill="#EB2336" />
+<path id="Vector_735" fill-rule="evenodd" clip-rule="evenodd" d="M1400 2172H1421V2177H1400V2172Z" fill="#FECC00" />
+<path id="Vector_736" fill-rule="evenodd" clip-rule="evenodd" d="M1410.5 2181.75L1407.85 2183.14L1408.36 2180.19L1406.22 2178.11L1409.18 2177.68L1410.5 2175L1411.82 2177.68L1414.78 2178.11L1412.64 2180.19L1413.14 2183.14" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

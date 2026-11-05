@@ -1,0 +1,26 @@
+{
+  "$about": "HeyOz type tokens. Source of truth. Every role has xs to xl; body adds 2xl and 3xl for lead text and large buttons. 22 sizes x 4 weights = 88 styles. Each style bundles family, size, line height, letter spacing and weight. Sizes and line heights are px. Line heights sit on a 4px grid, with a 2px half-step only where 4px would be too loose.",
+  "families": {
+    "display": { "name": "Bricolage Grotesque", "css": "var(--font-bricolage)", "fallback": "system-ui, sans-serif" },
+    "heading": { "name": "Bricolage Grotesque", "css": "var(--font-bricolage)", "fallback": "system-ui, sans-serif" },
+    "body":    { "name": "Geist", "css": "var(--font-geist)", "fallback": "system-ui, sans-serif" },
+    "label":   { "name": "Geist", "css": "var(--font-geist)", "fallback": "system-ui, sans-serif" }
+  },
+  "weights": { "regular": 400, "medium": 500, "semibold": 600, "bold": 700 },
+  "sizes": {
+    "display": { "xs": [32, 36], "sm": [40, 44], "md": [48, 52], "lg": [56, 60], "xl": [64, 68] },
+    "heading": { "xs": [16, 20], "sm": [18, 24], "md": [20, 28], "lg": [24, 32], "xl": [28, 36] },
+    "body":    { "xs": [11, 16], "sm": [12, 16], "md": [14, 20], "lg": [16, 24], "xl": [18, 28], "2xl": [20, 28], "3xl": [24, 32] },
+    "label":   { "xs": [10, 12], "sm": [11, 14], "md": [12, 16], "lg": [14, 18], "xl": [16, 20] }
+  },
+  "tracking": {
+    "$about": "Letter spacing is a function of size: looser when small, tighter when large. Each row applies up to and including maxSize.",
+    "rules": [
+      { "maxSize": 12, "em": 0.01 },
+      { "maxSize": 18, "em": 0 },
+      { "maxSize": 28, "em": -0.01 },
+      { "maxSize": 40, "em": -0.02 },
+      { "maxSize": 999, "em": -0.03 }
+    ]
+  }
+}

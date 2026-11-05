@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="252 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip21_25_14">
+<rect x="252" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Algeria, Style=Flag, Radius=On">
+<g clip-path="url(#clip21_25_14)">
+<rect x="252" y="2102" width="21" height="15" rx="3" fill="white" />
+<path id="Vector_339" d="M271 2102H254C252.895 2102 252 2102.9 252 2104V2115C252 2116.1 252.895 2117 254 2117H271C272.105 2117 273 2116.1 273 2115V2104C273 2102.9 272.105 2102 271 2102Z" fill="white" />
+<path id="Vector_340" fill-rule="evenodd" clip-rule="evenodd" d="M252 2102H262V2117H252V2102Z" fill="#006630" />
+<path id="Vector_341" fill-rule="evenodd" clip-rule="evenodd" d="M265.052 2112.26C264.23 2113.32 262.944 2114 261.5 2114C259.015 2114 257 2111.98 257 2109.5C257 2107.02 259.015 2105 261.5 2105C262.944 2105 264.23 2105.68 265.052 2106.74C264.417 2106.27 263.618 2106 262.75 2106C260.68 2106 259 2107.57 259 2109.5C259 2111.43 260.68 2113 262.75 2113C263.618 2113 264.417 2112.72 265.052 2112.26Z" fill="#D21034" />
+<path id="Vector_342" fill-rule="evenodd" clip-rule="evenodd" d="M265 2109.5L266 2109L266.5 2108L267 2109L268 2109.5L267 2110L266.5 2111L266 2110L265 2109.5Z" fill="#D21034" />
+</g>
+</g>
+</svg>

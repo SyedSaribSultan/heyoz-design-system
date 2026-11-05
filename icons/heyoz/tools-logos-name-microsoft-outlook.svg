@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="2144 1074 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint88_linear_25_14" x1="2152.62" y1="1086" x2="2163.88" y2="1086" gradientUnits="userSpaceOnUse">
+<stop stop-color="#064484" />
+<stop offset="1" stop-color="#0F65B5" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint89_linear_25_14" x1="2151.5" y1="1092.06" x2="2165" y2="1092.06" gradientUnits="userSpaceOnUse">
+<stop stop-color="#1B366F" />
+<stop offset="1" stop-color="#2657B0" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint90_linear_25_14" x1="2165" y1="1089.94" x2="2151.5" y2="1089.94" gradientUnits="userSpaceOnUse">
+<stop stop-color="#44DCFD" />
+<stop offset="0.453125" stop-color="#259ED0" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint92_linear_25_14" x1="2147" y1="1086" x2="2157.12" y2="1086" gradientUnits="userSpaceOnUse">
+<stop stop-color="#064484" />
+<stop offset="1" stop-color="#0F65B5" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint91_linear_25_14" x1="2151.5" y1="1089.94" x2="2165" y2="1089.94" gradientUnits="userSpaceOnUse">
+<stop stop-color="#259ED0" />
+<stop offset="1" stop-color="#44DCFD" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=microsoft-outlook">
+<g id="vector_338">
+<path id="Vector_171" d="M2162.75 1078.12H2153.75C2153.13 1078.12 2152.62 1078.63 2152.62 1079.25V1092.75C2152.62 1093.37 2153.13 1093.88 2153.75 1093.88H2162.75C2163.37 1093.88 2163.88 1093.37 2163.88 1092.75V1079.25C2163.88 1078.63 2163.37 1078.12 2162.75 1078.12Z" fill="#1066B5" />
+<path id="Vector_172" d="M2162.75 1078.12H2153.75C2153.13 1078.12 2152.62 1078.63 2152.62 1079.25V1092.75C2152.62 1093.37 2153.13 1093.88 2153.75 1093.88H2162.75C2163.37 1093.88 2163.88 1093.37 2163.88 1092.75V1079.25C2163.88 1078.63 2163.37 1078.12 2162.75 1078.12Z" fill="url(#paint88_linear_25_14)" />
+<path id="Vector_173" d="M2158.25 1079.81H2152.62V1085.44H2158.25V1079.81Z" fill="#32A9E7" />
+<path id="Vector_174" d="M2158.25 1085.44H2152.62V1091.06H2158.25V1085.44Z" fill="#167EB4" />
+<path id="Vector_175" d="M2163.88 1085.44H2158.25V1091.06H2163.88V1085.44Z" fill="#32A9E7" />
+<path id="Vector_176" d="M2163.88 1079.81H2158.25V1085.44H2163.88V1079.81Z" fill="#58D9FD" />
+<g id="Mask group_17">
+<mask id="mask29_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2151" y="1084" width="14" height="10">
+<g id="Group_45">
+<path id="Vector_177" d="M2151.5 1084.88H2163.88C2164.5 1084.88 2165 1085.38 2165 1086V1092.75C2165 1093.37 2164.5 1093.88 2163.88 1093.88H2152.62C2152 1093.88 2151.5 1093.37 2151.5 1092.75V1084.88Z" fill="url(#paint89_linear_25_14)" />
+</g>
+</mask>
+<g mask="url(#mask29_25_14)">
+<g id="Group_46">
+<path id="Vector_178" d="M2165 1084.88V1087.12H2163.88V1084.88H2165Z" fill="#135298" />
+<path id="Vector_179" d="M2165 1093.88V1086L2150.94 1093.88H2165Z" fill="url(#paint90_linear_25_14)" />
+<path id="Vector_180" d="M2151.5 1093.88V1086L2165.56 1093.88H2151.5Z" fill="url(#paint91_linear_25_14)" />
+</g>
+</g>
+</g>
+<path id="Vector_181" d="M2151.5 1083.75C2151.5 1082.82 2152.26 1082.06 2153.19 1082.06H2156.56C2157.49 1082.06 2158.25 1082.82 2158.25 1083.75V1090.5C2158.25 1091.43 2157.49 1092.19 2156.56 1092.19H2151.5V1083.75Z" fill="black" fill-opacity="0.3" />
+<path id="Vector_182" d="M2156 1080.94H2148.12C2147.5 1080.94 2147 1081.44 2147 1082.06V1089.94C2147 1090.56 2147.5 1091.06 2148.12 1091.06H2156C2156.62 1091.06 2157.12 1090.56 2157.12 1089.94V1082.06C2157.12 1081.44 2156.62 1080.94 2156 1080.94Z" fill="url(#paint92_linear_25_14)" />
+<path id="Vector_183" d="M2154.88 1086.04V1085.95C2154.88 1084.32 2153.71 1083.19 2152.07 1083.19C2150.42 1083.19 2149.25 1084.33 2149.25 1085.96V1086.05C2149.25 1087.68 2150.42 1088.81 2152.06 1088.81C2153.7 1088.81 2154.88 1087.67 2154.88 1086.04ZM2153.55 1086.05C2153.55 1087.13 2152.94 1087.78 2152.07 1087.78C2151.2 1087.78 2150.59 1087.11 2150.59 1086.04V1085.95C2150.59 1084.87 2151.19 1084.22 2152.06 1084.22C2152.93 1084.22 2153.55 1084.89 2153.55 1085.96V1086.05Z" fill="white" />
+</g>
+</g>
+</svg>

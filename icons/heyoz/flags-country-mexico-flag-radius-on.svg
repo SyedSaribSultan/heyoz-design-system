@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1072 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip111_25_14">
+<rect x="1072" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Mexico, Style=Flag, Radius=On">
+<g clip-path="url(#clip111_25_14)">
+<rect x="1072" y="2172" width="21" height="15" rx="3" fill="#F4F5F5" />
+<g id="Group 2">
+<path id="Vector_707" fill-rule="evenodd" clip-rule="evenodd" d="M1084.98 2179.28C1084.99 2179.38 1085 2179.49 1085 2179.59C1085 2180.97 1083.88 2182.09 1082.5 2182.09C1081.12 2182.09 1080 2180.97 1080 2179.59C1080 2179.49 1080.01 2179.38 1080.02 2179.28C1080.17 2180.24 1081.23 2180.98 1082.5 2180.98C1083.78 2180.98 1084.83 2180.24 1084.98 2179.28V2179.28Z" fill="#006847" />
+<g id="Group 1">
+<circle id="Ellipse 1_3" cx="1082.5" cy="2178.5" r="1.5" fill="#AE6A3E" />
+</g>
+</g>
+<rect id="Rectangle 6_2" x="1087" y="2172" width="6" height="15" fill="#F93939" />
+<rect id="Rectangle 7_2" x="1072" y="2172" width="6" height="15" fill="#006847" />
+</g>
+</g>
+</svg>

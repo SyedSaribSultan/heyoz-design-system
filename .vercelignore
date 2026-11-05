@@ -1,0 +1,18 @@
+# Upload only what the Vercel build needs: app/ plus the sources npm run tokens reads
+# (tokens/, components/) and the folders it writes into (docs/, figma/).
+node_modules
+**/node_modules
+app/.next
+.vercel
+# Icon sources: npm run icons is run by hand; its output (app/public/icons) is committed.
+/icons
+# Old Figma export, reference only.
+/current-figma-tokens-11.03.2026
+
+/.playwright-mcp
+.env*.local
+app/.next-*
+# Kept for reference, never deployed: unused source assets and the archived Figma colour export.
+/archive
+# Claude Code project config (review agent, hooks): not part of the site.
+/.claude

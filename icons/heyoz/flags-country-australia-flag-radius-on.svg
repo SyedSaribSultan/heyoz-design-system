@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="416 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip25_25_14">
+<rect x="416" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Australia, Style=Flag, Radius=On">
+<g clip-path="url(#clip25_25_14)">
+<rect x="416" y="2102" width="21" height="15" rx="3" fill="#1A47B8" />
+<path id="Vector_357" d="M435 2102H418C416.895 2102 416 2102.9 416 2104V2115C416 2116.1 416.895 2117 418 2117H435C436.105 2117 437 2116.1 437 2115V2104C437 2102.9 436.105 2102 435 2102Z" fill="#1A47B8" />
+<g id="Element">
+<path id="Element_2" d="M438.005 2101.66H416V2116.29H438.005V2101.66Z" fill="#1A47B8" />
+<g id="Element_3">
+<mask id="mask31_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="416" y="2101" width="12" height="8">
+<g id="Element_4">
+<path id="Element_5" d="M416 2101.66H427.003V2108.97H416V2101.66Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask31_25_14)">
+<g id="Element_6">
+<path d="M416 2101.66L427.003 2108.97L416 2101.66ZM427.003 2101.66L416 2108.97L427.003 2101.66Z" fill="#000008" />
+<path d="M416 2101.66L427.003 2108.97M427.003 2101.66L416 2108.97" stroke="white" stroke-width="1.46369" />
+</g>
+</g>
+</g>
+<g id="Element_7">
+<mask id="mask32_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="416" y="2101" width="12" height="8">
+<g id="Element_8">
+<path id="Element_9" d="M416 2101.66V2105.31H427.003V2108.97L416 2101.66ZM427.003 2101.66H421.501V2108.97H416L427.003 2101.66Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask32_25_14)">
+<g id="Element_10">
+<path d="M416 2101.66L427.003 2108.97L416 2101.66ZM427.003 2101.66L416 2108.97L427.003 2101.66Z" fill="#000008" />
+<path d="M416 2101.66L427.003 2108.97M427.003 2101.66L416 2108.97" stroke="#F93939" stroke-width="0.975793" />
+</g>
+</g>
+</g>
+<g id="Element_11">
+<path d="M421.501 2101.66V2108.97V2101.66ZM416 2105.31H427.003H416Z" fill="#000008" />
+<path d="M421.501 2101.66V2108.97M416 2105.31H427.003" stroke="white" stroke-width="2.43948" />
+</g>
+<g id="Element_12">
+<path d="M421.501 2101.66V2108.97V2101.66ZM416 2105.31H427.003H416Z" fill="#000008" />
+<path d="M421.501 2101.66V2108.97M416 2105.31H427.003" stroke="#F93939" stroke-width="1.46369" />
+</g>
+</g>
+<path id="Vector_358" opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M420 2113.5L421 2113L421.5 2112L422 2113L423 2113.5L422 2114L421.5 2115L421 2114L420 2113.5ZM430 2105V2106H431V2105H430ZM433 2106V2107H434V2106H433ZM429 2108V2109H430V2108H429ZM432 2109V2110H433V2109H432ZM431 2112V2113H432V2112H431Z" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

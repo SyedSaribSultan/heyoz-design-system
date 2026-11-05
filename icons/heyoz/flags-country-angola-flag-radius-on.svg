@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="334 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip23_25_14">
+<rect x="334" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Angola, Style=Flag, Radius=On">
+<g clip-path="url(#clip23_25_14)">
+<rect x="334" y="2102" width="21" height="15" rx="3" fill="#F93939" />
+<path id="Vector_349" d="M353 2102H336C334.895 2102 334 2102.9 334 2104V2115C334 2116.1 334.895 2117 336 2117H353C354.105 2117 355 2116.1 355 2115V2104C355 2102.9 354.105 2102 353 2102Z" fill="#CD022B" />
+<path id="Vector_350" fill-rule="evenodd" clip-rule="evenodd" d="M334 2110H355V2117H334V2110Z" fill="#151515" />
+<path id="Vector_351" fill-rule="evenodd" clip-rule="evenodd" d="M346.451 2111.59C346.885 2111 347.141 2110.28 347.141 2109.5C347.141 2108.03 346.238 2106.78 344.958 2106.26L344.353 2107.1C345.387 2107.41 346.141 2108.37 346.141 2109.5C346.141 2110.09 345.934 2110.64 345.588 2111.07L342.141 2109L344.837 2111.7C344.482 2111.89 344.074 2112 343.641 2112C342.801 2112 342.058 2111.59 341.605 2110.95L341 2111.8C341.641 2112.53 342.586 2113 343.641 2113C344.351 2113 345.013 2112.79 345.565 2112.42L346.141 2113L347.141 2112L346.451 2111.59ZM342.141 2107H343.141V2108H342.141V2107Z" fill="#FFCC00" />
+</g>
+</g>
+</svg>

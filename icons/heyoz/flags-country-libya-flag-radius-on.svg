@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="539 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip102_25_14">
+<rect x="539" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Libya, Style=Flag, Radius=On">
+<g clip-path="url(#clip102_25_14)">
+<rect x="539" y="2172" width="21" height="15" rx="3" fill="#151515" />
+<path id="Vector_674" fill-rule="evenodd" clip-rule="evenodd" d="M539 2183H560V2187H539V2183Z" fill="#1D9F44" />
+<path id="Vector_675" fill-rule="evenodd" clip-rule="evenodd" d="M551 2179H552V2180H551V2179Z" fill="#F4F5F5" />
+<path id="Vector_676" fill-rule="evenodd" clip-rule="evenodd" d="M551.5 2181C551.044 2181.61 550.318 2182 549.5 2182C548.12 2182 547 2180.88 547 2179.5C547 2178.12 548.12 2177 549.5 2177C550.318 2177 551.044 2177.39 551.5 2178H550C549.172 2178 548.5 2178.67 548.5 2179.5C548.5 2180.33 549.172 2181 550 2181H551.5Z" fill="#F4F5F5" />
+<path id="Vector_677" fill-rule="evenodd" clip-rule="evenodd" d="M539 2172H560V2176H539V2172Z" fill="#F93939" />
+</g>
+</g>
+</svg>

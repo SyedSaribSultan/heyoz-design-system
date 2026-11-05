@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="703 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip137_25_14">
+<rect x="703" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Samoa, Style=Flag, Radius=On">
+<g clip-path="url(#clip137_25_14)">
+<rect x="703" y="2207" width="21" height="15" rx="3" fill="#CF0921" />
+<path id="Vector_827" d="M722 2207H705C703.895 2207 703 2207.9 703 2209V2220C703 2221.1 703.895 2222 705 2222H722C723.105 2222 724 2221.1 724 2220V2209C724 2207.9 723.105 2207 722 2207Z" fill="#CF0921" />
+<path id="Vector_828" fill-rule="evenodd" clip-rule="evenodd" d="M703 2207H714V2215H703V2207Z" fill="#002780" />
+<path id="Vector_829" fill-rule="evenodd" clip-rule="evenodd" d="M708 2209H709V2210H708V2209ZM710 2210H711V2211H710V2210ZM709 2211H710V2212H709V2211ZM708 2212H709V2213H708V2212ZM707 2210H708V2211H707V2210Z" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

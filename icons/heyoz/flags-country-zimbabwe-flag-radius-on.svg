@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="785 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip172_25_14">
+<rect x="785" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Zimbabwe, Style=Flag, Radius=On">
+<g clip-path="url(#clip172_25_14)">
+<rect x="785" y="2242" width="21" height="15" rx="3" fill="#006400" />
+<path id="Vector_1001" fill-rule="evenodd" clip-rule="evenodd" d="M785 2244H806V2255H785V2244Z" fill="#FFD300" />
+<path id="Vector_1002" fill-rule="evenodd" clip-rule="evenodd" d="M785 2246H806V2253H785V2246Z" fill="#D50000" />
+<path id="Vector_1003" fill-rule="evenodd" clip-rule="evenodd" d="M785 2248H806V2251H785V2248Z" fill="#151515" />
+<path id="Vector_1004" fill-rule="evenodd" clip-rule="evenodd" d="M786 2242L797 2249.5L786 2257H785V2242" fill="#151515" />
+<path id="Vector_1005" fill-rule="evenodd" clip-rule="evenodd" d="M785 2242L796 2249.5L785 2257V2242Z" fill="#F4F5F5" />
+<path id="Vector_1006" fill-rule="evenodd" clip-rule="evenodd" d="M789.5 2250.75L788.03 2251.52L788.31 2249.89L787.122 2248.73L788.765 2248.49L789.5 2247L790.235 2248.49L791.878 2248.73L790.688 2249.89L790.968 2251.52" fill="#D50000" />
+<path id="Vector_1007" fill-rule="evenodd" clip-rule="evenodd" d="M788 2251H791V2250L790 2249C790 2249 790 2248 789 2248H788L789 2249L788 2251Z" fill="#FFD300" />
+</g>
+</g>
+</svg>

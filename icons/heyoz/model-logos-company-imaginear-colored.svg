@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="742 718 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint8_linear_25_14" x1="746.393" y1="737.607" x2="761.598" y2="722.405" gradientUnits="userSpaceOnUse">
+<stop stop-color="#240E77" />
+<stop offset="0.57" stop-color="#34195B" />
+<stop offset="1" stop-color="#4E2B78" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint10_linear_25_14" x1="746.499" y1="732.116" x2="763.172" y2="726.084" gradientUnits="userSpaceOnUse">
+<stop stop-color="#CC98F8" />
+<stop offset="0.57" stop-color="#F2C2FA" />
+<stop offset="1" stop-color="white" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint9_linear_25_14" x1="749.121" y1="734.877" x2="758.769" y2="725.24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FBF9FF" />
+<stop offset="0.05" stop-color="#E6E0F8" />
+<stop offset="0.14" stop-color="#CABFEF" />
+<stop offset="0.23" stop-color="#B5A5E8" />
+<stop offset="0.32" stop-color="#A693E2" />
+<stop offset="0.41" stop-color="#9C88DF" />
+<stop offset="0.52" stop-color="#9A85DF" />
+<stop offset="0.62" stop-color="#A189E1" />
+<stop offset="0.77" stop-color="#B694EA" />
+<stop offset="0.95" stop-color="#D8A6F7" />
+<stop offset="0.96" stop-color="#DAA7F8" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="company=imaginear, type=colored">
+<g id="Vector_34">
+<path d="M762.996 725.787C762.996 723.143 760.853 721 758.21 721H749.76C747.129 721 745 723.134 745 725.761V734.243C745 736.87 747.129 739 749.76 739H758.24C760.866 739 763 736.866 763 734.239V725.787H762.996Z" fill="url(#paint8_linear_25_14)" />
+<path d="M753.998 735.447C754.838 732.927 756.83 730.874 759.444 730.004C756.83 729.134 754.838 727.077 753.998 724.557C753.158 727.077 751.166 729.13 748.552 730C751.166 730.87 753.158 732.927 753.998 735.447Z" fill="url(#paint9_linear_25_14)" />
+<path d="M762.996 725.663L761.685 725.346L757.863 724.274C757.344 727.724 759.482 727.866 761.372 728.307C762.276 728.517 763 728.894 763 730.236L763 725.787C763 725.744 763 725.706 763 725.663H762.996Z" fill="url(#paint10_linear_25_14)" />
+<path d="M746.628 731.693C745.724 731.483 745 731.11 745 729.764L745 734.243C745 734.277 745 734.307 745 734.341L746.311 734.659L750.133 735.73C750.652 732.28 748.514 732.139 746.624 731.697L746.628 731.693Z" fill="white" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1441 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip47_25_14">
+<rect x="1441" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Cameroon, Style=Flag, Radius=On">
+<g clip-path="url(#clip47_25_14)">
+<path id="Vector_447" d="M1460 2102H1443C1441.9 2102 1441 2102.9 1441 2104V2115C1441 2116.1 1441.9 2117 1443 2117H1460C1461.1 2117 1462 2116.1 1462 2115V2104C1462 2102.9 1461.1 2102 1460 2102Z" fill="#CE1126" />
+<path id="Vector_448" fill-rule="evenodd" clip-rule="evenodd" d="M1451.5 2110.75L1450.03 2111.52L1450.31 2109.89L1449.12 2108.73L1450.76 2108.49L1451.5 2107L1452.23 2108.49L1453.88 2108.73L1452.69 2109.89L1452.97 2111.52" fill="#FCD116" />
+<path id="Vector_449" fill-rule="evenodd" clip-rule="evenodd" d="M1455 2102H1462V2117H1455V2102Z" fill="#FCD116" />
+<path id="Vector_450" fill-rule="evenodd" clip-rule="evenodd" d="M1441 2102H1448V2117H1441V2102Z" fill="#007B5E" />
+</g>
+</g>
+</svg>

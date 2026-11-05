@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="662 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip104_25_14">
+<rect x="662" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Luxembourg, Style=Flag, Radius=On">
+<g clip-path="url(#clip104_25_14)">
+<rect x="662" y="2172" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_683" fill-rule="evenodd" clip-rule="evenodd" d="M662 2182H683V2187H662V2182Z" fill="#00A4E1" />
+<path id="Vector_684" fill-rule="evenodd" clip-rule="evenodd" d="M662 2172H683V2177H662V2172Z" fill="#EF303E" />
+</g>
+</g>
+</svg>

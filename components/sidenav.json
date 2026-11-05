@@ -1,0 +1,130 @@
+{
+  "$about": "Side nav: one component for every sidebar (the HeyOz app and the docs site). Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule. Started from Figma 707:12639; this spec is the authority (D-002, D-030).",
+  "status": "stable",
+  "figma": "707:12639",
+  "anatomy": "A column: logo row (logomark + wordmark, close button), brand picker, slot (e.g. search), groups of menu items (title + items), then the community card and the profile. Collapsed: a 54 rail of icons, the logomark opens it.",
+  "rules": {
+    "states": "Menu item: default, hover, active. Brand picker: default, hover. Hover and active add an inset border and the inner shade, so nothing moves. Active uses border/primary-active (D-035).",
+    "shade": "The nav, active and hovered items, the brand picker and its logo carry the inner shade (0, −4, blur 10, #000 50%). The community card carries the inner highlight. Figma effects, not tokens (D-021).",
+    "light": "Lit by light/cursor like everything else (D-020).",
+    "scroll": "Only the link list scrolls on short screens, so the brand menu and the footer are never clipped. It never passes the scroll to the page (overscroll contain). Its scrollbar is an 8px gutter kept in the nav's padding (items never change width), with the thumb shown only while the pointer is over the nav (D-037). Tooltips are fixed to the window.",
+    "icons": "Lucide. Item icons in a size/icon/md frame (20, vector 15). The 'opens in a new tab' arrow is a hint one step smaller: item.ext-icon, size/icon/sm (16, vector 12).",
+    "collapse": "Collapsed (54 rail), every item is 36 x 36 with its icon anchored left, never centred, so icons glide on one line while the width animates. Labels stay in place at zero width and fade (never display: none), so opening mirrors closing. Item height is fixed (40 open, 36 collapsed) so it animates instead of snapping. Width, spacing and size move at duration/slow; labels fade at duration/fast (D-031).",
+    "shortcut": "Ctrl+B / Cmd+B opens and closes the page's main nav. Ignored while typing in a field."
+  },
+  "parts": {
+    "nav": {
+      "$about": "The column.",
+      "background": "{surface/primary}",
+      "width": 300,
+      "width-collapsed": 54,
+      "padding": "{space/16}",
+      "padding-collapsed": "{space/8}",
+      "gap": "{space/16}"
+    },
+    "logo": {
+      "$about": "Logomark 32 and the wordmark. The open / close toggle is one control in two states: a 32 ghost Button (xs) with a 16 icon, panel-left-close / panel-left-open.",
+      "size": 32,
+      "gap": "{space/8}",
+      "type": "{type/heading/md/medium}",
+      "toggle-icon": "{size/icon/sm}"
+    },
+    "title": {
+      "$about": "Group title, e.g. CREATION: label/sm/medium (11px), a quiet section label a clear step below the 16px items.",
+      "type": "{type/label/sm/medium}",
+      "color": "{content/tertiary}"
+    },
+    "item": {
+      "$about": "v0-menu-item. 40 tall: 8 + 24 + 8. ext-icon: the arrow on items that open in a new tab.",
+      "height": 40,
+      "size-collapsed": 36,
+      "padding-x": "{space/12}",
+      "padding-y": "{space/8}",
+      "gap": "{space/6}",
+      "radius": "{radius/lg}",
+      "icon": "{size/icon/md}",
+      "ext-icon": "{size/icon/sm}",
+      "type": "{type/body/lg/regular}",
+      "color": "{content/primary}",
+      "default": {
+        "fill": "{fill/primary}",
+        "border": "none"
+      },
+      "hover": {
+        "fill": "{fill/primary-hover}",
+        "border": "{border/primary-hover}"
+      },
+      "active": {
+        "fill": "{fill/primary-active}",
+        "border": "{border/primary-active}"
+      }
+    },
+    "brand": {
+      "$about": "v0-brand-picker (707:14150). 50 tall, as designed.",
+      "height": 50,
+      "size-collapsed": 36,
+      "padding": "{space/4}",
+      "padding-right": "{space/8}",
+      "gap": "{space/8}",
+      "radius": "{radius/xl}",
+      "radius-collapsed": "{radius/lg}",
+      "logo": "{size/control/sm}",
+      "logo-radius": "{radius/lg}",
+      "logo-collapsed": "{size/control/2xs}",
+      "logo-radius-collapsed": "{radius/md}",
+      "type": "{type/body/lg/medium}",
+      "chevron": "{content/secondary}",
+      "default": {
+        "fill": "{fill/tertiary}",
+        "border": "{border/tertiary}"
+      },
+      "hover": {
+        "fill": "{fill/tertiary-hover}",
+        "border": "{border/tertiary-hover}"
+      }
+    },
+    "community": {
+      "$about": "Join the community card.",
+      "background": "{surface/primary}",
+      "border": "{border/primary-disabled}",
+      "radius": "{radius/xl}",
+      "padding": "{space/12}",
+      "gap": "{space/12}",
+      "copy-gap": "{space/4}",
+      "muted": "{content/tertiary}",
+      "title": {
+        "type": "{type/body/md/medium}"
+      },
+      "copy": {
+        "type": "{type/body/sm/regular}"
+      }
+    },
+    "profile": {
+      "$about": "Profile row at the bottom.",
+      "border": "{border/primary}",
+      "padding": "{space/12}",
+      "row-padding": "{space/8}",
+      "gap": "{space/8}",
+      "radius": "{radius/xl}",
+      "avatar": "{size/control/xs}",
+      "avatar-border": "{border/primary}",
+      "muted": "{content/tertiary}",
+      "name": {
+        "type": "{type/body/md/regular}"
+      },
+      "plan": {
+        "type": "{type/body/sm/regular}"
+      }
+    },
+    "tooltip": {
+      "$about": "Close sidebar / item names when collapsed. Secondary tier.",
+      "background": "{surface/secondary}",
+      "border": "{border/secondary}",
+      "radius": "{radius/md}",
+      "padding-x": "{space/8}",
+      "padding-y": "{space/4}",
+      "offset": "{space/8}",
+      "type": "{type/label/lg/medium}"
+    }
+  }
+}

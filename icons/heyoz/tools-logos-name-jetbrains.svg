@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1528 1118 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint122_linear_25_14" x1="1531.24" y1="1138.64" x2="1548.61" y2="1121.47" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF9419" />
+<stop offset="0.43" stop-color="#FF021D" />
+<stop offset="0.99" stop-color="#E600FF" />
+</linearGradient>
+<clipPath xmlns="http://www.w3.org/2000/svg" id="clip9_25_14">
+<rect width="18" height="18" fill="white" transform="translate(1531 1121)" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=jetbrains">
+<g id="vector_347" clip-path="url(#clip9_25_14)">
+<path id="Vector_244" d="M1536.73 1122.03L1532.03 1126.72C1531.37 1127.38 1531 1128.27 1531 1129.21V1137.59C1531 1138.37 1531.63 1139 1532.41 1139H1540.82C1541.75 1139 1542.64 1138.63 1543.31 1137.97L1548.01 1133.28C1548.67 1132.62 1549.04 1131.73 1549.04 1130.79V1122.41C1549.04 1121.63 1548.41 1121 1547.63 1121H1539.23C1538.29 1121 1537.4 1121.37 1536.73 1122.03Z" fill="url(#paint122_linear_25_14)" />
+<path id="Vector_245" d="M1544.53 1125.5H1533.26V1136.75H1544.53V1125.5Z" fill="black" />
+<path id="Vector_246" d="M1539.46 1134.22H1534.66V1135.34H1539.46V1134.22Z" fill="white" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="785 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip33_25_14">
+<rect x="785" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Barbados, Style=Flag, Radius=On">
+<g clip-path="url(#clip33_25_14)">
+<path id="Vector_382" d="M804 2102H787C785.895 2102 785 2102.9 785 2104V2115C785 2116.1 785.895 2117 787 2117H804C805.105 2117 806 2116.1 806 2115V2104C806 2102.9 805.105 2102 804 2102Z" fill="#FFC821" />
+<path id="Vector_383" fill-rule="evenodd" clip-rule="evenodd" d="M785 2102H792V2117H785V2102ZM799 2102H806V2117H799V2102Z" fill="#002180" />
+<path id="Vector_384" fill-rule="evenodd" clip-rule="evenodd" d="M795 2112H796V2113H795V2112ZM797 2110H798V2111H797V2110ZM793 2110H794V2111H793V2110Z" fill="#151515" />
+<path id="Vector_385" fill-rule="evenodd" clip-rule="evenodd" d="M796 2110V2106H795V2110H794V2111H795V2112H796V2111H797V2110H796ZM797 2107H798V2110H797V2107ZM793 2107H794V2110H793V2107Z" fill="#151515" />
+</g>
+</g>
+</svg>

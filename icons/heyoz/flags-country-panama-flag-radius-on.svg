@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="170 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip128_25_14">
+<rect x="170" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Panama, Style=Flag, Radius=On">
+<g clip-path="url(#clip128_25_14)">
+<rect x="170" y="2207" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_782" d="M189 2207H172C170.895 2207 170 2207.9 170 2209V2220C170 2221.1 170.895 2222 172 2222H189C190.105 2222 191 2221.1 191 2220V2209C191 2207.9 190.105 2207 189 2207Z" fill="white" />
+<path id="Vector_783" fill-rule="evenodd" clip-rule="evenodd" d="M185.974 2218.97C185.908 2219.57 185.72 2220 185.5 2220C185.28 2220 185.092 2219.57 185.026 2218.97C184.43 2218.91 184 2218.72 184 2218.5C184 2218.28 184.43 2218.09 185.026 2218.03C185.092 2217.43 185.279 2217 185.5 2217C185.72 2217 185.908 2217.43 185.974 2218.03C186.57 2218.09 187 2218.28 187 2218.5C187 2218.72 186.57 2218.91 185.974 2218.97Z" fill="#DB0A13" />
+<path id="Vector_784" fill-rule="evenodd" clip-rule="evenodd" d="M170 2215H180V2222H170V2215Z" fill="#011E56" />
+<path id="Vector_785" fill-rule="evenodd" clip-rule="evenodd" d="M175.974 2211.97C175.908 2212.57 175.72 2213 175.5 2213C175.28 2213 175.092 2212.57 175.026 2211.97C174.43 2211.91 174 2211.72 174 2211.5C174 2211.28 174.43 2211.09 175.026 2211.03C175.092 2210.43 175.28 2210 175.5 2210C175.72 2210 175.908 2210.43 175.974 2211.03C176.57 2211.09 177 2211.28 177 2211.5C177 2211.72 176.57 2211.91 175.974 2211.97Z" fill="#011E56" />
+<path id="Vector_786" fill-rule="evenodd" clip-rule="evenodd" d="M180 2207H191V2215H180V2207Z" fill="#DB0A13" />
+</g>
+</g>
+</svg>

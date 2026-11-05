@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="2056 1074 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint85_linear_25_14" x1="2071.76" y1="1086.97" x2="2083.03" y2="1086.97" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F6A100" />
+<stop offset="1" stop-color="#FFBE00" />
+</linearGradient>
+<filter xmlns="http://www.w3.org/2000/svg" id="filter26_f_25_14" x="2037.47" y="1051.12" width="68.6042" height="70.2084" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_25_14" />
+</filter>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint87_linear_25_14" x1="2072.61" y1="1085.46" x2="2065.99" y2="1085.45" gradientUnits="userSpaceOnUse">
+<stop offset="0.15" stop-color="#FFB5E8" />
+<stop offset="1" stop-color="#FFDBF5" stop-opacity="0" />
+</linearGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint86_radial_25_14" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2075.37 1086) rotate(180) scale(18.3018 15.5664)">
+<stop offset="0.15" stop-color="#FFE921" />
+<stop offset="1" stop-color="#FEC700" />
+</radialGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=meet v2">
+<g id="google-meet-2026 1">
+<path id="Vector_160" d="M2069.61 1087.48C2068.82 1086.94 2068.81 1085.78 2069.59 1085.23L2075.91 1080.69C2076.82 1080.04 2078.08 1080.68 2078.08 1081.8V1090.71C2078.08 1091.82 2076.84 1092.47 2075.93 1091.84L2069.61 1087.48Z" fill="url(#paint85_linear_25_14)" />
+<path id="Vector_161" d="M2057.92 1083.14C2057.92 1080.35 2060.17 1078.09 2062.96 1078.09H2070.29C2071.56 1078.09 2072.58 1079.12 2072.58 1080.39V1091.61C2072.58 1092.88 2071.56 1093.91 2070.29 1093.91H2060.21C2058.94 1093.91 2057.92 1092.88 2057.92 1091.61V1083.14Z" fill="url(#paint86_radial_25_14)" />
+<g id="Mask group_16">
+<mask id="mask28_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2057" y="1078" width="16" height="16">
+<g id="Group_43">
+<path id="Vector_162" d="M2057.92 1083.14C2057.92 1080.35 2060.17 1078.09 2062.96 1078.09H2070.29C2071.56 1078.09 2072.58 1079.12 2072.58 1080.39V1091.61C2072.58 1092.88 2071.56 1093.91 2070.29 1093.91H2060.21C2058.94 1093.91 2057.92 1092.88 2057.92 1091.61V1083.14Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask28_25_14)">
+<g id="Group_44" filter="url(#filter26_f_25_14)">
+<path id="Vector_163" d="M2065.47 1086.37L2078.07 1079.12V1093.33L2065.47 1086.37Z" fill="url(#paint87_linear_25_14)" />
+</g>
+</g>
+</g>
+<path id="Vector_164" d="M2061.35 1092.07C2062.24 1092.07 2062.96 1091.35 2062.96 1090.47C2062.96 1089.58 2062.24 1088.86 2061.35 1088.86C2060.47 1088.86 2059.75 1089.58 2059.75 1090.47C2059.75 1091.35 2060.47 1092.07 2061.35 1092.07Z" fill="white" />
+</g>
+</g>
+</svg>

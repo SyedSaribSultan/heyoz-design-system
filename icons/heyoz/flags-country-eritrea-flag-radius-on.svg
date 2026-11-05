@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="580 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip68_25_14">
+<rect x="580" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Eritrea, Style=Flag, Radius=On">
+<g clip-path="url(#clip68_25_14)">
+<rect x="580" y="2137" width="21" height="15" rx="3" fill="#3F90DF" />
+<path id="Vector_529" d="M599 2137H582C580.895 2137 580 2137.9 580 2139V2150C580 2151.1 580.895 2152 582 2152H599C600.105 2152 601 2151.1 601 2150V2139C601 2137.9 600.105 2137 599 2137Z" fill="#3F90DF" />
+<path id="Vector_530" fill-rule="evenodd" clip-rule="evenodd" d="M580 2137H601V2145H580V2137Z" fill="#41B125" />
+<path id="Vector_531" fill-rule="evenodd" clip-rule="evenodd" d="M580 2137L601 2144.5L580 2152V2137Z" fill="#E50027" />
+<path id="Vector_532" fill-rule="evenodd" clip-rule="evenodd" d="M589 2144.5C589 2143.12 587.88 2142 586.5 2141.5C585.12 2142 584 2143.12 584 2144.5C584 2145.71 584.86 2146.72 586 2146.95V2143.5C586 2143.22 586.232 2143 586.5 2143C586.776 2143 587 2143.21 587 2143.5V2146.95C588.14 2146.72 589 2145.71 589 2144.5ZM590 2144.5C590 2142.57 588.433 2141 586.5 2141.5C584.567 2141 583 2142.57 583 2144.5C583 2146.43 584.567 2148 586.5 2148C588.433 2148 590 2146.43 590 2144.5Z" fill="#FFDA2C" />
+</g>
+</g>
+</svg>

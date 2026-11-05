@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1400 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip150_25_14">
+<rect x="1400" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Spain, Style=Flag, Radius=On">
+<g clip-path="url(#clip150_25_14)">
+<rect x="1400" y="2207" width="21" height="15" rx="3" fill="#C70318" />
+<path id="Vector_888" d="M1419 2207H1402C1400.9 2207 1400 2207.9 1400 2209V2220C1400 2221.1 1400.9 2222 1402 2222H1419C1420.1 2222 1421 2221.1 1421 2220V2209C1421 2207.9 1420.1 2207 1419 2207Z" fill="#C70318" />
+<path id="Vector_889" fill-rule="evenodd" clip-rule="evenodd" d="M1400 2211H1421V2218H1400V2211Z" fill="#FFC500" />
+<path id="Vector_890" fill-rule="evenodd" clip-rule="evenodd" d="M1409 2213.22V2215.74C1409 2216.44 1408.33 2217 1407.5 2217H1405.5C1404.67 2217 1404 2216.44 1404 2215.74V2213.22C1404 2212.65 1404.45 2212.17 1405.06 2212.02C1405.25 2211.5 1405.82 2211.96 1406.5 2211.96C1407.18 2211.96 1407.75 2211.5 1407.94 2212.02C1408.55 2212.18 1409 2212.65 1409 2213.22Z" fill="#D4AF2C" />
+<path id="Vector_891" fill-rule="evenodd" clip-rule="evenodd" d="M1409 2214H1410V2217H1409V2214ZM1403 2214H1404V2217H1403V2214Z" fill="#CBCBCB" />
+<path id="Vector_892" fill-rule="evenodd" clip-rule="evenodd" d="M1409 2216H1410V2217H1409V2216ZM1403 2216H1404V2217H1403V2216Z" fill="#1A47B8" />
+<path id="Vector_893" fill-rule="evenodd" clip-rule="evenodd" d="M1409 2213H1410V2214H1409V2213ZM1403 2213H1404V2214H1403V2213Z" fill="#D4AF2C" />
+<path id="Vector_894" fill-rule="evenodd" clip-rule="evenodd" d="M1405 2213H1406V2214.5H1405V2213ZM1407 2215H1408V2216.5H1407V2215Z" fill="#AF010D" />
+<path id="Vector_895" fill-rule="evenodd" clip-rule="evenodd" d="M1405 2215H1406V2216.5H1405V2215Z" fill="#FFC500" />
+<path id="Vector_896" fill-rule="evenodd" clip-rule="evenodd" d="M1407 2213H1408V2214.5H1407V2213Z" fill="#AE6A3E" />
+<path id="Vector_897" fill-rule="evenodd" clip-rule="evenodd" d="M1406 2213L1405 2212H1408L1407 2213H1406Z" fill="#AF010D" />
+<path id="Vector_898" fill-rule="evenodd" clip-rule="evenodd" d="M1406 2211H1407V2212H1406V2211Z" fill="#D4AF2C" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1892 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip160_25_14">
+<rect x="1892" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Tonga, Style=Flag, Radius=On">
+<g clip-path="url(#clip160_25_14)">
+<rect x="1892" y="2207" width="21" height="15" rx="3" fill="#C20000" />
+<path id="Vector_929" d="M1911 2207H1894C1892.9 2207 1892 2207.9 1892 2209V2220C1892 2221.1 1892.9 2222 1894 2222H1911C1912.1 2222 1913 2221.1 1913 2220V2209C1913 2207.9 1912.1 2207 1911 2207Z" fill="#C20000" />
+<path id="Vector_930" fill-rule="evenodd" clip-rule="evenodd" d="M1892 2207H1903V2216H1892V2207Z" fill="#F4F5F5" />
+<path id="Vector_931" fill-rule="evenodd" clip-rule="evenodd" d="M1899 2211V2209H1897V2211H1895V2213H1897V2215H1899V2213H1901V2211H1899Z" fill="#C20000" />
+</g>
+</g>
+</svg>

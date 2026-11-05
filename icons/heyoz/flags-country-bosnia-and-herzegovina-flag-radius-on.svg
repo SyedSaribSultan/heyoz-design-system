@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1072 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip40_25_14">
+<rect x="1072" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Bosnia and Herzegovina, Style=Flag, Radius=On">
+<g clip-path="url(#clip40_25_14)">
+<rect x="1072" y="2102" width="21" height="15" rx="3" fill="#FFDA2C" />
+<path id="Vector_416" d="M1091 2102H1074C1072.9 2102 1072 2102.9 1072 2104V2115C1072 2116.1 1072.9 2117 1074 2117H1091C1092.1 2117 1093 2116.1 1093 2115V2104C1093 2102.9 1092.1 2102 1091 2102Z" fill="#FECC00" />
+<path id="Vector_417" fill-rule="evenodd" clip-rule="evenodd" d="M1088 2102H1093V2117H1088V2102Z" fill="#001E96" />
+<path id="Vector_418" fill-rule="evenodd" clip-rule="evenodd" d="M1069.12 2101.99L1090.12 2115.99L1090 2117.09L1069.12 2116.99V2101.99Z" fill="#001E96" />
+<path id="Vector_419" fill-rule="evenodd" clip-rule="evenodd" d="M1073 2106H1074V2107H1073V2106ZM1076 2108H1077V2109H1076V2108ZM1079 2110H1080V2111H1079V2110ZM1082 2112H1083V2113H1082V2112ZM1085 2114H1086V2115H1085V2114Z" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

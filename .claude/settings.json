@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/repo-review-gate.mjs\"",
+            "timeout": 30,
+            "statusMessage": "Checking whether the repository needs a sync review"
+          }
+        ]
+      }
+    ]
+  }
+}

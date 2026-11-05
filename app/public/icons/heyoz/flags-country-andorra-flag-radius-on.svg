@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="293 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip22_25_14">
+<rect x="293" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Andorra, Style=Flag, Radius=On">
+<g clip-path="url(#clip22_25_14)">
+<path id="Vector_343" d="M312 2102H295C293.895 2102 293 2102.9 293 2104V2115C293 2116.1 293.895 2117 295 2117H312C313.105 2117 314 2116.1 314 2115V2104C314 2102.9 313.105 2102 312 2102Z" fill="#FEDE00" />
+<path id="Vector_344" fill-rule="evenodd" clip-rule="evenodd" d="M304.936 2111.94C305.55 2111.75 306 2111.18 306 2110.5V2107.5C306 2106.67 305.328 2106 304.5 2106H302.5C301.674 2106 301 2106.67 301 2107.5V2110.5C301 2111.18 301.448 2111.75 302.064 2111.94C302.25 2112.56 302.822 2113 303.5 2113C304.182 2113 304.75 2112.55 304.936 2111.94Z" fill="#D4AF2C" />
+<path id="Vector_345" fill-rule="evenodd" clip-rule="evenodd" d="M302 2107H303V2108.5H302V2107ZM304 2109H305V2110.5H304V2109Z" fill="#AF010D" />
+<path id="Vector_346" fill-rule="evenodd" clip-rule="evenodd" d="M304 2107H305V2108.5H304V2107ZM302 2109H303V2110.5H302V2109Z" fill="#FFDA2C" />
+<path id="Vector_347" fill-rule="evenodd" clip-rule="evenodd" d="M307 2102H314V2117H307V2102Z" fill="#D6002E" />
+<path id="Vector_348" fill-rule="evenodd" clip-rule="evenodd" d="M293 2102H300V2117H293V2102Z" fill="#0701A0" />
+</g>
+</g>
+</svg>

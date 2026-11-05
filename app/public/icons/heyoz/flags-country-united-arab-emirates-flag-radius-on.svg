@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="334 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip163_25_14">
+<rect x="334" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=United Arab Emirates, Style=Flag, Radius=On">
+<g clip-path="url(#clip163_25_14)">
+<path id="Vector_952" d="M353 2242H336C334.895 2242 334 2242.9 334 2244V2255C334 2256.1 334.895 2257 336 2257H353C354.105 2257 355 2256.1 355 2255V2244C355 2242.9 354.105 2242 353 2242Z" fill="#F4F5F5" />
+<path id="Vector_953" fill-rule="evenodd" clip-rule="evenodd" d="M334 2252H355V2257H334V2252Z" fill="#151515" />
+<path id="Vector_954" fill-rule="evenodd" clip-rule="evenodd" d="M334 2242H355V2247H334V2242Z" fill="#00853A" />
+<path id="Vector_955" fill-rule="evenodd" clip-rule="evenodd" d="M334 2242V2257H340V2242H334Z" fill="#C9072A" />
+</g>
+</g>
+</svg>

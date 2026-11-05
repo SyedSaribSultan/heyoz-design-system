@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="457 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip100_25_14">
+<rect x="457" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Lesotho, Style=Flag, Radius=On">
+<g clip-path="url(#clip100_25_14)">
+<rect x="457" y="2172" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_668" fill-rule="evenodd" clip-rule="evenodd" d="M457 2183H478V2187H457V2183Z" fill="#009B42" />
+<path id="Vector_669" fill-rule="evenodd" clip-rule="evenodd" d="M467.1 2177.8L466 2180H469L467.9 2177.8C467.963 2177.72 468 2177.61 468 2177.5C468 2177.22 467.776 2177 467.5 2177C467.224 2177 467 2177.22 467 2177.5C467 2177.61 467.037 2177.72 467.1 2177.8ZM470 2181C470 2181.55 468.88 2182 467.5 2182C466.12 2182 465 2181.55 465 2181V2180H470V2181Z" fill="#151515" />
+<path id="Vector_670" fill-rule="evenodd" clip-rule="evenodd" d="M457 2172H478V2176H457V2172Z" fill="#000C8A" />
+</g>
+</g>
+</svg>

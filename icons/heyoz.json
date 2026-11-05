@@ -1,0 +1,7544 @@
+{
+ "$about": "HeyOz icons, exported from Figma 'Heyoz - Design System V1', page Icons (25:48). One file per component, exported as its frame. Source for the icon build (npm run icons). Re-export from Figma to update; do not edit by hand.",
+ "icons": [
+  {
+   "name": "Circle",
+   "set": null,
+   "file": "circle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Icons/Charts",
+   "set": null,
+   "file": "icons-charts",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Icons/email",
+   "set": null,
+   "file": "icons-email",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Google",
+   "set": null,
+   "file": "google",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Microsoft",
+   "set": null,
+   "file": "microsoft",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Apple",
+   "set": null,
+   "file": "apple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "X Twitter",
+   "set": null,
+   "file": "x-twitter",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Shopping-bag",
+   "set": null,
+   "file": "shopping-bag",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "office-briefcase",
+   "set": null,
+   "file": "office-briefcase",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trend",
+   "set": null,
+   "file": "trend",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow left",
+   "set": "arrow",
+   "file": "arrow-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow right",
+   "set": "arrow",
+   "file": "arrow-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow down",
+   "set": "arrow",
+   "file": "arrow-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow down-left",
+   "set": "arrow",
+   "file": "arrow-down-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow down-right",
+   "set": "arrow",
+   "file": "arrow-down-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow up",
+   "set": "arrow",
+   "file": "arrow-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow up-left",
+   "set": "arrow",
+   "file": "arrow-up-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow up-right",
+   "set": "arrow",
+   "file": "arrow-up-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron left Default",
+   "set": "Chevron",
+   "file": "chevron-left-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron left Small",
+   "set": "Chevron",
+   "file": "chevron-left-small",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron right Default",
+   "set": "Chevron",
+   "file": "chevron-right-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron right Small",
+   "set": "Chevron",
+   "file": "chevron-right-small",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron down Default",
+   "set": "Chevron",
+   "file": "chevron-down-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron down Small",
+   "set": "Chevron",
+   "file": "chevron-down-small",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron up Default",
+   "set": "Chevron",
+   "file": "chevron-up-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron up Small",
+   "set": "Chevron",
+   "file": "chevron-up-small",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chevron up-down Default",
+   "set": "Chevron",
+   "file": "chevron-up-down-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info",
+   "set": null,
+   "file": "info",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tick",
+   "set": null,
+   "file": "tick",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cross",
+   "set": null,
+   "file": "cross",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkle outline",
+   "set": "sparkle",
+   "file": "sparkle-outline",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkle filled",
+   "set": "sparkle",
+   "file": "sparkle-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkle filled - single",
+   "set": "sparkle",
+   "file": "sparkle-filled-single",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "diamond outline",
+   "set": "diamond",
+   "file": "diamond-outline",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "diamond filled",
+   "set": "diamond",
+   "file": "diamond-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "star outlined",
+   "set": "star",
+   "file": "star-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "star filled",
+   "set": "star",
+   "file": "star-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "home",
+   "set": null,
+   "file": "home",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "grid",
+   "set": null,
+   "file": "grid",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "magic-wand",
+   "set": null,
+   "file": "magic-wand",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "node",
+   "set": null,
+   "file": "node",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "history-clock",
+   "set": null,
+   "file": "history-clock",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder",
+   "set": null,
+   "file": "folder",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dna",
+   "set": null,
+   "file": "dna",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "flash-lightening",
+   "set": null,
+   "file": "flash-lightening",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "idea-bulb",
+   "set": null,
+   "file": "idea-bulb",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "atom",
+   "set": null,
+   "file": "atom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "megaphone",
+   "set": null,
+   "file": "megaphone",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "calendar",
+   "set": null,
+   "file": "calendar",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "help-question",
+   "set": null,
+   "file": "help-question",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "gift",
+   "set": null,
+   "file": "gift",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "globe",
+   "set": null,
+   "file": "globe",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "calculator",
+   "set": null,
+   "file": "calculator",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stack",
+   "set": null,
+   "file": "stack",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video",
+   "set": null,
+   "file": "video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "character",
+   "set": null,
+   "file": "character",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "user single user 1",
+   "set": "user",
+   "file": "user-single-user-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "user Multiple user",
+   "set": "user",
+   "file": "user-multiple-user",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "square outlined",
+   "set": "square",
+   "file": "square-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "square filled",
+   "set": "square",
+   "file": "square-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "volume Open -filled",
+   "set": "volume",
+   "file": "volume-open-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "volume Open",
+   "set": "volume",
+   "file": "volume-open",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "volume Mute",
+   "set": "volume",
+   "file": "volume-mute",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "menu",
+   "set": null,
+   "file": "menu",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "shop-store",
+   "set": null,
+   "file": "shop-store",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "color",
+   "set": null,
+   "file": "color",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "language",
+   "set": null,
+   "file": "language",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "check-fancy",
+   "set": null,
+   "file": "check-fancy",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "laptop",
+   "set": null,
+   "file": "laptop",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "color-picker",
+   "set": null,
+   "file": "color-picker",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "upload simple",
+   "set": "upload",
+   "file": "upload-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "upload simple 2",
+   "set": "upload",
+   "file": "upload-simple-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "upload cloud-upload",
+   "set": "upload",
+   "file": "upload-cloud-upload",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "download simple",
+   "set": "download",
+   "file": "download-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "download simple 2",
+   "set": "download",
+   "file": "download-simple-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "download cloud-upload",
+   "set": "download",
+   "file": "download-cloud-upload",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "menu-dots vertical",
+   "set": "menu-dots",
+   "file": "menu-dots-vertical",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "menu-dots horizontal",
+   "set": "menu-dots",
+   "file": "menu-dots-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pencil-edit",
+   "set": null,
+   "file": "pencil-edit",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trash-bin",
+   "set": null,
+   "file": "trash-bin",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "link",
+   "set": null,
+   "file": "link",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heart outlined",
+   "set": "heart",
+   "file": "heart-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heart filled",
+   "set": "heart",
+   "file": "heart-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trend up",
+   "set": "trend",
+   "file": "trend-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trend down",
+   "set": "trend",
+   "file": "trend-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "caption",
+   "set": null,
+   "file": "caption",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "settings",
+   "set": null,
+   "file": "settings",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "msuic",
+   "set": null,
+   "file": "msuic",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "movie-film",
+   "set": null,
+   "file": "movie-film",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stamp",
+   "set": null,
+   "file": "stamp",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "box-container",
+   "set": null,
+   "file": "box-container",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "minimize",
+   "set": null,
+   "file": "minimize",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "search",
+   "set": null,
+   "file": "search",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tag",
+   "set": null,
+   "file": "tag",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trophy",
+   "set": null,
+   "file": "trophy",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "award",
+   "set": null,
+   "file": "award",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "expand",
+   "set": null,
+   "file": "expand",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "contrast",
+   "set": null,
+   "file": "contrast",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "color palette",
+   "set": null,
+   "file": "color-palette",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "text",
+   "set": null,
+   "file": "text",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "clip-board",
+   "set": null,
+   "file": "clip-board",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "copy",
+   "set": null,
+   "file": "copy",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "gear - ai settings",
+   "set": null,
+   "file": "gear-ai-settings",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "grid-view",
+   "set": null,
+   "file": "grid-view",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "list-view",
+   "set": null,
+   "file": "list-view",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "share 1",
+   "set": "share",
+   "file": "share-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "share 2",
+   "set": "share",
+   "file": "share-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info-trinagle outlined",
+   "set": "info-trinagle",
+   "file": "info-trinagle-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info-trinagle filled",
+   "set": "info-trinagle",
+   "file": "info-trinagle-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "undo-redo undo",
+   "set": "undo-redo",
+   "file": "undo-redo-undo",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "undo-redo redo",
+   "set": "undo-redo",
+   "file": "undo-redo-redo",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pause-play play",
+   "set": "pause-play",
+   "file": "pause-play-play",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pause-play pause",
+   "set": "pause-play",
+   "file": "pause-play-pause",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "full-view maximize",
+   "set": "full-view",
+   "file": "full-view-maximize",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "full-view minimize",
+   "set": "full-view",
+   "file": "full-view-minimize",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pin outline",
+   "set": "pin",
+   "file": "pin-outline",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pin filled",
+   "set": "pin",
+   "file": "pin-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "gender male",
+   "set": "gender",
+   "file": "gender-male",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "gender female",
+   "set": "gender",
+   "file": "gender-female",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plus-minus plus",
+   "set": "plus-minus",
+   "file": "plus-minus-plus",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plus-minus minus",
+   "set": "plus-minus",
+   "file": "plus-minus-minus",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layers Default",
+   "set": "layers",
+   "file": "layers-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layers two layers",
+   "set": "layers",
+   "file": "layers-two-layers",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "reset Single arrow",
+   "set": "reset",
+   "file": "reset-single-arrow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "reset two arrows",
+   "set": "reset",
+   "file": "reset-two-arrows",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "corner 1",
+   "set": "corner",
+   "file": "corner-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "corner 2",
+   "set": "corner",
+   "file": "corner-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "corner 3",
+   "set": "corner",
+   "file": "corner-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "corner 4",
+   "set": "corner",
+   "file": "corner-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chat without-text",
+   "set": "chat",
+   "file": "chat-without-text",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chat dashed",
+   "set": "chat",
+   "file": "chat-dashed",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chat with-text",
+   "set": "chat",
+   "file": "chat-with-text",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chat msgs",
+   "set": "chat",
+   "file": "chat-msgs",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chat ai-chat-filled",
+   "set": "chat",
+   "file": "chat-ai-chat-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "expand-contract expand",
+   "set": "expand-contract",
+   "file": "expand-contract-expand",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "expand-contract contract",
+   "set": "expand-contract",
+   "file": "expand-contract-contract",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "newchat newchat outline",
+   "set": "newchat",
+   "file": "newchat-newchat-outline",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "newchat newchat filled",
+   "set": "newchat",
+   "file": "newchat-newchat-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "clothes outfit",
+   "set": "clothes",
+   "file": "clothes-outfit",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "clothes shirt",
+   "set": "clothes",
+   "file": "clothes-shirt",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "clothes dress",
+   "set": "clothes",
+   "file": "clothes-dress",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Code 1",
+   "set": "Code",
+   "file": "code-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Code 2",
+   "set": "Code",
+   "file": "code-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Code 3",
+   "set": "Code",
+   "file": "code-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Image Preview Result Image",
+   "set": "Image Preview",
+   "file": "image-preview-result-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Image Preview Side by Side",
+   "set": "Image Preview",
+   "file": "image-preview-side-by-side",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Image Preview Default",
+   "set": "Image Preview",
+   "file": "image-preview-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "images-count 1",
+   "set": "images-count",
+   "file": "images-count-count-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "images-count 2",
+   "set": "images-count",
+   "file": "images-count-count-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "images-count 3",
+   "set": "images-count",
+   "file": "images-count-count-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "images-count 4",
+   "set": "images-count",
+   "file": "images-count-count-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lasso tool lasso",
+   "set": "lasso tool",
+   "file": "lasso-tool-lasso",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lasso tool lasso-cursor",
+   "set": "lasso tool",
+   "file": "lasso-tool-lasso-cursor",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lasso tool lass-plus",
+   "set": "lasso tool",
+   "file": "lasso-tool-lass-plus",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lasso tool lasso-minus",
+   "set": "lasso tool",
+   "file": "lasso-tool-lasso-minus",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chevrons left",
+   "set": "chevrons",
+   "file": "chevrons-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chevrons right",
+   "set": "chevrons",
+   "file": "chevrons-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chevrons down",
+   "set": "chevrons",
+   "file": "chevrons-side-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chevrons up",
+   "set": "chevrons",
+   "file": "chevrons-side-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "ticks and crosses cross",
+   "set": "ticks and crosses",
+   "file": "ticks-and-crosses-cross",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "ticks and crosses tick",
+   "set": "ticks and crosses",
+   "file": "ticks-and-crosses-tick",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "ticks and crosses untick",
+   "set": "ticks and crosses",
+   "file": "ticks-and-crosses-untick",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "ticks and crosses tick-filled",
+   "set": "ticks and crosses",
+   "file": "ticks-and-crosses-tick-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "ticks and crosses cross-filled",
+   "set": "ticks and crosses",
+   "file": "ticks-and-crosses-cross-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Crown Outline",
+   "set": "Crown",
+   "file": "crown-outline",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Crown Filled",
+   "set": "Crown",
+   "file": "crown-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "rocket Simple",
+   "set": "rocket",
+   "file": "rocket-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "rocket Space Shuttle",
+   "set": "rocket",
+   "file": "rocket-space-shuttle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Share Share-arrow",
+   "set": "Share",
+   "file": "share-share-arrow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Share share",
+   "set": "Share",
+   "file": "share-share",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "microphone outlined",
+   "set": "microphone",
+   "file": "microphone-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "microphone filled",
+   "set": "microphone",
+   "file": "microphone-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "hashtag Default",
+   "set": "hashtag",
+   "file": "hashtag-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "hashtag move-hashtag",
+   "set": "hashtag",
+   "file": "hashtag-move-hashtag",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers heart",
+   "set": "stickers",
+   "file": "stickers-name-heart",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers thumb-up",
+   "set": "stickers",
+   "file": "stickers-name-thumb-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers thumb-down",
+   "set": "stickers",
+   "file": "stickers-name-thumb-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers eyes",
+   "set": "stickers",
+   "file": "stickers-name-eyes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers fire",
+   "set": "stickers",
+   "file": "stickers-name-fire",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers 100",
+   "set": "stickers",
+   "file": "stickers-name-100",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers tick",
+   "set": "stickers",
+   "file": "stickers-name-tick",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers rocket",
+   "set": "stickers",
+   "file": "stickers-name-rocket",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers cross",
+   "set": "stickers",
+   "file": "stickers-name-cross",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers pray",
+   "set": "stickers",
+   "file": "stickers-name-pray",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stickers celebration",
+   "set": "stickers",
+   "file": "stickers-name-celebration",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Thumbs Up",
+   "set": "Thumbs",
+   "file": "thumbs-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Thumbs Down",
+   "set": "Thumbs",
+   "file": "thumbs-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info linear",
+   "set": "info",
+   "file": "info-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info filled",
+   "set": "info",
+   "file": "info-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "show/hide eye",
+   "set": "show/hide",
+   "file": "show-hide-eye",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "show/hide eye-slash",
+   "set": "show/hide",
+   "file": "show-hide-eye-slash",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "show/hide eye-close",
+   "set": "show/hide",
+   "file": "show-hide-eye-close",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "flow linear",
+   "set": "flow",
+   "file": "flow-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "flow filled",
+   "set": "flow",
+   "file": "flow-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dragger-dotted Horizontal",
+   "set": "dragger-dotted",
+   "file": "dragger-dotted-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dragger-dotted Vertical",
+   "set": "dragger-dotted",
+   "file": "dragger-dotted-vertical",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "credit regular",
+   "set": "credit",
+   "file": "credit-regular",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "credit filled",
+   "set": "credit",
+   "file": "credit-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Shield-done out-lined",
+   "set": "Shield-done",
+   "file": "shield-done-out-lined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Shield-done filled",
+   "set": "Shield-done",
+   "file": "shield-done-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "calendar Rectangle",
+   "set": "calendar",
+   "file": "calendar-rectangle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "calendar Rounded",
+   "set": "calendar",
+   "file": "calendar-rounded",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plays and pauses previous",
+   "set": "plays and pauses",
+   "file": "plays-and-pauses-types-previous",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plays and pauses play-filled",
+   "set": "plays and pauses",
+   "file": "plays-and-pauses-types-play-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plays and pauses play-outlined",
+   "set": "plays and pauses",
+   "file": "plays-and-pauses-types-play-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plays and pauses next",
+   "set": "plays and pauses",
+   "file": "plays-and-pauses-types-next",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plays and pauses Pause-filled",
+   "set": "plays and pauses",
+   "file": "plays-and-pauses-types-pause-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plays and pauses pause-outlined",
+   "set": "plays and pauses",
+   "file": "plays-and-pauses-types-pause-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 1",
+   "set": "emojis",
+   "file": "emojis-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 9",
+   "set": "emojis",
+   "file": "emojis-9",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 10",
+   "set": "emojis",
+   "file": "emojis-10",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 11",
+   "set": "emojis",
+   "file": "emojis-11",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 12",
+   "set": "emojis",
+   "file": "emojis-12",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 2",
+   "set": "emojis",
+   "file": "emojis-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 3",
+   "set": "emojis",
+   "file": "emojis-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 4",
+   "set": "emojis",
+   "file": "emojis-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 5",
+   "set": "emojis",
+   "file": "emojis-5",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 6",
+   "set": "emojis",
+   "file": "emojis-6",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 7",
+   "set": "emojis",
+   "file": "emojis-7",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "emojis 8",
+   "set": "emojis",
+   "file": "emojis-8",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Settings Settings-filter",
+   "set": "Settings",
+   "file": "settings-settings-filter",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Settings three-lines",
+   "set": "Settings",
+   "file": "settings-three-lines",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Settings Settings-gear",
+   "set": "Settings",
+   "file": "settings-settings-gear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "resolution 4k",
+   "set": "resolution",
+   "file": "resolution-status-4k",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "resolution h1",
+   "set": "resolution",
+   "file": "resolution-status-h1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "resolution hd",
+   "set": "resolution",
+   "file": "resolution-status-hd",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "resolution sd",
+   "set": "resolution",
+   "file": "resolution-status-sd",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "double chevron left",
+   "set": "double chevron",
+   "file": "double-chevron-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "double chevron right",
+   "set": "double chevron",
+   "file": "double-chevron-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "double chevron down",
+   "set": "double chevron",
+   "file": "double-chevron-side-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "double chevron up",
+   "set": "double chevron",
+   "file": "double-chevron-side-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "curves bezier",
+   "set": "curves",
+   "file": "curves-bezier",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "curves elbow",
+   "set": "curves",
+   "file": "curves-elbow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "curves line",
+   "set": "curves",
+   "file": "curves-line",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info-circle Linear",
+   "set": "info-circle",
+   "file": "info-circle-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info-circle Filled",
+   "set": "info-circle",
+   "file": "info-circle-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info-circle Simple",
+   "set": "info-circle",
+   "file": "info-circle-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "move-layers top-most",
+   "set": "move-layers",
+   "file": "move-layers-top-most",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "move-layers top",
+   "set": "move-layers",
+   "file": "move-layers-top",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "move-layers bottom-most",
+   "set": "move-layers",
+   "file": "move-layers-bottom-most",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "move-layers bottom",
+   "set": "move-layers",
+   "file": "move-layers-bottom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "section default",
+   "set": "section",
+   "file": "section-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "section wrap in section",
+   "set": "section",
+   "file": "section-wrap-in-section",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "section ungroup",
+   "set": "section",
+   "file": "section-ungroup",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos chatgpt one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-chatgpt-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos perplexity colored",
+   "set": "model-logos",
+   "file": "model-logos-company-perplexity-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos perplexity mono",
+   "set": "model-logos",
+   "file": "model-logos-company-perplexity-mono",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos z.ai mono",
+   "set": "model-logos",
+   "file": "model-logos-company-z-ai-mono",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos chatly one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-chatly-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos flux one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-flux-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos runway one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-runway-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos luma neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-luma-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos luma colored",
+   "set": "model-logos",
+   "file": "model-logos-company-luma-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos gemini neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-gemini-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos gemini colored",
+   "set": "model-logos",
+   "file": "model-logos-company-gemini-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos recraft one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-recraft-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos imagineart neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-imagineart-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos imaginear colored",
+   "set": "model-logos",
+   "file": "model-logos-company-imaginear-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos minimax neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-minimax-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos minimax colored",
+   "set": "model-logos",
+   "file": "model-logos-company-minimax-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos bytedance neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-bytedance-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos bytedance colored",
+   "set": "model-logos",
+   "file": "model-logos-company-bytedance-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos ideogram one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-ideogram-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos deepmind neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-deepmind-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos deepmind colored",
+   "set": "model-logos",
+   "file": "model-logos-company-deepmind-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos hailuo neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-hailuo-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos hailuo colored",
+   "set": "model-logos",
+   "file": "model-logos-company-hailuo-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos kling neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-kling-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos kling colored",
+   "set": "model-logos",
+   "file": "model-logos-company-kling-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos google neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-google-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos google colored",
+   "set": "model-logos",
+   "file": "model-logos-company-google-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos qwen neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-qwen-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos qwen colored",
+   "set": "model-logos",
+   "file": "model-logos-company-qwen-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos dreamina neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-dreamina-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos dreamina colored",
+   "set": "model-logos",
+   "file": "model-logos-company-dreamina-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos sora neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-sora-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos sora colored",
+   "set": "model-logos",
+   "file": "model-logos-company-sora-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos topaz one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-topaz-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos magnific one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-magnific-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos moonvalley one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-moonvalley-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos grok one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-grok-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos mid-journey one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-mid-journey-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos nano-banana neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-nano-banana-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos nano-banana colored",
+   "set": "model-logos",
+   "file": "model-logos-company-nano-banana-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos claude one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-claude-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos claude colored",
+   "set": "model-logos",
+   "file": "model-logos-company-claude-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos infinitalk neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-infinitalk-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos eleven-labs one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-eleven-labs-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos reve one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-reve-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos veed neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-veed-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos ltx neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-ltx-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos heygen neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-heygen-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos sync neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-sync-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos creatify neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-creatify-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos ali-baba neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-ali-baba-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos ali-baba colored",
+   "set": "model-logos",
+   "file": "model-logos-company-ali-baba-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos deep-seek colored",
+   "set": "model-logos",
+   "file": "model-logos-company-deep-seek-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos deep-seek seek mono",
+   "set": "model-logos",
+   "file": "model-logos-company-deep-seek-seek-mono",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos freepik colored",
+   "set": "model-logos",
+   "file": "model-logos-company-freepik-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos freepik neutral",
+   "set": "model-logos",
+   "file": "model-logos-company-freepik-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos light tricks one-coloured",
+   "set": "model-logos",
+   "file": "model-logos-company-light-tricks-one-coloured",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos kimi colored",
+   "set": "model-logos",
+   "file": "model-logos-company-kimi-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-logos stability-ai mono",
+   "set": "model-logos",
+   "file": "model-logos-company-stability-ai-mono",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon blue",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-blue",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon yellow",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-yellow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon lime-green",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-lime-green",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon green",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-green",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon red",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-red",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon purple",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-purple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon grey",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-grey",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folder-mac-icon orange",
+   "set": "folder-mac-icon",
+   "file": "folder-mac-icon-colours-orange",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info linear",
+   "set": "info",
+   "file": "info-linear-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "info filled",
+   "set": "info",
+   "file": "info-filled-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set simple",
+   "set": "image-icons-set",
+   "file": "image-icons-set-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set filled",
+   "set": "image-icons-set",
+   "file": "image-icons-set-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set image-video",
+   "set": "image-icons-set",
+   "file": "image-icons-set-image-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set ai image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-ai-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set add image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-add-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set upscale image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-upscale-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set move image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-move-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set edit image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-edit-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set image search",
+   "set": "image-icons-set",
+   "file": "image-icons-set-image-search",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set like image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-like-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set tick image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-tick-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set cross image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-cross-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set video-image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-video-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set block image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-block-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set scan image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-scan-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set multiple image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-multiple-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set reframe image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-reframe-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set image-settings",
+   "set": "image-icons-set",
+   "file": "image-icons-set-image-settings",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set image-iterator",
+   "set": "image-icons-set",
+   "file": "image-icons-set-image-iterator",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "image-icons-set relight-image",
+   "set": "image-icons-set",
+   "file": "image-icons-set-relight-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cloud default",
+   "set": "cloud",
+   "file": "cloud-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cloud success",
+   "set": "cloud",
+   "file": "cloud-success",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cloud error",
+   "set": "cloud",
+   "file": "cloud-error",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cloud disabled",
+   "set": "cloud",
+   "file": "cloud-disabled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Edit pencil-only",
+   "set": "Edit",
+   "file": "edit-edit-pencil-only",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Edit edit-with-pencil",
+   "set": "Edit",
+   "file": "edit-edit-edit-with-pencil",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Edit pencil-with-stroke",
+   "set": "Edit",
+   "file": "edit-edit-pencil-with-stroke",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "book-mark outlined",
+   "set": "book-mark",
+   "file": "book-mark-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "book-mark filled",
+   "set": "book-mark",
+   "file": "book-mark-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Support prop = 1st-variation",
+   "set": "Support",
+   "file": "support-prop-1st-variation",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Support 2nd-variation",
+   "set": "Support",
+   "file": "support-prop-2nd-variation",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Support 3rd-variation",
+   "set": "Support",
+   "file": "support-prop-3rd-variation",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio auto no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-auto-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 1:1 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-1-1-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 9:16 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-9-16-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 16:9 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-16-9-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 4:3 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-4-3-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 3:4 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-3-4-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 2:3 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-2-3-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 3:2 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-3-2-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 5:4 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-5-4-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 4:5 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-4-5-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 5:12 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-5-12-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 12:5 no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-12-5-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 1:1 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-1-1-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 9:16 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-9-16-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 16:9 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-16-9-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 3:4 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-3-4-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 4:3 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-4-3-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 2:3 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-2-3-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 3:2 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-3-2-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 5:4 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-5-4-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 4:5 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-4-5-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 5:12 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-5-12-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio 12:5 yes",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-12-5-with-details-yes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio Auto star no",
+   "set": "aspect-ratio",
+   "file": "aspect-ratio-auto-star-with-details-no",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Heart regular",
+   "set": "Heart",
+   "file": "heart-regular",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Heart filled",
+   "set": "Heart",
+   "file": "heart-filled-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "fast-forward back",
+   "set": "fast-forward",
+   "file": "fast-forward-back",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "fast-forward forward",
+   "set": "fast-forward",
+   "file": "fast-forward-forward",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "temp celcius",
+   "set": "temp",
+   "file": "temp-degree-celcius",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "temp farenheit",
+   "set": "temp",
+   "file": "temp-degree-farenheit",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set simple",
+   "set": "video-icons-set",
+   "file": "video-icons-set-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video-cam",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-cam",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video cam - filled",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-cam-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video-motion",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-motion",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set edit-video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-edit-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set edit-video-2",
+   "set": "video-icons-set",
+   "file": "video-icons-set-edit-video-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set ai video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-ai-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set add video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-add-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set upscale video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-upscale-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set move image",
+   "set": "video-icons-set",
+   "file": "video-icons-set-move-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video search",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-search",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set like video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-like-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set tick video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-tick-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set cross video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-cross-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set type23",
+   "set": "video-icons-set",
+   "file": "video-icons-set-type23",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set block image",
+   "set": "video-icons-set",
+   "file": "video-icons-set-block-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set scan image",
+   "set": "video-icons-set",
+   "file": "video-icons-set-scan-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set multiple-videos",
+   "set": "video-icons-set",
+   "file": "video-icons-set-multiple-videos",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set reframe image",
+   "set": "video-icons-set",
+   "file": "video-icons-set-reframe-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set film video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-film-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set film",
+   "set": "video-icons-set",
+   "file": "video-icons-set-film",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set extend-video",
+   "set": "video-icons-set",
+   "file": "video-icons-set-extend-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set merge-videos",
+   "set": "video-icons-set",
+   "file": "video-icons-set-merge-videos",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video with audio",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-with-audio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video -settings",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-settings",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video-speed",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-speed",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set video-iterator",
+   "set": "video-icons-set",
+   "file": "video-icons-set-video-iterator",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "video-icons-set extract-frame",
+   "set": "video-icons-set",
+   "file": "video-icons-set-extract-frame",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "music linear",
+   "set": "music",
+   "file": "music-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "music filled",
+   "set": "music",
+   "file": "music-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkles sparkle-3",
+   "set": "sparkles",
+   "file": "sparkles-sparkle-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkles sparkle-2",
+   "set": "sparkles",
+   "file": "sparkles-sparkle-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkles imagine",
+   "set": "sparkles",
+   "file": "sparkles-imagine",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sparkles imagine-filled",
+   "set": "sparkles",
+   "file": "sparkles-imagine-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trophy first",
+   "set": "trophy",
+   "file": "trophy-first",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trophy second",
+   "set": "trophy",
+   "file": "trophy-second",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "trophy third",
+   "set": "trophy",
+   "file": "trophy-third",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows left",
+   "set": "line-arrows",
+   "file": "line-arrows-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows right",
+   "set": "line-arrows",
+   "file": "line-arrows-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows down",
+   "set": "line-arrows",
+   "file": "line-arrows-side-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows up",
+   "set": "line-arrows",
+   "file": "line-arrows-side-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows diagonal-down-left",
+   "set": "line-arrows",
+   "file": "line-arrows-side-diagonal-down-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows diagonal-down-right",
+   "set": "line-arrows",
+   "file": "line-arrows-side-diagonal-down-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows diagonal-up-left",
+   "set": "line-arrows",
+   "file": "line-arrows-side-diagonal-up-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line-arrows diagonal-up-right",
+   "set": "line-arrows",
+   "file": "line-arrows-side-diagonal-up-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "check-rectangle check-rectangle-filled",
+   "set": "check-rectangle",
+   "file": "check-rectangle-check-rectangle-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "check-rectangle check-rectangle-linear",
+   "set": "check-rectangle",
+   "file": "check-rectangle-check-rectangle-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "check-rectangle uncheck-rectangle",
+   "set": "check-rectangle",
+   "file": "check-rectangle-uncheck-rectangle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather clear",
+   "set": "weaather",
+   "file": "weaather-clear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather rain",
+   "set": "weaather",
+   "file": "weaather-rain",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather hail",
+   "set": "weaather",
+   "file": "weaather-hail",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather cloudy",
+   "set": "weaather",
+   "file": "weaather-cloudy",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather windy",
+   "set": "weaather",
+   "file": "weaather-windy",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather thunder",
+   "set": "weaather",
+   "file": "weaather-thunder",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather sun rain",
+   "set": "weaather",
+   "file": "weaather-sun-rain",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather humid",
+   "set": "weaather",
+   "file": "weaather-humid",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "weaather snow",
+   "set": "weaather",
+   "file": "weaather-snow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos calender",
+   "set": "tools-logos",
+   "file": "tools-logos-name-calender",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos calendar v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-calendar-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos gmail v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-gmail-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos hangouts v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-hangouts-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos chat v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-chat-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos vids",
+   "set": "tools-logos",
+   "file": "tools-logos-name-vids",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos docs new",
+   "set": "tools-logos",
+   "file": "tools-logos-name-docs-new",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos tasks v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-tasks-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos drive v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-drive-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos slides v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-slides-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos forms v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-forms-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos sites v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-sites-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos keep v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-keep-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos sheets v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-sheets-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos meet v2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-meet-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos google-drive",
+   "set": "tools-logos",
+   "file": "tools-logos-name-google-drive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos microsoft-outlook",
+   "set": "tools-logos",
+   "file": "tools-logos-name-microsoft-outlook",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos microsoft",
+   "set": "tools-logos",
+   "file": "tools-logos-name-microsoft",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos jira",
+   "set": "tools-logos",
+   "file": "tools-logos-name-jira",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos google-meet",
+   "set": "tools-logos",
+   "file": "tools-logos-name-google-meet",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos gmail",
+   "set": "tools-logos",
+   "file": "tools-logos-name-gmail",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos Chrome",
+   "set": "tools-logos",
+   "file": "tools-logos-name-chrome",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos slack",
+   "set": "tools-logos",
+   "file": "tools-logos-name-slack",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos notion",
+   "set": "tools-logos",
+   "file": "tools-logos-name-notion",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos notion calendar",
+   "set": "tools-logos",
+   "file": "tools-logos-name-notion-calendar",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos linear",
+   "set": "tools-logos",
+   "file": "tools-logos-name-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos zoom",
+   "set": "tools-logos",
+   "file": "tools-logos-name-zoom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos microsoft-teams",
+   "set": "tools-logos",
+   "file": "tools-logos-name-microsoft-teams",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos google-sheets",
+   "set": "tools-logos",
+   "file": "tools-logos-name-google-sheets",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos MS Word",
+   "set": "tools-logos",
+   "file": "tools-logos-name-ms-word",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos MS Excel",
+   "set": "tools-logos",
+   "file": "tools-logos-name-ms-excel",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos MS Powerpoint",
+   "set": "tools-logos",
+   "file": "tools-logos-name-ms-powerpoint",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos vs code",
+   "set": "tools-logos",
+   "file": "tools-logos-name-vs-code",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos jetbrains",
+   "set": "tools-logos",
+   "file": "tools-logos-name-jetbrains",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos google-analytics",
+   "set": "tools-logos",
+   "file": "tools-logos-name-google-analytics",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos github",
+   "set": "tools-logos",
+   "file": "tools-logos-name-github",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos gitlab",
+   "set": "tools-logos",
+   "file": "tools-logos-name-gitlab",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos shopify",
+   "set": "tools-logos",
+   "file": "tools-logos-name-shopify",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos resend",
+   "set": "tools-logos",
+   "file": "tools-logos-name-resend",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos stripe",
+   "set": "tools-logos",
+   "file": "tools-logos-name-stripe",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos supabase",
+   "set": "tools-logos",
+   "file": "tools-logos-name-supabase",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tools-logos stripe-2",
+   "set": "tools-logos",
+   "file": "tools-logos-name-stripe-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plus-minus plus",
+   "set": "plus-minus",
+   "file": "plus-minus-plus-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plus-minus plus in circle",
+   "set": "plus-minus",
+   "file": "plus-minus-plus-in-circle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plus-minus minus in circle",
+   "set": "plus-minus",
+   "file": "plus-minus-minus-in-circle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plus-minus Minus",
+   "set": "plus-minus",
+   "file": "plus-minus-minus-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "bot 1",
+   "set": "bot",
+   "file": "bot-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "bot 2",
+   "set": "bot",
+   "file": "bot-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Flip horizontal",
+   "set": "Flip",
+   "file": "flip-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Flip vertical",
+   "set": "Flip",
+   "file": "flip-vertical",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "apps linear",
+   "set": "apps",
+   "file": "apps-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "apps solid",
+   "set": "apps",
+   "file": "apps-solid",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "rotate right",
+   "set": "rotate",
+   "file": "rotate-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "rotate left",
+   "set": "rotate",
+   "file": "rotate-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "rotate multi",
+   "set": "rotate",
+   "file": "rotate-multi",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "download-upload-v-1 Download",
+   "set": "download-upload-v-1",
+   "file": "download-upload-v-1-download",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "download-upload-v-1 Upload",
+   "set": "download-upload-v-1",
+   "file": "download-upload-v-1-upload",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "big-three-dots verticle",
+   "set": "big-three-dots",
+   "file": "big-three-dots-verticle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "big-three-dots horizontal",
+   "set": "big-three-dots",
+   "file": "big-three-dots-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "token Default",
+   "set": "token",
+   "file": "token-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "token filled",
+   "set": "token",
+   "file": "token-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cursor Default",
+   "set": "cursor",
+   "file": "cursor-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "cursor click",
+   "set": "cursor",
+   "file": "cursor-click",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders multiple-folders",
+   "set": "folders",
+   "file": "folders-multiple-folders",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders zip folder",
+   "set": "folders",
+   "file": "folders-zip-folder",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-none",
+   "set": "folders",
+   "file": "folders-folder-none",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-move",
+   "set": "folders",
+   "file": "folders-folder-move",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-cloud",
+   "set": "folders",
+   "file": "folders-folder-cloud",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-lock",
+   "set": "folders",
+   "file": "folders-folder-lock",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders shared folder",
+   "set": "folders",
+   "file": "folders-shared-folder",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder",
+   "set": "folders",
+   "file": "folders-folder",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-add",
+   "set": "folders",
+   "file": "folders-folder-add",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder cross",
+   "set": "folders",
+   "file": "folders-folder-cross",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder minus",
+   "set": "folders",
+   "file": "folders-folder-minus",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-open",
+   "set": "folders",
+   "file": "folders-folder-open",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder search",
+   "set": "folders",
+   "file": "folders-folder-search",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "folders folder-swap",
+   "set": "folders",
+   "file": "folders-folder-swap",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock clock",
+   "set": "Time clock",
+   "file": "time-clock-clock",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 0",
+   "set": "Time clock",
+   "file": "time-clock-0",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 1",
+   "set": "Time clock",
+   "file": "time-clock-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 2",
+   "set": "Time clock",
+   "file": "time-clock-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 3",
+   "set": "Time clock",
+   "file": "time-clock-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 4",
+   "set": "Time clock",
+   "file": "time-clock-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 5",
+   "set": "Time clock",
+   "file": "time-clock-5",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 6",
+   "set": "Time clock",
+   "file": "time-clock-6",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 7",
+   "set": "Time clock",
+   "file": "time-clock-7",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 8",
+   "set": "Time clock",
+   "file": "time-clock-8",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 9",
+   "set": "Time clock",
+   "file": "time-clock-9",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 10",
+   "set": "Time clock",
+   "file": "time-clock-10",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 11",
+   "set": "Time clock",
+   "file": "time-clock-11",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Time clock 12",
+   "set": "Time clock",
+   "file": "time-clock-12",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lengthen Default",
+   "set": "lengthen",
+   "file": "lengthen-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lengthen Variant2",
+   "set": "lengthen",
+   "file": "lengthen-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lengthen simplify",
+   "set": "lengthen",
+   "file": "lengthen-simplify",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people customer-support",
+   "set": "people",
+   "file": "people-types-customer-support",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people User-profile",
+   "set": "people",
+   "file": "people-types-user-profile",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people account-circle",
+   "set": "people",
+   "file": "people-types-account-circle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people People",
+   "set": "people",
+   "file": "people-types-people",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people people",
+   "set": "people",
+   "file": "people-types-people-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people social-profile",
+   "set": "people",
+   "file": "people-types-social-profile",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people ai-profile",
+   "set": "people",
+   "file": "people-types-ai-profile",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people group-star",
+   "set": "people",
+   "file": "people-types-group-star",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people user-add",
+   "set": "people",
+   "file": "people-types-user-add",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people secure",
+   "set": "people",
+   "file": "people-types-secure",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people photo",
+   "set": "people",
+   "file": "people-types-photo",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people creators",
+   "set": "people",
+   "file": "people-types-creators",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "people person + settings",
+   "set": "people",
+   "file": "people-types-person-settings",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "drag-&-drop image",
+   "set": "drag-&-drop",
+   "file": "drag-drop-studio-image",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "drag-&-drop video",
+   "set": "drag-&-drop",
+   "file": "drag-drop-studio-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "drag-&-drop music",
+   "set": "drag-&-drop",
+   "file": "drag-drop-studio-music",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "drag-&-drop audio",
+   "set": "drag-&-drop",
+   "file": "drag-drop-studio-audio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "link payment Full",
+   "set": "link payment",
+   "file": "link-payment-full",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "link payment Icon",
+   "set": "link payment",
+   "file": "link-payment-icon",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "double-chevron closed",
+   "set": "double-chevron",
+   "file": "double-chevron-closed",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "double-chevron opened",
+   "set": "double-chevron",
+   "file": "double-chevron-opened",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "volume volume",
+   "set": "volume",
+   "file": "volume-volume",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "volume mute",
+   "set": "volume",
+   "file": "volume-mute-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "volume filled",
+   "set": "volume",
+   "file": "volume-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "vector vector",
+   "set": "vector",
+   "file": "vector-vector",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "vector perspective",
+   "set": "vector",
+   "file": "vector-perspective",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "gift outlined",
+   "set": "gift",
+   "file": "gift-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "gift filled",
+   "set": "gift",
+   "file": "gift-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "random-dice Default",
+   "set": "random-dice",
+   "file": "random-dice-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "random-dice Hover",
+   "set": "random-dice",
+   "file": "random-dice-hover",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "just-add-image sqaure",
+   "set": "just-add-image",
+   "file": "just-add-image-shape-sqaure",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "just-add-image circle",
+   "set": "just-add-image",
+   "file": "just-add-image-shape-circle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "just-add-image sqaure-filled",
+   "set": "just-add-image",
+   "file": "just-add-image-shape-sqaure-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "just-add-image circle-filled",
+   "set": "just-add-image",
+   "file": "just-add-image-shape-circle-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "menu-three-dots verticle",
+   "set": "menu-three-dots",
+   "file": "menu-three-dots-side-verticle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "menu-three-dots horizontal",
+   "set": "menu-three-dots",
+   "file": "menu-three-dots-side-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dollar-sign outlined",
+   "set": "dollar-sign",
+   "file": "dollar-sign-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dollar-sign filled",
+   "set": "dollar-sign",
+   "file": "dollar-sign-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layers 3",
+   "set": "layers",
+   "file": "layers-count-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layers 2",
+   "set": "layers",
+   "file": "layers-count-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layers 1",
+   "set": "layers",
+   "file": "layers-count-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layers 4",
+   "set": "layers",
+   "file": "layers-count-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "play and pauses with circle Play",
+   "set": "play and pauses with circle",
+   "file": "play-and-pauses-with-circle-play",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "play and pauses with circle Pause",
+   "set": "play and pauses with circle",
+   "file": "play-and-pauses-with-circle-pause",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "page PDF",
+   "set": "page",
+   "file": "page-pdf",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "page Mp3",
+   "set": "page",
+   "file": "page-mp3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "page DOC",
+   "set": "page",
+   "file": "page-doc",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "page simple",
+   "set": "page",
+   "file": "page-simple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "origin 1",
+   "set": "origin",
+   "file": "origin-types-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "origin 2",
+   "set": "origin",
+   "file": "origin-types-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "origin 3",
+   "set": "origin",
+   "file": "origin-types-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "origin 4",
+   "set": "origin",
+   "file": "origin-types-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "bell-icon Default",
+   "set": "bell-icon",
+   "file": "bell-icon-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "bell-icon bell-with-notification",
+   "set": "bell-icon",
+   "file": "bell-icon-bell-with-notification",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "bell-icon bell-disabled",
+   "set": "bell-icon",
+   "file": "bell-icon-bell-disabled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sidebar increase-decrease increase",
+   "set": "sidebar increase-decrease",
+   "file": "sidebar-increase-decrease-sidebar-increase",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sidebar increase-decrease decrease",
+   "set": "sidebar increase-decrease",
+   "file": "sidebar-increase-decrease-sidebar-decrease",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Layer Arrange Bring to front",
+   "set": "Layer Arrange",
+   "file": "layer-arrange-bring-to-front",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Layer Arrange Send to back",
+   "set": "Layer Arrange",
+   "file": "layer-arrange-send-to-back",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "drop-file colored",
+   "set": "drop-file",
+   "file": "drop-file-colored",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "drop-file neutral",
+   "set": "drop-file",
+   "file": "drop-file-neutral",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lock lock",
+   "set": "lock",
+   "file": "lock-lock",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lock unlock",
+   "set": "lock",
+   "file": "lock-unlock",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "lock filled",
+   "set": "lock",
+   "file": "lock-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Gender Female",
+   "set": "Gender",
+   "file": "gender-gender-female",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Gender Male",
+   "set": "Gender",
+   "file": "gender-gender-male",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "strength 0x",
+   "set": "strength",
+   "file": "strength-studio-0x",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "strength 1x",
+   "set": "strength",
+   "file": "strength-studio-1x",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "strength 2x",
+   "set": "strength",
+   "file": "strength-studio-2x",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "strength 3x",
+   "set": "strength",
+   "file": "strength-studio-3x",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-training training",
+   "set": "model-training",
+   "file": "model-training-training",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-training Model in editor",
+   "set": "model-training",
+   "file": "model-training-model-in-editor",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-training V1",
+   "set": "model-training",
+   "file": "model-training-v1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-training V2",
+   "set": "model-training",
+   "file": "model-training-v2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "model-training v3",
+   "set": "model-training",
+   "file": "model-training-v3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "3d mesh",
+   "set": "3d",
+   "file": "3d-mesh",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "3d Variant2",
+   "set": "3d",
+   "file": "3d-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "symmetry-flow clip",
+   "set": "symmetry-flow",
+   "file": "symmetry-flow-clip",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "symmetry-flow overflow",
+   "set": "symmetry-flow",
+   "file": "symmetry-flow-overflow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "direction horizontal",
+   "set": "direction",
+   "file": "direction-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "direction verticle",
+   "set": "direction",
+   "file": "direction-verticle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "direction multi",
+   "set": "direction",
+   "file": "direction-multi",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "eraser default",
+   "set": "eraser",
+   "file": "eraser-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "eraser ai-eraser",
+   "set": "eraser",
+   "file": "eraser-ai-eraser",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "expand with-boundary",
+   "set": "expand",
+   "file": "expand-types-with-boundary",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "expand just arrows",
+   "set": "expand",
+   "file": "expand-types-just-arrows",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dice 1",
+   "set": "dice",
+   "file": "dice-number-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dice 2",
+   "set": "dice",
+   "file": "dice-number-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dice 3",
+   "set": "dice",
+   "file": "dice-number-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "dice 4",
+   "set": "dice",
+   "file": "dice-number-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heading 1",
+   "set": "heading",
+   "file": "heading-heading-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heading 2",
+   "set": "heading",
+   "file": "heading-heading-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heading 3",
+   "set": "heading",
+   "file": "heading-heading-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heading 4",
+   "set": "heading",
+   "file": "heading-heading-4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heading 5",
+   "set": "heading",
+   "file": "heading-heading-5",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "heading 6",
+   "set": "heading",
+   "file": "heading-heading-6",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note yellow",
+   "set": "sticky-note",
+   "file": "sticky-note-color-yellow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note red",
+   "set": "sticky-note",
+   "file": "sticky-note-color-red",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note orange",
+   "set": "sticky-note",
+   "file": "sticky-note-color-orange",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note blue",
+   "set": "sticky-note",
+   "file": "sticky-note-color-blue",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note grey",
+   "set": "sticky-note",
+   "file": "sticky-note-color-grey",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note green",
+   "set": "sticky-note",
+   "file": "sticky-note-color-green",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note purple",
+   "set": "sticky-note",
+   "file": "sticky-note-color-purple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sticky-note pink",
+   "set": "sticky-note",
+   "file": "sticky-note-color-pink",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "feed-back linear",
+   "set": "feed-back",
+   "file": "feed-back-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "feed-back solid",
+   "set": "feed-back",
+   "file": "feed-back-solid",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "faces Default",
+   "set": "faces",
+   "file": "faces-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "faces Variant2",
+   "set": "faces",
+   "file": "faces-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "faces Variant3",
+   "set": "faces",
+   "file": "faces-variant3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "faces Variant4",
+   "set": "faces",
+   "file": "faces-variant4",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "faces Variant5",
+   "set": "faces",
+   "file": "faces-variant5",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "split-type default",
+   "set": "split-type",
+   "file": "split-type-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "split-type right",
+   "set": "split-type",
+   "file": "split-type-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "split-type left",
+   "set": "split-type",
+   "file": "split-type-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "alignment-options left",
+   "set": "alignment-options",
+   "file": "alignment-options-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "alignment-options right",
+   "set": "alignment-options",
+   "file": "alignment-options-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "alignment-options center-horizontal",
+   "set": "alignment-options",
+   "file": "alignment-options-center-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "alignment-options center-verticle",
+   "set": "alignment-options",
+   "file": "alignment-options-center-verticle",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "alignment-options top",
+   "set": "alignment-options",
+   "file": "alignment-options-top",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "alignment-options bottom",
+   "set": "alignment-options",
+   "file": "alignment-options-bottom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "text-alignment left",
+   "set": "text-alignment",
+   "file": "text-alignment-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "text-alignment right",
+   "set": "text-alignment",
+   "file": "text-alignment-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "text-alignment center",
+   "set": "text-alignment",
+   "file": "text-alignment-center",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "text-alignment justified",
+   "set": "text-alignment",
+   "file": "text-alignment-justified",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "list unordered",
+   "set": "list",
+   "file": "list-list-unordered",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "list ordered",
+   "set": "list",
+   "file": "list-list-ordered",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "list check",
+   "set": "list",
+   "file": "list-list-check",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "indent increase",
+   "set": "indent",
+   "file": "indent-indent-increase",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "indent decrease",
+   "set": "indent",
+   "file": "indent-indent-decrease",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "question-mark Default",
+   "set": "question-mark",
+   "file": "question-mark-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "question-mark outlined",
+   "set": "question-mark",
+   "file": "question-mark-outlined",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "question-mark chat-question",
+   "set": "question-mark",
+   "file": "question-mark-chat-question",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stroke-type line",
+   "set": "stroke-type",
+   "file": "stroke-type-line",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stroke-type 2-dash",
+   "set": "stroke-type",
+   "file": "stroke-type-2-dash",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stroke-type dotted",
+   "set": "stroke-type",
+   "file": "stroke-type-dotted",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "stroke-type 3-dash",
+   "set": "stroke-type",
+   "file": "stroke-type-3-dash",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "AI Edit variant1",
+   "set": "AI Edit",
+   "file": "ai-edit-variant1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "AI Edit variant2",
+   "set": "AI Edit",
+   "file": "ai-edit-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "AI Edit variant3",
+   "set": "AI Edit",
+   "file": "ai-edit-variant3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "enterprise 1",
+   "set": "enterprise",
+   "file": "enterprise-types-1",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "enterprise 2",
+   "set": "enterprise",
+   "file": "enterprise-types-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line diagonal",
+   "set": "line",
+   "file": "line-diagonal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line horizontal",
+   "set": "line",
+   "file": "line-horizontal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line vertical",
+   "set": "line",
+   "file": "line-vertical",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line elbow",
+   "set": "line",
+   "file": "line-elbow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "line curve",
+   "set": "line",
+   "file": "line-curve",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "send send",
+   "set": "send",
+   "file": "send-send",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "send Publish-schedule",
+   "set": "send",
+   "file": "send-publish-schedule",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "send unsend",
+   "set": "send",
+   "file": "send-unsend",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pin default",
+   "set": "pin",
+   "file": "pin-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pin pinned",
+   "set": "pin",
+   "file": "pin-pinned",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "pin pin-remove",
+   "set": "pin",
+   "file": "pin-pin-remove",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Mails Email",
+   "set": "Mails",
+   "file": "mails-types-email",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Mails inbox-open",
+   "set": "Mails",
+   "file": "mails-types-inbox-open",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Mails Rounder",
+   "set": "Mails",
+   "file": "mails-types-rounder",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio-lock Default",
+   "set": "aspect-ratio-lock",
+   "file": "aspect-ratio-lock-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "aspect-ratio-lock Variant2",
+   "set": "aspect-ratio-lock",
+   "file": "aspect-ratio-lock-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout col-2",
+   "set": "layout",
+   "file": "layout-col-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout col-3",
+   "set": "layout",
+   "file": "layout-col-3",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout pill",
+   "set": "layout",
+   "file": "layout-pill",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout steps",
+   "set": "layout",
+   "file": "layout-steps",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout steps 2",
+   "set": "layout",
+   "file": "layout-steps-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout boxes",
+   "set": "layout",
+   "file": "layout-boxes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout timeline",
+   "set": "layout",
+   "file": "layout-timeline",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout timeline-2",
+   "set": "layout",
+   "file": "layout-timeline-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "old studios photogen-studio",
+   "set": "old studios",
+   "file": "old-studios-photogen-studio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "old studios videocraft-studio",
+   "set": "old studios",
+   "file": "old-studios-videocraft-studio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "old studios imagine-sketch-studio",
+   "set": "old studios",
+   "file": "old-studios-imagine-sketch-studio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "old studios music-studio",
+   "set": "old studios",
+   "file": "old-studios-music-studio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "old studios audio-studio",
+   "set": "old studios",
+   "file": "old-studios-audio-studio",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "content alignment center",
+   "set": "content alignment",
+   "file": "content-alignment-alignment-center",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "content alignment top",
+   "set": "content alignment",
+   "file": "content-alignment-alignment-top",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "content alignment bottom",
+   "set": "content alignment",
+   "file": "content-alignment-alignment-bottom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout-image default",
+   "set": "layout-image",
+   "file": "layout-image-orientation-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout-image img",
+   "set": "layout-image",
+   "file": "layout-image-orientation-img",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout-image bot",
+   "set": "layout-image",
+   "file": "layout-image-orientation-bot",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout-image right",
+   "set": "layout-image",
+   "file": "layout-image-orientation-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout-image top",
+   "set": "layout-image",
+   "file": "layout-image-orientation-top",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "layout-image left",
+   "set": "layout-image",
+   "file": "layout-image-orientation-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages page",
+   "set": "all pages",
+   "file": "all-pages-page",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages document",
+   "set": "all pages",
+   "file": "all-pages-document",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages pages",
+   "set": "all pages",
+   "file": "all-pages-pages",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages notes",
+   "set": "all pages",
+   "file": "all-pages-notes",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages sticker",
+   "set": "all pages",
+   "file": "all-pages-sticker",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages clipboard",
+   "set": "all pages",
+   "file": "all-pages-clipboard",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages Blog",
+   "set": "all pages",
+   "file": "all-pages-blog",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages Document Video",
+   "set": "all pages",
+   "file": "all-pages-document-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "all pages Script",
+   "set": "all pages",
+   "file": "all-pages-script",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "collapse Default",
+   "set": "collapse",
+   "file": "collapse-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "collapse uncollapse",
+   "set": "collapse",
+   "file": "collapse-uncollapse",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "face solid",
+   "set": "face ",
+   "file": "face-solid",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "face linear",
+   "set": "face ",
+   "file": "face-linear",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "check-circle Default",
+   "set": "check-circle",
+   "file": "check-circle-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "check-circle uncheck",
+   "set": "check-circle",
+   "file": "check-circle-uncheck",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "explore 2 solid",
+   "set": "explore 2",
+   "file": "explore-2-solid",
+   "w": 24.0,
+   "h": 25.0
+  },
+  {
+   "name": "explore 2 linear",
+   "set": "explore 2",
+   "file": "explore-2-linear",
+   "w": 24.0,
+   "h": 25.0
+  },
+  {
+   "name": "arrow-types line-arrow right",
+   "set": "arrow-types",
+   "file": "arrow-types-line-arrow-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types line right",
+   "set": "arrow-types",
+   "file": "arrow-types-line-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types line-arrow left",
+   "set": "arrow-types",
+   "file": "arrow-types-line-arrow-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types line left",
+   "set": "arrow-types",
+   "file": "arrow-types-line-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types solid-arrow right",
+   "set": "arrow-types",
+   "file": "arrow-types-solid-arrow-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types solid-arrow left",
+   "set": "arrow-types",
+   "file": "arrow-types-solid-arrow-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types triangle right",
+   "set": "arrow-types",
+   "file": "arrow-types-triangle-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types triangle left",
+   "set": "arrow-types",
+   "file": "arrow-types-triangle-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types circle right",
+   "set": "arrow-types",
+   "file": "arrow-types-circle-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types circle left",
+   "set": "arrow-types",
+   "file": "arrow-types-circle-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types square right",
+   "set": "arrow-types",
+   "file": "arrow-types-square-side-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-types square left",
+   "set": "arrow-types",
+   "file": "arrow-types-square-side-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "star outlined",
+   "set": "star",
+   "file": "star-outlined-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "star filled",
+   "set": "star",
+   "file": "star-filled-2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "star half-filled",
+   "set": "star",
+   "file": "star-half-filled",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "globe globe",
+   "set": "globe",
+   "file": "globe-globe",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "globe unglobe",
+   "set": "globe",
+   "file": "globe-unglobe",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "globe filled-globe",
+   "set": "globe",
+   "file": "globe-filled-globe",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tag tag",
+   "set": "tag",
+   "file": "tag-tag",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "tag Variant2",
+   "set": "tag",
+   "file": "tag-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sun/moon moon",
+   "set": "sun/moon",
+   "file": "sun-moon-moon",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sun/moon both",
+   "set": "sun/moon",
+   "file": "sun-moon-both",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "sun/moon sun",
+   "set": "sun/moon",
+   "file": "sun-moon-sun",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chart Bar",
+   "set": "Chart",
+   "file": "chart-bar",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Chart Donut",
+   "set": "Chart",
+   "file": "chart-donut",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "website empty",
+   "set": "website",
+   "file": "website-website-empty",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "website content",
+   "set": "website",
+   "file": "website-website-content",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "email reply",
+   "set": "email",
+   "file": "email-email-reply",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "email reply all",
+   "set": "email",
+   "file": "email-email-reply-all",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "email forward",
+   "set": "email",
+   "file": "email-email-forward",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "fill color",
+   "set": "fill",
+   "file": "fill-color",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "fill text",
+   "set": "fill",
+   "file": "fill-text",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "fork split",
+   "set": "fork",
+   "file": "fork-fork-split",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "fork merge",
+   "set": "fork",
+   "file": "fork-fork-merge",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-to-line left",
+   "set": "arrow-to-line",
+   "file": "arrow-to-line-left",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "arrow-to-line right",
+   "set": "arrow-to-line",
+   "file": "arrow-to-line-right",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "device desktop",
+   "set": "device",
+   "file": "device-desktop",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "device tablet",
+   "set": "device",
+   "file": "device-tablet",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "device mobile",
+   "set": "device",
+   "file": "device-mobile",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "device tablet-phone",
+   "set": "device",
+   "file": "device-tablet-phone",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "device desktop-phone",
+   "set": "device",
+   "file": "device-desktop-phone",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "file-icons CSS",
+   "set": "file-icons",
+   "file": "file-icons-css",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "file-icons React",
+   "set": "file-icons",
+   "file": "file-icons-react",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "file-icons Javascript",
+   "set": "file-icons",
+   "file": "file-icons-javascript",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plane Plane",
+   "set": "plane",
+   "file": "plane-plane",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plane Depart",
+   "set": "plane",
+   "file": "plane-depart",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "plane Arrival",
+   "set": "plane",
+   "file": "plane-arrival",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "loader spinner",
+   "set": null,
+   "file": "loader-spinner",
+   "w": 32.0,
+   "h": 32.0
+  },
+  {
+   "name": "collapse-menu left",
+   "set": "collapse-menu",
+   "file": "collapse-menu-left",
+   "w": 22.0,
+   "h": 24.0
+  },
+  {
+   "name": "collapse-menu right",
+   "set": "collapse-menu",
+   "file": "collapse-menu-right",
+   "w": 22.0,
+   "h": 24.0
+  },
+  {
+   "name": "thumbs-up up",
+   "set": "thumbs-up",
+   "file": "thumbs-up-up",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "thumbs-up down",
+   "set": "thumbs-up",
+   "file": "thumbs-up-down",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "thumbs-up both",
+   "set": "thumbs-up",
+   "file": "thumbs-up-both",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "wifi On",
+   "set": "wifi",
+   "file": "wifi-status-on",
+   "w": 22.0,
+   "h": 24.0
+  },
+  {
+   "name": "wifi off",
+   "set": "wifi",
+   "file": "wifi-status-off",
+   "w": 22.0,
+   "h": 24.0
+  },
+  {
+   "name": "swatch",
+   "set": null,
+   "file": "swatch",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "block",
+   "set": null,
+   "file": "block",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "filter",
+   "set": null,
+   "file": "filter",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "Masonry",
+   "set": null,
+   "file": "masonry",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "to-do-list",
+   "set": null,
+   "file": "to-do-list",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "coins",
+   "set": null,
+   "file": "coins",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "brain search",
+   "set": null,
+   "file": "brain-search",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "carousal",
+   "set": null,
+   "file": "carousal",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "bottle / product",
+   "set": null,
+   "file": "bottle-product",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "shirt",
+   "set": null,
+   "file": "shirt",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "clapperboard / video",
+   "set": null,
+   "file": "clapperboard-video",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "binocular",
+   "set": null,
+   "file": "binocular",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "reply chat arrow",
+   "set": null,
+   "file": "reply-chat-arrow",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "thought",
+   "set": null,
+   "file": "thought",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "received-reply",
+   "set": null,
+   "file": "received-reply",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "generation",
+   "set": null,
+   "file": "generation",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "user-account",
+   "set": null,
+   "file": "user-account",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "user-group",
+   "set": null,
+   "file": "user-group",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "route",
+   "set": null,
+   "file": "route",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "hanger",
+   "set": null,
+   "file": "hanger",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "camera",
+   "set": null,
+   "file": "camera",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "analytics",
+   "set": null,
+   "file": "analytics",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "notebook",
+   "set": null,
+   "file": "notebook",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "file-search",
+   "set": null,
+   "file": "file-search",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "store",
+   "set": null,
+   "file": "store",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "book",
+   "set": null,
+   "file": "book",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "chat-question",
+   "set": null,
+   "file": "chat-question",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "reload",
+   "set": null,
+   "file": "reload",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "loading Default",
+   "set": "loading",
+   "file": "loading-default",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "loading Variant2",
+   "set": "loading",
+   "file": "loading-variant2",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "flags Afghanistan Flag On",
+   "set": "flags",
+   "file": "flags-country-afghanistan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Albania Flag On",
+   "set": "flags",
+   "file": "flags-country-albania-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Algeria Flag On",
+   "set": "flags",
+   "file": "flags-country-algeria-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Andorra Flag On",
+   "set": "flags",
+   "file": "flags-country-andorra-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Angola Flag On",
+   "set": "flags",
+   "file": "flags-country-angola-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Antigua and Barbuda Flag On",
+   "set": "flags",
+   "file": "flags-country-antigua-and-barbuda-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Australia Flag On",
+   "set": "flags",
+   "file": "flags-country-australia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Argentina Flag On",
+   "set": "flags",
+   "file": "flags-country-argentina-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Armenia Flag On",
+   "set": "flags",
+   "file": "flags-country-armenia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Aruba Flag On",
+   "set": "flags",
+   "file": "flags-country-aruba-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Austria Flag On",
+   "set": "flags",
+   "file": "flags-country-austria-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Azerbaijan Flag On",
+   "set": "flags",
+   "file": "flags-country-azerbaijan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bahamas Flag On",
+   "set": "flags",
+   "file": "flags-country-bahamas-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bahrain Flag On",
+   "set": "flags",
+   "file": "flags-country-bahrain-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bangladesh Flag On",
+   "set": "flags",
+   "file": "flags-country-bangladesh-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Barbados Flag On",
+   "set": "flags",
+   "file": "flags-country-barbados-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Belarus Flag On",
+   "set": "flags",
+   "file": "flags-country-belarus-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Belgium Flag On",
+   "set": "flags",
+   "file": "flags-country-belgium-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Belize Flag On",
+   "set": "flags",
+   "file": "flags-country-belize-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Benin Flag On",
+   "set": "flags",
+   "file": "flags-country-benin-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bhutan Flag On",
+   "set": "flags",
+   "file": "flags-country-bhutan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bolivia Flag On",
+   "set": "flags",
+   "file": "flags-country-bolivia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bosnia and Herzegovina Flag On",
+   "set": "flags",
+   "file": "flags-country-bosnia-and-herzegovina-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Botswana Flag On",
+   "set": "flags",
+   "file": "flags-country-botswana-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bouvet Island Flag On",
+   "set": "flags",
+   "file": "flags-country-bouvet-island-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Brazil Flag On",
+   "set": "flags",
+   "file": "flags-country-brazil-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Brunei Darussalam Flag On",
+   "set": "flags",
+   "file": "flags-country-brunei-darussalam-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Bulgaria Flag On",
+   "set": "flags",
+   "file": "flags-country-bulgaria-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Burkina Faso Flag On",
+   "set": "flags",
+   "file": "flags-country-burkina-faso-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Burundi Flag On",
+   "set": "flags",
+   "file": "flags-country-burundi-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Cambodia Flag On",
+   "set": "flags",
+   "file": "flags-country-cambodia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Cameroon Flag On",
+   "set": "flags",
+   "file": "flags-country-cameroon-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Canada Flag On",
+   "set": "flags",
+   "file": "flags-country-canada-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Cape Verde Flag On",
+   "set": "flags",
+   "file": "flags-country-cape-verde-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Central African Republic Flag On",
+   "set": "flags",
+   "file": "flags-country-central-african-republic-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Chad Flag On",
+   "set": "flags",
+   "file": "flags-country-chad-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Chile Flag On",
+   "set": "flags",
+   "file": "flags-country-chile-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags China Flag On",
+   "set": "flags",
+   "file": "flags-country-china-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Colombia Flag On",
+   "set": "flags",
+   "file": "flags-country-colombia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Comoros Flag On",
+   "set": "flags",
+   "file": "flags-country-comoros-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Congo Flag On",
+   "set": "flags",
+   "file": "flags-country-congo-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Costa Rica Flag On",
+   "set": "flags",
+   "file": "flags-country-costa-rica-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Croatia Flag On",
+   "set": "flags",
+   "file": "flags-country-croatia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Cuba Flag On",
+   "set": "flags",
+   "file": "flags-country-cuba-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Cura\u00e7ao Flag On",
+   "set": "flags",
+   "file": "flags-country-cura-ao-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Cyprus Flag On",
+   "set": "flags",
+   "file": "flags-country-cyprus-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Czech Republic Flag On",
+   "set": "flags",
+   "file": "flags-country-czech-republic-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags DR Congo Flag On",
+   "set": "flags",
+   "file": "flags-country-dr-congo-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Denmark Flag On",
+   "set": "flags",
+   "file": "flags-country-denmark-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Djibouti Flag On",
+   "set": "flags",
+   "file": "flags-country-djibouti-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Dominica Flag On",
+   "set": "flags",
+   "file": "flags-country-dominica-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Dominican Republic Flag On",
+   "set": "flags",
+   "file": "flags-country-dominican-republic-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Ecuador Flag On",
+   "set": "flags",
+   "file": "flags-country-ecuador-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Egypt Flag On",
+   "set": "flags",
+   "file": "flags-country-egypt-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags El Salvador Flag On",
+   "set": "flags",
+   "file": "flags-country-el-salvador-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Equatorial Guinea Flag On",
+   "set": "flags",
+   "file": "flags-country-equatorial-guinea-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Eritrea Flag On",
+   "set": "flags",
+   "file": "flags-country-eritrea-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Estonia Flag On",
+   "set": "flags",
+   "file": "flags-country-estonia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Eswatini Flag On",
+   "set": "flags",
+   "file": "flags-country-eswatini-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Ethiopia Flag On",
+   "set": "flags",
+   "file": "flags-country-ethiopia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Fiji Flag On",
+   "set": "flags",
+   "file": "flags-country-fiji-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Finland Flag On",
+   "set": "flags",
+   "file": "flags-country-finland-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags France Flag On",
+   "set": "flags",
+   "file": "flags-country-france-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Gabon Flag On",
+   "set": "flags",
+   "file": "flags-country-gabon-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Gambia Flag On",
+   "set": "flags",
+   "file": "flags-country-gambia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Georgia Flag On",
+   "set": "flags",
+   "file": "flags-country-georgia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Germany Flag On",
+   "set": "flags",
+   "file": "flags-country-germany-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Ghana Flag On",
+   "set": "flags",
+   "file": "flags-country-ghana-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Greece Flag On",
+   "set": "flags",
+   "file": "flags-country-greece-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Grenada Flag On",
+   "set": "flags",
+   "file": "flags-country-grenada-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Guatemala Flag On",
+   "set": "flags",
+   "file": "flags-country-guatemala-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Guinea Flag On",
+   "set": "flags",
+   "file": "flags-country-guinea-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Guinea-Bissau Flag On",
+   "set": "flags",
+   "file": "flags-country-guinea-bissau-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Guyana Flag On",
+   "set": "flags",
+   "file": "flags-country-guyana-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Haiti Flag On",
+   "set": "flags",
+   "file": "flags-country-haiti-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Holy See Flag On",
+   "set": "flags",
+   "file": "flags-country-holy-see-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Honduras Flag On",
+   "set": "flags",
+   "file": "flags-country-honduras-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Hong Kong Flag On",
+   "set": "flags",
+   "file": "flags-country-hong-kong-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Hungary Flag On",
+   "set": "flags",
+   "file": "flags-country-hungary-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Iceland Flag On",
+   "set": "flags",
+   "file": "flags-country-iceland-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags India Flag On",
+   "set": "flags",
+   "file": "flags-country-india-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Indonesia Flag On",
+   "set": "flags",
+   "file": "flags-country-indonesia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Iran Flag On",
+   "set": "flags",
+   "file": "flags-country-iran-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Iraq Flag On",
+   "set": "flags",
+   "file": "flags-country-iraq-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Ireland Flag On",
+   "set": "flags",
+   "file": "flags-country-ireland-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Israel Flag On",
+   "set": "flags",
+   "file": "flags-country-israel-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Italy Flag On",
+   "set": "flags",
+   "file": "flags-country-italy-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Ivory Coast Flag On",
+   "set": "flags",
+   "file": "flags-country-ivory-coast-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Jamaica Flag On",
+   "set": "flags",
+   "file": "flags-country-jamaica-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Japan Flag On",
+   "set": "flags",
+   "file": "flags-country-japan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Jordan Flag On",
+   "set": "flags",
+   "file": "flags-country-jordan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Kazakhstan Flag On",
+   "set": "flags",
+   "file": "flags-country-kazakhstan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Kenia Flag On",
+   "set": "flags",
+   "file": "flags-country-kenia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Kiribati Flag On",
+   "set": "flags",
+   "file": "flags-country-kiribati-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Kuwait Flag On",
+   "set": "flags",
+   "file": "flags-country-kuwait-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Kyrgyzstan Flag On",
+   "set": "flags",
+   "file": "flags-country-kyrgyzstan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Laos Flag On",
+   "set": "flags",
+   "file": "flags-country-laos-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Latvia Flag On",
+   "set": "flags",
+   "file": "flags-country-latvia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Lebanon Flag On",
+   "set": "flags",
+   "file": "flags-country-lebanon-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Lesotho Flag On",
+   "set": "flags",
+   "file": "flags-country-lesotho-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Liberia Flag On",
+   "set": "flags",
+   "file": "flags-country-liberia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Libya Flag On",
+   "set": "flags",
+   "file": "flags-country-libya-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Liechtenstein Flag On",
+   "set": "flags",
+   "file": "flags-country-liechtenstein-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Lithuania Flag On",
+   "set": "flags",
+   "file": "flags-country-lithuania-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Luxembourg Flag On",
+   "set": "flags",
+   "file": "flags-country-luxembourg-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Madagascar Flag On",
+   "set": "flags",
+   "file": "flags-country-madagascar-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Malawi Flag On",
+   "set": "flags",
+   "file": "flags-country-malawi-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Malaysia Flag On",
+   "set": "flags",
+   "file": "flags-country-malaysia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Maldives Flag On",
+   "set": "flags",
+   "file": "flags-country-maldives-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Mali Flag On",
+   "set": "flags",
+   "file": "flags-country-mali-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Malta Flag On",
+   "set": "flags",
+   "file": "flags-country-malta-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Marshall Islands Flag On",
+   "set": "flags",
+   "file": "flags-country-marshall-islands-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Mauritania Flag On",
+   "set": "flags",
+   "file": "flags-country-mauritania-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Mauritius Flag On",
+   "set": "flags",
+   "file": "flags-country-mauritius-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Mexico Flag On",
+   "set": "flags",
+   "file": "flags-country-mexico-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Micronesia Flag On",
+   "set": "flags",
+   "file": "flags-country-micronesia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Moldova Flag On",
+   "set": "flags",
+   "file": "flags-country-moldova-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Monaco Flag On",
+   "set": "flags",
+   "file": "flags-country-monaco-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Mongolia Flag On",
+   "set": "flags",
+   "file": "flags-country-mongolia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Montenegro Flag On",
+   "set": "flags",
+   "file": "flags-country-montenegro-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Morocco Flag On",
+   "set": "flags",
+   "file": "flags-country-morocco-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Mozambique Flag On",
+   "set": "flags",
+   "file": "flags-country-mozambique-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Myanmar Flag On",
+   "set": "flags",
+   "file": "flags-country-myanmar-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Namibia Flag On",
+   "set": "flags",
+   "file": "flags-country-namibia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Nauru Flag On",
+   "set": "flags",
+   "file": "flags-country-nauru-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Nepal Flag On",
+   "set": "flags",
+   "file": "flags-country-nepal-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Netherlands Flag On",
+   "set": "flags",
+   "file": "flags-country-netherlands-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags New Zealand Flag On",
+   "set": "flags",
+   "file": "flags-country-new-zealand-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Nicaragua Flag On",
+   "set": "flags",
+   "file": "flags-country-nicaragua-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Niger Flag On",
+   "set": "flags",
+   "file": "flags-country-niger-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Nigeria Flag On",
+   "set": "flags",
+   "file": "flags-country-nigeria-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags North Korea Flag On",
+   "set": "flags",
+   "file": "flags-country-north-korea-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags North Macedonia Flag On",
+   "set": "flags",
+   "file": "flags-country-north-macedonia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Norway Flag On",
+   "set": "flags",
+   "file": "flags-country-norway-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Oman Flag On",
+   "set": "flags",
+   "file": "flags-country-oman-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Pakistan Flag On",
+   "set": "flags",
+   "file": "flags-country-pakistan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Palau Flag On",
+   "set": "flags",
+   "file": "flags-country-palau-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Palestine Flag On",
+   "set": "flags",
+   "file": "flags-country-palestine-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Panama Flag On",
+   "set": "flags",
+   "file": "flags-country-panama-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Papua New Guinea Flag On",
+   "set": "flags",
+   "file": "flags-country-papua-new-guinea-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Paraguay Flag On",
+   "set": "flags",
+   "file": "flags-country-paraguay-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Peru Flag On",
+   "set": "flags",
+   "file": "flags-country-peru-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Philippines Flag On",
+   "set": "flags",
+   "file": "flags-country-philippines-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Poland Flag On",
+   "set": "flags",
+   "file": "flags-country-poland-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Portugal Flag On",
+   "set": "flags",
+   "file": "flags-country-portugal-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Qatar Flag On",
+   "set": "flags",
+   "file": "flags-country-qatar-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Romania Flag On",
+   "set": "flags",
+   "file": "flags-country-romania-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Russian Federation Flag On",
+   "set": "flags",
+   "file": "flags-country-russian-federation-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Rwanda Flag On",
+   "set": "flags",
+   "file": "flags-country-rwanda-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Saint Lucia Flag On",
+   "set": "flags",
+   "file": "flags-country-saint-lucia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Saint Vicent and the Grenadines Flag On",
+   "set": "flags",
+   "file": "flags-country-saint-vicent-and-the-grenadines-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Samoa Flag On",
+   "set": "flags",
+   "file": "flags-country-samoa-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags San Marino Flag On",
+   "set": "flags",
+   "file": "flags-country-san-marino-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Sao Tome and Principe Flag On",
+   "set": "flags",
+   "file": "flags-country-sao-tome-and-principe-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Saudi Arabia Flag On",
+   "set": "flags",
+   "file": "flags-country-saudi-arabia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Senegal Flag On",
+   "set": "flags",
+   "file": "flags-country-senegal-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Serbia Flag On",
+   "set": "flags",
+   "file": "flags-country-serbia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Seychelles Flag On",
+   "set": "flags",
+   "file": "flags-country-seychelles-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Sierra Leone Flag On",
+   "set": "flags",
+   "file": "flags-country-sierra-leone-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Singapore Flag On",
+   "set": "flags",
+   "file": "flags-country-singapore-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Sint Maarten Flag On",
+   "set": "flags",
+   "file": "flags-country-sint-maarten-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Slovakia Flag On",
+   "set": "flags",
+   "file": "flags-country-slovakia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Slovenia Flag On",
+   "set": "flags",
+   "file": "flags-country-slovenia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Solomon Islands Flag On",
+   "set": "flags",
+   "file": "flags-country-solomon-islands-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Somalia Flag On",
+   "set": "flags",
+   "file": "flags-country-somalia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags South Africa Flag On",
+   "set": "flags",
+   "file": "flags-country-south-africa-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags South Korea Flag On",
+   "set": "flags",
+   "file": "flags-country-south-korea-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags South Sudan Flag On",
+   "set": "flags",
+   "file": "flags-country-south-sudan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Spain Flag On",
+   "set": "flags",
+   "file": "flags-country-spain-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Sri Lanka Flag On",
+   "set": "flags",
+   "file": "flags-country-sri-lanka-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Sudan Flag On",
+   "set": "flags",
+   "file": "flags-country-sudan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Suriname Flag On",
+   "set": "flags",
+   "file": "flags-country-suriname-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Sweden Flag On",
+   "set": "flags",
+   "file": "flags-country-sweden-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Switzerland Flag On",
+   "set": "flags",
+   "file": "flags-country-switzerland-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Syrian Arab Republic Flag On",
+   "set": "flags",
+   "file": "flags-country-syrian-arab-republic-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Tajikistan Flag On",
+   "set": "flags",
+   "file": "flags-country-tajikistan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Tanzania Flag On",
+   "set": "flags",
+   "file": "flags-country-tanzania-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Thailand Flag On",
+   "set": "flags",
+   "file": "flags-country-thailand-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Timor-Leste Flag On",
+   "set": "flags",
+   "file": "flags-country-timor-leste-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Togo Flag On",
+   "set": "flags",
+   "file": "flags-country-togo-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Tonga Flag On",
+   "set": "flags",
+   "file": "flags-country-tonga-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Trinidad and Tobago Flag On",
+   "set": "flags",
+   "file": "flags-country-trinidad-and-tobago-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Tunisia Flag On",
+   "set": "flags",
+   "file": "flags-country-tunisia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Turkey Flag On",
+   "set": "flags",
+   "file": "flags-country-turkey-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Turkmenistan Flag On",
+   "set": "flags",
+   "file": "flags-country-turkmenistan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Tuvalu Flag On",
+   "set": "flags",
+   "file": "flags-country-tuvalu-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Uganda Flag On",
+   "set": "flags",
+   "file": "flags-country-uganda-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Ukraine Flag On",
+   "set": "flags",
+   "file": "flags-country-ukraine-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags United Arab Emirates Flag On",
+   "set": "flags",
+   "file": "flags-country-united-arab-emirates-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags United Kingdom Flag On",
+   "set": "flags",
+   "file": "flags-country-united-kingdom-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags United States of America Flag On",
+   "set": "flags",
+   "file": "flags-country-united-states-of-america-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Uruguay Flag On",
+   "set": "flags",
+   "file": "flags-country-uruguay-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Uzbekistan Flag On",
+   "set": "flags",
+   "file": "flags-country-uzbekistan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Vanuaty Flag On",
+   "set": "flags",
+   "file": "flags-country-vanuaty-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Venezuela Flag On",
+   "set": "flags",
+   "file": "flags-country-venezuela-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Viet Nam Flag On",
+   "set": "flags",
+   "file": "flags-country-viet-nam-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Virgin Islands Flag On",
+   "set": "flags",
+   "file": "flags-country-virgin-islands-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Yemen Flag On",
+   "set": "flags",
+   "file": "flags-country-yemen-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Zambia Flag On",
+   "set": "flags",
+   "file": "flags-country-zambia-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Zimbabwe Flag On",
+   "set": "flags",
+   "file": "flags-country-zimbabwe-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Puerto Rico Flag On",
+   "set": "flags",
+   "file": "flags-country-puerto-rico-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Federation of Saint Christopher and Nevis Flag On",
+   "set": "flags",
+   "file": "flags-country-federation-of-saint-christopher-and-nevis-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Taiwan Flag On",
+   "set": "flags",
+   "file": "flags-country-taiwan-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "flags Afghanistan Taliban Flag On",
+   "set": "flags",
+   "file": "flags-country-afghanistan-taliban-flag-radius-on",
+   "w": 21.0,
+   "h": 15.0
+  },
+  {
+   "name": "social-logos linear instagram",
+   "set": "social-logos",
+   "file": "social-logos-linear-instagram",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored instagram",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-instagram",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored instagram",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-instagram",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear discord",
+   "set": "social-logos",
+   "file": "social-logos-linear-discord",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored discord",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-discord",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored discord",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-discord",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear facebook",
+   "set": "social-logos",
+   "file": "social-logos-linear-facebook",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored facebook",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-facebook",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored facebook",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-facebook",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear reddit",
+   "set": "social-logos",
+   "file": "social-logos-linear-reddit",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored reddit",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-reddit",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored reddit",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-reddit",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear pinterest",
+   "set": "social-logos",
+   "file": "social-logos-linear-pinterest",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored pinterest",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-pinterest",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored pinterest",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-pinterest",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear linkedin",
+   "set": "social-logos",
+   "file": "social-logos-linear-linkedin",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored linkedin",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-linkedin",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored linkedin",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-linkedin",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear dribble",
+   "set": "social-logos",
+   "file": "social-logos-linear-dribble",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored dribble",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-dribble",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored dribble",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-dribble",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear behance",
+   "set": "social-logos",
+   "file": "social-logos-linear-behance",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored behance",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-behance",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored behance",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-behance",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear twitter",
+   "set": "social-logos",
+   "file": "social-logos-linear-twitter",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored twitter",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-twitter",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored twitter",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-twitter",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear youtube",
+   "set": "social-logos",
+   "file": "social-logos-linear-youtube",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored youtube",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-youtube",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored youtube",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-youtube",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear Tiktok",
+   "set": "social-logos",
+   "file": "social-logos-linear-tiktok",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored Tiktok",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-tiktok",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored Tiktok",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-tiktok",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear google drive",
+   "set": "social-logos",
+   "file": "social-logos-linear-google-drive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored google drive",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-google-drive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored google drive",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-google-drive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear dropbox",
+   "set": "social-logos",
+   "file": "social-logos-linear-dropbox",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored dropbox",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-dropbox",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored dropbox",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-dropbox",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear onedrive",
+   "set": "social-logos",
+   "file": "social-logos-linear-onedrive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored onedrive",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-onedrive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored onedrive",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-onedrive",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear Unsplash",
+   "set": "social-logos",
+   "file": "social-logos-linear-unsplash",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored Unsplash",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-unsplash",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored Unsplash",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-unsplash",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear google",
+   "set": "social-logos",
+   "file": "social-logos-linear-google",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored google",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-google",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored google",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-google",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear apple",
+   "set": "social-logos",
+   "file": "social-logos-linear-apple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored apple",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-apple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored apple",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-apple",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear figma",
+   "set": "social-logos",
+   "file": "social-logos-linear-figma",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored figma",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-figma",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored figma",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-figma",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear loom",
+   "set": "social-logos",
+   "file": "social-logos-linear-loom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored loom",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-loom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored loom",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-loom",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear hubspot",
+   "set": "social-logos",
+   "file": "social-logos-linear-hubspot",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored hubspot",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-hubspot",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored hubspot",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-hubspot",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear salesforce",
+   "set": "social-logos",
+   "file": "social-logos-linear-salesforce",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos linear-colored salesforce",
+   "set": "social-logos",
+   "file": "social-logos-linear-colored-salesforce",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored salesforce",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-salesforce",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored pexels",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-pexels",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "social-logos solid-colored whatsapp",
+   "set": "social-logos",
+   "file": "social-logos-solid-colored-whatsapp",
+   "w": 24.0,
+   "h": 24.0
+  },
+  {
+   "name": "phone",
+   "set": null,
+   "file": "phone",
+   "w": 24.0,
+   "h": 24.0
+  }
+ ]
+}

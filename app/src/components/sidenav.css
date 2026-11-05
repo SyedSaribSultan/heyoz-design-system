@@ -1,0 +1,126 @@
+/* Side nav (SideNav.jsx). Every value comes from components/sidenav.json through the --sn-* variables in
+   src/styles/components.css (npm run tokens). Change the spec, not this file. This file only says which
+   part uses which variable. The inner shade and highlight are Figma effects, not tokens (D-021).
+   Hover never changes size: borders are inset. */
+.sn { --sn-shade: inset 0 -4px 10px rgba(0, 0, 0, 0.5); --sn-highlight: inset 0 4px 12px rgba(255, 255, 255, 0.08);
+  display: flex; flex-direction: column; width: var(--sn-nav-width); height: 100%; min-height: 0; flex: none;
+  background: var(--sn-nav-background); box-shadow: var(--sn-shade); color: var(--sn-item-color); }
+/* Collapse / expand is a larger move (D-031): width and every spacing change animate together at duration/slow;
+   labels fade at duration/fast; hover colours keep duration/fast. Off while a saved state is restored (data-animate). */
+.sn[data-animate], .sn[data-animate] :is(.sn-body, .sn-logo, .sn-group, .sn-title, .sn-item, .sn-brand, .sn-brand-logo, .sn-profile, .sn-profile-row, .sn-label, .sn-ext, .sn-chev, .d-search) {
+  transition: width var(--duration-slow) var(--easing-standard), height var(--duration-slow) var(--easing-standard), min-height var(--duration-slow) var(--easing-standard),
+    max-height var(--duration-slow) var(--easing-standard), padding var(--duration-slow) var(--easing-standard), margin var(--duration-slow) var(--easing-standard),
+    gap var(--duration-slow) var(--easing-standard), border-radius var(--duration-slow) var(--easing-standard), opacity var(--duration-fast) var(--easing-standard),
+    background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard), color var(--duration-fast) var(--easing-standard); }
+.sn[data-collapsed] { width: var(--sn-nav-width-collapsed); }
+.sn :where(a, button) { color: inherit; text-decoration: none; }
+/* Zero-specificity reset (like the Button), so the type class from the spec still sets the font. */
+:where(.sn-logo, .sn-item, .sn-brand) { all: unset; }
+.sn-body { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-between; gap: var(--sn-nav-gap); padding: var(--sn-nav-padding); }
+.sn[data-collapsed] .sn-body { padding: var(--sn-nav-padding) var(--sn-nav-padding-collapsed); }
+.sn-top { display: flex; flex-direction: column; gap: var(--sn-nav-gap); flex: 1 1 auto; min-height: 0; }
+/* Only the groups scroll (short screens), so the brand menu above and the footer below are never clipped.
+   Tooltips are fixed to the window, so scrolling never clips them either. */
+.sn-groups { display: flex; flex-direction: column; gap: var(--sn-nav-gap); flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+/* When the list is taller than the screen it scrolls on its own and never hands the scroll to the page
+   (overscroll contain). Its scrollbar (the global one, D-037) shows only while the pointer is over the nav. */
+/* Its 8px gutter is always kept and sits in the nav's own padding (8 collapsed, 16 open), so items never change width. */
+.sn-groups { scrollbar-gutter: stable; padding: var(--stroke-2); margin: calc(-1 * var(--stroke-2)) calc(-8px - var(--stroke-2)) calc(-1 * var(--stroke-2)) calc(-1 * var(--stroke-2)); }
+/* The list is a scroll container, so it clips anything painted outside it. It keeps stroke/2 of room on every side for
+   the focus ring (drawn outside the item) and pulls back by the same amount, so items stay exactly where they were. */
+.sn-groups::-webkit-scrollbar { width: 8px; }
+.sn-groups::-webkit-scrollbar-thumb { border-width: 2px; background-color: transparent; }
+.sn:hover .sn-groups::-webkit-scrollbar-thumb { background-color: var(--border-tertiary); }
+.sn:hover .sn-groups::-webkit-scrollbar-thumb:hover { background-color: var(--border-elevated); }
+/* Collapsed: nothing re-centres. Everything stays anchored left and the spacing animates, so every icon glides
+   on one line from its expanded place to the rail (icon centres on one vertical line). Labels fade and clip. */
+.sn[data-collapsed] .sn-label, .sn[data-collapsed] .sn-ext { opacity: 0; }
+
+/* Logo row: logomark + wordmark, close button on the right. Collapsed: the logomark opens the nav. */
+.sn-logo-row { display: flex; align-items: center; justify-content: space-between; gap: var(--sn-logo-gap); }
+.sn-logo { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--sn-logo-gap); cursor: pointer; border-radius: var(--radius-md); }
+.sn-logo img { display: block; flex: none; width: var(--sn-logo-size); height: var(--sn-logo-size); }
+.sn[data-collapsed] .sn-logo { margin-left: var(--space-2); } /* logomark centre on the rail line (8 + 2 + 16) */
+.sn-logo-open { position: relative; width: var(--sn-logo-size); height: var(--sn-logo-size); justify-content: center; }
+.sn-open-icon.lu { width: var(--sn-logo-toggle-icon); height: var(--sn-logo-toggle-icon); } /* same as the close button: Button xs → 16 */
+.sn-open-icon { position: absolute; opacity: 0; color: var(--sn-item-color); transition: opacity var(--duration-fast) var(--easing-standard); }
+.sn-logo-open:hover img, .sn-logo-open:focus-visible img { opacity: 0; }
+.sn-logo-open:hover .sn-open-icon, .sn-logo-open:focus-visible .sn-open-icon { opacity: 1; }
+.sn-tip-host { display: inline-flex; }
+
+/* Groups: title, then items */
+.sn-group { display: flex; flex-direction: column; }
+.sn[data-collapsed] .sn-group { gap: var(--sn-nav-gap); }
+.sn-title { display: block; overflow: hidden; white-space: nowrap; max-height: var(--type-label-sm-line-height); color: var(--sn-title-color); } /* matches the title type in the spec (label/sm) */
+.sn[data-collapsed] .sn-title { max-height: 0; opacity: 0; margin-bottom: calc(-1 * var(--sn-nav-gap)); } /* the hidden title gives back its gap: items stay evenly 16 apart */
+
+/* Menu item: default · hover · active (the spec's item.default / hover / active) */
+.sn-item { box-sizing: border-box; position: relative; overflow: hidden; display: flex; align-items: center; gap: var(--sn-item-gap); width: 100%; height: var(--sn-item-height); min-height: var(--sn-item-height); /* fixed height so 40 ↔ 36 animates */
+  padding: var(--sn-item-padding-y) var(--sn-item-padding-x); border-radius: var(--sn-item-radius); background: var(--sn-item-default-fill); color: var(--sn-item-color); cursor: pointer;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-item-default-border);
+  transition: background var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
+.sn-item .lu { width: var(--sn-item-icon); height: var(--sn-item-icon); }
+.sn-item:is(:hover, [data-state='hover']) { background: var(--sn-item-hover-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-item-hover-border), var(--sn-shade); }
+.sn-item[data-active] { background: var(--sn-item-active-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-item-active-border), var(--sn-shade); }
+.sn-item:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
+.sn-item .sn-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sn-item .sn-ext.lu { width: var(--sn-item-ext-icon); height: var(--sn-item-ext-icon); } /* "opens in a new tab" is a hint, one step below the item icon: 16 (vector 12) */
+.sn-ext { color: var(--sn-title-color); }
+.sn[data-collapsed] .sn-item { width: var(--sn-item-size-collapsed); height: var(--sn-item-size-collapsed); min-height: 0; padding: 0 0 0 calc((var(--sn-item-size-collapsed) - var(--sn-item-icon)) / 2); gap: 0; } /* icon anchored left, never centred: the width animates, so centring slides the icon in from the right */
+/* Labels stay in the DOM with zero width (never display:none), so opening fades them in exactly like closing fades them out. */
+.sn[data-collapsed] .sn-item > :not(:first-child) { flex: 0 0 0; width: 0; min-width: 0; overflow: hidden; opacity: 0; }
+
+/* Brand picker: default · hover; the chevron doubles on hover */
+.sn-brand { box-sizing: border-box; overflow: hidden; display: flex; align-items: center; gap: var(--sn-brand-gap); width: 100%; height: var(--sn-brand-height);
+  padding: var(--sn-brand-padding) var(--sn-brand-padding-right) var(--sn-brand-padding) var(--sn-brand-padding);
+  border-radius: var(--sn-brand-radius); background: var(--sn-brand-default-fill); color: var(--sn-item-color); cursor: pointer;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-brand-default-border), var(--sn-shade); transition: background var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
+.sn-brand:is(:hover, [data-state='hover']) { background: var(--sn-brand-hover-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-brand-hover-border), var(--sn-shade); }
+.sn-brand:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
+.sn-brand .sn-label { flex: 1; min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sn-brand-logo { position: relative; flex: none; width: var(--sn-brand-logo); height: var(--sn-brand-logo); border-radius: var(--sn-brand-logo-radius); overflow: hidden; }
+.sn-brand-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sn-brand-logo::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: var(--sn-shade); }
+.sn-chev { color: var(--sn-brand-chevron); } /* chevron → double chevron: the motion-swap pattern (D-031) */
+.sn-brand[data-collapsed] { width: var(--sn-brand-size-collapsed); height: var(--sn-brand-size-collapsed); padding: var(--sn-brand-padding); border-radius: var(--sn-brand-radius-collapsed); gap: 0; }
+.sn-brand[data-collapsed] .sn-brand-logo { width: var(--sn-brand-logo-collapsed); height: var(--sn-brand-logo-collapsed); border-radius: var(--sn-brand-logo-radius-collapsed); }
+.sn-brand[data-collapsed] .sn-label, .sn-brand[data-collapsed] .sn-chev { opacity: 0; }
+
+/* Community card */
+.sn-community { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sn-community-gap); padding: var(--sn-community-padding); border-radius: var(--sn-community-radius);
+  background: var(--sn-community-background); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-community-border), var(--sn-highlight); }
+.sn-community-copy { display: flex; flex-direction: column; gap: var(--sn-community-copy-gap); }
+.sn-plan { color: var(--sn-profile-muted); }
+.sn-community .sn-plan { color: var(--sn-community-muted); }
+
+/* Profile */
+.sn-profile { padding: var(--sn-profile-padding); box-shadow: inset 0 var(--stroke-1) 0 var(--sn-profile-border); }
+.sn[data-collapsed] .sn-profile { padding: var(--sn-profile-padding) var(--sn-nav-padding-collapsed); }
+.sn-profile-row { overflow: hidden; display: flex; align-items: center; gap: var(--sn-profile-gap); padding: var(--sn-profile-row-padding); border-radius: var(--sn-profile-radius); }
+/* avatar centre on the rail line: 8 + 2 + 16 = 26, like the icons (8 + 8 + 10) */
+.sn[data-collapsed] .sn-profile-row { padding: var(--sn-profile-row-padding) 0 var(--sn-profile-row-padding) var(--space-2); }
+.sn-avatar { width: var(--sn-profile-avatar); height: var(--sn-profile-avatar); flex: none; border-radius: var(--radius-full); object-fit: cover; box-shadow: 0 0 0 var(--stroke-1) var(--sn-profile-avatar-border); }
+.sn-who { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.sn-who > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Tooltips: fixed to the window (SideNav places them via --tip-x / --tip-y). A pseudo-element can't take a
+   type class, so its font reads the label/lg variables named by the spec (tooltip.type). */
+.sn [data-tip] { position: relative; }
+.sn [data-tip]::before { content: attr(data-tip); opacity: 0; visibility: hidden; transition: opacity var(--duration-fast) var(--easing-standard), visibility 0s linear var(--duration-fast); }
+.sn [data-tip]:hover::before, .sn [data-tip]:focus-visible::before { opacity: 1; visibility: visible; transition: opacity var(--duration-fast) var(--easing-standard); }
+.sn [data-tip]::before { position: fixed; z-index: 1200; top: var(--tip-y, 50%); left: var(--tip-x, 100%); transform: translateY(-50%);
+  padding: var(--sn-tooltip-padding-y) var(--sn-tooltip-padding-x); border-radius: var(--sn-tooltip-radius); white-space: nowrap; pointer-events: none;
+  background: var(--sn-tooltip-background); color: var(--sn-item-color); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-tooltip-border), var(--sn-shade);
+  font: var(--font-weight-medium) var(--type-label-lg-size) / var(--type-label-lg-line-height) var(--font-label); letter-spacing: var(--type-label-lg-tracking); }
+/* Placement never depends on hover (only visibility does), so a tooltip fades out where it was shown. */
+.sn-tip-host[data-tip]::before { transform: translateX(-100%); }
+@media (hover: none) { .sn [data-tip]::before { display: none; } }
+
+/* Active highlight (D-032): one surface that slides to the active item, across groups. It carries the active
+   look; the active item itself paints none. Items sit on it transparently (their default fill/primary equals the
+   nav's surface/primary, so nothing changes at rest). While the nav resizes it follows its item exactly. */
+.sn-groups { position: relative; }
+.sn-groups > .sn-ind { border-radius: var(--sn-item-radius); background: var(--sn-item-active-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-item-active-border), var(--sn-shade); }
+.sn-groups[data-indicator-ready] .sn-item:not(:hover, [data-state='hover']) { background: transparent; }
+.sn-groups[data-indicator-ready] .sn-item[data-active] { background: transparent; box-shadow: none; }
+.sn[data-resizing] .sn-groups > .sn-ind { transition: none; }

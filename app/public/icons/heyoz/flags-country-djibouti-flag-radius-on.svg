@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="293 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip61_25_14">
+<rect x="293" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Djibouti, Style=Flag, Radius=On">
+<g clip-path="url(#clip61_25_14)">
+<rect x="293" y="2137" width="21" height="15" rx="3" fill="#09AF27" />
+<path id="Vector_500" fill-rule="evenodd" clip-rule="evenodd" d="M293 2137H314V2145H293V2137Z" fill="#6AB3E8" />
+<path id="Vector_501" fill-rule="evenodd" clip-rule="evenodd" d="M293 2137L305 2144.5L293 2152V2137Z" fill="#F4F5F5" />
+<path id="Vector_502" fill-rule="evenodd" clip-rule="evenodd" d="M297.5 2145.75L296.03 2146.52L296.31 2144.89L295.122 2143.73L296.765 2143.49L297.5 2142L298.235 2143.49L299.878 2143.73L298.688 2144.89L298.968 2146.52" fill="#D80C13" />
+</g>
+</g>
+</svg>

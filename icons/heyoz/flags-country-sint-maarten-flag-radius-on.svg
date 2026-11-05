@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1072 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip143_25_14">
+<rect x="1072" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Sint Maarten, Style=Flag, Radius=On">
+<g clip-path="url(#clip143_25_14)">
+<rect x="1072" y="2207" width="21" height="15" rx="3" fill="#103A8A" />
+<path id="top" d="M1093 2207H1072V2214H1093V2207Z" fill="#BB0404" />
+<path id="left" fill-rule="evenodd" clip-rule="evenodd" d="M1072 2207L1082 2214.5L1072 2222V2207Z" fill="#F4F5F5" />
+<path id="symbol_3" d="M1076 2217C1076.55 2217 1077 2216.1 1077 2215C1077 2213.9 1076.55 2213 1076 2213C1075.45 2213 1075 2213.9 1075 2215C1075 2216.1 1075.45 2217 1076 2217Z" fill="#3ECBF8" />
+<path id="symbol_4" fill-rule="evenodd" clip-rule="evenodd" d="M1075 2214V2216H1076H1077V2214L1078 2216L1077 2217H1075L1074 2216L1075 2214Z" fill="#FFDA2C" />
+<path id="symbol_5" fill-rule="evenodd" clip-rule="evenodd" d="M1073 2212H1075L1076 2213L1077 2212H1079L1077 2213H1075L1073 2212Z" fill="#AE6A3E" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="390 762 24 24" fill="none"><defs><radialGradient xmlns="http://www.w3.org/2000/svg" id="paint14_radial_25_14" cx="0" cy="0" r="1" gradientTransform="matrix(-5.60665 9.27106 -12.854 -7.59405 407.12 772.763)" gradientUnits="userSpaceOnUse">
+<stop offset="0.095" stop-color="#FFF959" />
+<stop offset="0.326" stop-color="#0DF35E" />
+<stop offset="0.64" stop-color="#0BF2F9" />
+<stop offset="1" stop-color="#04A6F0" />
+</radialGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint13_radial_25_14" cx="0" cy="0" r="1" gradientTransform="matrix(5.60665 -9.27106 12.854 7.59404 396.879 775.234)" gradientUnits="userSpaceOnUse">
+<stop offset="0.095" stop-color="#FFF959" />
+<stop offset="0.326" stop-color="#0DF35E" />
+<stop offset="0.64" stop-color="#0BF2F9" />
+<stop offset="1" stop-color="#04A6F0" />
+</radialGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint16_linear_25_14" x1="399.319" y1="781.538" x2="397.496" y2="775.55" gradientUnits="userSpaceOnUse">
+<stop stop-color="#003EFF" />
+<stop offset="1" stop-color="#0BFFE7" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint15_linear_25_14" x1="404.677" y1="766.463" x2="406.5" y2="772.45" gradientUnits="userSpaceOnUse">
+<stop stop-color="#003EFF" />
+<stop offset="1" stop-color="#0BFFE7" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="company=kling, type=colored">
+<g id="Vector_45">
+<path d="M397.058 775.337C397.439 774.187 397.941 773.081 398.556 772.035C400.933 767.965 404.401 765.546 406.301 766.63C402.026 764.19 396.448 765.828 393.842 770.289C393.531 770.822 393.27 771.381 393.064 771.961C392.87 772.509 393.133 773.098 393.641 773.388L397.058 775.337Z" fill="url(#paint13_radial_25_14)" />
+<path d="M406.942 772.661C406.561 773.81 406.059 774.917 405.443 775.962C403.066 780.032 399.599 782.453 397.698 781.368C401.974 783.808 407.552 782.17 410.158 777.708C410.469 777.176 410.73 776.617 410.936 776.037C411.13 775.49 410.867 774.9 410.359 774.611L406.942 772.661Z" fill="url(#paint14_radial_25_14)" />
+<path d="M405.436 775.965C407.813 771.895 408.2 767.717 406.298 766.632C404.399 765.548 400.931 767.969 398.553 772.037C400.108 769.377 402.909 768.099 404.809 769.183C406.709 770.268 406.99 773.303 405.435 775.964L405.436 775.965Z" fill="url(#paint15_linear_25_14)" />
+<path d="M398.561 772.035C396.184 776.105 395.796 780.283 397.698 781.368C399.599 782.453 403.066 780.032 405.443 775.962C403.888 778.623 401.088 779.902 399.188 778.817C397.288 777.733 397.007 774.697 398.561 772.036L398.561 772.035Z" fill="url(#paint16_linear_25_14)" />
+</g>
+</g>
+</svg>

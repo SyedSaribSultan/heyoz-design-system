@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="375 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip164_25_14">
+<rect x="375" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=United Kingdom, Style=Flag, Radius=On">
+<g clip-path="url(#clip164_25_14)">
+<rect x="375" y="2242" width="21" height="15" rx="3" fill="#001B69" />
+<path id="Vector_956" fill-rule="evenodd" clip-rule="evenodd" d="M377.234 2242H375V2244.5L393.754 2257L396 2257V2254.5L377.234 2242Z" fill="#F4F5F5" />
+<path id="Vector_957" d="M375.745 2242L396 2255.54V2257H395.272L375 2243.45V2242H375.745Z" fill="#C9072A" />
+<path id="Vector_958" fill-rule="evenodd" clip-rule="evenodd" d="M394 2242H396V2244.5C396 2244.5 383.01 2252.83 377 2257H375V2254.5L394 2242Z" fill="#F4F5F5" />
+<path id="Vector_959" d="M396 2242H395.322L375 2255.55V2257H375.745L396 2243.46V2242Z" fill="#C9072A" />
+<path id="Vector_960" fill-rule="evenodd" clip-rule="evenodd" d="M382.637 2242H388.38V2246.63H396V2252.37H388.38V2257H382.637V2252.37H375V2246.63H382.637V2242Z" fill="#F4F5F5" />
+<path id="Vector_961" fill-rule="evenodd" clip-rule="evenodd" d="M383.842 2242H387.158V2247.77H396V2251.23H387.158V2257H383.842V2251.23H375V2247.77H383.842V2242Z" fill="#C9072A" />
+</g>
+</g>
+</svg>

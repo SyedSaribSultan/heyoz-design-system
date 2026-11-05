@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1968 1074 24 24" fill="none"><defs><filter xmlns="http://www.w3.org/2000/svg" id="filter23_f_25_14" x="1917.36" y="1024.73" width="125.283" height="128.95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="28.8" result="effect1_foregroundBlur_25_14" />
+</filter>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint83_linear_25_14" x1="1980" y1="1080.87" x2="1980" y2="1091.37" gradientUnits="userSpaceOnUse">
+<stop offset="0.11" stop-color="#FFB8DD" stop-opacity="0" />
+<stop offset="0.68" stop-color="#FFB5E8" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint81_linear_25_14" x1="1977.23" y1="1091.96" x2="1986.97" y2="1075.92" gradientUnits="userSpaceOnUse">
+<stop offset="0.1" stop-color="#FFE921" />
+<stop offset="0.48" stop-color="#FDD313" />
+<stop offset="0.86" stop-color="#FFBE00" />
+</linearGradient>
+<filter xmlns="http://www.w3.org/2000/svg" id="filter24_f_25_14" x="1964.33" y="1071.02" width="31.3334" height="37.2916" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="6" result="effect1_foregroundBlur_25_14" />
+</filter>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint82_linear_25_14" x1="1980" y1="1091.05" x2="1980" y2="1075.92" gradientUnits="userSpaceOnUse">
+<stop offset="0.16" stop-color="#FFE921" />
+<stop offset="0.64" stop-color="#FEC700" />
+<stop offset="0.96" stop-color="#FFBE00" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=keep v2">
+<g id="google-keep-2026 1">
+<g id="Mask group_13">
+<mask id="mask25_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1971" y="1075" width="18" height="17">
+<g id="Group_34">
+<path id="Vector_148" d="M1988.02 1083.94C1988.02 1087.05 1986.25 1089.71 1983.67 1091.04C1982.57 1091.61 1981.32 1091.96 1980 1091.96C1978.68 1091.96 1977.43 1091.61 1976.33 1091.04C1973.75 1089.71 1971.98 1087.05 1971.98 1083.94C1971.98 1079.51 1975.57 1075.92 1980 1075.92C1984.43 1075.92 1988.02 1079.51 1988.02 1083.94Z" fill="url(#paint81_linear_25_14)" />
+</g>
+</mask>
+<g mask="url(#mask25_25_14)">
+<g id="Group_35">
+<path id="Vector_149" d="M1980 1091.96C1984.43 1091.96 1988.02 1088.37 1988.02 1083.94C1988.02 1079.51 1984.43 1075.92 1980 1075.92C1975.57 1075.92 1971.98 1079.51 1971.98 1083.94C1971.98 1088.37 1975.57 1091.96 1980 1091.96Z" fill="url(#paint82_linear_25_14)" />
+<g id="Group_36" filter="url(#filter23_f_25_14)">
+<path id="Vector_150" d="M1974.96 1089.21C1974.96 1084.84 1976.66 1082.33 1980 1082.33C1983.34 1082.33 1985.04 1084.84 1985.04 1089.21C1985.04 1093.01 1982.78 1096.08 1980 1096.08C1977.22 1096.08 1974.96 1093.01 1974.96 1089.21Z" fill="#FDFD6D" />
+</g>
+<g id="Group_37" filter="url(#filter24_f_25_14)">
+<path id="Vector_151" d="M1976.33 1086.69C1976.33 1084.66 1977.97 1083.02 1980 1083.02C1982.02 1083.02 1983.67 1084.66 1983.67 1086.69V1092.65C1983.67 1094.67 1982.02 1096.31 1980 1096.31C1977.97 1096.31 1976.33 1094.67 1976.33 1092.65V1086.69Z" fill="url(#paint83_linear_25_14)" />
+</g>
+<path id="Vector_152" d="M1977.94 1089.55C1977.94 1088.73 1978.6 1088.06 1979.43 1088.06H1980.57C1981.4 1088.06 1982.06 1088.73 1982.06 1089.55C1982.06 1090.37 1981.4 1091.04 1980.57 1091.04H1979.43C1978.6 1091.04 1977.94 1090.37 1977.94 1089.55Z" fill="white" />
+</g>
+</g>
+</g>
+<g id="Mask group_14">
+<mask id="mask26_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1975" y="1091" width="10" height="6">
+<g id="Group_38">
+<path id="Vector_153" d="M1975.42 1091.04H1984.58V1096.31H1975.42V1091.04Z" fill="#FFBE00" />
+</g>
+</mask>
+<g mask="url(#mask26_25_14)">
+<g id="Group_39">
+<path id="Vector_154" d="M1980 1081.42C1977.89 1081.42 1976.33 1083.07 1976.33 1085.27V1092.46C1976.33 1094.66 1977.89 1096.31 1980 1096.31C1982.11 1096.31 1983.67 1094.66 1983.67 1092.46V1085.27C1983.67 1083.07 1982.11 1081.42 1980 1081.42Z" fill="#F6A100" />
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

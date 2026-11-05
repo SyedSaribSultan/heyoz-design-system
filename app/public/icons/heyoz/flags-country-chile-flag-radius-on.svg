@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1646 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip51_25_14">
+<rect x="1646" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Chile, Style=Flag, Radius=On">
+<g clip-path="url(#clip51_25_14)">
+<rect x="1646" y="2102" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_464" d="M1665 2102H1648C1646.9 2102 1646 2102.9 1646 2104V2115C1646 2116.1 1646.9 2117 1648 2117H1665C1666.1 2117 1667 2116.1 1667 2115V2104C1667 2102.9 1666.1 2102 1665 2102Z" fill="white" />
+<path id="Vector_465" fill-rule="evenodd" clip-rule="evenodd" d="M1646 2110H1667V2117H1646V2110Z" fill="#DA291C" />
+<path id="Vector_466" fill-rule="evenodd" clip-rule="evenodd" d="M1646 2102H1655V2110H1646V2102Z" fill="#0032A0" />
+<path id="Vector_467" fill-rule="evenodd" clip-rule="evenodd" d="M1650.5 2107.23L1649.03 2108L1649.31 2106.36L1648.12 2105.2L1649.76 2104.97L1650.5 2103.48L1651.23 2104.97L1652.88 2105.21L1651.69 2106.36L1651.97 2108" fill="white" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,71 @@
+/* Button. Types (brand … brand-ghost) only swap the --btn-{state}-* colours; the inner shade follows the fill, state by state. Every colour and size comes from components/button.json through the variables Button.jsx
+   sets (--btn-*). This file only says which state uses which variable. The inner shade is a Figma
+   effect, not a token (D-021). */
+:where(.btn) { all: unset; } /* zero specificity, so the type-* class sets the font */
+.btn {
+  box-sizing: border-box; position: relative; flex: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--btn-gap);
+  height: var(--btn-h); padding: 0 var(--btn-px); border-radius: var(--btn-r);
+  white-space: nowrap; cursor: pointer;
+  --btn-fill: var(--btn-rest-fill); --btn-border: var(--btn-rest-border);
+  --btn-label: var(--btn-rest-label); --btn-icon-colour: var(--btn-rest-icon);
+  --btn-shade-on: inset 0 -4px 10px rgba(0, 0, 0, 0.5); /* Figma: inner shadow 0 / −4 / blur 10 / spread 0 / #000 50% */
+  --btn-shade: var(--btn-rest-shade, var(--btn-shade-on));
+  background: var(--btn-fill); color: var(--btn-label);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--btn-border), var(--btn-shade);
+  transition: background var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard), color var(--duration-fast) var(--easing-standard);
+}
+.btn[data-icon-only] { width: var(--btn-h); padding: 0; }
+.btn[data-block] { width: 100%; min-width: 0; }
+.btn[data-block] .btn-label { overflow: hidden; text-overflow: ellipsis; }
+.btn-icon { width: var(--btn-icon); height: var(--btn-icon); flex: none; background: var(--btn-icon-colour);
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+  transition: background var(--duration-fast) var(--easing-standard); }
+
+.btn:is(:hover, [data-state='hover']):not(:disabled) {
+  --btn-fill: var(--btn-hover-fill); --btn-border: var(--btn-hover-border); --btn-label: var(--btn-hover-label); --btn-icon-colour: var(--btn-hover-icon); --btn-shade: var(--btn-hover-shade, var(--btn-shade-on)); }
+.btn:is(:active, [data-state='active']):not(:disabled) {
+  --btn-fill: var(--btn-pressed-fill); --btn-border: var(--btn-pressed-border); --btn-label: var(--btn-pressed-label); --btn-icon-colour: var(--btn-pressed-icon); --btn-shade: var(--btn-pressed-shade, var(--btn-shade-on)); }
+.btn:disabled { cursor: default;
+  --btn-fill: var(--btn-disabled-fill); --btn-border: var(--btn-disabled-border); --btn-label: var(--btn-disabled-label); --btn-icon-colour: var(--btn-disabled-icon); --btn-shade: var(--btn-disabled-shade, var(--btn-shade-on)); }
+
+/* Focus: a ring outside the border */
+.btn:focus-visible { box-shadow: inset 0 0 0 var(--stroke-1) var(--btn-border), var(--btn-shade), 0 0 0 var(--stroke-2) var(--border-focus); }
+
+/* Loading = disabled + spinner in place of the trailing icon */
+/* The spinner is an icon too: it sits in an icon frame and follows the icon grid (key square, grid stroke). */
+.btn-spinner { position: relative; width: var(--btn-icon); height: var(--btn-icon); flex: none; }
+.btn-spinner::before { content: ''; position: absolute; inset: calc(var(--btn-icon) * (1 - var(--size-icon-grid-square)) / 2); box-sizing: border-box;
+  border-radius: var(--radius-full); border: calc(var(--btn-icon) * var(--size-icon-grid-stroke)) solid var(--btn-icon-colour);
+  border-top-color: transparent; animation: btn-spin 0.8s linear infinite; }
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .btn-spinner::before { animation-duration: 2.4s; } }
+
+/* Link: no frame. Colour per state from --btn-{state}-label (Button.jsx). */
+:where(.btn-link) { all: unset; }
+.btn-link { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--btn-gap); cursor: pointer; white-space: nowrap;
+  --btn-label: var(--btn-rest-label); --btn-icon-colour: var(--btn-rest-icon); color: var(--btn-label);
+  transition: color var(--duration-fast) var(--easing-standard); border-radius: var(--radius-xs); }
+.btn-link:is(:hover, [data-state='hover']):not(:disabled, [aria-disabled]) { --btn-label: var(--btn-hover-label); --btn-icon-colour: var(--btn-hover-icon); }
+.btn-link:is(:active, [data-state='active']):not(:disabled, [aria-disabled]) { --btn-label: var(--btn-pressed-label); --btn-icon-colour: var(--btn-pressed-icon); }
+.btn-link:is(:disabled, [aria-disabled]) { cursor: default; --btn-label: var(--btn-disabled-label); --btn-icon-colour: var(--btn-disabled-icon); }
+.btn-link:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
+
+/* Segmented control (Segmented.jsx), kept here so it ships with the button CSS. */
+/* Segmented control frame. The options are Buttons (Segmented.jsx). Radius: the button's squircle
+   radius (xs: 12) + the frame padding, so inner and outer corners are parallel. */
+.seg { display: grid; gap: var(--space-4); padding: var(--space-4); background: var(--surface-primary);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary), inset 0 -4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: calc(var(--btn-r) + var(--space-4)); } /* nesting: its buttons' radius (--btn-r for data-size, components.css) + padding 4 */ /* inner shade: Figma effect (D-021) */ /* xs button radius 12 + padding 4 */
+
+/* Segmented indicator (D-032): a tertiary Button surface that slides behind the chosen option. Until it is
+   placed, the chosen option keeps its own tertiary fill, so the first paint is right without JavaScript. */
+.seg > .btn.seg-thumb { position: absolute; padding: 0; height: var(--ind-h, 0); width: var(--ind-w, 0); }
+.seg[data-indicator-ready] > .btn[aria-checked='true'] { background: transparent; box-shadow: none; }
+.seg[data-indicator-ready] > .btn[aria-checked='true']:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
+/* Hover / press on the chosen option style the indicator, as they would the button, but only once it has
+   landed: while it travels it keeps the plain selected look (D-032). */
+.seg:not([data-indicator-moving]):has(> .btn[aria-checked='true']:hover:not(:disabled)) > .seg-thumb {
+  --btn-fill: var(--btn-hover-fill); --btn-border: var(--btn-hover-border); --btn-shade: var(--btn-hover-shade, var(--btn-shade-on)); }
+.seg:not([data-indicator-moving]):has(> .btn[aria-checked='true']:active:not(:disabled)) > .seg-thumb {
+  --btn-fill: var(--btn-pressed-fill); --btn-border: var(--btn-pressed-border); --btn-shade: var(--btn-pressed-shade, var(--btn-shade-on)); }

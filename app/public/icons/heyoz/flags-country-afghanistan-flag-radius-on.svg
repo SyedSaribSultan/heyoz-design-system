@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="170 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip19_25_14">
+<rect x="170" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Afghanistan, Style=Flag, Radius=On">
+<g clip-path="url(#clip19_25_14)">
+<path id="Vector_333" d="M189 2102H172C170.895 2102 170 2102.9 170 2104V2115C170 2116.1 170.895 2117 172 2117H189C190.105 2117 191 2116.1 191 2115V2104C191 2102.9 190.105 2102 189 2102Z" fill="#C10000" />
+<path id="Vector_334" fill-rule="evenodd" clip-rule="evenodd" d="M180.5 2112C181.88 2112 183 2110.88 183 2109.5C183 2108.12 181.88 2107 180.5 2107C179.12 2107 178 2108.12 178 2109.5C178 2110.88 179.12 2112 180.5 2112ZM180.5 2111C181.328 2111 182 2110.11 182 2109C182 2107.89 181.328 2107 180.5 2107C179.672 2107 179 2107.89 179 2109C179 2110.11 179.672 2111 180.5 2111ZM180.5 2110C180.776 2110 181 2109.55 181 2109C181 2108.45 180.776 2108 180.5 2108C180.224 2108 180 2108.45 180 2109C180 2109.55 180.224 2110 180.5 2110Z" fill="#F4F5F5" />
+<path id="Vector_335" fill-rule="evenodd" clip-rule="evenodd" d="M184 2102H191V2117H184V2102Z" fill="#007D2C" />
+<path id="Vector_336" fill-rule="evenodd" clip-rule="evenodd" d="M170 2102H177V2117H170V2102Z" fill="#151515" />
+</g>
+</g>
+</svg>

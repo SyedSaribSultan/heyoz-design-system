@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1687 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip52_25_14">
+<rect x="1687" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=China, Style=Flag, Radius=On">
+<g clip-path="url(#clip52_25_14)">
+<rect x="1687" y="2102" width="21" height="15" rx="3" fill="#EF1520" />
+<path id="Vector_468" d="M1706 2102H1689C1687.9 2102 1687 2102.9 1687 2104V2115C1687 2116.1 1687.9 2117 1689 2117H1706C1707.1 2117 1708 2116.1 1708 2115V2104C1708 2102.9 1707.1 2102 1706 2102Z" fill="#EF1520" />
+<path id="Vector_469" fill-rule="evenodd" clip-rule="evenodd" d="M1692.5 2109.23L1691.03 2110L1691.31 2108.37L1690.12 2107.21L1691.76 2106.97L1692.5 2105.48L1693.23 2106.97L1694.88 2107.21L1693.69 2108.37L1693.97 2110L1692.5 2109.23ZM1696 2105H1697V2106H1696V2105ZM1697 2107H1698V2108H1697V2107ZM1697 2109H1698V2110H1697V2109ZM1696 2111H1697V2112H1696V2111Z" fill="#FFFF00" />
+</g>
+</g>
+</svg>

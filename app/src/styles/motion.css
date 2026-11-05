@@ -1,0 +1,48 @@
+/* Motion foundation (D-031): every visual change animates. Values are the motion tokens only
+   (tokens/motion.json). Zero specificity, so a component can always set its own transition.
+
+   State change   colour, fill, border, shadow, glow, opacity      duration/fast · easing/standard
+   Icon swap      crossfade + 4px slide (brand chevron, 693:3294)   duration/base · easing/standard
+   Popup enter    fade + 4px drop + scale from 0.98                  duration/base · easing/enter
+   Popup leave    fade                                               duration/fast · easing/exit
+   Larger moves   drawers, panels, side nav width                    duration/slow · easing/standard
+   The light fades with light/cursor/fade (duration/base). Reduced motion: fades stay, movement goes. */
+:where(*, *::before, *::after) {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, box-shadow, opacity, filter;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--easing-standard);
+}
+
+/* Icon swap: put both icons in .motion-swap; the one with .motion-swap-in shows on hover / [data-on]. */
+.motion-swap { position: relative; display: inline-grid; }
+.motion-swap > * { grid-area: 1 / 1; transition: opacity var(--duration-base) var(--easing-standard), transform var(--duration-base) var(--easing-standard); }
+.motion-swap > .motion-swap-in { opacity: 0; transform: translateX(-4px); }
+:is(:hover, [data-state='hover'], [data-on]) > .motion-swap > :not(.motion-swap-in),
+:is(:hover, [data-state='hover'], [data-on]) > * > .motion-swap > :not(.motion-swap-in) { opacity: 0; transform: translateX(4px); }
+:is(:hover, [data-state='hover'], [data-on]) > .motion-swap > .motion-swap-in,
+:is(:hover, [data-state='hover'], [data-on]) > * > .motion-swap > .motion-swap-in { opacity: 1; transform: none; }
+
+/* Popups: .motion-pop on the popup's surface; add [data-leaving] while it leaves (see usePresence). */
+@keyframes motion-pop-in { from { opacity: 0; transform: translateY(var(--motion-pop-from, -4px)) scale(0.98); } }
+@keyframes motion-pop-out { to { opacity: 0; } }
+@keyframes motion-fade-in { from { opacity: 0; } }
+.motion-pop { animation: motion-pop-in var(--duration-base) var(--easing-enter) both; transform-origin: var(--motion-pop-origin, top center); }
+.motion-pop[data-leaving] { animation: motion-pop-out var(--duration-fast) var(--easing-exit) both; pointer-events: none; }
+.motion-fade { animation: motion-fade-in var(--duration-base) var(--easing-enter) both; }
+.motion-fade[data-leaving] { animation: motion-pop-out var(--duration-fast) var(--easing-exit) both; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-swap > *, :is(:hover, [data-state='hover'], [data-on]) .motion-swap > * { transform: none !important; }
+  @keyframes motion-pop-in { from { opacity: 0; } }
+}
+
+/* D-032 · Selection moves, it doesn't jump. One indicator per group carries the selected look and slides
+   to the new item: position and size together, duration/base · easing/standard (useIndicator.js).
+   The group is positioned; the indicator is its first child, so the items paint above it. */
+.motion-indicator { position: absolute; left: 0; top: 0; z-index: 0; pointer-events: none;
+  width: var(--ind-w, 0); height: var(--ind-h, 0); transform: translate(var(--ind-x, 0), var(--ind-y, 0)); }
+[data-indicator-ready] > .motion-indicator { transition: transform var(--duration-base) var(--easing-standard), width var(--duration-base) var(--easing-standard),
+  height var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
+@media (prefers-reduced-motion: reduce) {
+  [data-indicator-ready] > .motion-indicator { transition: opacity var(--duration-fast) var(--easing-standard); }
+}

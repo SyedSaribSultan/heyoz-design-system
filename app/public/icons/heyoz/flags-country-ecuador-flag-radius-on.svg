@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="416 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip64_25_14">
+<rect x="416" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Ecuador, Style=Flag, Radius=On">
+<g clip-path="url(#clip64_25_14)">
+<path id="Vector_509" d="M435 2137H418C416.895 2137 416 2137.9 416 2139V2150C416 2151.1 416.895 2152 418 2152H435C436.105 2152 437 2151.1 437 2150V2139C437 2137.9 436.105 2137 435 2137Z" fill="#004DA3" />
+<path id="Vector_510" fill-rule="evenodd" clip-rule="evenodd" d="M416 2148H437V2152H416V2148Z" fill="#EE151F" />
+<path id="Vector_511" fill-rule="evenodd" clip-rule="evenodd" d="M416 2137H437V2145H416V2137Z" fill="#FFDE00" />
+<path id="Vector_512" d="M426.5 2147C427.328 2147 428 2146.1 428 2145C428 2143.9 427.328 2143 426.5 2143C425.672 2143 425 2143.9 425 2145C425 2146.1 425.672 2147 426.5 2147Z" fill="#3ECBF8" />
+<path id="Vector_513" fill-rule="evenodd" clip-rule="evenodd" d="M424 2144V2146L426 2147H427L429 2146V2144L430 2146L429 2147L427 2148H426L424 2147L423 2146L424 2144Z" fill="#FFDE00" />
+<path id="Vector_514" fill-rule="evenodd" clip-rule="evenodd" d="M422 2141H425L426.5 2142L428 2141H431L428 2142L427 2143H426L425 2142L422 2141Z" fill="#151515" />
+</g>
+</g>
+</svg>

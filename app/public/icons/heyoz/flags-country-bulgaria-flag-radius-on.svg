@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1277 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip43_25_14">
+<rect x="1277" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Bulgaria, Style=Flag, Radius=On">
+<g clip-path="url(#clip43_25_14)">
+<path id="Vector_433" d="M1296 2102H1279C1277.9 2102 1277 2102.9 1277 2104V2115C1277 2116.1 1277.9 2117 1279 2117H1296C1297.1 2117 1298 2116.1 1298 2115V2104C1298 2102.9 1297.1 2102 1296 2102Z" fill="#00976E" />
+<path id="Vector_434" fill-rule="evenodd" clip-rule="evenodd" d="M1277 2112H1298V2117H1277V2112Z" fill="#D7210A" />
+<path id="Vector_435" fill-rule="evenodd" clip-rule="evenodd" d="M1277 2102H1298V2107H1277V2102Z" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

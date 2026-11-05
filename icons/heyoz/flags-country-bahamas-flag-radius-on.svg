@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="662 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip31_25_14">
+<rect x="662" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Bahamas, Style=Flag, Radius=On">
+<g clip-path="url(#clip31_25_14)">
+<path id="Vector_376" d="M681 2102H664C662.895 2102 662 2102.9 662 2104V2115C662 2116.1 662.895 2117 664 2117H681C682.105 2117 683 2116.1 683 2115V2104C683 2102.9 682.105 2102 681 2102Z" fill="#FFC828" />
+<path id="Vector_377" fill-rule="evenodd" clip-rule="evenodd" d="M662 2112H683V2117H662V2112ZM662 2102H683V2107H662V2102Z" fill="#00778B" />
+<path id="Vector_378" fill-rule="evenodd" clip-rule="evenodd" d="M662 2102V2117.03L673 2109.5L662 2102Z" fill="#151515" />
+</g>
+</g>
+</svg>

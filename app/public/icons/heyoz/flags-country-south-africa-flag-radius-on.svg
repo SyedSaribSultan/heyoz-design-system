@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1277 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip147_25_14">
+<rect x="1277" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=South Africa, Style=Flag, Radius=On">
+<g clip-path="url(#clip147_25_14)">
+<rect x="1277" y="2207" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_872" d="M1296 2207H1279C1277.9 2207 1277 2207.9 1277 2209V2220C1277 2221.1 1277.9 2222 1279 2222H1296C1297.1 2222 1298 2221.1 1298 2220V2209C1298 2207.9 1297.1 2207 1296 2207Z" fill="white" />
+<path id="Vector_873" fill-rule="evenodd" clip-rule="evenodd" d="M1277 2217H1298V2222H1277V2217Z" fill="#000C8A" />
+<path id="Vector_874" fill-rule="evenodd" clip-rule="evenodd" d="M1277 2207H1298V2212H1277V2207Z" fill="#E1392D" />
+<path id="Vector_875" fill-rule="evenodd" clip-rule="evenodd" d="M1285.01 2217L1279 2222.03H1277V2207H1279L1285 2212H1298V2217H1285.01Z" fill="white" />
+<path id="Vector_876" fill-rule="evenodd" clip-rule="evenodd" d="M1284.7 2216L1277.5 2222L1277 2222.03V2207H1277.5L1284.7 2213H1298V2216H1284.7Z" fill="#007847" />
+<path id="Vector_877" fill-rule="evenodd" clip-rule="evenodd" d="M1277 2210L1283 2214.5L1277 2219V2210Z" fill="#FFB915" />
+<path id="Vector_878" fill-rule="evenodd" clip-rule="evenodd" d="M1277 2211L1281.75 2214.5L1277 2218V2211Z" fill="#151515" />
+</g>
+</g>
+</svg>

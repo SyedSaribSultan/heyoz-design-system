@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="990 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip38_25_14">
+<rect x="990" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Bhutan, Style=Flag, Radius=On">
+<g clip-path="url(#clip38_25_14)">
+<rect x="990" y="2102" width="21" height="15" rx="3" fill="#FF6C2D" />
+<path id="Vector_404" d="M1009 2102H992C990.895 2102 990 2102.9 990 2104V2115C990 2116.1 990.895 2117 992 2117H1009C1010.1 2117 1011 2116.1 1011 2115V2104C1011 2102.9 1010.1 2102 1009 2102Z" fill="#FF6C2D" />
+<path id="Vector_405" fill-rule="evenodd" clip-rule="evenodd" d="M990 2117L1011 2102H990V2117Z" fill="#FFDA2C" />
+<path id="Vector_406" fill-rule="evenodd" clip-rule="evenodd" d="M993 2112L993.5 2113.5L995.5 2114L996 2113L1000 2113.5L999 2111H1001L1004 2112L1005 2111L1002 2110L1003 2109H1006L1006.5 2108H1004V2107H1006L1007 2106L1003 2105L1001 2107L1000 2108L1001 2109L998 2108.5L996 2112L995 2113L993 2112Z" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

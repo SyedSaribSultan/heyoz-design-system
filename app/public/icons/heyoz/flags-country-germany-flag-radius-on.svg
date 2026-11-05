@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="990 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip78_25_14">
+<rect x="990" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Germany, Style=Flag, Radius=On">
+<g clip-path="url(#clip78_25_14)">
+<rect x="990" y="2137" width="21" height="15" rx="3" fill="#DE0000" />
+<path id="Vector_563" fill-rule="evenodd" clip-rule="evenodd" d="M990 2147H1011V2152H990V2147Z" fill="#FFCF00" />
+<path id="Vector_564" fill-rule="evenodd" clip-rule="evenodd" d="M990 2137H1011V2142H990V2137Z" fill="#151515" />
+</g>
+</g>
+</svg>

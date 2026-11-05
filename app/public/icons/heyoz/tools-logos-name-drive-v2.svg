@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1792 1074 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint76_linear_25_14" x1="1807.77" y1="1079.34" x2="1796.29" y2="1084.7" gradientUnits="userSpaceOnUse">
+<stop offset="0.55" stop-color="#0EBC5F" />
+<stop offset="0.85" stop-color="#78C9FF" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint74_linear_25_14" x1="1815.18" y1="1093.97" x2="1804.81" y2="1087.74" gradientUnits="userSpaceOnUse">
+<stop offset="0.09" stop-color="#FFE921" />
+<stop offset="1" stop-color="#FEC700" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint75_linear_25_14" x1="1806.11" y1="1095.81" x2="1794.78" y2="1088.96" gradientUnits="userSpaceOnUse">
+<stop offset="0.15" stop-color="#A9A8FF" />
+<stop offset="0.33" stop-color="#6D97FF" />
+<stop offset="0.48" stop-color="#3186FF" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=drive v2">
+<g id="google-drive-2026 1">
+<g id="Mask group_8">
+<mask id="mask20_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1794" y="1077" width="20" height="18">
+<g id="Group_23">
+<path id="Vector_122" d="M1800.23 1079.24C1801.9 1076.34 1806.09 1076.34 1807.77 1079.24L1812.93 1088.18C1814.61 1091.08 1812.51 1094.71 1809.16 1094.71H1798.84C1795.49 1094.71 1793.39 1091.08 1795.07 1088.18L1800.23 1079.24Z" fill="#B43333" />
+</g>
+</mask>
+<g mask="url(#mask20_25_14)">
+<g id="Group_24">
+<path id="Vector_123" d="M1816.71 1094.71H1806.18L1804 1090.94L1809.26 1081.82L1816.71 1094.71Z" fill="url(#paint74_linear_25_14)" />
+<path id="Vector_124" d="M1791.29 1094.71L1798.73 1081.82V1081.82L1796.56 1085.59H1800.91L1806.18 1094.71L1791.29 1094.71L1791.29 1094.71Z" fill="url(#paint75_linear_25_14)" />
+<path id="Vector_125" d="M1804 1072.7L1809.27 1081.82L1807.09 1085.59H1796.56L1804 1072.7Z" fill="url(#paint76_linear_25_14)" />
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

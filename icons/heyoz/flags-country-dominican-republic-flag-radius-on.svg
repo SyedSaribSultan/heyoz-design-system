@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="375 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip63_25_14">
+<rect x="375" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Dominican Republic, Style=Flag, Radius=On">
+<g clip-path="url(#clip63_25_14)">
+<rect x="375" y="2137" width="21" height="15" rx="3" fill="#F4F5F5" />
+<rect id="Rectangle 11" x="387" y="2146" width="9" height="6" fill="#002962" />
+<rect id="Rectangle 12" x="375" y="2146" width="9" height="6" fill="#CF0921" />
+<circle id="Ellipse 2" cx="385.5" cy="2144.5" r="1.5" fill="#249F58" />
+<circle id="Ellipse 5" cx="0.5" cy="0.5" r="0.5" transform="matrix(-1 0 0 1 387 2145)" fill="#002962" />
+<circle id="Ellipse 6" cx="0.5" cy="0.5" r="0.5" transform="matrix(-1 0 0 1 385 2145)" fill="#CF0921" />
+<circle id="Ellipse 7" cx="385.5" cy="2144.5" r="0.5" fill="white" />
+<circle id="Ellipse 4" cx="386.5" cy="2143.5" r="0.5" fill="#CF0921" />
+<circle id="Ellipse 3" cx="384.5" cy="2143.5" r="0.5" fill="#002962" />
+<rect id="Rectangle 10" x="387" y="2137" width="9" height="6" fill="#CF0921" />
+<rect id="Rectangle 9" x="375" y="2137" width="9" height="6" fill="#002962" />
+</g>
+</g>
+</svg>

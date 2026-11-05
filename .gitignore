@@ -1,0 +1,10 @@
+.vercel
+.env*.local
+# Claude Code: per-machine state of the review gate, and personal settings
+.claude/.last-review
+.claude/settings.local.json
+# Dependencies, builds and test output, at any depth
+node_modules/
+.next/
+.next-*/
+/.playwright-mcp/

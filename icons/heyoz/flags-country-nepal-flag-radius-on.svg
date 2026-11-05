@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1523 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip117_25_14">
+<rect x="1523" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Nepal, Style=Flag, Radius=On">
+<g clip-path="url(#clip117_25_14)">
+<path id="Vector_744" fill-rule="evenodd" clip-rule="evenodd" d="M1523 2172L1536 2180H1529L1536 2187H1523V2172Z" fill="#003495" />
+<path id="Vector_745" fill-rule="evenodd" clip-rule="evenodd" d="M1524 2174L1532 2179H1526L1533 2186H1524C1524 2185.5 1524 2185.54 1524 2185V2174Z" fill="#DD0C39" />
+<path id="Star 1" d="M1526.5 2181.56L1526.87 2182.35L1527.64 2181.93L1527.48 2182.79L1528.35 2182.9L1527.71 2183.5L1528.35 2184.1L1527.48 2184.21L1527.64 2185.07L1526.87 2184.65L1526.5 2185.44L1526.13 2184.65L1525.36 2185.07L1525.52 2184.21L1524.65 2184.1L1525.29 2183.5L1524.65 2182.9L1525.52 2182.79L1525.36 2181.93L1526.13 2182.35L1526.5 2181.56Z" fill="white" />
+<path id="Vector_746" fill-rule="evenodd" clip-rule="evenodd" d="M1527.91 2177C1527.97 2177.08 1528 2177.16 1528 2177.25C1528 2177.66 1527.33 2178 1526.5 2178C1525.67 2178 1525 2177.66 1525 2177.25C1525 2177.16 1525.03 2177.08 1525.09 2177C1525.29 2177.15 1525.85 2177.25 1526.5 2177.25C1527.15 2177.25 1527.71 2177.15 1527.91 2177Z" fill="#F4F5F5" />
+</g>
+</g>
+</svg>

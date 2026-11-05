@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1318 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip44_25_14">
+<rect x="1318" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Burkina Faso, Style=Flag, Radius=On">
+<g clip-path="url(#clip44_25_14)">
+<rect x="1318" y="2102" width="21" height="15" rx="3" fill="#EF2729" />
+<path id="Vector_436" d="M1337 2102H1320C1318.9 2102 1318 2102.9 1318 2104V2115C1318 2116.1 1318.9 2117 1320 2117H1337C1338.1 2117 1339 2116.1 1339 2115V2104C1339 2102.9 1338.1 2102 1337 2102Z" fill="#EF2729" />
+<path id="Vector_437" fill-rule="evenodd" clip-rule="evenodd" d="M1318 2110H1339V2117H1318V2110Z" fill="#009F47" />
+<path id="Vector_438" fill-rule="evenodd" clip-rule="evenodd" d="M1328.5 2111.25L1326.44 2112.33L1326.84 2110.04L1325.17 2108.42L1327.47 2108.08L1328.5 2106L1329.53 2108.08L1331.83 2108.42L1330.16 2110.04L1330.56 2112.33" fill="#FCD20F" />
+</g>
+</g>
+</svg>

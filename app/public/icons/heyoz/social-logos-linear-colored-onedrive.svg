@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="478 2391 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint133_linear_25_14" x1="480.809" y1="2405.7" x2="489.145" y2="2402.53" gradientUnits="userSpaceOnUse">
+<stop stop-color="#16589B" />
+<stop offset="1" stop-color="#1464B7" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint132_linear_25_14" x1="482.406" y1="2399.42" x2="497.446" y2="2407.39" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0D3D78" />
+<stop offset="1" stop-color="#063B83" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint131_linear_25_14" x1="488.463" y1="2404.88" x2="495.704" y2="2398.86" gradientUnits="userSpaceOnUse">
+<stop stop-color="#1694DB" />
+<stop offset="1" stop-color="#62C3FE" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint130_linear_25_14" x1="482.661" y1="2407.48" x2="496.875" y2="2407.01" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2086B8" />
+<stop offset="1" stop-color="#46D3F6" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="type=linear-colored, platform=onedrive">
+<g id="Vector_1062">
+<path d="M485.404 2409C482.972 2409 481 2407.11 481 2404.78C481 2402.51 482.886 2400.65 485.245 2400.57C486.217 2399.03 487.983 2398 490 2398C492.605 2398 494.791 2399.72 495.39 2402.03C497.387 2402.05 499 2403.6 499 2405.52C499 2407.38 497.312 2409 495.553 2409L485.404 2409Z" fill="#C4C4C4" />
+<path d="M485.404 2409C484.025 2409 482.794 2408.39 481.987 2407.44L491.149 2403.68L498.274 2407.61C497.646 2408.41 496.697 2409 495.625 2409C494.008 2409 487.785 2409 485.404 2409Z" fill="url(#paint130_linear_25_14)" />
+<path d="M495.388 2402.02L491.149 2403.68L498.274 2407.61C498.73 2407.02 499 2406.3 499 2405.52C499 2403.6 497.387 2402.05 495.39 2402.03C495.389 2402.03 495.389 2402.03 495.388 2402.02Z" fill="url(#paint131_linear_25_14)" />
+<path d="M484.974 2400.59L491.149 2403.68L495.388 2402.02C494.784 2399.71 492.601 2398 490 2398C487.983 2398 486.217 2399.03 485.245 2400.57C485.154 2400.57 485.063 2400.58 484.974 2400.59Z" fill="url(#paint132_linear_25_14)" />
+<path d="M481.987 2407.44L491.149 2403.68L484.974 2400.59C482.743 2400.79 481 2402.59 481 2404.78C481 2405.79 481.37 2406.72 481.987 2407.44Z" fill="url(#paint133_linear_25_14)" />
+</g>
+</g>
+</svg>

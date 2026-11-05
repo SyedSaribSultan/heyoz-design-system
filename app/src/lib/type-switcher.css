@@ -1,0 +1,27 @@
+/* Type preview (TypeSwitcher.jsx, D-033). Secondary tier, inner shade, lit; enters with motion-pop.
+   Fixed bottom-right on every page, above the page and its menus. */
+.ts { position: fixed; right: var(--space-16); bottom: var(--space-16); z-index: 1040; display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-8);
+  --ts-shade: inset 0 -4px 10px rgba(0, 0, 0, 0.5); /* inner shade: Figma effect, not a token (D-021) */ }
+:where(.ts-trigger) { all: unset; }
+.ts-trigger { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--space-8); height: var(--size-control-sm); padding: 0 var(--space-12) 0 var(--space-12);
+  border-radius: var(--radius-full); background: var(--surface-secondary); color: var(--content-primary); cursor: pointer;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary), var(--ts-shade); }
+.ts-trigger:hover { background: var(--fill-secondary-hover); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary-hover), var(--ts-shade); }
+.ts-trigger:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
+.ts-chev { color: var(--content-tertiary); transition: transform var(--duration-base) var(--easing-standard); }
+.ts-trigger[aria-expanded='true'] .ts-chev { transform: rotate(180deg); }
+.ts-panel { width: 320px; max-height: min(640px, calc(100vh - 96px)); overflow-y: auto; display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-4);
+  border-radius: var(--radius-2xl); /* nesting: option radius 16 (sm) + padding 4 */ background: var(--surface-secondary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary), var(--ts-shade); }
+.ts-head { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-8) var(--space-12) var(--space-4); color: var(--content-primary); }
+.ts-dim, .ts-note { color: var(--content-tertiary); }
+/* Options: a name in its own display face, and what it is. The segmented indicator slides between them (D-032). */
+.ts-panel .seg .btn { height: auto; min-height: var(--size-control-md); justify-content: flex-start; padding: var(--space-6) var(--space-12); }
+.ts-opt { display: flex; flex-direction: column; align-items: flex-start; gap: 0; min-width: 0; text-align: left; }
+.ts-opt > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+.ts-note { font: var(--font-weight-regular) var(--type-label-md-size) / var(--type-label-md-line-height) system-ui, sans-serif; text-transform: none; }
+@media (max-width: 860px) { .ts { right: var(--space-12); bottom: var(--space-12); } .ts-panel { width: min(320px, calc(100vw - 24px)); } }
+
+/* A display face with one weight (Instrument Serif): show it at its real weight, never a faked bold. */
+html[data-type-single-weight] :is([class*='type-display-'], [class*='type-heading-']) { font-weight: var(--font-weight-regular); font-synthesis-weight: none; }
+/* The options sit straight in the panel (no second frame), so there is one nesting step: 16 + 4 = 20. */
+.ts-panel .seg { padding: 0; background: transparent; box-shadow: none; border-radius: 0; }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="826 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip173_25_14">
+<rect x="826" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+<clipPath xmlns="http://www.w3.org/2000/svg" id="clip174_25_14">
+<rect width="21" height="15" fill="white" transform="translate(826 2242)" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Puerto Rico, Style=Flag, Radius=On">
+<g clip-path="url(#clip173_25_14)">
+<rect x="826" y="2242" width="21" height="15" rx="3" fill="#F4F5F5" />
+<g id="Country=Morocco, Style=Flag, Radius=Off" clip-path="url(#clip174_25_14)">
+<rect width="21" height="15" transform="translate(826 2242)" fill="white" />
+<path id="Vector_1008" fill-rule="evenodd" clip-rule="evenodd" d="M826 2242H847V2245H826V2242Z" fill="#EE0000" />
+<path id="Vector_1009" fill-rule="evenodd" clip-rule="evenodd" d="M826 2248H847V2251H826V2248Z" fill="#EE0000" />
+<path id="Vector_1010" fill-rule="evenodd" clip-rule="evenodd" d="M826 2254H847V2257H826V2254Z" fill="#EE0000" />
+<path id="Vector_1011" fill-rule="evenodd" clip-rule="evenodd" d="M826 2242V2257.03L836 2249.5L826 2242Z" fill="#0044FF" />
+<path id="Vector_1012" fill-rule="evenodd" clip-rule="evenodd" d="M829.51 2250.92L828.112 2251.65L828.379 2250.09L827.248 2248.99L828.811 2248.77L829.51 2247.35L830.208 2248.77L831.771 2248.99L830.64 2250.1L830.907 2251.65" fill="white" />
+</g>
+</g>
+</g>
+</svg>

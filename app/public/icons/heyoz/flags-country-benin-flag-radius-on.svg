@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="949 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip37_25_14">
+<rect x="949" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Benin, Style=Flag, Radius=On">
+<g clip-path="url(#clip37_25_14)">
+<rect x="949" y="2102" width="21" height="15" rx="3" fill="#FFDA2C" />
+<path id="Vector_401" d="M968 2102H951C949.895 2102 949 2102.9 949 2104V2115C949 2116.1 949.895 2117 951 2117H968C969.105 2117 970 2116.1 970 2115V2104C970 2102.9 969.105 2102 968 2102Z" fill="#FCD20F" />
+<path id="Vector_402" fill-rule="evenodd" clip-rule="evenodd" d="M957 2110H970V2117H957V2110Z" fill="#E90929" />
+<path id="Vector_403" fill-rule="evenodd" clip-rule="evenodd" d="M949 2102H957V2117H949V2102Z" fill="#008850" />
+</g>
+</g>
+</svg>

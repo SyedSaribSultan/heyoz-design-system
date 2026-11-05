@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="621 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip30_25_14">
+<rect x="621" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Azerbaijan, Style=Flag, Radius=On">
+<g clip-path="url(#clip30_25_14)">
+<path id="Vector_371" d="M640 2102H623C621.895 2102 621 2102.9 621 2104V2115C621 2116.1 621.895 2117 623 2117H640C641.105 2117 642 2116.1 642 2115V2104C642 2102.9 641.105 2102 640 2102Z" fill="#EF303E" />
+<path id="Vector_372" fill-rule="evenodd" clip-rule="evenodd" d="M621 2112H642V2117H621V2112Z" fill="#4F9F2B" />
+<path id="Vector_373" fill-rule="evenodd" clip-rule="evenodd" d="M633 2109H634V2110H633V2109Z" fill="#F4F5F5" />
+<path id="Vector_374" fill-rule="evenodd" clip-rule="evenodd" d="M633.5 2111C633.044 2111.61 632.318 2112 631.5 2112C630.12 2112 629 2110.88 629 2109.5C629 2108.12 630.12 2107 631.5 2107C632.318 2107 633.044 2107.39 633.5 2108H632C631.172 2108 630.5 2108.67 630.5 2109.5C630.5 2110.33 631.172 2111 632 2111H633.5Z" fill="#F4F5F5" />
+<path id="Vector_375" fill-rule="evenodd" clip-rule="evenodd" d="M621 2102H642V2107H621V2102Z" fill="#00B6E3" />
+</g>
+</g>
+</svg>

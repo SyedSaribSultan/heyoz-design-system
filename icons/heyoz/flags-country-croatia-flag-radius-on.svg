@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1892 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip56_25_14">
+<rect x="1892" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Croatia, Style=Flag, Radius=On">
+<g clip-path="url(#clip56_25_14)">
+<rect x="1892" y="2102" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_483" fill-rule="evenodd" clip-rule="evenodd" d="M1892 2102H1913V2107H1892V2102Z" fill="#F93939" />
+<path id="Vector_484" fill-rule="evenodd" clip-rule="evenodd" d="M1892 2112H1913V2117H1892V2112Z" fill="#101097" />
+<mask id="mask33_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1900" y="2107" width="5" height="6">
+<g id="d">
+<path id="Vector_485" d="M1905 2110.5C1905 2111.88 1903.88 2113 1902.5 2113C1901.12 2113 1900 2111.88 1900 2110.5V2107H1905V2110.5Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask33_25_14)">
+<path id="Vector_486" d="M1905 2110.5C1905 2111.88 1903.88 2113 1902.5 2113C1901.12 2113 1900 2111.88 1900 2110.5V2107H1905V2110.5Z" fill="#F93939" />
+<path id="Vector_487" fill-rule="evenodd" clip-rule="evenodd" d="M1901 2112H1902V2113H1901V2112ZM1903 2112H1904V2113H1903V2112ZM1902 2111H1903V2112H1902V2111ZM1901 2110H1902V2111H1901V2110ZM1903 2110H1904V2111H1903V2110ZM1902 2109H1903V2110H1902V2109ZM1901 2108H1902V2109H1901V2108ZM1903 2108H1904V2109H1903V2108ZM1902 2107H1903V2108H1902V2107ZM1904 2107H1905V2108H1904V2107ZM1904 2109H1905V2110H1904V2109ZM1904 2111H1905V2112H1904V2111ZM1900 2111H1901V2112H1900V2111ZM1900 2109H1901V2110H1900V2109ZM1900 2107H1901V2108H1900V2107Z" fill="white" />
+</g>
+</g>
+</g>
+</svg>

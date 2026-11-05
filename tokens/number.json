@@ -1,0 +1,22 @@
+{
+  "$about": "HeyOz number tokens: space, radius, size and stroke. Source of truth. All values are px. Names say the size: space/16 is 16px, stroke/1 is 1px. Radius and size use t-shirt names (xs to xl; control adds 2xs and 2xl).",
+  "space": {
+    "$about": "Gaps and padding. 4px grid; 2 and 6 are half-steps for tight UI. The name is the value.",
+    "values": [0, 2, 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96]
+  },
+  "radius": {
+    "$about": "Corner rounding. Nested corners: inner radius = outer radius minus the gap between them.",
+    "values": { "none": 0, "xs": 4, "sm": 6, "md": 8, "lg": 12, "xl": 16, "2xl": 20, "3xl": 24, "full": 9999 }
+  },
+  "size": {
+    "$about": "Fixed sizes. control = height of buttons, inputs, chips; seven sizes, 2xs 28, then 8px steps from xs 32 to 2xl 72. xs (32) is the everyday size. icon = the icon's frame. iconGrid = the icon grid from Figma (Iconography, 25:6154), as ratios of the frame, so it works at any size: padding keeps the frame's edge clear, square and circle are the key shapes, stroke is the line weight (24 → 2 padding, 18 square, 20 circle, 1.5 stroke). HeyOz icons fill the key square: longest side frame × 0.75, at least 1/8 clear on every side. Every icon asset is exported as its frame, never as the bare vector. target = smallest touch area, built as an invisible layer if the visible element is smaller.",
+    "control": { "2xs": 28, "xs": 32, "sm": 40, "md": 48, "lg": 56, "xl": 64, "2xl": 72 },
+    "icon": { "xs": 12, "sm": 16, "md": 20, "lg": 24, "xl": 32 },
+    "iconGrid": { "padding": 0.0833, "square": 0.75, "circle": 0.8333, "stroke": 0.0625 },
+    "target": 44
+  },
+  "stroke": {
+    "$about": "Line widths. stroke/1 for borders and dividers, stroke/2 for focus rings and selected outlines.",
+    "values": [1, 2]
+  }
+}

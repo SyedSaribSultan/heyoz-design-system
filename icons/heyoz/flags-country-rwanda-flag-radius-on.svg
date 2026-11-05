@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="580 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip135_25_14">
+<rect x="580" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Rwanda, Style=Flag, Radius=On">
+<g clip-path="url(#clip135_25_14)">
+<rect x="580" y="2207" width="21" height="15" rx="3" fill="#FAD300" />
+<path id="Vector_819" fill-rule="evenodd" clip-rule="evenodd" d="M580 2218H601V2222H580V2218Z" fill="#1A603A" />
+<path id="Vector_820" fill-rule="evenodd" clip-rule="evenodd" d="M580 2207H601V2214H580V2207Z" fill="#00A4E1" />
+<path id="Vector_821" fill-rule="evenodd" clip-rule="evenodd" d="M596.974 2210.97C597.57 2210.91 598 2210.72 598 2210.5C598 2210.28 597.57 2210.09 596.974 2210.03C596.908 2209.43 596.72 2209 596.5 2209C596.28 2209 596.092 2209.43 596.026 2210.03C595.43 2210.09 595 2210.28 595 2210.5C595 2210.72 595.43 2210.91 596.026 2210.97C596.092 2211.57 596.28 2212 596.5 2212C596.72 2212 596.908 2211.57 596.974 2210.97Z" fill="#FAD300" />
+</g>
+</g>
+</svg>

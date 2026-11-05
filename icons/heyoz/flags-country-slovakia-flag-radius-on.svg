@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1113 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip144_25_14">
+<rect x="1113" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Slovakia, Style=Flag, Radius=On">
+<g clip-path="url(#clip144_25_14)">
+<rect x="1113" y="2207" width="21" height="15" rx="3" fill="#2049A6" />
+<path id="Vector_857" fill-rule="evenodd" clip-rule="evenodd" d="M1113 2217H1134V2222H1113V2217Z" fill="#EE151F" />
+<path id="Vector_858" fill-rule="evenodd" clip-rule="evenodd" d="M1113 2207H1134V2212H1113V2207ZM1122.93 2217H1123V2212H1116V2217H1116.07C1116.02 2217.16 1116 2217.33 1116 2217.5C1116 2218.88 1119.5 2220 1119.5 2220C1119.5 2220 1123 2218.88 1123 2217.5C1123 2217.33 1122.98 2217.16 1122.93 2217Z" fill="#F4F5F5" />
+<path id="Vector_859" fill-rule="evenodd" clip-rule="evenodd" d="M1122 2217V2211H1117V2217C1117 2218.11 1119.5 2219 1119.5 2219C1119.5 2219 1122 2218.11 1122 2217Z" fill="#EE151F" />
+<path id="Vector_860" fill-rule="evenodd" clip-rule="evenodd" d="M1119 2215V2214H1118V2213H1119V2212H1120V2213H1121V2214H1120V2215H1121.5V2216H1120V2217H1119V2216H1117.5V2215H1119Z" fill="#F4F5F5" />
+<path id="Vector_861" fill-rule="evenodd" clip-rule="evenodd" d="M1119.5 2219C1119.5 2219 1122 2218.11 1122 2217C1122 2215.9 1121 2216 1119.5 2217C1118 2216 1117 2215.9 1117 2217C1117 2218.11 1119.5 2219 1119.5 2219Z" fill="#2049A6" />
+</g>
+</g>
+</svg>

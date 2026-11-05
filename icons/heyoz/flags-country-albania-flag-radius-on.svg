@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="211 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip20_25_14">
+<rect x="211" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Albania, Style=Flag, Radius=On">
+<g clip-path="url(#clip20_25_14)">
+<rect x="211" y="2102" width="21" height="15" rx="3" fill="#FF0000" />
+<path id="Vector_337" d="M230 2102H213C211.895 2102 211 2102.9 211 2104V2115C211 2116.1 211.895 2117 213 2117H230C231.105 2117 232 2116.1 232 2115V2104C232 2102.9 231.105 2102 230 2102Z" fill="#F93939" />
+<path id="Vector_338" fill-rule="evenodd" clip-rule="evenodd" d="M221.5 2106L220 2105L219 2106H220L219 2107L217 2106V2111L220 2110L219 2112H218L219 2113L220 2112L221.5 2114V2106ZM223 2105L224 2106H223L224 2107L226 2106V2111L223 2110L224 2112H225L224 2113L223 2112L221.5 2114V2106L223 2105Z" fill="#151515" />
+</g>
+</g>
+</svg>

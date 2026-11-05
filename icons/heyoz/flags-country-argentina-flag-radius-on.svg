@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="457 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip26_25_14">
+<rect x="457" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Argentina, Style=Flag, Radius=On">
+<g clip-path="url(#clip26_25_14)">
+<path id="Vector_359" d="M476 2102H459C457.895 2102 457 2102.9 457 2104V2115C457 2116.1 457.895 2117 459 2117H476C477.105 2117 478 2116.1 478 2115V2104C478 2102.9 477.105 2102 476 2102Z" fill="#F4F5F5" />
+<path id="Vector_360" fill-rule="evenodd" clip-rule="evenodd" d="M457 2112H478V2117H457V2112ZM457 2102H478V2107H457V2102Z" fill="#75AEE0" />
+<path id="Vector_361" d="M467.5 2111C468.328 2111 469 2110.33 469 2109.5C469 2108.67 468.328 2108 467.5 2108C466.672 2108 466 2108.67 466 2109.5C466 2110.33 466.672 2111 467.5 2111Z" fill="#FFDA2C" />
+</g>
+</g>
+</svg>

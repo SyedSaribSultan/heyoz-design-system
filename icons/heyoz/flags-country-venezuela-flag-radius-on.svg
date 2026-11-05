@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="580 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip168_25_14">
+<rect x="580" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Venezuela, Style=Flag, Radius=On">
+<g clip-path="url(#clip168_25_14)">
+<rect x="580" y="2242" width="21" height="15" rx="3" fill="#001F7E" />
+<path id="Vector_980" fill-rule="evenodd" clip-rule="evenodd" d="M580 2252H601V2257H580V2252Z" fill="#D00C27" />
+<path id="Vector_981" fill-rule="evenodd" clip-rule="evenodd" d="M586 2250H587V2251H586V2250ZM588 2249H589V2250H588V2249ZM592 2249H593V2250H592V2249ZM594 2250H595V2251H594V2250ZM590 2248H591V2249H590V2248Z" fill="#BCC9F0" />
+<path id="Vector_982" fill-rule="evenodd" clip-rule="evenodd" d="M580 2242H601V2247H580V2242Z" fill="#FFCD00" />
+</g>
+</g>
+</svg>

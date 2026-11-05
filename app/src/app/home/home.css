@@ -1,0 +1,80 @@
+/* Home screen layout helpers. Colours, type, space and radius come from tokens via tk(). */
+.home { position: relative; isolation: isolate; --light-layer: 100; display: flex; min-height: 100vh; } /* the screen frame: not lit (D-020), menus are placed inside it */
+.home main { max-width: 1280px; margin: 0 auto; }
+.hrow { display: flex; align-items: center; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1 1 0; min-width: 0; }
+.between { justify-content: space-between; }
+.end { align-items: flex-end; }
+.hrow.end { justify-content: flex-end; }
+.center { align-items: center; justify-content: center; }
+.center-x { align-items: center; }
+.stretch { align-self: stretch; }
+.wrap { flex-wrap: wrap; }
+.clip { overflow: hidden; width: 100%; }
+.home .full { width: 100%; }
+.bottom { align-items: flex-end; }
+.left { text-align: left; }
+.text-center { text-align: center; }
+/* Zero-specificity reset, so token classes (type, colour) on buttons and links still apply. */
+:where(.home) :where(button, a) { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.home .hrow.end > [data-btn] { flex: none; }
+.home [data-btn].hrow { justify-content: flex-start; }
+.home .col[data-btn] { flex-direction: column; }
+.home h1, .home p { margin: 0; }
+[data-icon] { display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.home img[data-media], .home img[data-name='brand logo'], .home img[data-name='avatar'] { object-fit: cover; flex: none; }
+
+.sidenav { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; flex: none; z-index: 10; }
+.sidenav nav a { width: 100%; }
+
+.main { position: relative; overflow: hidden; }
+.divider { display: inline-flex; align-items: center; justify-content: center; }
+.divider img { transform: rotate(90deg); }
+
+/* Static Ads chip: the double chevron becomes a cross on hover (design annotation). */
+.swap { display: inline-flex; position: relative; }
+.cross { display: none; position: relative; }
+.cross::before, .cross::after { content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: var(--stroke-2); background: currentColor; border-radius: var(--radius-full); }
+.cross::before { transform: translate(-50%, -50%) rotate(45deg); }
+.cross::after { transform: translate(-50%, -50%) rotate(-45deg); }
+[data-btn]:hover .swap [data-icon] { display: none; }
+[data-btn]:hover .swap .cross { display: inline-flex; }
+
+/* 9:16 aspect icon: an outlined portrait frame, drawn in the design as a bordered box. */
+[data-name='aspect chip']::before { content: ""; width: 7px; height: 13px; margin: 0 var(--space-2) 0 var(--space-2); border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--content-primary); }
+
+/* Tile resting glow (Figma 693:3121): top-right, under the tile's content, 15% as designed. A Figma
+   effect with set values, not a token (D-021): a 75px disc, CSS blur 37.5px, content/primary at 15%. Its own
+   values on purpose, so tuning the cursor light (D-020) never changes it. The moving light comes from LightField. */
+.rest-glow { position: relative; isolation: isolate; overflow: hidden; flex: none; }
+.rest-glow::before { content: ""; position: absolute; z-index: -1; left: 100%; top: 0; width: 75px; height: 75px; border-radius: 50%; background: var(--content-primary); filter: blur(37.5px); opacity: 0.15; transform: translate(-50%, -50%); pointer-events: none; }
+
+
+/* Menus */
+.anchor { position: relative; display: inline-flex; }
+/* Menus sit on the popover layer: above the light (100) and media (101) of the screen. Menu.jsx places
+   them relative to their trigger. They carry their own light (they are a <Light>). */
+.menu.lit { position: absolute; z-index: calc(var(--light-layer) + 2); }
+.menu-col { position: relative; z-index: 0; }
+.menurow { width: 100%; cursor: pointer; }
+.menurow .dots { visibility: hidden; }
+.menurow:is(:hover, :focus-within) .dots, .menurow .dots[data-show] { visibility: visible; }
+.menurow .dots { display: flex; }
+/* Sheen: the design's four soft blobs (content/primary at 10%, Figma blur 75 = CSS 37.5px). */
+.sheen { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; border-radius: inherit; } /* above the rows, as in Figma */
+.sheen i { position: absolute; width: 233px; height: 150px; border-radius: 50%; opacity: 0.1; filter: blur(37.5px); }
+.sheen i:nth-child(1) { left: 1px; top: 316px; }
+.sheen i:nth-child(2) { left: 68px; top: -39px; }
+.sheen i:nth-child(3) { left: 222px; top: 196px; }
+.sheen i:nth-child(4) { left: -123px; top: 125px; }
+/* Logo tiles: image or icon, with the inner shade on top. */
+.tile { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; overflow: hidden; }
+.tile > img:is([src$=".png"], [src$=".webp"]) { width: 100%; height: 100%; object-fit: cover; }
+.tile-shade { position: absolute; inset: 0; pointer-events: none; }
+.home .full { width: 100%; }
+[style*='--hover-shadow']:hover { box-shadow: var(--hover-shadow) !important; }
+.check::before { content: ""; }
+
+/* Hover = the token recorded by tk({ hover }) */
+[style*='--hover-bg']:hover:not(:disabled) { background: var(--hover-bg) !important; }

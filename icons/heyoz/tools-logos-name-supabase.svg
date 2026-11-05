@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1836 1118 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint123_linear_25_14" x1="1847.91" y1="1129.81" x2="1854.5" y2="1132.64" gradientUnits="userSpaceOnUse">
+<stop stop-color="#249361" />
+<stop offset="1" stop-color="#3ECF8E" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint124_linear_25_14" x1="1844.97" y1="1125.88" x2="1847.87" y2="1131.5" gradientUnits="userSpaceOnUse">
+<stop />
+<stop offset="1" stop-opacity="0" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=supabase">
+<g id="vector_353">
+<path d="M1849.52 1138.7C1849.05 1139.28 1848.09 1138.96 1848.08 1138.22L1847.91 1127.41H1855.38C1856.73 1127.41 1857.49 1128.93 1856.65 1129.96L1849.52 1138.7Z" fill="url(#paint123_linear_25_14)" />
+<path d="M1849.52 1138.7C1849.05 1139.28 1848.09 1138.96 1848.08 1138.22L1847.91 1127.41H1855.38C1856.73 1127.41 1857.49 1128.93 1856.65 1129.96L1849.52 1138.7Z" fill="url(#paint124_linear_25_14)" fill-opacity="0.2" />
+<path d="M1846.48 1121.3C1846.95 1120.72 1847.91 1121.04 1847.92 1121.78L1848 1132.59H1840.62C1839.27 1132.59 1838.51 1131.07 1839.35 1130.04L1846.48 1121.3Z" fill="#3ECF8E" />
+</g>
+</g>
+</svg>

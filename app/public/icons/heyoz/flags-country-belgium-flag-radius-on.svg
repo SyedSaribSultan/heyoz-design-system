@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="867 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip35_25_14">
+<rect x="867" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Belgium, Style=Flag, Radius=On">
+<g clip-path="url(#clip35_25_14)">
+<path id="Vector_389" d="M886 2102H869C867.895 2102 867 2102.9 867 2104V2115C867 2116.1 867.895 2117 869 2117H886C887.105 2117 888 2116.1 888 2115V2104C888 2102.9 887.105 2102 886 2102Z" fill="#FDDB20" />
+<path id="Vector_390" fill-rule="evenodd" clip-rule="evenodd" d="M881 2102H888V2117H881V2102Z" fill="#EF303E" />
+<path id="Vector_391" fill-rule="evenodd" clip-rule="evenodd" d="M867 2102H874V2117H867V2102Z" fill="#151515" />
+</g>
+</g>
+</svg>

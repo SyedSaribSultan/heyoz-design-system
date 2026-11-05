@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="744 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip32_25_14">
+<rect x="744" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Bangladesh, Style=Flag, Radius=On">
+<g clip-path="url(#clip32_25_14)">
+<rect x="744" y="2102" width="21" height="15" rx="3" fill="#249F58" />
+<path id="Vector_380" d="M763 2102H746C744.895 2102 744 2102.9 744 2104V2115C744 2116.1 744.895 2117 746 2117H763C764.105 2117 765 2116.1 765 2115V2104C765 2102.9 764.105 2102 763 2102Z" fill="#006745" />
+<path id="Vector_381" d="M753.5 2114C755.985 2114 758 2111.99 758 2109.5C758 2107.01 755.985 2105 753.5 2105C751.015 2105 749 2107.01 749 2109.5C749 2111.99 751.015 2114 753.5 2114Z" fill="#DB2415" />
+</g>
+</g>
+</svg>

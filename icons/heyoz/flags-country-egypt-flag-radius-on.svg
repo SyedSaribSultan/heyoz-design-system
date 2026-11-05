@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="457 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip65_25_14">
+<rect x="457" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Egypt, Style=Flag, Radius=On">
+<g clip-path="url(#clip65_25_14)">
+<path id="Vector_515" d="M476 2137H459C457.895 2137 457 2137.9 457 2139V2150C457 2151.1 457.895 2152 459 2152H476C477.105 2152 478 2151.1 478 2150V2139C478 2137.9 477.105 2137 476 2137Z" fill="#F4F5F5" />
+<path id="Vector_516" fill-rule="evenodd" clip-rule="evenodd" d="M457 2147H478V2152H457V2147Z" fill="#151515" />
+<path id="Vector_517" fill-rule="evenodd" clip-rule="evenodd" d="M467.5 2144L466 2143L465 2144L466 2146L467 2145H468L469 2146L470 2144L469 2143L467.5 2144Z" fill="#FFCE00" />
+<path id="Vector_518" fill-rule="evenodd" clip-rule="evenodd" d="M457 2137H478V2142H457V2137Z" fill="#C9072A" />
+</g>
+</g>
+</svg>

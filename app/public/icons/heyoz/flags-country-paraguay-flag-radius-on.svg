@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="252 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip130_25_14">
+<rect x="252" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Paraguay, Style=Flag, Radius=On">
+<g clip-path="url(#clip130_25_14)">
+<rect x="252" y="2207" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_795" fill-rule="evenodd" clip-rule="evenodd" d="M252 2217H273V2222H252V2217Z" fill="#0035A9" />
+<path id="Vector_796" fill-rule="evenodd" clip-rule="evenodd" d="M263.97 2214.2C263.99 2214.3 264 2214.4 264 2214.5C264 2215.33 263.328 2216 262.5 2216C261.672 2216 261 2215.33 261 2214.5C261 2214.4 261.01 2214.3 261.03 2214.2C261.17 2214.66 261.774 2215 262.5 2215C263.226 2215 263.83 2214.66 263.97 2214.2Z" fill="#018430" />
+<path id="Vector_797" d="M262.5 2214C262.776 2214 263 2213.78 263 2213.5C263 2213.22 262.776 2213 262.5 2213C262.224 2213 262 2213.22 262 2213.5C262 2213.78 262.224 2214 262.5 2214Z" fill="#FFDA2C" />
+<path id="Vector_798" fill-rule="evenodd" clip-rule="evenodd" d="M252 2207H273V2212H252V2207Z" fill="#D62718" />
+</g>
+</g>
+</svg>

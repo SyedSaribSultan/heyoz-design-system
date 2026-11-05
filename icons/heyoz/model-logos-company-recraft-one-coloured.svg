@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="654 718 24 24" fill="none"><g xmlns="http://www.w3.org/2000/svg" id="company=recraft, type=one-coloured">
+<g id="Clip path group">
+<mask id="mask0_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="657" y="721" width="18" height="18">
+<g id="clip0_939_3624">
+<path id="Vector_31" d="M675 721H657V739H675V721Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask0_25_14)">
+<g id="Group">
+<path id="Vector_32" fill-rule="evenodd" clip-rule="evenodd" d="M671.956 727.476C671.956 723.9 668.631 721 664.53 721C663.107 721 661.955 723.9 661.955 727.476C661.955 728.371 662.027 729.224 662.158 729.999H659.636L657 738.999H664.531V733.954C668.631 733.954 671.955 731.053 671.955 727.477L671.956 727.476ZM664.53 722.186C665.274 722.186 665.877 724.555 665.877 727.476C665.877 730.397 665.274 732.766 664.53 732.766C663.785 732.766 663.183 730.397 663.183 727.476C663.183 724.555 663.785 722.186 664.53 722.186Z" fill="black" />
+<path id="Vector_33" fill-rule="evenodd" clip-rule="evenodd" d="M672.101 733.953H664.538L667.438 739H675L672.101 733.953Z" fill="black" />
+</g>
+</g>
+</g>
+</g>
+</svg>

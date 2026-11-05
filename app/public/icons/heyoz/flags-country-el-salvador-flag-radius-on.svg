@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="498 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip66_25_14">
+<rect x="498" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=El Salvador, Style=Flag, Radius=On">
+<g clip-path="url(#clip66_25_14)">
+<rect x="498" y="2137" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_519" fill-rule="evenodd" clip-rule="evenodd" d="M498 2147H519V2152H498V2147ZM498 2137H519V2142H498V2137Z" fill="#0045AD" />
+<path id="Vector_520" d="M508.5 2146C509.328 2146 510 2145.33 510 2144.5C510 2143.67 509.328 2143 508.5 2143C507.672 2143 507 2143.67 507 2144.5C507 2145.33 507.672 2146 508.5 2146Z" fill="#0045AD" />
+<path id="Vector_521" d="M508.5 2145C508.776 2145 509 2144.78 509 2144.5C509 2144.22 508.776 2144 508.5 2144C508.224 2144 508 2144.22 508 2144.5C508 2144.78 508.224 2145 508.5 2145Z" fill="#FFDA2C" />
+<path id="Vector_522" fill-rule="evenodd" clip-rule="evenodd" d="M506 2144L507 2145L508.5 2146L510 2145L511 2144L510 2146H507L506 2144Z" fill="#249F58" />
+</g>
+</g>
+</svg>

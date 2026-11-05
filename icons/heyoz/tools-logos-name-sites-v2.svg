@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1924 1074 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint80_linear_25_14" x1="1929.59" y1="1083.08" x2="1932.78" y2="1078.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9A8FF" />
+<stop offset="1" stop-color="#336EF3" />
+</linearGradient>
+<filter xmlns="http://www.w3.org/2000/svg" id="filter22_f_25_14" x="1912.66" y="1065.18" width="32.2459" height="41.6416" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="6.4" result="effect1_foregroundBlur_25_14" />
+</filter>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=sites v2">
+<g id="google-sites-2026 1">
+<g id="Mask group_11">
+<mask id="mask23_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1926" y="1077" width="20" height="18">
+<g id="Group_30">
+<path id="Vector_141" d="M1926.38 1082.39C1926.38 1081.06 1926.38 1080.39 1926.58 1079.86C1926.73 1079.48 1926.96 1079.14 1927.25 1078.85C1927.54 1078.56 1927.88 1078.34 1928.26 1078.19C1928.79 1077.98 1929.45 1077.98 1930.78 1077.98H1941.22C1942.55 1077.98 1943.21 1077.98 1943.74 1078.19C1944.12 1078.34 1944.46 1078.56 1944.75 1078.85C1945.04 1079.14 1945.27 1079.48 1945.42 1079.86C1945.62 1080.39 1945.62 1081.06 1945.62 1082.39V1089.61C1945.62 1090.94 1945.62 1091.61 1945.42 1092.14C1945.27 1092.52 1945.04 1092.86 1944.75 1093.15C1944.46 1093.44 1944.12 1093.66 1943.74 1093.81C1943.21 1094.02 1942.55 1094.02 1941.22 1094.02H1930.78C1929.45 1094.02 1928.79 1094.02 1928.26 1093.81C1927.88 1093.66 1927.54 1093.44 1927.25 1093.15C1926.96 1092.86 1926.73 1092.52 1926.58 1092.14C1926.38 1091.61 1926.38 1090.94 1926.38 1089.61V1082.39Z" fill="#579FFF" />
+</g>
+</mask>
+<g mask="url(#mask23_25_14)">
+<g id="Group_31">
+<path id="Vector_142" d="M1926.38 1077.98H1945.62V1094.02H1926.38V1077.98Z" fill="#4FA0FF" />
+<path id="Vector_143" d="M1942.07 1088.98H1941.61C1940.79 1088.98 1940.12 1089.65 1940.12 1090.47C1940.12 1091.29 1940.79 1091.96 1941.61 1091.96H1942.07C1942.9 1091.96 1943.56 1091.29 1943.56 1090.47C1943.56 1089.65 1942.9 1088.98 1942.07 1088.98Z" fill="white" />
+<path id="Vector_144" d="M1932.1 1083.02H1926.38V1091.16C1926.38 1092.74 1927.66 1094.02 1929.24 1094.02C1930.82 1094.02 1932.1 1092.74 1932.1 1091.16V1083.02Z" fill="#9DD2FF" />
+<path id="Vector_145" d="M1926.38 1077.98H1945.62V1083.02H1926.38V1077.98Z" fill="#3186FF" />
+</g>
+</g>
+</g>
+<g id="Mask group_12">
+<mask id="mask24_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1926" y="1077" width="20" height="7">
+<g id="Group_32">
+<path id="Vector_146" d="M1926.38 1082.39C1926.38 1081.06 1926.38 1080.39 1926.58 1079.86C1926.73 1079.48 1926.96 1079.14 1927.25 1078.85C1927.54 1078.56 1927.88 1078.34 1928.26 1078.19C1928.79 1077.98 1929.45 1077.98 1930.78 1077.98H1940.99C1942.32 1077.98 1942.98 1077.98 1943.51 1078.19C1943.89 1078.34 1944.24 1078.56 1944.52 1078.85C1944.81 1079.14 1945.04 1079.48 1945.19 1079.86C1945.4 1080.39 1945.4 1081.06 1945.4 1082.39V1083.02H1926.38V1082.39Z" fill="#3983FF" />
+</g>
+</mask>
+<g mask="url(#mask24_25_14)">
+<g id="Group_33" filter="url(#filter22_f_25_14)">
+<path id="Vector_147" d="M1925.46 1077.98H1932.1V1094.02H1925.46V1077.98Z" fill="url(#paint80_linear_25_14)" />
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

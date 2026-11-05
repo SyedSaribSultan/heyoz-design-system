@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="908 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip140_25_14">
+<rect x="908" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Serbia, Style=Flag, Radius=On">
+<g clip-path="url(#clip140_25_14)">
+<rect x="908" y="2207" width="21" height="15" rx="3" fill="#043E77" />
+<path id="Vector_842" fill-rule="evenodd" clip-rule="evenodd" d="M908 2217H929V2222H908V2217Z" fill="#F4F5F5" />
+<path id="Vector_843" fill-rule="evenodd" clip-rule="evenodd" d="M908 2207H929V2212H908V2207ZM916 2217V2212H912V2217C912 2218.1 912.895 2219 914 2219C915.105 2219 916 2218.1 916 2217Z" fill="#C73339" />
+<path id="Vector_844" fill-rule="evenodd" clip-rule="evenodd" d="M913 2213L912 2214L914 2215L913 2217L914 2219L915 2217L914 2215L916 2214L915 2213L914 2214L913 2213Z" fill="#F4F5F5" />
+<path id="Vector_845" fill-rule="evenodd" clip-rule="evenodd" d="M914 2215L912 2216H916L914 2215Z" fill="#88605F" />
+<path id="Vector_846" fill-rule="evenodd" clip-rule="evenodd" d="M913 2213H912V2214L913 2213ZM915 2213H916V2214L915 2213Z" fill="#FFDA2C" />
+<path id="Vector_847" fill-rule="evenodd" clip-rule="evenodd" d="M913 2212L912 2211C912 2211 913 2210 914 2210C915 2210 916 2211 916 2211L915 2212H913Z" fill="#FFDA2C" />
+<path id="Vector_848" fill-rule="evenodd" clip-rule="evenodd" d="M914 2210L913 2211L914 2212L915 2211L914 2210Z" fill="#A75835" />
+</g>
+</g>
+</svg>

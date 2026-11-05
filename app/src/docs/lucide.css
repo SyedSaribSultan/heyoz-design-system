@@ -1,0 +1,6 @@
+/* Lucide icons (Lucide.jsx): the only icons, everywhere. Current text colour, size/icon tokens. */
+.lu { display: inline-block; flex: none; vertical-align: middle; width: var(--size-icon-sm); height: var(--size-icon-sm); background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+.lu[data-size='xs'] { width: var(--size-icon-xs); height: var(--size-icon-xs); }
+.lu[data-size='md'] { width: var(--size-icon-md); height: var(--size-icon-md); }
+.lu[data-size='lg'] { width: var(--size-icon-lg); height: var(--size-icon-lg); }

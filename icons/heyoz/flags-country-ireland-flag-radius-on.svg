@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1728 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip91_25_14">
+<rect x="1728" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Ireland, Style=Flag, Radius=On">
+<g clip-path="url(#clip91_25_14)">
+<path id="Vector_627" d="M1747 2137H1730C1728.9 2137 1728 2137.9 1728 2139V2150C1728 2151.1 1728.9 2152 1730 2152H1747C1748.1 2152 1749 2151.1 1749 2150V2139C1749 2137.9 1748.1 2137 1747 2137Z" fill="#F4F5F5" />
+<path id="Vector_628" fill-rule="evenodd" clip-rule="evenodd" d="M1742 2137H1749V2152H1742V2137Z" fill="#FF893C" />
+<path id="Vector_629" fill-rule="evenodd" clip-rule="evenodd" d="M1728 2137H1735V2152H1728V2137Z" fill="#0E9C62" />
+</g>
+</g>
+</svg>

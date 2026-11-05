@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="580 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip29_25_14">
+<rect x="580" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Austria, Style=Flag, Radius=On">
+<g clip-path="url(#clip29_25_14)">
+<path id="Vector_369" d="M599 2102H582C580.895 2102 580 2102.9 580 2104V2115C580 2116.1 580.895 2117 582 2117H599C600.105 2117 601 2116.1 601 2115V2104C601 2102.9 600.105 2102 599 2102Z" fill="#F4F5F5" />
+<path id="Vector_370" fill-rule="evenodd" clip-rule="evenodd" d="M580 2112H601V2117H580V2112ZM580 2102H601V2107H580V2102Z" fill="#C9072A" />
+</g>
+</g>
+</svg>

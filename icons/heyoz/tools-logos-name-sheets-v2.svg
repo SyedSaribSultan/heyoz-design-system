@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="2012 1074 24 24" fill="none"><defs><filter xmlns="http://www.w3.org/2000/svg" id="filter25_f_25_14" x="2001.92" y="1068.16" width="40.5" height="35.6875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="6" result="effect1_foregroundBlur_25_14" />
+</filter>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint84_linear_25_14" x1="2027.92" y1="1086.88" x2="2016.3" y2="1086.88" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0EBC5F" />
+<stop offset="0.95" stop-color="#78C9FF" />
+</linearGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=sheets v2">
+<g id="google-sheets-2026 1">
+<path id="Vector_155" d="M2013.92 1083.55C2013.92 1082.52 2013.92 1082.01 2014.08 1081.6C2014.19 1081.31 2014.37 1081.05 2014.59 1080.83C2014.81 1080.61 2015.07 1080.43 2015.36 1080.32C2015.77 1080.16 2016.28 1080.16 2017.31 1080.16H2024.27C2025.3 1080.16 2025.81 1080.16 2026.22 1080.32C2026.51 1080.43 2026.77 1080.61 2027 1080.83C2027.22 1081.05 2027.39 1081.31 2027.51 1081.6C2027.67 1082.01 2027.67 1082.52 2027.67 1083.55V1088.45C2027.67 1089.48 2027.67 1089.99 2027.51 1090.4C2027.39 1090.69 2027.22 1090.95 2027 1091.17C2026.77 1091.39 2026.51 1091.57 2026.22 1091.68C2025.81 1091.84 2025.3 1091.84 2024.27 1091.84H2017.31C2016.28 1091.84 2015.77 1091.84 2015.36 1091.68C2015.07 1091.57 2014.81 1091.39 2014.59 1091.17C2014.37 1090.95 2014.19 1090.69 2014.08 1090.4C2013.92 1089.99 2013.92 1089.48 2013.92 1088.45V1083.55Z" fill="#009954" />
+<g id="Mask group_15">
+<mask id="mask27_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2015" y="1078" width="20" height="16">
+<g id="Group_40">
+<path id="Vector_156" d="M2031.79 1078.67H2018.04C2016.78 1078.67 2015.75 1079.69 2015.75 1080.96V1091.04C2015.75 1092.31 2016.78 1093.33 2018.04 1093.33H2031.79C2033.06 1093.33 2034.08 1092.31 2034.08 1091.04V1080.96C2034.08 1079.69 2033.06 1078.67 2031.79 1078.67Z" fill="#0EBC5F" />
+</g>
+</mask>
+<g mask="url(#mask27_25_14)">
+<g id="Group_41">
+<path id="Vector_157" d="M2015.75 1078.67H2034.08V1093.33H2015.75V1078.67Z" fill="#0EBC5F" />
+<g id="Group_42" filter="url(#filter25_f_25_14)">
+<path id="Vector_158" d="M2027.48 1091.84H2016.85C2015.23 1091.84 2013.92 1090.53 2013.92 1088.91V1083.09C2013.92 1081.47 2015.23 1080.16 2016.85 1080.16H2027.48C2029.1 1080.16 2030.42 1081.47 2030.42 1083.09V1088.91C2030.42 1090.53 2029.1 1091.84 2027.48 1091.84Z" fill="url(#paint84_linear_25_14)" />
+</g>
+</g>
+</g>
+</g>
+<path id="Vector_159" d="M2022.17 1088.86H2031.79M2029.5 1091.04V1083.71" stroke="white" stroke-width="2" stroke-linecap="round" />
+</g>
+</g>
+</svg>

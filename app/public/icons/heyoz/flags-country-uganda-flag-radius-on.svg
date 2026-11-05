@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="252 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip162_25_14">
+<rect x="252" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Uganda, Style=Flag, Radius=On">
+<g clip-path="url(#clip162_25_14)">
+<rect x="252" y="2242" width="21" height="15" rx="3" fill="#FCDD00" />
+<rect id="Rectangle 23" x="252" y="2254" width="21" height="3" fill="#DA0000" />
+<path id="Vector_946" fill-rule="evenodd" clip-rule="evenodd" d="M252 2249H273V2252H252V2249Z" fill="#151515" />
+<path id="Vector_947" fill-rule="evenodd" clip-rule="evenodd" d="M252 2246H273V2249H252V2246Z" fill="#DA0000" />
+<path id="Vector_948" d="M262 2252C263.657 2252 265 2250.66 265 2249C265 2247.34 263.657 2246 262 2246C260.343 2246 259 2247.34 259 2249C259 2250.66 260.343 2252 262 2252Z" fill="#F4F5F5" />
+<path id="Vector_949" fill-rule="evenodd" clip-rule="evenodd" d="M262 2246L261 2249L262 2251L263 2249V2252L264 2249L263 2248L262 2249V2246Z" fill="#151515" />
+<path id="Vector_950" fill-rule="evenodd" clip-rule="evenodd" d="M252 2242H273V2244H252V2242Z" fill="#151515" />
+</g>
+</g>
+</svg>

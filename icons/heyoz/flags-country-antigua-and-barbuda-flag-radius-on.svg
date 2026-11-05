@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="375 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip24_25_14">
+<rect x="375" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Antigua and Barbuda, Style=Flag, Radius=On">
+<g clip-path="url(#clip24_25_14)">
+<rect x="375" y="2102" width="21" height="15" rx="3" fill="#151515" />
+<rect id="Rectangle 20" x="375" y="2102" width="21" height="15" fill="#151515" />
+<path id="Vector_352" fill-rule="evenodd" clip-rule="evenodd" d="M375 2111H396V2117H375V2111Z" fill="#F4F5F5" />
+<path id="Vector_353" d="M385.5 2111C387.433 2111 389 2109.43 389 2107.5C389 2105.57 387.433 2104 385.5 2104C383.567 2104 382 2105.57 382 2107.5C382 2109.43 383.567 2111 385.5 2111Z" fill="#FCD20F" />
+<path id="Vector_354" fill-rule="evenodd" clip-rule="evenodd" d="M375 2108H396V2111H375V2108Z" fill="#0073C7" />
+<path id="Vector_355" fill-rule="evenodd" clip-rule="evenodd" d="M386 2117H375V2102L386 2117Z" fill="#CF0921" />
+<path id="Vector_356" fill-rule="evenodd" clip-rule="evenodd" d="M385 2117H396V2102L385 2117Z" fill="#CF0921" />
+</g>
+</g>
+</svg>

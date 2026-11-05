@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="498 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip101_25_14">
+<rect x="498" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Liberia, Style=Flag, Radius=On">
+<g clip-path="url(#clip101_25_14)">
+<rect x="498" y="2172" width="21" height="15" rx="3" fill="#F4F5F5" />
+<g id="Vector_671">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M505 2172H519V2173H505V2172ZM505 2174H519V2175H505V2174ZM505 2176H519V2177H505V2176ZM505 2178H519V2179H505V2178ZM498 2180H519V2181H498V2180ZM498 2182H519V2183H498V2182ZM498 2184H519V2185H498V2184Z" fill="#C0032C" />
+<path d="M519 2186H498V2187H519V2186Z" fill="#C0032C" />
+</g>
+<path id="Vector_672" fill-rule="evenodd" clip-rule="evenodd" d="M498 2172H505V2179H498V2172Z" fill="#002368" />
+<path id="Vector_673" fill-rule="evenodd" clip-rule="evenodd" d="M501.44 2176.9L499.932 2177.69L500.22 2176.01L499 2174.82L500.686 2174.58L501.44 2173.05L502.194 2174.58L503.88 2174.82L502.66 2176.01L502.948 2177.69" fill="white" />
+</g>
+</g>
+</svg>

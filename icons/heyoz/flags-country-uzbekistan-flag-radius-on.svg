@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="498 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip166_25_14">
+<rect x="498" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Uzbekistan, Style=Flag, Radius=On">
+<g clip-path="url(#clip166_25_14)">
+<rect x="498" y="2242" width="21" height="15" rx="3" fill="#F93939" />
+<path id="Vector_969" fill-rule="evenodd" clip-rule="evenodd" d="M498 2253H519V2257H498V2253Z" fill="#2C8835" />
+<path id="Vector_970" fill-rule="evenodd" clip-rule="evenodd" d="M498 2242H519V2246H498V2242Z" fill="#2C82F7" />
+<path id="Vector_971" fill-rule="evenodd" clip-rule="evenodd" d="M498 2247H519V2252H498V2247ZM503 2245.91C502.844 2245.97 502.675 2246 502.5 2246C501.672 2246 501 2245.33 501 2244.5C501 2243.67 501.672 2243 502.5 2243C502.675 2243 502.844 2243.03 503 2243.09C502.417 2243.29 502 2243.85 502 2244.5C502 2245.15 502.417 2245.71 503 2245.91Z" fill="#F4F5F5" />
+<path id="Vector_972" opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M504 2244H505V2245H504V2244ZM505 2243H506V2244H505V2243ZM506 2244H507V2245H506V2244ZM507 2243H508V2244H507V2243ZM508 2244H509V2245H508V2244ZM507 2245H508V2246H507V2245ZM505 2245H506V2246H505V2245Z" fill="white" />
+</g>
+</g>
+</svg>

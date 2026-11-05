@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="539 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip167_25_14">
+<rect x="539" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Vanuaty, Style=Flag, Radius=On">
+<g clip-path="url(#clip167_25_14)">
+<path id="Vector_973" d="M558 2242H541C539.895 2242 539 2242.9 539 2244V2255C539 2256.1 539.895 2257 541 2257H558C559.105 2257 560 2256.1 560 2255V2244C560 2242.9 559.105 2242 558 2242Z" fill="#F4F5F5" />
+<path id="Vector_974" fill-rule="evenodd" clip-rule="evenodd" d="M539 2251H560V2257H539V2251Z" fill="#009641" />
+<path id="Vector_975" fill-rule="evenodd" clip-rule="evenodd" d="M539 2242H560V2248H539V2242Z" fill="#D30731" />
+<path id="Vector_976" fill-rule="evenodd" clip-rule="evenodd" d="M548.208 2251L541 2257.03H539V2242H541L548.2 2248H560V2251H548.208Z" fill="#151515" />
+<path id="Vector_977" fill-rule="evenodd" clip-rule="evenodd" d="M547.9 2250L539.5 2257L539 2257.03V2242H539.5L547.9 2249H560V2250H547.9Z" fill="#FDCF0A" />
+<path id="Vector_978" fill-rule="evenodd" clip-rule="evenodd" d="M539 2243L547 2249.5L539 2256V2243Z" fill="#151515" />
+<path id="Vector_979" fill-rule="evenodd" clip-rule="evenodd" d="M540.653 2251.35C540.253 2250.89 540 2250.23 540 2249.5C540 2248.12 540.895 2247 542 2247C543.105 2247 544 2248.12 544 2249.5C544 2250.88 543.105 2252 542 2252V2251C542.552 2251 543 2250.33 543 2249.5C543 2248.67 542.552 2248 542 2248C541.448 2248 541 2248.67 541 2249.5C541 2249.96 541.138 2250.37 541.354 2250.65L540.654 2251.35L540.653 2251.35Z" fill="#FDCF0A" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="252 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip96_25_14">
+<rect x="252" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Kuwait, Style=Flag, Radius=On">
+<g clip-path="url(#clip96_25_14)">
+<rect x="252" y="2172" width="21" height="15" rx="3" fill="#F4F5F5" />
+<path id="Vector_658" fill-rule="evenodd" clip-rule="evenodd" d="M252 2182H273V2187H252V2182Z" fill="#CF0921" />
+<path id="Vector_659" fill-rule="evenodd" clip-rule="evenodd" d="M252 2172H273V2177H252V2172Z" fill="#249F58" />
+<path id="Vector_660" fill-rule="evenodd" clip-rule="evenodd" d="M252 2187.03V2172L259 2177V2182L252 2187.03Z" fill="#151515" />
+</g>
+</g>
+</svg>

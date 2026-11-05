@@ -1,0 +1,33 @@
+/* light/cursor (D-020): light falls on every surface above the background, never on the background itself,
+   never on media.
+
+   A lit surface has the class `lit` (or data-lit, which tk() sets on Home). LightField.jsx (mounted once, in the root layout) finds every lit
+   element within reach of the cursor and gives it the cursor's position in its own coordinates (--x, --y).
+   Only outermost lit surfaces paint it (data-light), on their own ::after, above their content,
+     clipped to their corners. Each surface paints the light at the cursor's true position, so neighbouring
+     surfaces join seamlessly and the background between them stays dark. Lit elements inside a lit surface
+     are already covered by it, so nothing is lit twice.
+   The shape comes from the tokens: --light-cursor-stops and --light-cursor-reach are the falloff of a
+   light/cursor/size disc under light/cursor/blur, worked out by the build (npm run tokens).
+   Layer order inside a lit surface: content → light (100) → media (101). */
+
+/* Doubled class so it survives components that reset with all: unset (search box, icon buttons).
+   Light roots (popovers, menus) position themselves, so they are left alone. */
+:is(.lit.lit, [data-lit][data-lit]):not([data-light-root]) { position: relative; }
+:is(.lit, [data-lit]) { isolation: isolate; --light-layer: 100; }
+
+:is(.lit, [data-lit])::after { content: ''; position: absolute; inset: 0; z-index: var(--light-layer); border-radius: inherit; pointer-events: none;
+  mix-blend-mode: var(--light-cursor-blend); opacity: 0; transition: opacity var(--light-cursor-fade) var(--easing-standard);
+  background: radial-gradient(circle var(--light-cursor-reach) at var(--x, -999px) var(--y, -999px), var(--light-cursor-stops));
+  /* Dither: a faint gradient on near-black has only a few 8-bit steps, which show as rings. A fixed noise mask
+     (75–100% coverage) scatters the step edges so the falloff reads smooth. Set value, not a token (D-021). */
+  -webkit-mask: var(--light-dither) 0 0 / 128px 128px repeat; mask: var(--light-dither) 0 0 / 128px 128px repeat; }
+:root { --light-dither: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 .62'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23n)'/%3E%3C/svg%3E"); }
+:is(.lit, [data-lit])[data-light='on']::after { opacity: var(--light-cursor-opacity); }
+:is(.lit, [data-lit])[data-light='media']::after { opacity: var(--light-cursor-media-opacity); }
+
+
+/* Media sits above the light. Media must not be inside a box that sets its own z-index. */
+:is(.lit, [data-lit]) [data-media] { position: relative; z-index: calc(var(--light-layer) + 1); }
+
+@media (hover: none), (prefers-reduced-motion: reduce) { :is(.lit, [data-lit])::after { display: none; } }

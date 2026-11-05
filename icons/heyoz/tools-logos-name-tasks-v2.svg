@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="1748 1074 24 24" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip2_25_14">
+<rect width="22" height="22" fill="white" transform="translate(1749 1075)" />
+</clipPath>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint73_linear_25_14" x1="1760" y1="1094.12" x2="1760.53" y2="1082.71" gradientUnits="userSpaceOnUse">
+<stop offset="0.01" stop-color="#A9A8FF" />
+<stop offset="0.79" stop-color="#A9A8FF" stop-opacity="0" />
+</linearGradient>
+<filter xmlns="http://www.w3.org/2000/svg" id="filter19_f_25_14" x="1739.29" y="1068.96" width="41.4166" height="38.8959" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="6" result="effect1_foregroundBlur_25_14" />
+</filter>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=tasks v2">
+<g id="google-tasks-2026 1" clip-path="url(#clip2_25_14)">
+<g id="Clip path group_4">
+<mask id="mask17_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1749" y="1075" width="22" height="22">
+<g id="a_2">
+<path id="Vector_116" d="M1749 1075H1771V1097H1749V1075Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask17_25_14)">
+<g id="Group_19">
+<path id="Vector_117" d="M1761.26 1080.96H1758.74C1754.63 1080.96 1751.29 1084.29 1751.29 1088.41C1751.29 1092.52 1754.63 1095.85 1758.74 1095.85H1761.26C1765.37 1095.85 1768.71 1092.52 1768.71 1088.41C1768.71 1084.29 1765.37 1080.96 1761.26 1080.96Z" fill="#BBE2FF" />
+<path id="Vector_118" d="M1761.38 1076.6H1758.63C1753.94 1076.6 1750.15 1080.4 1750.15 1085.08V1085.54C1750.15 1090.22 1753.94 1094.02 1758.63 1094.02H1761.38C1766.06 1094.02 1769.85 1090.22 1769.85 1085.54V1085.08C1769.85 1080.4 1766.06 1076.6 1761.38 1076.6Z" fill="#3186FF" />
+<g id="Mask group_7">
+<mask id="mask18_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1750" y="1076" width="20" height="19">
+<g id="Group_20">
+<path id="Vector_119" d="M1761.38 1076.6H1758.63C1753.94 1076.6 1750.15 1080.4 1750.15 1085.08V1085.54C1750.15 1090.22 1753.94 1094.02 1758.63 1094.02H1761.38C1766.06 1094.02 1769.85 1090.22 1769.85 1085.54V1085.08C1769.85 1080.4 1766.06 1076.6 1761.38 1076.6Z" fill="#3C90FF" />
+</g>
+</mask>
+<g mask="url(#mask18_25_14)">
+<g id="Group_21" filter="url(#filter19_f_25_14)">
+<path id="Vector_120" d="M1761.26 1080.96H1758.74C1754.63 1080.96 1751.29 1084.29 1751.29 1088.41C1751.29 1092.52 1754.63 1095.85 1758.74 1095.85H1761.26C1765.37 1095.85 1768.71 1092.52 1768.71 1088.41C1768.71 1084.29 1765.37 1080.96 1761.26 1080.96Z" fill="url(#paint73_linear_25_14)" />
+</g>
+</g>
+</g>
+<g id="Clip path group_5">
+<mask id="mask19_25_14" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1754" y="1079" width="12" height="13">
+<g id="f">
+<path id="Vector_121" d="M1754.04 1079.35H1765.96V1091.27H1754.04V1079.35Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask19_25_14)">
+<g id="Group_22">
+<path id="Vector (Stroke)_2" d="M1764.16 1081.57C1764.52 1081.21 1765.1 1081.21 1765.46 1081.57C1765.82 1081.93 1765.82 1082.51 1765.46 1082.87L1759.83 1088.5C1759.57 1088.76 1759.22 1088.9 1758.85 1088.9C1758.54 1088.9 1758.23 1088.79 1757.98 1088.59L1757.88 1088.5L1755.34 1085.96C1754.98 1085.6 1754.98 1085.02 1755.34 1084.66C1755.7 1084.31 1756.28 1084.31 1756.64 1084.66L1758.85 1086.88L1764.16 1081.57Z" fill="white" />
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

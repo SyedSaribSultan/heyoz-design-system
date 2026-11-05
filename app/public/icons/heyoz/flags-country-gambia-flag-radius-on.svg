@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="908 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip76_25_14">
+<rect x="908" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Gambia, Style=Flag, Radius=On">
+<g clip-path="url(#clip76_25_14)">
+<path id="Vector_557" d="M927 2137H910C908.895 2137 908 2137.9 908 2139V2150C908 2151.1 908.895 2152 910 2152H927C928.105 2152 929 2151.1 929 2150V2139C929 2137.9 928.105 2137 927 2137Z" fill="#F4F5F5" />
+<path id="Vector_558" fill-rule="evenodd" clip-rule="evenodd" d="M908 2147H929V2152H908V2147Z" fill="#377823" />
+<path id="Vector_559" fill-rule="evenodd" clip-rule="evenodd" d="M908 2143H929V2146H908V2143Z" fill="#0B1770" />
+<path id="Vector_560" fill-rule="evenodd" clip-rule="evenodd" d="M908 2137H929V2142H908V2137Z" fill="#CF0921" />
+</g>
+</g>
+</svg>

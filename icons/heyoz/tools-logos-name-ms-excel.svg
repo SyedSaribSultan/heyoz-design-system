@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="2760 1074 24 24" fill="none"><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="paint104_linear_25_14" x1="2769.2" y1="1083.33" x2="2769.2" y2="1089.93" gradientUnits="userSpaceOnUse">
+<stop stop-color="#29852F" stop-opacity="0.301961" />
+<stop offset="0.5" stop-color="#4AA647" stop-opacity="0" />
+</linearGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint106_radial_25_14" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2773.6 1080.92) rotate(180) scale(4.64029 10.0761)">
+<stop offset="0.29" stop-color="#4EB43B" />
+<stop offset="1" stop-color="#72CC61" stop-opacity="0" />
+</radialGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint109_radial_25_14" cx="0" cy="0" r="1" gradientTransform="matrix(8.22698 8.44382 23.4286 -24.0411 2762.24 1086.02)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#20A85E" />
+<stop offset="0.94" stop-color="#09442A" />
+</radialGradient>
+<clipPath xmlns="http://www.w3.org/2000/svg" id="clip7_25_14">
+<rect width="18" height="19" fill="white" transform="translate(2762 1077)" />
+</clipPath>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint108_radial_25_14" cx="0" cy="0" r="1" gradientTransform="matrix(-8.69807 -7.22154 7.0176 -8.90087 2781.09 1084.3)" gradientUnits="userSpaceOnUse">
+<stop offset="0.44" stop-color="#79E96D" />
+<stop offset="1" stop-color="#D0EB76" />
+</radialGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint107_linear_25_14" x1="2768.74" y1="1081.75" x2="2764.57" y2="1081.75" gradientUnits="userSpaceOnUse">
+<stop offset="0.18" stop-color="#C0E075" stop-opacity="0" />
+<stop offset="1" stop-color="#D1EB95" />
+</linearGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint110_radial_25_14" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2766.21 1091.04) rotate(90) scale(5.91158 6.63633)">
+<stop offset="0.58" stop-color="#33A662" stop-opacity="0" />
+<stop offset="0.97" stop-color="#98F0B0" stop-opacity="0.301961" />
+</radialGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint101_radial_25_14" cx="0" cy="0" r="1" gradientTransform="matrix(-14.5721 -15.7331 -11.8935 11.6014 2780.05 1097.21)" gradientUnits="userSpaceOnUse">
+<stop offset="0.06" stop-color="#379539" />
+<stop offset="0.42" stop-color="#297C2D" />
+<stop offset="0.7" stop-color="#15561C" />
+</radialGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint105_linear_25_14" x1="2764.98" y1="1084.78" x2="2773.72" y2="1077.39" gradientUnits="userSpaceOnUse">
+<stop stop-color="#66D052" />
+<stop offset="1" stop-color="#85E972" />
+</linearGradient>
+<linearGradient xmlns="http://www.w3.org/2000/svg" id="paint103_linear_25_14" x1="2764.57" y1="1088.08" x2="2771.66" y2="1088.08" gradientUnits="userSpaceOnUse">
+<stop stop-color="#52D17C" />
+<stop offset="0.33" stop-color="#4AA647" />
+</linearGradient>
+<radialGradient xmlns="http://www.w3.org/2000/svg" id="paint102_radial_25_14" cx="0" cy="0" r="1" gradientTransform="matrix(-6.16105 -6.11288 -4.60866 4.89187 2769.24 1086.26)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#073B10" stop-opacity="0.698039" />
+<stop offset="0.99" stop-color="#084A13" stop-opacity="0" />
+</radialGradient>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="name=MS Excel">
+<g id="Vector_215" clip-path="url(#clip7_25_14)">
+<g id="surface1">
+<path id="Vector_216" d="M2764.57 1083.07C2764.57 1081.76 2765.61 1080.69 2766.89 1080.69H2780V1094.42C2780 1095.29 2779.31 1096 2778.46 1096H2767.66C2765.95 1096 2764.57 1094.58 2764.57 1092.83V1083.07Z" fill="url(#paint101_radial_25_14)" />
+<path id="Vector_217" d="M2764.57 1083.07C2764.57 1081.76 2765.61 1080.69 2766.89 1080.69H2780V1094.42C2780 1095.29 2779.31 1096 2778.46 1096H2767.66C2765.95 1096 2764.57 1094.58 2764.57 1092.83V1083.07Z" fill="url(#paint102_radial_25_14)" />
+<path id="Vector_218" d="M2764.57 1085.71C2764.57 1084.4 2765.61 1083.33 2766.89 1083.33H2773.83C2772.98 1083.33 2772.29 1084.04 2772.29 1084.92V1088.08C2772.29 1088.96 2771.6 1089.67 2770.74 1089.67H2767.66C2765.95 1089.67 2764.57 1091.08 2764.57 1092.83V1085.71H2764.57Z" fill="url(#paint103_linear_25_14)" />
+<path id="Vector_219" d="M2764.57 1085.71C2764.57 1084.4 2765.61 1083.33 2766.89 1083.33H2773.83C2772.98 1083.33 2772.29 1084.04 2772.29 1084.92V1088.08C2772.29 1088.96 2771.6 1089.67 2770.74 1089.67H2767.66C2765.95 1089.67 2764.57 1091.08 2764.57 1092.83V1085.71H2764.57Z" fill="url(#paint104_linear_25_14)" />
+<path id="Vector_220" d="M2764.57 1080.17C2764.57 1078.42 2765.95 1077 2767.66 1077H2773.83V1083.33H2767.66C2765.95 1083.33 2764.57 1084.75 2764.57 1086.5V1080.17Z" fill="url(#paint105_linear_25_14)" />
+<path id="Vector_221" d="M2764.57 1080.17C2764.57 1078.42 2765.95 1077 2767.66 1077H2773.83V1083.33H2767.66C2765.95 1083.33 2764.57 1084.75 2764.57 1086.5V1080.17Z" fill="url(#paint106_radial_25_14)" />
+<path id="Vector_222" d="M2764.57 1080.17C2764.57 1078.42 2765.95 1077 2767.66 1077H2773.83V1083.33H2767.66C2765.95 1083.33 2764.57 1084.75 2764.57 1086.5V1080.17Z" fill="url(#paint107_linear_25_14)" />
+<path id="Vector_223" d="M2773.83 1077H2778.46C2779.31 1077 2780 1077.71 2780 1078.58V1081.75C2780 1082.62 2779.31 1083.33 2778.46 1083.33H2773.83C2772.98 1083.33 2772.29 1082.62 2772.29 1081.75V1078.58C2772.29 1077.71 2772.98 1077 2773.83 1077Z" fill="url(#paint108_radial_25_14)" />
+<path id="Vector_224" d="M2763.67 1085.97H2768.56C2769.48 1085.97 2770.23 1086.74 2770.23 1087.69V1092.7C2770.23 1093.65 2769.48 1094.42 2768.56 1094.42H2763.67C2762.75 1094.42 2762 1093.65 2762 1092.7V1087.69C2762 1086.74 2762.75 1085.97 2763.67 1085.97Z" fill="url(#paint109_radial_25_14)" />
+<path id="Vector_225" d="M2763.67 1085.97H2768.56C2769.48 1085.97 2770.23 1086.74 2770.23 1087.69V1092.7C2770.23 1093.65 2769.48 1094.42 2768.56 1094.42H2763.67C2762.75 1094.42 2762 1093.65 2762 1092.7V1087.69C2762 1086.74 2762.75 1085.97 2763.67 1085.97Z" fill="url(#paint110_radial_25_14)" />
+<path id="Vector_226" d="M2768.28 1092.61H2767.01L2766.21 1091.07C2766.18 1091.02 2766.16 1090.97 2766.15 1090.94C2766.13 1090.91 2766.12 1090.87 2766.1 1090.83H2766.09C2766.07 1090.88 2766.05 1090.92 2766.04 1090.96C2766.02 1090.99 2766 1091.03 2765.97 1091.08L2765.15 1092.61H2763.95L2765.39 1090.19L2764.05 1087.78H2765.3L2766.01 1089.15C2766.04 1089.21 2766.06 1089.26 2766.08 1089.3C2766.1 1089.34 2766.13 1089.39 2766.15 1089.45H2766.16C2766.19 1089.38 2766.21 1089.33 2766.23 1089.29C2766.25 1089.25 2766.28 1089.2 2766.31 1089.14L2767.04 1087.78H2768.24L2766.88 1090.15L2768.28 1092.61L2768.28 1092.61Z" fill="white" />
+</g>
+</g>
+</g>
+</svg>

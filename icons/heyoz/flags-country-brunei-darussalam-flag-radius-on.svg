@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1236 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip42_25_14">
+<rect x="1236" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Brunei Darussalam, Style=Flag, Radius=On">
+<g clip-path="url(#clip42_25_14)">
+<rect x="1236" y="2102" width="21" height="15" rx="3" fill="#F7E110" />
+<path id="Vector_429" d="M1255 2102H1238C1236.9 2102 1236 2102.9 1236 2104V2115C1236 2116.1 1236.9 2117 1238 2117H1255C1256.1 2117 1257 2116.1 1257 2115V2104C1257 2102.9 1256.1 2102 1255 2102Z" fill="#F7E110" />
+<path id="Vector_430" fill-rule="evenodd" clip-rule="evenodd" d="M1236 2102L1257 2112V2116L1236 2106V2102Z" fill="#F4F5F5" />
+<path id="Vector_431" fill-rule="evenodd" clip-rule="evenodd" d="M1236 2105L1257 2115V2117L1236 2107V2105Z" fill="#151515" />
+<path id="Vector_432" fill-rule="evenodd" clip-rule="evenodd" d="M1244 2109L1245 2110V2114L1243 2113V2111L1241 2109L1243 2107L1244 2108V2109ZM1245 2111H1248V2112H1245V2111ZM1249 2109L1248 2110V2114L1250 2113V2111L1252 2109L1250 2107L1249 2108V2109ZM1245 2108H1248L1246.5 2105L1245 2108Z" fill="#D00921" />
+</g>
+</g>
+</svg>

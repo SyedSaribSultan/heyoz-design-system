@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="662 2242 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip169_25_14">
+<rect x="662" y="2242" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Virgin Islands, Style=Flag, Radius=On">
+<g clip-path="url(#clip169_25_14)">
+<rect x="662" y="2242" width="21" height="15" rx="3" fill="#F4F5F5" />
+<mask id="mask37_25_14" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="662" y="2242" width="21" height="15">
+<g id="b">
+<path id="Vector_984" d="M681 2242H664C662.895 2242 662 2242.9 662 2244V2255C662 2256.1 662.895 2257 664 2257H681C682.105 2257 683 2256.1 683 2255V2244C683 2242.9 682.105 2242 681 2242Z" fill="white" />
+</g>
+</mask>
+<g mask="url(#mask37_25_14)">
+<path id="Vector_985" d="M681 2242H664C662.895 2242 662 2242.9 662 2244V2255C662 2256.1 662.895 2257 664 2257H681C682.105 2257 683 2256.1 683 2255V2244C683 2242.9 682.105 2242 681 2242Z" fill="white" />
+<path id="Vector_986" fill-rule="evenodd" clip-rule="evenodd" d="M677.25 2251L678 2251.75L675.75 2254L675 2253.25L677.25 2251Z" fill="#0082C7" />
+<path id="Vector_987" fill-rule="evenodd" clip-rule="evenodd" d="M668.75 2251L668 2251.75L670.25 2254L671 2253.25L668.75 2251Z" fill="#249F58" />
+<path id="Vector_988" fill-rule="evenodd" clip-rule="evenodd" d="M669 2251H670V2252L668 2253L669 2251Z" fill="#FFDA2C" />
+<path id="Vector_989" fill-rule="evenodd" clip-rule="evenodd" d="M665 2249H666V2252H665V2249ZM679 2249H680V2252H679V2249Z" fill="#0082C7" />
+<path id="Vector_990" fill-rule="evenodd" clip-rule="evenodd" d="M673 2246V2245H671V2246L672 2247V2249H673V2246ZM666 2246L670 2247V2250L666 2247V2246ZM679 2246L675 2247V2250L679 2247V2246ZM670 2253L672.5 2254L675 2253L674 2252H671L670 2253Z" fill="#FFDA2C" />
+<path id="Vector_991" fill-rule="evenodd" clip-rule="evenodd" d="M676 2251H675V2252L677 2253L676 2251Z" fill="#FFDA2C" />
+<path id="Vector_992" fill-rule="evenodd" clip-rule="evenodd" d="M670 2248H675V2252L672.5 2253L670 2252V2248Z" fill="#A7002E" />
+<path id="Vector_993" fill-rule="evenodd" clip-rule="evenodd" d="M671 2249H672V2252H671V2249ZM673 2249H674V2252H673V2249Z" fill="white" />
+<path id="Vector_994" fill-rule="evenodd" clip-rule="evenodd" d="M670 2247H675V2249H670V2247Z" fill="#0E2167" />
+</g>
+</g>
+</g>
+</svg>

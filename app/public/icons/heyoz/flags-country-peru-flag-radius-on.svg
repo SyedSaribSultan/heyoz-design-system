@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="293 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip131_25_14">
+<rect x="293" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Peru, Style=Flag, Radius=On">
+<g clip-path="url(#clip131_25_14)">
+<path id="Vector_799" d="M312 2207H295C293.895 2207 293 2207.9 293 2209V2220C293 2221.1 293.895 2222 295 2222H312C313.105 2222 314 2221.1 314 2220V2209C314 2207.9 313.105 2207 312 2207Z" fill="#F4F5F5" />
+<path id="Vector_800" fill-rule="evenodd" clip-rule="evenodd" d="M293 2207H300V2222H293V2207ZM307 2207H314V2222H307V2207Z" fill="#DA071E" />
+</g>
+</g>
+</svg>

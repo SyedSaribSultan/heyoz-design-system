@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1728 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip53_25_14">
+<rect x="1728" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Colombia, Style=Flag, Radius=On">
+<g clip-path="url(#clip53_25_14)">
+<path id="Vector_470" d="M1747 2102H1730C1728.9 2102 1728 2102.9 1728 2104V2115C1728 2116.1 1728.9 2117 1730 2117H1747C1748.1 2117 1749 2116.1 1749 2115V2104C1749 2102.9 1748.1 2102 1747 2102Z" fill="#002C88" />
+<path id="Vector_471" fill-rule="evenodd" clip-rule="evenodd" d="M1728 2113H1749V2117H1728V2113Z" fill="#C9072A" />
+<path id="Vector_472" fill-rule="evenodd" clip-rule="evenodd" d="M1728 2102H1749V2109H1728V2102Z" fill="#FFCE00" />
+</g>
+</g>
+</svg>

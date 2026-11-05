@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="785 2207 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip138_25_14">
+<rect x="785" y="2207" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Sao Tome and Principe, Style=Flag, Radius=On">
+<g clip-path="url(#clip138_25_14)">
+<rect x="785" y="2207" width="21" height="15" rx="3" fill="#FFD200" />
+<path id="Vector_835" fill-rule="evenodd" clip-rule="evenodd" d="M785 2218V2222H806V2218H785ZM785 2207V2211H806V2207H785Z" fill="#009836" />
+<path id="Vector_836" fill-rule="evenodd" clip-rule="evenodd" d="M795.5 2215.42L794.355 2216.02L794.575 2214.75L793.648 2213.84L794.928 2213.66L795.5 2212.5L796.072 2213.66L797.352 2213.84L796.426 2214.75L796.646 2216.02L795.5 2215.42ZM801.5 2215.42L800.355 2216.02L800.575 2214.75L799.648 2213.84L800.928 2213.66L801.5 2212.5L802.072 2213.66L803.352 2213.84L802.426 2214.75L802.646 2216.02" fill="#151515" />
+<path id="Vector_837" fill-rule="evenodd" clip-rule="evenodd" d="M785 2207V2222.03L792 2214.5L785 2207Z" fill="#EF303E" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "name": "heyoz-design-system",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "icons": "node scripts/build-icons.mjs",
+    "dev": "npm run tokens && next dev --turbopack",
+    "build": "npm run tokens && next build",
+    "start": "next start",
+    "test": "node --test src/app/editor/model.test.mjs"
+  },
+  "dependencies": {
+    "culori": "4.0.2",
+    "next": "15.5.29",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "lucide-static": "^1.67.0",
+    "svg-path-bbox": "^2.1.0"
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="1605 2172 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip119_25_14">
+<rect x="1605" y="2172" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=New Zealand, Style=Flag, Radius=On">
+<g clip-path="url(#clip119_25_14)">
+<rect x="1605" y="2172" width="21" height="15" rx="3" fill="#001B69" />
+<path id="Vector_749" d="M1624 2172H1607C1605.9 2172 1605 2172.9 1605 2174V2185C1605 2186.1 1605.9 2187 1607 2187H1624C1625.1 2187 1626 2186.1 1626 2185V2174C1626 2172.9 1625.1 2172 1624 2172Z" fill="#001B69" />
+<path id="Vector_750" fill-rule="evenodd" clip-rule="evenodd" d="M1620 2176V2177H1621V2176H1620ZM1622 2178V2179H1623V2178H1622ZM1618 2179V2180H1619V2179H1618ZM1620 2183V2184H1621V2183H1620Z" fill="#C9072A" />
+<path id="Vector_751" d="M1614 2173H1607C1606.45 2173 1606 2173.45 1606 2174V2179C1606 2179.55 1606.45 2180 1607 2180H1614C1614.55 2180 1615 2179.55 1615 2179V2174C1615 2173.45 1614.55 2173 1614 2173Z" fill="#F4F5F5" />
+<path id="Vector_752" fill-rule="evenodd" clip-rule="evenodd" d="M1610 2177H1607V2176H1610V2174H1611V2176H1614V2177H1611V2179H1610V2177ZM1612.5 2178V2179H1614V2178H1612.5ZM1612.5 2174V2175H1614V2174H1612.5ZM1607 2178V2179H1608.5V2178H1607ZM1607 2174V2175H1608.5V2174H1607Z" fill="#C9072A" />
+</g>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="703 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip71_25_14">
+<rect x="703" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Ethiopia, Style=Flag, Radius=On">
+<g clip-path="url(#clip71_25_14)">
+<path id="Vector_544" d="M722 2137H705C703.895 2137 703 2137.9 703 2139V2150C703 2151.1 703.895 2152 705 2152H722C723.105 2152 724 2151.1 724 2150V2139C724 2137.9 723.105 2137 722 2137Z" fill="#FCDE02" />
+<path id="Vector_545" fill-rule="evenodd" clip-rule="evenodd" d="M703 2147H724V2152H703V2147Z" fill="#DB0A13" />
+<path id="Vector_546" fill-rule="evenodd" clip-rule="evenodd" d="M703 2137H724V2142H703V2137Z" fill="#018A2C" />
+<path id="Vector_547" d="M713.5 2149C715.985 2149 718 2146.99 718 2144.5C718 2142.01 715.985 2140 713.5 2140C711.015 2140 709 2142.01 709 2144.5C709 2146.99 711.015 2149 713.5 2149Z" fill="#0645B0" />
+<path id="Vector_548" fill-rule="evenodd" clip-rule="evenodd" d="M713.498 2145.75L712.028 2146.52L712.308 2144.89L711.12 2143.73L712.763 2143.49L713.498 2142L714.232 2143.49L715.875 2143.73L714.685 2144.89L714.967 2146.52" fill="#FCDE02" />
+</g>
+</g>
+</svg>

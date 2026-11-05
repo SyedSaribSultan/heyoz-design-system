@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="498 2102 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip27_25_14">
+<rect x="498" y="2102" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Armenia, Style=Flag, Radius=On">
+<g clip-path="url(#clip27_25_14)">
+<path id="Vector_362" d="M517 2102H500C498.895 2102 498 2102.9 498 2104V2115C498 2116.1 498.895 2117 500 2117H517C518.105 2117 519 2116.1 519 2115V2104C519 2102.9 518.105 2102 517 2102Z" fill="#0030A1" />
+<path id="Vector_363" fill-rule="evenodd" clip-rule="evenodd" d="M498 2112H519V2117H498V2112Z" fill="#F2A900" />
+<path id="Vector_364" fill-rule="evenodd" clip-rule="evenodd" d="M498 2102H519V2107H498V2102Z" fill="#DA000A" />
+</g>
+</g>
+</svg>

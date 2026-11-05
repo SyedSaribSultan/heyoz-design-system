@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="785 2172 21 15" fill="none"><g xmlns="http://www.w3.org/2000/svg" id="Country=Malaysia, Style=Flag, Radius=On">
+<rect x="785" y="2172" width="21" height="15" rx="3" fill="#F4F5F5" />
+<g id="Group 4">
+<rect id="Rectangle 35" x="785" y="2184.92" width="21" height="1.07692" fill="#AF010D" />
+<rect id="Rectangle 34" x="785" y="2182.77" width="21" height="1.07692" fill="#AF010D" />
+<rect id="Rectangle 33" x="785" y="2180.62" width="21" height="1.07692" fill="#AF010D" />
+<rect id="Rectangle 32" x="785" y="2178.46" width="21" height="1.07692" fill="#AF010D" />
+<rect id="Rectangle 31" x="785" y="2176.31" width="21" height="1.07692" fill="#AF010D" />
+<rect id="Rectangle 30" x="785" y="2174.15" width="21" height="1.07692" fill="#AF010D" />
+<rect id="Rectangle 29" x="785" y="2172" width="21" height="1.07692" fill="#AF010D" />
+</g>
+<path id="Vector_690" fill-rule="evenodd" clip-rule="evenodd" d="M785 2172H796V2180.62H785V2172Z" fill="#000066" />
+<path id="Vector_691" fill-rule="evenodd" clip-rule="evenodd" d="M792 2176H793V2177H792V2176Z" fill="#FFCD00" />
+<path id="Vector_692" fill-rule="evenodd" clip-rule="evenodd" d="M792.5 2178C792.044 2178.61 791.318 2179 790.5 2179C789.12 2179 788 2177.88 788 2176.5C788 2175.12 789.12 2174 790.5 2174C791.318 2174 792.044 2174.39 792.5 2175H791C790.172 2175 789.5 2175.67 789.5 2176.5C789.5 2177.33 790.172 2178 791 2178H792.5Z" fill="#FFCD00" />
+</g>
+</svg>

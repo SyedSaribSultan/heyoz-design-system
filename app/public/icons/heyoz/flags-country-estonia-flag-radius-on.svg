@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="15" viewBox="621 2137 21 15" fill="none"><defs><clipPath xmlns="http://www.w3.org/2000/svg" id="clip69_25_14">
+<rect x="621" y="2137" width="21" height="15" rx="3" fill="white" />
+</clipPath>
+</defs><g xmlns="http://www.w3.org/2000/svg" id="Country=Estonia, Style=Flag, Radius=On">
+<g clip-path="url(#clip69_25_14)">
+<path id="Vector_533" d="M640 2137H623C621.895 2137 621 2137.9 621 2139V2150C621 2151.1 621.895 2152 623 2152H640C641.105 2152 642 2151.1 642 2150V2139C642 2137.9 641.105 2137 640 2137Z" fill="#151515" />
+<path id="Vector_534" fill-rule="evenodd" clip-rule="evenodd" d="M621 2147H642V2152H621V2147Z" fill="#F4F5F5" />
+<path id="Vector_535" fill-rule="evenodd" clip-rule="evenodd" d="M621 2137H642V2142H621V2137Z" fill="#0073CF" />
+</g>
+</g>
+</svg>

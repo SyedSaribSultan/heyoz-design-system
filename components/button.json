@@ -1,0 +1,299 @@
+{
+  "$about": "Button: every value is a token reference, 'none' or a rule (D-025, D-026). Status draft: the owner may still change it; it becomes stable when the owner says so.",
+  "status": "draft",
+  "anatomy": "One frame: [icon] [label] [icon]. The frame carries height, padding x, gap, radius, fill and border; the same values apply to all three children. Either icon is optional; with no label the button is icon-only and square.",
+  "rules": {
+    "height": "size/control/{size}: 2xs 28, then 8px steps from xs 32 to 2xl 72. xs (32) is the everyday size. Fixed; children are centred, so padding y is not set: it is whatever is left over (2xs: 6).",
+    "label": "Text is always the body role, medium weight: 2xs 12, xs 14 (the everyday size), sm 14, md 16, lg 18, xl 20, 2xl 24. From md up, text stays about a third of the height.",
+    "icon": "A square frame from the icon scale, chosen by text size: 16 for 12 and 14px text, 20 for 16px, 24 for 18 and 20px, 32 for 24px. The vector follows the icon grid: it fills the key square (size/icon/grid/square, 75%).",
+    "radius": "Squircle: height \u00d7 0.375 (xs: 12 on 32), rounded to the nearest 4, so every size stays about equally round. 2xs sets its own: 10. Pill: radius/full (1000 in Figma). Same padding for both.",
+    "border": "stroke/1 at every size.",
+    "states": "Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone and brand-ghost change fill only.",
+    "shade": "Every state that has a fill gets the inner shade: inner shadow x 0, y \u22124, blur 10, spread 0, #000000 at 50%. No fill, no shade (outline, ghost and brand-ghost at rest; they get it on hover and press).",
+    "grid": "Every value you type in Figma is on the 4px grid; values under 12 may use 2px half-steps (2xs: padding x 10, radius 10). A plain number in a size means a set value that is not a token."
+  },
+  "squircle": 0.375,
+  "sizes": {
+    "2xs": {
+      "paddingX": 10,
+      "gap": "{space/4}",
+      "label": "{type/body/sm/medium}",
+      "icon": "{size/icon/sm}",
+      "radius": 10
+    },
+    "xs": {
+      "paddingX": "{space/12}",
+      "gap": "{space/4}",
+      "label": "{type/body/md/medium}",
+      "icon": "{size/icon/sm}"
+    },
+    "sm": {
+      "paddingX": "{space/16}",
+      "gap": "{space/4}",
+      "label": "{type/body/md/medium}",
+      "icon": "{size/icon/sm}"
+    },
+    "md": {
+      "paddingX": "{space/20}",
+      "gap": "{space/8}",
+      "label": "{type/body/lg/medium}",
+      "icon": "{size/icon/md}"
+    },
+    "lg": {
+      "paddingX": "{space/24}",
+      "gap": "{space/8}",
+      "label": "{type/body/xl/medium}",
+      "icon": "{size/icon/lg}"
+    },
+    "xl": {
+      "paddingX": "{space/32}",
+      "gap": "{space/8}",
+      "label": "{type/body/2xl/medium}",
+      "icon": "{size/icon/lg}"
+    },
+    "2xl": {
+      "paddingX": "{space/40}",
+      "gap": "{space/12}",
+      "label": "{type/body/3xl/medium}",
+      "icon": "{size/icon/xl}"
+    }
+  },
+  "types": {
+    "brand": {
+      "$about": "The main action. One per view.",
+      "rest": {
+        "fill": "{fill/brand}",
+        "border": "none",
+        "label": "{content/on-brand}",
+        "icon": "{content/on-brand}"
+      },
+      "hover": {
+        "fill": "{fill/brand-hover}",
+        "border": "none",
+        "label": "{content/on-brand}",
+        "icon": "{content/on-brand}"
+      },
+      "pressed": {
+        "fill": "{fill/brand-active}",
+        "border": "none",
+        "label": "{content/on-brand}",
+        "icon": "{content/on-brand}"
+      },
+      "disabled": {
+        "fill": "{fill/brand-disabled}",
+        "border": "none",
+        "label": "{content/on-brand-disabled}",
+        "icon": "{content/on-brand-disabled}"
+      }
+    },
+    "primary": {
+      "$about": "Strong neutral action, light on dark.",
+      "rest": {
+        "fill": "{fill/inverse}",
+        "border": "none",
+        "label": "{content/inverse-primary}",
+        "icon": "{content/inverse-primary}"
+      },
+      "hover": {
+        "fill": "{fill/inverse-hover}",
+        "border": "none",
+        "label": "{content/inverse-primary}",
+        "icon": "{content/inverse-primary}"
+      },
+      "pressed": {
+        "fill": "{fill/inverse-active}",
+        "border": "none",
+        "label": "{content/inverse-primary}",
+        "icon": "{content/inverse-primary}"
+      },
+      "disabled": {
+        "fill": "{fill/secondary-disabled}",
+        "border": "none",
+        "label": "{content/primary-disabled}",
+        "icon": "{content/primary-disabled}"
+      }
+    },
+    "secondary": {
+      "$about": "Default action on surfaces.",
+      "rest": {
+        "fill": "{fill/secondary}",
+        "border": "{border/secondary}",
+        "label": "{content/primary}",
+        "icon": "{content/primary}"
+      },
+      "hover": {
+        "fill": "{fill/secondary-hover}",
+        "border": "{border/secondary-hover}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "pressed": {
+        "fill": "{fill/secondary-active}",
+        "border": "{border/secondary-active}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "disabled": {
+        "fill": "{fill/secondary-disabled}",
+        "border": "{border/secondary-disabled}",
+        "label": "{content/primary-disabled}",
+        "icon": "{content/primary-disabled}"
+      }
+    },
+    "tertiary": {
+      "$about": "Quiet action; chips and settings in the prompt box.",
+      "rest": {
+        "fill": "{fill/tertiary}",
+        "border": "{border/tertiary}",
+        "label": "{content/primary}",
+        "icon": "{content/primary}"
+      },
+      "hover": {
+        "fill": "{fill/tertiary-hover}",
+        "border": "{border/tertiary-hover}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "pressed": {
+        "fill": "{fill/tertiary-active}",
+        "border": "{border/tertiary-active}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "disabled": {
+        "fill": "{fill/tertiary-disabled}",
+        "border": "{border/tertiary-disabled}",
+        "label": "{content/primary-disabled}",
+        "icon": "{content/primary-disabled}"
+      }
+    },
+    "outline": {
+      "$about": "Border only, no fill.",
+      "rest": {
+        "fill": "none",
+        "border": "{border/secondary}",
+        "label": "{content/primary}",
+        "icon": "{content/primary}"
+      },
+      "hover": {
+        "fill": "{fill/secondary}",
+        "border": "{border/secondary-hover}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "pressed": {
+        "fill": "{fill/secondary-hover}",
+        "border": "{border/secondary-active}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "disabled": {
+        "fill": "none",
+        "border": "{border/secondary-disabled}",
+        "label": "{content/primary-disabled}",
+        "icon": "{content/primary-disabled}"
+      }
+    },
+    "ghost": {
+      "$about": "No fill or border until hovered.",
+      "rest": {
+        "fill": "none",
+        "border": "none",
+        "label": "{content/primary}",
+        "icon": "{content/primary}"
+      },
+      "hover": {
+        "fill": "{fill/secondary}",
+        "border": "{border/secondary-hover}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "pressed": {
+        "fill": "{fill/secondary-hover}",
+        "border": "{border/secondary-active}",
+        "label": "{content/primary}",
+        "icon": "{content/brand}"
+      },
+      "disabled": {
+        "fill": "none",
+        "border": "none",
+        "label": "{content/primary-disabled}",
+        "icon": "{content/primary-disabled}"
+      }
+    },
+    "brand-tone": {
+      "$about": "Brand action that should not shout.",
+      "rest": {
+        "fill": "{fill/brand-secondary}",
+        "border": "none",
+        "label": "{content/brand}",
+        "icon": "{content/brand}"
+      },
+      "hover": {
+        "fill": "{fill/brand-secondary-hover}",
+        "border": "none",
+        "label": "{content/brand}",
+        "icon": "{content/brand}"
+      },
+      "pressed": {
+        "fill": "{fill/brand-secondary-active}",
+        "border": "none",
+        "label": "{content/brand}",
+        "icon": "{content/brand}"
+      },
+      "disabled": {
+        "fill": "{fill/brand-secondary-disabled}",
+        "border": "none",
+        "label": "{content/brand-disabled}",
+        "icon": "{content/brand-disabled}"
+      }
+    },
+    "brand-ghost": {
+      "$about": "Brand text, fill only on hover.",
+      "rest": {
+        "fill": "none",
+        "border": "none",
+        "label": "{content/brand}",
+        "icon": "{content/brand}"
+      },
+      "hover": {
+        "fill": "{fill/brand-secondary}",
+        "border": "none",
+        "label": "{content/brand}",
+        "icon": "{content/brand}"
+      },
+      "pressed": {
+        "fill": "{fill/brand-secondary-hover}",
+        "border": "none",
+        "label": "{content/brand}",
+        "icon": "{content/brand}"
+      },
+      "disabled": {
+        "fill": "none",
+        "border": "none",
+        "label": "{content/brand-disabled}",
+        "icon": "{content/brand-disabled}"
+      }
+    }
+  },
+  "links": {
+    "brand": {
+      "$about": "Inline brand link.",
+      "rest": "{content/brand}",
+      "hover": "{content/brand-hover}",
+      "pressed": "{content/brand-active}",
+      "disabled": "{content/brand-disabled}"
+    },
+    "neutral": {
+      "$about": "Inline neutral link.",
+      "rest": "{content/primary}",
+      "hover": "{content/secondary}",
+      "pressed": "{content/tertiary}",
+      "disabled": "{content/primary-disabled}"
+    }
+  },
+  "linksAbout": "Links have no frame: text (and an optional icon) in the button's label style for that size, no fill, no border, no padding. Colour changes per state.",
+  "loading": "Disabled colours; the trailing icon becomes a spinner. The spinner is an icon: same frame, the ring fills the key square, line weight = frame \u00d7 size/icon/grid/stroke.",
+  "focus": "Rest colours plus a ring outside the border: border/focus, stroke/2.",
+  "effects": "Inner shade on every filled state, inset 0 -4 10 rgba(0,0,0,.5). A Figma effect, not a token (D-021)."
+}
