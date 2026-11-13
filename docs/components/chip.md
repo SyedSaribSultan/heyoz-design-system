@@ -2,7 +2,7 @@
 
 > Generated from `components/chip.json` by `app/scripts/build-tokens.mjs`. Do not edit.
 
-Chip: a compact interactive control: a filter, a choice, an input or a setting. Built from the owner-reviewed settings chips in Home's prompt box. Every value is a token reference, a plain even number (a set value in px, not a token), 'none' or a rule (D-025).
+Chip: a compact interactive control: a filter, a choice, an input or a setting. Built from the settings chips in Home's prompt box. Every value is a token reference, a plain even number (a set value in px, not a token), 'none' or a rule (D-025).
 
 Status: **draft**
 
