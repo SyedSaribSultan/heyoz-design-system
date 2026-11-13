@@ -100,7 +100,7 @@ heyoz-design-system/
 │       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt)
 │       ├── components/           ← components built from their spec: Button, SideNav, Segmented, Tabs, TextField, Menu, Select, Dialog, …
 │       ├── docs/                 ← the docs frame: nav.js (the site map + each page's sections), Sidebar, Shell, DocsChrome (search, copy), ui blocks
-│       └── app/                  ← routes: / · foundations/* · components/* · screens: home, editor, dashboard
+│       └── app/                  ← routes: / · foundations/* · components/* · screens: home, editor
 ├── archive/                      ← kept for reference, never deployed (old assets, the archived Figma colour export)
 └── current-figma-tokens-11.03.2026/   ← the original Figma export, reference only, never deployed
 ```
@@ -127,7 +127,7 @@ Code: **https://github.com/SyedSaribSultan/heyoz-design-system** (private, branc
 
 Live: **https://heyoz.syedsarib.com** (Vercel project `heyoz-design-system`, root directory `app`). Deploy from the **repo root** with `vercel deploy --prod` (the build reads `tokens/` and `components/`).
 
-Pages: the site map is `app/src/docs/nav.js` (add a page there). `/foundations` and `/components` redirect to their first page. Screens with demo states: `/editor?scene=none|clip|text|ai|empty|grown` (below 820px wide it switches to the narrow layout) and `/dashboard` (keys 1–5, D-039). On any page, hold **Ctrl + Alt** and point at something to see its tokens. Press **/** or **Ctrl K** to search pages, sections and tokens; click a token chip to copy it.
+Pages: the site map is `app/src/docs/nav.js` (add a page there). `/foundations` and `/components` redirect to their first page. Screens with demo states: `/editor?scene=none|clip|text|ai|empty|grown` (below 820px wide it switches to the narrow layout). On any page, hold **Ctrl + Alt** and point at something to see its tokens. Press **/** or **Ctrl K** to search pages, sections and tokens; click a token chip to copy it.
 
 `npm run tokens` rebuilds every generated file (it writes only the files whose content changed). `npm run icons` (needs `npm install` once, for `lucide-static`) regenerates the icon files; run it after re-exporting icons from Figma or updating Lucide. The build fails if a rule is broken or a spec points at a token that doesn't exist.
 

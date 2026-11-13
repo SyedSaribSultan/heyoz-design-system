@@ -2,7 +2,7 @@
 
 > Generated from `components/badge.json` by `app/scripts/build-tokens.mjs`. Do not edit.
 
-Badge: a small, non-interactive label for a status, a count or a new-thing signal. Every value is a token reference, a plain even number (a set value in px, not a token), 'none' or a rule (D-025). Unifies the editor Badge draft and the dashboard pills.
+Badge: a small, non-interactive label for a status, a count or a new-thing signal. Every value is a token reference, a plain even number (a set value in px, not a token), 'none' or a rule (D-025). Replaces the editor Badge draft.
 
 Status: **draft**
 

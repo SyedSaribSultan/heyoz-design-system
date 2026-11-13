@@ -62,7 +62,6 @@ const ART = {
   '/home': () => <img src="/home/logomark.svg" alt="" width={40} height={40} />,
   // Each screen's sidebar icon (Lucide), at the same 40 as the Home logomark.
   '/editor': () => <span className="o-icon" style={{ '--icon': 'url(/icons/lucide/clapperboard.svg)', width: 'var(--size-control-sm)', height: 'var(--size-control-sm)' }} />,
-  '/dashboard': () => <span className="o-icon" style={{ '--icon': 'url(/icons/lucide/layout-dashboard.svg)', width: 'var(--size-control-sm)', height: 'var(--size-control-sm)' }} />,
 };
 
 export default function Overview() {

@@ -78,7 +78,6 @@ export const NAV = [
     items: [
       { href: '/home', icon: 'house', title: 'Home', external: true, summary: 'The HeyOz home screen, built only from the pieces on this site.' },
       { href: '/editor', icon: 'clapperboard', title: 'Editor', external: true, summary: 'The video editor redesign: preview, one strip, a five-button bar, the inspector on selection and AI on the selected clip.' },
-      { href: '/dashboard', icon: 'layout-dashboard', title: 'Oz dashboard', external: true, summary: 'Home, agent version (prototype): one prompt box for Oz, the one next move it suggests, then what Oz knows about your ads, in five demo states.' },
     ],
   },
 ];

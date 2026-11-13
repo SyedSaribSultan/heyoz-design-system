@@ -104,9 +104,6 @@ A scroll or clipping container clips anything painted outside it, so it keeps `s
 Developers on shadcn/ui get HeyOz through one file. `exports/shadcn/map.json` fills every shadcn slot with a HeyOz token; `npm run tokens` checks each reference and writes `exports/shadcn/globals.css` (Tailwind v4, paste-ready) and `docs/shadcn.md`. `primary` is `fill/inverse` (white), not orange: shadcn paints checkboxes, switches, sliders and the default button with `primary`, and orange is for the one main action, shipped as the extra `brand`. Other extras: `brand-muted`, `success`, `warning`, `info`, each with `-foreground`, plus `-hover` / `-active` state colours, because shadcn fades colours on hover and HeyOz steps them (D-035); the class swaps are listed, the component files stay as shadcn wrote them. The file holds resolved OKLCH values (each line names its token), so it works without the HeyOz CSS. Radii use the HeyOz scale under Tailwind's names (`rounded-md` = `radius/md`); `--radius` is `radius/lg`. Fonts: `font-sans` Geist, `font-heading` and `font-display` Bricolage. Dark only: `:root` and `.dark` are identical and the app sets `class="dark"`. Charts keep shadcn's defaults (D-012).
 *Cost:* shadcn's own hover fades and `dark:` tweaks stay unless a developer makes the swaps; `rounded-4xl` stays at Tailwind's 32px.
 
-**D-039 · Oz dashboard (prototype screen)** · 2026-11-13
-`/dashboard` is Home, agent version: a prompt box (Oz), the one next move Oz suggests under it, then what Oz knows, in plain words. It uses Home's side nav, top nav and prompt box, plus Button, Segmented, tk(), and the editor's icon part, as they are. One orange fill per view: the Ask Oz button. Every yes is a primary (white) button. Thinking is free and automatic; anything that costs credits, money or changes the brand waits for a yes, and shows its cost as pills first. One picture, one sentence and one button per card; one number per stat tile; no jargon on screen. Sections appear only when they have something in them, ordered by what matters now. Oz's answer opens right under the prompt and enters like a popup (D-031). Five demo states (keys 1–5); in production the state comes from data, never asked. The pill, stat tile, idea card and competitor card are drafts, like the editor parts (D-034). Drawn ads are media: they use the primitive ramps and their own type, as a real ad would, and the light skips them (D-020). Data sources and ship order: `app/src/app/dashboard/README.md`.
-
 **D-040 · Text field (draft)** · 2026-11-13
 One component for one line and many (`components/textfield.json`): sizes xs 32, sm 40, md 48 with radius lg, xl, 2xl and Button's padding. The field is a well (D-036): `fill/primary`, `border/primary`, inner shade; hover `-hover`; focus steps the border up to `border/primary-active`, with no ring (subtle; the owner's call); invalid `border/critical`; disabled and read-only. Clear and show/hide are ghost Buttons one size smaller, inset evenly so corners stay parallel; Esc clears. The textarea grows from 3 to 8 rows. An error replaces the hint, with an icon, in a polite live region; a count turns critical at the limit.
 *Cost:* the textarea's growing height does not animate (it would lag the caret), the one exception to D-031.
@@ -133,7 +130,7 @@ Dialog is the one modal: the search dialog's scrim (background at 72%, `space/4`
 
 **D-046 · Badge, Chip and Avatar (draft)** · 2026-11-13
 Badge is a status label you cannot press: 6 tones, soft (`fill/*-secondary` + `content/*`) or solid (`fill/*` + `content/on-*`), 18 or 24 tall from padding, `radius/full`, plus counts (99+) and a dot. Chip is the Home prompt chip made a component: tertiary fill, inner shade, 32 or 28 tall; action, filter (selected = the pressed look held, D-035), choice (one sliding indicator) and input (removable). Avatar: picture, then initials, then an icon; 6 sizes from 20 to 56 on existing tokens; circle for people, squircle for brands; status dot and overlapping groups. The picture is media (D-020).
-*Why:* one badge replaces the editor badge and the dashboard pills; one chip replaces Home's chips.
+*Why:* one badge replaces the editor badge and the old one-off pills; one chip replaces Home's chips.
 
 **D-047 · Slider and Progress (draft)** · 2026-11-13
 Slider: native range inputs over a drawn 8-tall well track, a 20 white thumb (the primary Button look), a value tag while dragging or focused, ticks, range with two thumbs, an optional number field; a 44-tall hit row; arrows, Shift × 10, Page Up/Down, Home and End. Progress: a bar 2, 4 or 8 tall, determinate or indeterminate, neutral (white) by default, brand only when it is the screen's main event. The Spinner is an icon on the icon grid (D-028) at the five icon sizes; reduced motion slows it.
@@ -148,7 +145,7 @@ Draft components (D-040 to D-047) wait for the owner's sign-off. The defaults be
 - **Q-5 · Scroll in pop-ups.** Dialog hides its scrollbar and fades the edge; Popover and Menu use the one scrollbar (D-037). Default: as built. Pick one rule for every pop-up.
 - **Q-6 · A critical Button type.** Destructive confirms need one (fill/critical, content/on-critical). Default: a local style in the dialog.
 - **Q-7 · White or orange for "on".** Checkbox, Radio, Switch and the Tabs underline are white (D-038). Default: white.
-- **Q-8 · The main action in a dialog.** Brand (orange) or primary (white, as D-039). Default: brand.
+- **Q-8 · The main action in a dialog.** Brand (orange) or primary (white). Default: brand.
 
 ---
 
@@ -162,4 +159,5 @@ Draft components (D-040 to D-047) wait for the owner's sign-off. The defaults be
 - Q-2 Canvas glow → dropped (2026-11-04); removed from Home.
 - Q-3 Canonical tool names → dropped (2026-11-04).
 - D-033 typeface preview (switcher for stakeholder review) → removed 2026-11-13; fonts stay D-018.
+- D-039 Oz dashboard (/dashboard, a prototype screen) → removed 2026-11-13 with the screen.
 - Q-4 Label colour on the brand fill → decided 2026-11-05: white stays (D-003).
