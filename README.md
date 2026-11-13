@@ -97,7 +97,7 @@ heyoz-design-system/
 │       ├── styles/               ← generated: tokens.css, typography.css, components.css · by hand: motion.css (D-031)
 │       ├── tokens/, icons/       ← generated JSON: tokens.resolved.json (server only), components.json (browser), icons.json (icon index)
 │       ├── lib/                  ← tk() (applies tokens, records them), rec() (records them), Lucide (the one icon helper), LightField (cursor light)
-│       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt), TypeSwitcher
+│       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt)
 │       ├── components/           ← components built from their spec: Button, SideNav, Segmented, Tabs, TextField, Menu, Select, Dialog, …
 │       ├── docs/                 ← the docs frame: nav.js (the site map + each page's sections), Sidebar, Shell, DocsChrome (search, copy), ui blocks
 │       └── app/                  ← routes: / · foundations/* · components/* · screens: home, editor, dashboard

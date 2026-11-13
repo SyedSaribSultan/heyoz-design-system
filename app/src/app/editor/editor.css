@@ -239,7 +239,5 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 @keyframes ed-sheet-in { from { transform: translateY(100%); } }
 @media (prefers-reduced-motion: reduce) { .ed *, .ed *::before, .ed *::after { transition: none !important; animation: none !important; } }
 .ed-row2 > .btn[data-block] { flex: 1 1 0; width: auto; }
-/* The typeface preview (D-033) is hidden on this screen: it covered the timeline (owner, 2026-11-05). */
-body:has(.ed) .ts { display: none; }
 .ed[data-narrow] .ed-bt { min-width: 64px; }
 .ed[data-narrow] .ed-bar::-webkit-scrollbar { display: none; }
