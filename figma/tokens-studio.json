@@ -841,7 +841,7 @@
         "type": "color"
       },
       "focus": {
-        "value": "{orange.10}",
+        "value": "{gray.8}",
         "type": "color"
       },
       "focus-inverse": {

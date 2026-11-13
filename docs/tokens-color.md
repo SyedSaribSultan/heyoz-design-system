@@ -143,7 +143,7 @@ Mode **dark** · 6 ramps × 12 steps + white · 173 semantic tokens. Values are 
 | `border/info-hover` | `--border-info-hover` | `blue/10` | #629DFF |
 | `border/info-active` | `--border-info-active` | `blue/8` | #193C76 |
 | `border/info-disabled` | `--border-info-disabled` | `blue/7` | #193460 |
-| `border/focus` | `--border-focus` | `orange/10` | #FF6645 |
+| `border/focus` | `--border-focus` | `gray/8` | #403E3C |
 | `border/focus-inverse` | `--border-focus-inverse` | `gray/1` | #070505 |
 | `border/brand-secondary` | `--border-brand-secondary` | `orange/6` | #50160A |
 | `border/brand-secondary-hover` | `--border-brand-secondary-hover` | `orange/7` | #611807 |

@@ -36,7 +36,7 @@ Checked against: shadcn CLI (shadcn@latest init, style base-nova) on Tailwind CS
 | `--destructive-foreground` | `text-destructive-foreground` | `content/on-critical` | #FFFFFF | Text on destructive (shadcn maps it in @theme but no longer defines it; HeyOz does). |
 | `--border` | `border-border` | `border/primary` | #1D1B1A | Default borders and dividers: two steps above surface/primary. |
 | `--input` | `border-input` | `border/secondary` | #262322 | Input, select and outline button borders. |
-| `--ring` | `ring-ring` | `border/focus` | #FF6645 | Keyboard focus ring (orange, stroke/2). |
+| `--ring` | `ring-ring` | `border/focus` | #403E3C | Keyboard focus ring (orange, stroke/2). |
 | `--sidebar` | `bg-sidebar` | `surface/primary` | #0E0C0B | Side nav background (sidenav.json nav.background). |
 | `--sidebar-foreground` | `text-sidebar-foreground` | `content/primary` | #F1EEEC | Side nav item text. |
 | `--sidebar-primary` | `bg-sidebar-primary` | `fill/brand` | #FF3D01 | The logo square and brand mark in the sidebar header (the HeyOz logomark is orange). |
@@ -44,7 +44,7 @@ Checked against: shadcn CLI (shadcn@latest init, style base-nova) on Tailwind CS
 | `--sidebar-accent` | `bg-sidebar-accent` | `fill/primary-active` | #1D1B1A | The current page item (sidenav item.active.fill). shadcn also uses it for hover; HeyOz hover is sidebar-accent-hover below. |
 | `--sidebar-accent-foreground` | `text-sidebar-accent-foreground` | `content/primary` | #F1EEEC | Text on the current item. |
 | `--sidebar-border` | `border-sidebar-border` | `border/primary` | #1D1B1A | Side nav borders and dividers. |
-| `--sidebar-ring` | `ring-sidebar-ring` | `border/focus` | #FF6645 | Focus ring in the side nav. |
+| `--sidebar-ring` | `ring-sidebar-ring` | `border/focus` | #403E3C | Focus ring in the side nav. |
 
 ## HeyOz additions
 

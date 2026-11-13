@@ -200,7 +200,7 @@
   --border-info-hover: var(--blue-10);
   --border-info-active: var(--blue-8);
   --border-info-disabled: var(--blue-7);
-  --border-focus: var(--orange-10);
+  --border-focus: var(--gray-8);
   --border-focus-inverse: var(--gray-1);
   --border-brand-secondary: var(--orange-6);
   --border-brand-secondary-hover: var(--orange-7);

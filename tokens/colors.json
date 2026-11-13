@@ -158,7 +158,7 @@
       "info-hover": "{blue/10}",
       "info-active": "{blue/8}",
       "info-disabled": "{blue/7}",
-      "focus": "{orange/10}",
+      "focus": "{gray/8}",
       "focus-inverse": "{gray/1}",
       "brand-secondary": "{orange/6}",
       "brand-secondary-hover": "{orange/7}",

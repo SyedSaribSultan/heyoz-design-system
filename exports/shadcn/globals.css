@@ -104,7 +104,7 @@
   --destructive-foreground:         oklch(1 0 0); /* content/on-critical · #FFFFFF */
   --border:                         oklch(0.225 0.004 55); /* border/primary · #1D1B1A */
   --input:                          oklch(0.26 0.004 55); /* border/secondary · #262322 */
-  --ring:                           oklch(0.7 0.193 33.98); /* border/focus · #FF6645 */
+  --ring:                           oklch(0.365 0.004 55); /* border/focus · #403E3C */
   --sidebar:                        oklch(0.155 0.004 55); /* surface/primary · #0E0C0B */
   --sidebar-foreground:             oklch(0.95 0.004 55); /* content/primary · #F1EEEC */
   --sidebar-primary:                oklch(0.6536 0.2347 33.98); /* fill/brand · #FF3D01 */
@@ -112,7 +112,7 @@
   --sidebar-accent:                 oklch(0.225 0.004 55); /* fill/primary-active · #1D1B1A */
   --sidebar-accent-foreground:      oklch(0.95 0.004 55); /* content/primary · #F1EEEC */
   --sidebar-border:                 oklch(0.225 0.004 55); /* border/primary · #1D1B1A */
-  --sidebar-ring:                   oklch(0.7 0.193 33.98); /* border/focus · #FF6645 */
+  --sidebar-ring:                   oklch(0.365 0.004 55); /* border/focus · #403E3C */
 
   /* HeyOz additions: bg-brand, bg-success, … */
   --brand:                          oklch(0.6536 0.2347 33.98); /* fill/brand · #FF3D01 */
@@ -171,7 +171,7 @@
   --destructive-foreground:         oklch(1 0 0); /* content/on-critical · #FFFFFF */
   --border:                         oklch(0.225 0.004 55); /* border/primary · #1D1B1A */
   --input:                          oklch(0.26 0.004 55); /* border/secondary · #262322 */
-  --ring:                           oklch(0.7 0.193 33.98); /* border/focus · #FF6645 */
+  --ring:                           oklch(0.365 0.004 55); /* border/focus · #403E3C */
   --sidebar:                        oklch(0.155 0.004 55); /* surface/primary · #0E0C0B */
   --sidebar-foreground:             oklch(0.95 0.004 55); /* content/primary · #F1EEEC */
   --sidebar-primary:                oklch(0.6536 0.2347 33.98); /* fill/brand · #FF3D01 */
@@ -179,7 +179,7 @@
   --sidebar-accent:                 oklch(0.225 0.004 55); /* fill/primary-active · #1D1B1A */
   --sidebar-accent-foreground:      oklch(0.95 0.004 55); /* content/primary · #F1EEEC */
   --sidebar-border:                 oklch(0.225 0.004 55); /* border/primary · #1D1B1A */
-  --sidebar-ring:                   oklch(0.7 0.193 33.98); /* border/focus · #FF6645 */
+  --sidebar-ring:                   oklch(0.365 0.004 55); /* border/focus · #403E3C */
 
   /* HeyOz additions: bg-brand, bg-success, … */
   --brand:                          oklch(0.6536 0.2347 33.98); /* fill/brand · #FF3D01 */

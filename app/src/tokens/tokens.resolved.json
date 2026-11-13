@@ -2396,14 +2396,14 @@
     {
       "name": "border/focus",
       "group": "border",
-      "ref": "orange/10",
+      "ref": "gray/8",
       "css": "--border-focus",
       "lch": [
-        0.7,
-        0.193,
-        33.98
+        0.365,
+        0.004,
+        55
       ],
-      "hex": "#FF6645"
+      "hex": "#403E3C"
     },
     {
       "name": "border/focus-inverse",
