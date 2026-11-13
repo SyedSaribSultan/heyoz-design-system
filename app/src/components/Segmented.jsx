@@ -48,7 +48,7 @@ export default function Segmented({ label, items, value, onChange, cols, off = [
       data-name={`segmented · ${size}${fit ? ' · hug' : ''}`} data-tokens={JSON.stringify([['background', 'surface/primary'], ['border', 'border/primary'], ['padding', 'space/4'], ['gap', 'space/4'], ['radius', 'button radius + space/4'], ['effect', 'effect · inner-shade'], ['indicator', 'button · tertiary (slides, D-032)']])}>
       <span className="btn seg-thumb motion-indicator" data-type="tertiary" data-size={size} data-shape="squircle" data-component="button" data-name={`segmented indicator · tertiary · ${size}`} style={vars} aria-hidden />
       {items.map(([v, text, x]) => (
-        <Button key={v} block size={size} type={v === value ? 'tertiary' : 'ghost'} role="radio" aria-checked={v === value} tabIndex={v === stop ? 0 : -1}
+        <Button key={v} block={!fit || !!cols} size={size} type={v === value ? 'tertiary' : 'ghost'} role="radio" aria-checked={v === value} tabIndex={v === stop ? 0 : -1}
           icon={x?.icon} state={x?.state} label={x?.label ?? (text ? undefined : String(v))} disabled={isOff(v, x)} onClick={() => onChange(v)}>{text || undefined}</Button>
       ))}
     </div>
