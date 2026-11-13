@@ -31,8 +31,9 @@
 .av-face::after { content: ''; position: absolute; inset: 0; z-index: calc(var(--light-layer, 100) + 1); border-radius: inherit; pointer-events: none;
   box-shadow: inset 0 0 0 var(--stroke-1) var(--av-edge); }
 
-/* Status: a dot on the edge at 45°, cut out by a ring of the surface colour. */
-.av-status { position: absolute; right: calc(var(--av-rr) * 0.2929); bottom: calc(var(--av-rr) * 0.2929); transform: translate(50%, 50%);
+/* Status: a dot on the edge at 45°, cut out by a ring of the surface colour. It is the top layer: above the picture
+   and the edge line (both at light-layer + 1), so neither the photo nor the corner's 1px edge ever crosses it. */
+.av-status { z-index: calc(var(--light-layer, 100) + 2); position: absolute; right: calc(var(--av-rr) * 0.2929); bottom: calc(var(--av-rr) * 0.2929); transform: translate(50%, 50%);
   width: var(--av-d); height: var(--av-d); border-radius: var(--av-circle); background: var(--av-status-colour);
   box-shadow: 0 0 0 var(--av-ring-width) var(--av-ring-colour); transition: background var(--duration-fast) var(--easing-standard); }
 .av[data-status='online'] { --av-status-colour: var(--av-status-online); }

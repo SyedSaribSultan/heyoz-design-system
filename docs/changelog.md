@@ -30,6 +30,7 @@ Checks: npm run tokens (19 components); npm test 9/9; production build passes wi
         browser checks of Tabs, Checkbox, Text field, Slider, Popover and Dialog
 ```
 
+- fix(avatar): the status dot is the top layer, so the photo no longer covers it and the squircle's 1px corner edge no longer cuts across it.
 - remove(type preview): the typeface switcher is gone from every page, with its 8 preview fonts and session script; Bricolage Grotesque and Geist stay (D-018, D-033).
 - change(focus): focus is subtle everywhere. `border/focus` orange/10 → gray/8, so every keyboard focus ring (Button, side nav, Checkbox, Radio, Switch, Tabs, Menu, Chip, Segmented, Slider) is a quiet neutral ring; Text field and Select show focus only by stepping their border up to `border/primary-active`; the docs-site outline no longer draws over components (D-035, D-040).
 - fix(checkbox, radio, switch): no inner shade, so on is a flat solid white that pops; the tick and dash are drawn for the box (about 7/16 wide, 2/16 stroke) instead of a full-size, thin icon (D-041).
