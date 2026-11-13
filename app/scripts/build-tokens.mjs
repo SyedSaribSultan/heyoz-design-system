@@ -4,7 +4,8 @@
 //   light.json       light effects
 //   number.json      space, radius, size, stroke
 //   motion.json      durations and easing
-// and ../components/*.json, the component specs (token references + rules).
+// and ../components/*.json, the component specs (token references + rules),
+// and ../exports/shadcn/map.json, the shadcn/ui slot map.
 // Writes (all generated, never edit by hand; a file is written only when its content changed):
 //   src/styles/tokens.css            CSS custom properties
 //   src/styles/typography.css        one class per type style (.type-body-md-regular ...)
@@ -14,6 +15,8 @@
 //   ../docs/tokens-*.md              one reference page per source file
 //   ../docs/components/*.md          one page per component spec
 //   ../figma/tokens-studio.json      the whole system for Tokens Studio (Figma)
+//   ../exports/shadcn/globals.css    shadcn/ui theme (Tailwind v4), from ../exports/shadcn/map.json
+//   ../docs/shadcn.md                the shadcn mapping table
 // The build fails on any broken rule, so a passing build is a passing check.
 import fs from 'node:fs';
 // Write a generated file only when its content changed, so an unchanged build leaves every file (and its date) alone.
@@ -371,6 +374,80 @@ if (components.button) {
     ...Object.entries(b.links).map(([k, l]) => `| ${k} | \`${l.rest}\` | \`${l.hover}\` | \`${l.pressed}\` | \`${l.disabled}\` |`), '',
     `- **Loading.** ${b.loading}`, `- **Focus.** ${b.focus}`, `- **Effects.** ${b.effects}`, '',
   ].join('\n'));
+}
+
+// ─── shadcn/ui export (D-038) ────────────────────────────────────────────────
+// exports/shadcn/map.json fills shadcn's CSS variable slots with HeyOz tokens.
+// Writes exports/shadcn/globals.css (paste-ready, Tailwind v4) and docs/shadcn.md.
+{
+  const mapFile = path.join(root, 'exports/shadcn/map.json');
+  if (fs.existsSync(mapFile)) {
+    const sh = JSON.parse(fs.readFileSync(mapFile, 'utf8'));
+    const SLOTS = ['background', 'foreground', 'card', 'card-foreground', 'popover', 'popover-foreground', 'primary', 'primary-foreground',
+      'secondary', 'secondary-foreground', 'muted', 'muted-foreground', 'accent', 'accent-foreground', 'destructive', 'destructive-foreground',
+      'border', 'input', 'ring', 'sidebar', 'sidebar-foreground', 'sidebar-primary', 'sidebar-primary-foreground', 'sidebar-accent',
+      'sidebar-accent-foreground', 'sidebar-border', 'sidebar-ring'];
+    for (const s of SLOTS) if (!sh.colors[s]) fail(`shadcn: slot ${s} is not mapped`);
+    for (const s of Object.keys(sh.colors)) if (!SLOTS.includes(s)) fail(`shadcn: ${s} is not a shadcn slot (put HeyOz additions in extras)`);
+    const colorOf = (v, where) => { const r = refOf(v, where); const s = semantic.find((x) => x.name === r); if (!s) fail(`${where}: ${v} is not a colour`); return s; };
+    const rows = (obj, where) => Object.entries(obj).filter(([k]) => !k.startsWith('$')).map(([k, [v, why]]) => ({ k, s: colorOf(v, `shadcn/${where}/${k}`), why }));
+    const main = rows(sh.colors, 'colors'), extras = rows(sh.extras, 'extras'), states = rows(sh.states, 'states');
+    for (const x of extras) if (!x.k.endsWith('-foreground') && !extras.some((y) => y.k === x.k + '-foreground')) fail(`shadcn: extra ${x.k} needs ${x.k}-foreground`);
+    const all = [...main, ...extras, ...states];
+    const dup = all.map((x) => x.k).find((k, i, a) => a.indexOf(k) !== i); if (dup) fail(`shadcn: ${dup} is defined twice`);
+    const numOf = (v, where) => { const r = refOf(v, where); const n = numbers.find((x) => x.name === r); if (!n || n.group !== 'radius') fail(`${where}: ${v} is not a radius`); return n; };
+    const base = numOf(sh.radius.base, 'shadcn/radius/base');
+    const radii = Object.entries(sh.radius.scale).map(([k, v]) => ({ k, n: numOf(v, `shadcn/radius/${k}`) }));
+    const fam = (f) => { if (!type.families[f.role]) fail(`shadcn/fonts: ${f.role} is not a type role`); return `var(${f.variable}, "${type.families[f.role].name}"), ${type.families[f.role].fallback}`; };
+    const pad = (s, n) => s + ' '.repeat(Math.max(1, n - s.length));
+    const line = (x) => `  ${pad(`--${x.k}:`, 34)}${fmt(x.s.lch)}; /* ${x.s.name} · ${x.s.hex} */`;
+    // shadcn's dark chart defaults, kept so charts render (D-012: HeyOz has no chart palette)
+    const CHARTS = ['oklch(0.488 0.243 264.376)', 'oklch(0.696 0.17 162.48)', 'oklch(0.769 0.188 70.08)', 'oklch(0.627 0.265 303.9)', 'oklch(0.645 0.246 16.439)'];
+    const vars = (sel) => [`${sel} {`, ...(sel === ':root' ? [`  ${pad('--radius:', 34)}${base.px}px; /* ${base.name} */`, '  color-scheme: dark;'] : []),
+      '', '  /* shadcn slots */', ...main.map(line),
+      '', '  /* HeyOz additions: bg-brand, bg-success, … */', ...extras.map(line),
+      '', '  /* HeyOz states: hover one step up, pressed two (see docs/shadcn.md for the class swaps) */', ...states.map(line),
+      '', '  /* Not HeyOz: shadcn chart defaults (D-012, no chart palette yet) */', ...CHARTS.map((c, i) => `  ${pad(`--chart-${i + 1}:`, 34)}${c};`), '}'];
+    const out = [
+      '/* HeyOz design system → shadcn/ui (Tailwind CSS v4).',
+      '   GENERATED by app/scripts/build-tokens.mjs from exports/shadcn/map.json. Do not edit.',
+      '   Use: replace the shadcn globals.css with this file. HeyOz is dark only: :root and .dark are identical;',
+      '   put class="dark" on <html> so shadcn\'s dark: tweaks apply. Load Geist and Bricolage Grotesque. */',
+      '', '@import "tailwindcss";', '@import "tw-animate-css";', '@import "shadcn/tailwind.css"; /* shadcn CLI 2026+; delete this line in older shadcn projects */', '', '@custom-variant dark (&:is(.dark *));', '',
+      '@theme inline {',
+      `  --font-sans: ${fam(sh.fonts.sans)};`, `  --font-heading: ${fam(sh.fonts.heading)};`, `  --font-display: ${fam(sh.fonts.display)};`, '',
+      ...[...SLOTS, ...extras.map((x) => x.k), ...states.map((x) => x.k), 'chart-1', 'chart-2', 'chart-3', 'chart-4', 'chart-5'].map((k) => `  --color-${k}: var(--${k});`),
+      '', '  /* Radius: the HeyOz scale, same names as Tailwind (rounded-md = radius/md) */',
+      ...radii.map((r) => `  --radius-${r.k}: ${r.n.px}px; /* ${r.n.name} */`), '}', '',
+      ...vars(':root'), '', ...vars('.dark'), '',
+      '@layer base {', '  * {', '    @apply border-border outline-ring;', '  }', '  body {', '    @apply bg-background text-foreground;', '  }', '  html {', '    @apply font-sans;', '  }', '}', '',
+    ];
+    fs.writeFileSync(path.join(root, 'exports/shadcn/globals.css'), out.join('\n'));
+    const t = (s) => '`' + s + '`';
+    const table = (list) => ['| shadcn variable | Tailwind class | HeyOz token | Hex | Why |', '|---|---|---|---|---|',
+      ...list.map((x) => `| ${t('--' + x.k)} | ${t((x.k.endsWith('foreground') ? 'text-' : /(^|-)ring$/.test(x.k) ? 'ring-' : /^(border|input|sidebar-border)/.test(x.k) ? 'border-' : 'bg-') + x.k)} | ${t(x.s.name)} | ${x.s.hex} | ${x.why} |`)];
+    fs.writeFileSync(path.join(root, 'docs/shadcn.md'), [
+      '# shadcn/ui mapping (generated)', '', '> Generated from `exports/shadcn/map.json` by `app/scripts/build-tokens.mjs`. Do not edit.', '',
+      sh.$about, '', `Checked against: ${sh.shadcn}.`, '',
+      '## Use it', '',
+      '1. Set up shadcn/ui in the app as usual (Tailwind v4).',
+      '2. Replace the shadcn `globals.css` with `exports/shadcn/globals.css`. In a project made before the 2026 shadcn CLI, delete the `@import "shadcn/tailwind.css"` line.',
+      '3. Put `class="dark"` on `<html>`. HeyOz is dark only (D-001); the file gives `:root` and `.dark` the same values, and the class turns on shadcn\'s own `dark:` tweaks.',
+      '4. Load the fonts. With `next/font`: Geist with `variable: "--font-geist-sans"` (the create-next-app default) and Bricolage Grotesque with `variable: "--font-bricolage"`, both classes on `<html>`. Without `next/font`, install the two families and the names are used as they are.',
+      '5. Optional: make the class swaps below in `components/ui/*`, so hover and press step like HeyOz instead of fading.', '',
+      '## shadcn slots', '', ...table(main), '',
+      '## HeyOz additions', '', sh.extras.$about, '', ...table(extras), '',
+      '## States', '', sh.states.$about, '', ...table(states), '',
+      '## Class swaps', '', sh.swaps.$about, '', '| Where | shadcn | HeyOz |', '|---|---|---|',
+      ...sh.swaps.rows.map(([w, a, b]) => `| ${w} | ${t(a)} | ${t(b)} |`), '',
+      '## Radius', '', sh.radius.$about, '', '| Tailwind | HeyOz token | Value |', '|---|---|---|',
+      `| ${t('--radius')} | ${t(base.name)} | ${base.px}px |`, ...radii.map((r) => `| ${t('rounded-' + r.k)} | ${t(r.n.name)} | ${r.n.px}px |`), '',
+      '## Fonts', '', sh.fonts.$about, '', '| Tailwind | HeyOz role | Family | next/font variable |', '|---|---|---|---|',
+      ...['sans', 'heading', 'display'].map((k) => `| ${t('font-' + k)} | ${sh.fonts[k].role} | ${type.families[sh.fonts[k].role].name} | ${t(sh.fonts[k].variable)} |`), '',
+      '## Not mapped', '', ...Object.entries(sh.notMapped).map(([k, v]) => `- **${k}.** ${v}`), '',
+    ].join('\n'));
+    console.log(`✓ shadcn: ${main.length} slots, ${extras.length} additions, ${states.length} states, ${radii.length} radii → exports/shadcn/globals.css, docs/shadcn.md`);
+  }
 }
 
 // ─── Tokens Studio (Figma) ───────────────────────────────────────────────────

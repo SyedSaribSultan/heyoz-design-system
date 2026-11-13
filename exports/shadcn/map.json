@@ -1,0 +1,294 @@
+{
+  "$about": "HeyOz → shadcn/ui. Fills shadcn's CSS variable slots with HeyOz tokens so every shadcn component renders in HeyOz colours, radii and fonts. Every value is a {token} reference; the build checks each one and writes exports/shadcn/globals.css and docs/shadcn.md (D-038). Target: shadcn/ui on Tailwind CSS v4 (CSS-first config, OKLCH).",
+  "shadcn": "shadcn CLI (shadcn@latest init, style base-nova) on Tailwind CSS v4, checked 2026-11-06",
+  "colors": {
+    "background": [
+      "{background}",
+      "The app background."
+    ],
+    "foreground": [
+      "{content/primary}",
+      "Default text."
+    ],
+    "card": [
+      "{surface/primary}",
+      "Cards and panels: the first surface above the background."
+    ],
+    "card-foreground": [
+      "{content/primary}",
+      "Text on cards."
+    ],
+    "popover": [
+      "{surface/secondary}",
+      "Menus, selects, popovers and dialogs float one step above cards (modals use surface/secondary)."
+    ],
+    "popover-foreground": [
+      "{content/primary}",
+      "Text in popovers."
+    ],
+    "primary": [
+      "{fill/inverse}",
+      "shadcn's default button, checkbox, switch, slider and radio. White, like the HeyOz primary button, so orange stays for the one main action (use brand)."
+    ],
+    "primary-foreground": [
+      "{content/inverse-primary}",
+      "Dark text and icons on primary."
+    ],
+    "secondary": [
+      "{fill/secondary}",
+      "Secondary button fill."
+    ],
+    "secondary-foreground": [
+      "{content/primary}",
+      "Text on secondary."
+    ],
+    "muted": [
+      "{fill/tertiary}",
+      "Quiet backgrounds: tabs list, skeletons, code, table rows."
+    ],
+    "muted-foreground": [
+      "{content/tertiary}",
+      "Hints, descriptions, placeholders."
+    ],
+    "accent": [
+      "{fill/secondary-hover}",
+      "Hover and focus on menu items, ghost and outline buttons: one step above the popover surface."
+    ],
+    "accent-foreground": [
+      "{content/primary}",
+      "Text on accent."
+    ],
+    "destructive": [
+      "{fill/critical}",
+      "Delete and error actions."
+    ],
+    "destructive-foreground": [
+      "{content/on-critical}",
+      "Text on destructive (shadcn maps it in @theme but no longer defines it; HeyOz does)."
+    ],
+    "border": [
+      "{border/primary}",
+      "Default borders and dividers: two steps above surface/primary."
+    ],
+    "input": [
+      "{border/secondary}",
+      "Input, select and outline button borders."
+    ],
+    "ring": [
+      "{border/focus}",
+      "Keyboard focus ring (orange, stroke/2)."
+    ],
+    "sidebar": [
+      "{surface/primary}",
+      "Side nav background (sidenav.json nav.background)."
+    ],
+    "sidebar-foreground": [
+      "{content/primary}",
+      "Side nav item text."
+    ],
+    "sidebar-primary": [
+      "{fill/brand}",
+      "The logo square and brand mark in the sidebar header (the HeyOz logomark is orange)."
+    ],
+    "sidebar-primary-foreground": [
+      "{content/on-brand}",
+      "Text and icons on sidebar-primary."
+    ],
+    "sidebar-accent": [
+      "{fill/primary-active}",
+      "The current page item (sidenav item.active.fill). shadcn also uses it for hover; HeyOz hover is sidebar-accent-hover below."
+    ],
+    "sidebar-accent-foreground": [
+      "{content/primary}",
+      "Text on the current item."
+    ],
+    "sidebar-border": [
+      "{border/primary}",
+      "Side nav borders and dividers."
+    ],
+    "sidebar-ring": [
+      "{border/focus}",
+      "Focus ring in the side nav."
+    ]
+  },
+  "extras": {
+    "$about": "HeyOz colours shadcn has no slot for, added the shadcn way: a colour and its -foreground, mapped in @theme inline so bg-brand, text-brand-foreground and the rest work.",
+    "brand": [
+      "{fill/brand}",
+      "The one main action on a screen (Generate, Export). HeyOz button type brand."
+    ],
+    "brand-foreground": [
+      "{content/on-brand}",
+      "Text on brand."
+    ],
+    "brand-muted": [
+      "{fill/brand-secondary}",
+      "A brand action that should not shout. HeyOz button type brand-tone."
+    ],
+    "brand-muted-foreground": [
+      "{content/brand}",
+      "Text on brand-muted."
+    ],
+    "success": [
+      "{fill/success}",
+      "Success fill."
+    ],
+    "success-foreground": [
+      "{content/on-success}",
+      "Text on success."
+    ],
+    "warning": [
+      "{fill/warning}",
+      "Warning fill."
+    ],
+    "warning-foreground": [
+      "{content/on-warning}",
+      "Text on warning."
+    ],
+    "info": [
+      "{fill/info}",
+      "Info fill."
+    ],
+    "info-foreground": [
+      "{content/on-info}",
+      "Text on info."
+    ]
+  },
+  "states": {
+    "$about": "shadcn makes hover by fading a colour (bg-primary/90). HeyOz uses real steps: hover one step up, pressed two (D-035). These variables carry those steps; swap the classes listed in swaps.",
+    "primary-hover": [
+      "{fill/inverse-hover}",
+      "Primary, pointed at."
+    ],
+    "primary-active": [
+      "{fill/inverse-active}",
+      "Primary, pressed."
+    ],
+    "secondary-hover": [
+      "{fill/secondary-hover}",
+      "Secondary, pointed at."
+    ],
+    "secondary-active": [
+      "{fill/secondary-active}",
+      "Secondary, pressed."
+    ],
+    "brand-hover": [
+      "{fill/brand-hover}",
+      "Brand, pointed at."
+    ],
+    "brand-active": [
+      "{fill/brand-active}",
+      "Brand, pressed."
+    ],
+    "brand-muted-hover": [
+      "{fill/brand-secondary-hover}",
+      "Brand-muted, pointed at."
+    ],
+    "brand-muted-active": [
+      "{fill/brand-secondary-active}",
+      "Brand-muted, pressed."
+    ],
+    "destructive-hover": [
+      "{fill/critical-hover}",
+      "Destructive, pointed at."
+    ],
+    "destructive-active": [
+      "{fill/critical-active}",
+      "Destructive, pressed."
+    ],
+    "accent-active": [
+      "{fill/secondary-active}",
+      "Menu item or ghost button, pressed."
+    ],
+    "input-hover": [
+      "{border/secondary-hover}",
+      "Input and outline borders, pointed at."
+    ],
+    "input-active": [
+      "{border/secondary-active}",
+      "Input and outline borders, pressed or open."
+    ],
+    "sidebar-accent-hover": [
+      "{fill/primary-hover}",
+      "Side nav item, pointed at (sidenav item.hover.fill)."
+    ]
+  },
+  "swaps": {
+    "$about": "Class changes inside the shadcn component files (components/ui/*.tsx). Optional: without them every component works, its hover just fades instead of stepping. Exact classes differ a little between shadcn styles (base-nova, new-york); look for the pattern on the left.",
+    "rows": [
+      [
+        "button · default",
+        "hover:bg-primary/80 (or /90)",
+        "hover:bg-primary-hover active:bg-primary-active"
+      ],
+      [
+        "button · secondary",
+        "hover:bg-[color-mix(…)] (or hover:bg-secondary/80)",
+        "hover:bg-secondary-hover active:bg-secondary-active"
+      ],
+      [
+        "button · destructive (solid)",
+        "hover:bg-destructive/90",
+        "hover:bg-destructive-hover active:bg-destructive-active"
+      ],
+      [
+        "button · outline, ghost",
+        "hover:bg-muted (or hover:bg-accent), dark:hover:bg-input/50",
+        "hover:bg-accent active:bg-accent-active"
+      ],
+      [
+        "button · new brand variant",
+        "(none)",
+        "bg-brand text-brand-foreground hover:bg-brand-hover active:bg-brand-active"
+      ],
+      [
+        "input, select, textarea",
+        "border-input",
+        "border-input hover:border-input-hover"
+      ],
+      [
+        "focus, every component",
+        "focus-visible:ring-ring/50 focus-visible:ring-3",
+        "focus-visible:ring-ring focus-visible:ring-2"
+      ],
+      [
+        "sidebar menu button",
+        "hover:bg-sidebar-accent",
+        "hover:bg-sidebar-accent-hover"
+      ]
+    ]
+  },
+  "radius": {
+    "$about": "shadcn derives its radii from one --radius with multipliers. HeyOz has a fixed scale with the same names, so each Tailwind radius is set to the HeyOz token of the same name: rounded-md is radius/md (8). --radius is radius/lg (12), what shadcn calls lg.",
+    "base": "{radius/lg}",
+    "scale": {
+      "xs": "{radius/xs}",
+      "sm": "{radius/sm}",
+      "md": "{radius/md}",
+      "lg": "{radius/lg}",
+      "xl": "{radius/xl}",
+      "2xl": "{radius/2xl}",
+      "3xl": "{radius/3xl}"
+    }
+  },
+  "fonts": {
+    "$about": "font-sans is Geist (body and label); font-heading and font-display are Bricolage Grotesque (display and heading; shadcn's own headings use font-heading). Each reads a next/font variable first and falls back to the installed family name: load Geist with variable --font-geist-sans (the create-next-app default) and Bricolage Grotesque with --font-bricolage.",
+    "sans": {
+      "role": "body",
+      "variable": "--font-geist-sans"
+    },
+    "heading": {
+      "role": "heading",
+      "variable": "--font-bricolage"
+    },
+    "display": {
+      "role": "display",
+      "variable": "--font-bricolage"
+    }
+  },
+  "notMapped": {
+    "chart-1 … chart-5": "HeyOz has no chart palette (D-012). The file keeps shadcn's dark chart colours so charts still render; they are not HeyOz colours. Revisit with the first screen that needs a chart.",
+    "light mode": "HeyOz is dark only (D-001). :root and .dark carry the same values, so nothing turns light by accident.",
+    "--radius-4xl": "HeyOz has no radius above radius/3xl (24). The file leaves rounded-4xl at Tailwind's default (32px); avoid it."
+  }
+}

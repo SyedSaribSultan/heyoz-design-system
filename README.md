@@ -38,6 +38,7 @@ If a screenshot and these docs disagree, follow the screenshot and flag the drif
 | [Button](docs/components/button.md) | 8 types, icon buttons, 2 links, 7 sizes, squircle and pill | `components/button.json` | Draft |
 | [Sidebar](docs/components/sidenav.md) | Side nav: expanded / collapsed, states, collapse motion, Ctrl+B, scrolling; every sidebar uses it | `components/sidenav.json` | Stable |
 | Tokens Studio export | All tokens as Figma variables (optional) | `figma/tokens-studio.json` (generated) | Stable v1 |
+| [shadcn/ui](docs/shadcn.md) | HeyOz in shadcn's variable names: paste-ready `globals.css` for Tailwind v4 | `exports/shadcn/map.json` → `exports/shadcn/globals.css` (generated) | Stable v1 |
 | [Decisions](docs/decisions.md) | The judgment calls and why | – | Live |
 | [Changelog](docs/changelog.md) | What changed, when, and why | – | Live |
 
@@ -83,8 +84,10 @@ heyoz-design-system/
 ├── docs/
 │   ├── decisions.md, changelog.md        ← written by hand
 │   ├── tokens-*.md                       ← generated, one per tokens/*.json
+│   ├── shadcn.md                         ← generated, from exports/shadcn/map.json
 │   └── components/*.md                   ← generated, one per components/*.json
 ├── figma/tokens-studio.json      ← generated, load into Tokens Studio
+├── exports/shadcn/               ← shadcn/ui: map.json (SOURCE) → globals.css (generated); README, example/, preview/
 ├── app/                          ← Next.js docs site
 │   ├── scripts/build-tokens.mjs  ← the build: reads the sources, checks every rule, writes everything generated
 │   ├── scripts/build-icons.mjs   ← npm run icons: puts Lucide on the icon grid, prepares the HeyOz icons
@@ -100,9 +103,9 @@ heyoz-design-system/
 └── current-figma-tokens-11.03.2026/   ← the original Figma export, reference only, never deployed
 ```
 
-**Generated, never edit by hand:** `app/src/styles/tokens.css`, `typography.css`, `components.css`; `app/src/tokens/*.json`; `docs/tokens-*.md`; `docs/components/*.md`; `figma/tokens-studio.json`; `app/public/icons/`. Everything else is written by hand.
+**Generated, never edit by hand:** `app/src/styles/tokens.css`, `typography.css`, `components.css`; `app/src/tokens/*.json`; `docs/tokens-*.md`; `docs/components/*.md`; `figma/tokens-studio.json`; `exports/shadcn/globals.css`, `docs/shadcn.md`; `app/public/icons/`. Everything else is written by hand.
 
-**How it connects:** `tokens/*.json` + `components/*.json` → `npm run tokens` → CSS variables, type classes, `tokens.resolved.json`, `docs/*.md`, `figma/tokens-studio.json`. The docs site and the components read only the generated files, so every page shows exactly what the sources say.
+**How it connects:** `tokens/*.json` + `components/*.json` → `npm run tokens` → CSS variables, type classes, `tokens.resolved.json`, `docs/*.md`, `figma/tokens-studio.json`, `exports/shadcn/globals.css`. The docs site and the components read only the generated files, so every page shows exactly what the sources say.
 
 ---
 

@@ -99,6 +99,11 @@ Every scroll area uses one style, set once in `app/globals.css`: a pill on a tra
 A scroll or clipping container clips anything painted outside it, so it keeps `stroke/2` of room on every side (padding, pulled back with a matching negative margin) for focus rings and outer borders. A specimen that is only a picture leaves the Tab order.
 *Why:* the default Windows scrollbar looked out of place; a scrolling sidebar must never move the page; a focus ring must never be cut.
 
+
+**D-038 · shadcn/ui mapping** · 2026-11-06
+Developers on shadcn/ui get HeyOz through one file. `exports/shadcn/map.json` fills every shadcn slot with a HeyOz token; `npm run tokens` checks each reference and writes `exports/shadcn/globals.css` (Tailwind v4, paste-ready) and `docs/shadcn.md`. `primary` is `fill/inverse` (white), not orange: shadcn paints checkboxes, switches, sliders and the default button with `primary`, and orange is for the one main action, shipped as the extra `brand`. Other extras: `brand-muted`, `success`, `warning`, `info`, each with `-foreground`, plus `-hover` / `-active` state colours, because shadcn fades colours on hover and HeyOz steps them (D-035); the class swaps are listed, the component files stay as shadcn wrote them. The file holds resolved OKLCH values (each line names its token), so it works without the HeyOz CSS. Radii use the HeyOz scale under Tailwind's names (`rounded-md` = `radius/md`); `--radius` is `radius/lg`. Fonts: `font-sans` Geist, `font-heading` and `font-display` Bricolage. Dark only: `:root` and `.dark` are identical and the app sets `class="dark"`. Charts keep shadcn's defaults (D-012).
+*Cost:* shadcn's own hover fades and `dark:` tweaks stay unless a developer makes the swaps; `rounded-4xl` stays at Tailwind's 32px.
+
 ---
 
 ## Open

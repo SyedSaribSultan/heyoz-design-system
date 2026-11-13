@@ -13,6 +13,23 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ---
 
+## 2026-11-06
+
+```
+feat(exports): shadcn/ui mapping (D-038)
+
+Why:    developers on shadcn/ui need the HeyOz tokens in shadcn's variable names.
+What:   exports/shadcn/map.json (source): all 27 shadcn colour slots, 10 HeyOz additions (brand, brand-muted,
+        success, warning, info + foregrounds), 14 state colours (-hover / -active), radius sm–3xl, fonts.
+        npm run tokens checks every reference, that every shadcn slot is mapped and every addition has a
+        -foreground, and writes exports/shadcn/globals.css (Tailwind v4, resolved OKLCH, token named per line)
+        and docs/shadcn.md. exports/shadcn/README.md, example/layout.tsx (dark class + fonts) and preview/.
+Checks: npm run tokens passes; a fresh Next.js + shadcn@latest app (base-nova) with button, input, textarea,
+        select, checkbox, switch, slider, tabs, card, badge, dropdown-menu, dialog and sidebar builds and
+        renders on the file with only globals.css and layout.tsx changed; fonts resolve to Geist and Bricolage;
+        screenshots in exports/shadcn/preview/
+```
+
 ## 2026-11-05
 
 - fix(sidebar): the logomark no longer jerks when the nav opens or closes. It was two elements (a link open, a button collapsed) swapped at the start of the motion, so it jumped 2px against the direction of travel, and on opening its link was squeezed to 0 wide and centred, throwing the logomark 46px left for a frame. Now one logo stays mounted, the open button lies over it, the wordmark and close button fade; measured frame by frame: 16 → 10 and 10 → 16, one direction, no jump. Also: the logo link has a focus ring, the row keeps stroke/2 of clip room (D-037), and toggling from the logo row hands keyboard focus between the open and close buttons instead of dropping it (Ctrl+B too, when focus is on a toggle). The sidebar, icons and light pages (and the sidebar spec) no longer cite Figma node ids.

@@ -1,5 +1,5 @@
 # Upload only what the Vercel build needs: app/ plus the sources npm run tokens reads
-# (tokens/, components/) and the folders it writes into (docs/, figma/).
+# (tokens/, components/, exports/shadcn/map.json) and the folders it writes into (docs/, figma/, exports/).
 node_modules
 **/node_modules
 app/.next
@@ -16,3 +16,6 @@ app/.next-*
 /archive
 # Claude Code project config (review agent, hooks): not part of the site.
 /.claude
+# shadcn export: screenshots and the example layout are for developers, not the site.
+/exports/shadcn/preview
+/exports/shadcn/example
