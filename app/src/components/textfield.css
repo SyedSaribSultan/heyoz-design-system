@@ -16,10 +16,10 @@
 
 /* The frame: a well. */
 .tf-frame {
-  --tf-fill: var(--tf-frame-rest-fill); --tf-border: var(--tf-frame-rest-border); --tf-ring: 0 0 0 0 transparent;
+  --tf-fill: var(--tf-frame-rest-fill); --tf-border: var(--tf-frame-rest-border);
   box-sizing: border-box; display: flex; align-items: center; gap: var(--tf-g); width: 100%; min-height: var(--tf-h);
   padding: 0 var(--tf-px); border-radius: var(--tf-r); background: var(--tf-fill); cursor: text;
-  box-shadow: inset 0 0 0 var(--tf-frame-border-width) var(--tf-border), var(--fx-inner-shade), var(--tf-ring);
+  box-shadow: inset 0 0 0 var(--tf-frame-border-width) var(--tf-border), var(--fx-inner-shade);
   transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
 }
 /* Room for the action button: equal on top, bottom and right, so the inner corner stays parallel to the frame's. */

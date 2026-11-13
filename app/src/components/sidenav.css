@@ -141,3 +141,6 @@
 .sn-groups[data-indicator-ready] .sn-item:not(:hover, [data-state='hover']) { background: transparent; }
 .sn-groups[data-indicator-ready] .sn-item[data-active] { background: transparent; box-shadow: none; }
 .sn[data-resizing] .sn-groups > .sn-ind { transition: none; }
+
+/* Reduced motion (D-031): the collapse keeps its fades and drops the movement: width and spacing change at once. */
+@media (prefers-reduced-motion: reduce) { .sn[data-animate], .sn[data-animate] * { transition-property: opacity, color, background-color, border-color, box-shadow !important; } }

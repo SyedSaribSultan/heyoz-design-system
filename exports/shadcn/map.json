@@ -76,7 +76,7 @@
     ],
     "ring": [
       "{border/focus}",
-      "Keyboard focus ring (orange, stroke/2)."
+      "Keyboard focus ring (gray/8, subtle, stroke/2)."
     ],
     "sidebar": [
       "{surface/primary}",

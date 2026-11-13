@@ -44,7 +44,7 @@ One light per screen (`light/cursor`). Every surface above `background` catches 
 *Why:* the light should lift the things you can use, not the empty space between them; the owner wants it soft and wide.
 
 **D-021 · Not tokenised for now** · 2026-11-04
-Gradients, shadows, inner shadows, blur and contrast targets. They are set values in code, written once and marked where used (e.g. the inner shade in `tk.js` FX and component CSS). Contrast gets tested and fixed alongside.
+Gradients, shadows, inner shadows, blur and contrast targets. They are set values in code, written once and marked where used (each one once, as `--fx-*` in `app/globals.css`, e.g. `--fx-inner-shade`). Contrast gets tested and fixed alongside.
 
 **D-022 · Number scales** · 2026-11-04
 Space on a 4px grid (2 and 6 as half-steps), named by value: `space/16` = 16px. Radius `none, xs, sm, md, lg, xl, 2xl, 3xl, full`. Size: `control` in 2xs–2xl (28, 32, 40, 48, 56, 64, 72; xs 32 is the everyday size), `icon` in xs–xl, `target` 44px. Stroke 1 and 2. Motion: `duration/fast|base|slow`, `easing/standard|enter|exit`.

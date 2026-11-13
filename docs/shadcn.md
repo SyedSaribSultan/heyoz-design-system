@@ -36,7 +36,7 @@ Checked against: shadcn CLI (shadcn@latest init, style base-nova) on Tailwind CS
 | `--destructive-foreground` | `text-destructive-foreground` | `content/on-critical` | #FFFFFF | Text on destructive (shadcn maps it in @theme but no longer defines it; HeyOz does). |
 | `--border` | `border-border` | `border/primary` | #1D1B1A | Default borders and dividers: two steps above surface/primary. |
 | `--input` | `border-input` | `border/secondary` | #262322 | Input, select and outline button borders. |
-| `--ring` | `ring-ring` | `border/focus` | #403E3C | Keyboard focus ring (orange, stroke/2). |
+| `--ring` | `ring-ring` | `border/focus` | #403E3C | Keyboard focus ring (gray/8, subtle, stroke/2). |
 | `--sidebar` | `bg-sidebar` | `surface/primary` | #0E0C0B | Side nav background (sidenav.json nav.background). |
 | `--sidebar-foreground` | `text-sidebar-foreground` | `content/primary` | #F1EEEC | Side nav item text. |
 | `--sidebar-primary` | `bg-sidebar-primary` | `fill/brand` | #FF3D01 | The logo square and brand mark in the sidebar header (the HeyOz logomark is orange). |

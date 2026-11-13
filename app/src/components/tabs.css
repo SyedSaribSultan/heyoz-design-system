@@ -46,9 +46,9 @@
 .tabs-tab:is(:hover, :active, [data-state='hover'], [data-state='active']):not(:disabled, [aria-selected='true'])::after { opacity: 1; }
 .tabs-tab:disabled { cursor: default; --tabs-label: var(--tab-tab-color-disabled); --tabs-count-label: var(--tab-count-color-disabled); }
 /* The docs frame draws an outline on every focusable element (docs.css); the extra classes win over it, so one ring shows. */
-.tabs .tabs-tab.tabs-tab.tabs-tab:focus-visible { outline: none; box-shadow: 0 0 0 var(--tab-list-clip-room) var(--border-focus); }
+.tabs .tabs-tab.tabs-tab.tabs-tab:focus-visible { outline: none; box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
 
 /* Panel */
 .tabs-panel { margin-top: var(--tab-list-panel-gap); border-radius: var(--tab-tab-radius); }
 .tabs-panel[hidden] { display: none; }
-.tabs .tabs-panel.tabs-panel.tabs-panel:focus-visible { outline: none; box-shadow: 0 0 0 var(--tab-list-clip-room) var(--border-focus); }
+.tabs .tabs-panel.tabs-panel.tabs-panel:focus-visible { outline: none; box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }

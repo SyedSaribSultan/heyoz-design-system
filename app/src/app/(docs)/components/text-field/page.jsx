@@ -42,7 +42,7 @@ export default function TextFieldPage() {
         </B>
       </Section>
 
-      <Section title="States" desc={<>A field is a well: darker than the surface it sits on (<Token>fill/primary</Token>), with the inner shade. Pointing at it lifts fill and border one step. Focus turns the border <Token>border/primary-active</Token> and adds the ring outside, so nothing moves. Read-only does not react to the pointer.</>}>
+      <Section title="States" desc={<>A field is a well: darker than the surface it sits on (<Token>fill/primary</Token>), with the inner shade. Pointing at it lifts fill and border one step. Focus turns the border <Token>border/primary-active</Token> with no ring, so nothing moves. Read-only does not react to the pointer.</>}>
         <B>
           <div className="tfd-grid">
             <Cell name="Rest, empty" meta="placeholder content/tertiary"><TextField aria-label="Rest, empty" placeholder={NAME} /></Cell>

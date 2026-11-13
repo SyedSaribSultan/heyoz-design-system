@@ -25,11 +25,12 @@ What:   Text field (+ textarea, field frame), Checkbox, Radio, Switch, Segmented
         components/<name>.json (generated docs/components/<name>.md and --<prefix>-* variables), a component
         in app/src/components and a page under /components/. Pages read every number from the spec.
         Segmented's CSS moved out of button.css into segmented.css. Selection docs classes renamed sc-* so
-        they never meet Select's sel-*. Open choices: Q-5 to Q-9.
+        they never meet Select's sel-*. Open choices: Q-5 to Q-8.
 Checks: npm run tokens (19 components); npm test 9/9; production build passes with every route;
         browser checks of Tabs, Checkbox, Text field, Slider, Popover and Dialog
 ```
 
+- fix(repo): health check. Text field page no longer mentions a focus ring; shadcn map says focus is gray/8; D-021 points at --fx-* in globals.css; Switch and Segmented summaries read duration/base; dead CSS (.mnd-field, .mnd-matrix, .sc-note) and the always-empty --tf-ring / --sel-ring removed; Tabs ring is stroke/2 and the Dialog body ring is an inset box-shadow, like every other focus; the side nav collapse drops its movement under reduced motion (D-031). Checks: tokens build unchanged, npm test 9/9, production build, every route 200 with no page errors, no sideways scroll at 390px.
 - remove(dashboard): /dashboard is gone (route, site map entry, overview tile, D-039 → History); it was a prototype, not part of the system.
 - fix(avatar): the status dot is the top layer, so the photo no longer covers it and the squircle's 1px corner edge no longer cuts across it.
 - remove(type preview): the typeface switcher is gone from every page, with its 8 preview fonts and session script; Bricolage Grotesque and Geist stay (D-018, D-033).

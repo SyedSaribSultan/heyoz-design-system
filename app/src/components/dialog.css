@@ -36,7 +36,7 @@ html[data-dlg-lock][data-dlg-bar] { scrollbar-gutter: stable; }
   padding: var(--dlg-body-padding-y) var(--dlg-body-padding-x); color: var(--dlg-body-color); text-wrap: pretty; }
 .dlg-body::-webkit-scrollbar { display: none; }
 /* A scroller with nothing to focus is a Tab stop in Chrome: its ring is drawn inside, where the panel cannot clip it. */
-.dlg-body:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: calc(var(--stroke-2) * -1); border-radius: var(--radius-sm); }
+.dlg-body:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--stroke-2) var(--border-focus); border-radius: var(--radius-sm); }
 .dlg-main::before, .dlg-main::after { content: ''; position: absolute; left: 0; right: 0; z-index: 1; height: var(--dlg-fade-height); pointer-events: none; opacity: 0;
   backdrop-filter: blur(var(--dlg-fade-blur)); transition: opacity var(--duration-fast) var(--easing-standard); }
 .dlg-main::before { top: 0; background: linear-gradient(to bottom, var(--dlg-panel-background), transparent);
