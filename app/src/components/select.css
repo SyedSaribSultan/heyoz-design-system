@@ -23,7 +23,7 @@
 /* States. Specificity is stepped on purpose: hover < open < focus < invalid < invalid hover < invalid open < disabled. */
 .sel-well:is(:hover, [data-state='hover']):not(:disabled) { --sel-fill: var(--sel-well-hover-fill); --sel-border: var(--sel-well-hover-border); }
 .sel-well:is([aria-expanded='true'], [data-state='open']):not(:disabled) { --sel-fill: var(--sel-well-open-fill); --sel-border: var(--sel-well-open-border); }
-.sel-well:is(:focus-visible, [data-state='focus']):not(:disabled) { --sel-border: var(--sel-well-open-border); --sel-ring: 0 0 0 var(--sel-well-focus-width) var(--sel-well-focus-ring); }
+.sel-well:is(:focus-visible, [data-state='focus']):not(:disabled) { --sel-border: var(--sel-well-open-border); }
 .sel[data-invalid] .sel-well:not(:disabled) { --sel-border: var(--sel-well-invalid-border); }
 .sel[data-invalid] .sel-well:is(:hover, [data-state='hover']):not(:disabled) { --sel-border: var(--sel-well-invalid-hover); }
 .sel[data-invalid] .sel-well:is([aria-expanded='true'], [data-state='open'], :focus-visible, [data-state='focus']):not(:disabled) { --sel-border: var(--sel-well-invalid-open); }

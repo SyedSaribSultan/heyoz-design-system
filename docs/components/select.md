@@ -14,7 +14,7 @@ A field: label above, the trigger (well with an optional icon, the value or plac
 
 - **when**: Use Select to pick one value from 4 to about 12 options in a form. Use Segmented for 2 to 4 options that should stay visible. Use Menu for actions. Over about 12 options a list needs search, which Select does not have yet.
 - **fieldConventions**: Shared with the text field so they sit side by side. Heights on size/control: xs 32 (everyday), sm 40, md 48. Radius: xs radius/lg, sm radius/xl, md radius/2xl. Padding x as Button for the size: xs space/12, sm space/16, md space/20. Value body/md/regular (xs, sm) and body/lg/regular (md). Label label/md/medium content/secondary, gap space/6 to the well. Hint and error body/sm/regular, gap space/6.
-- **well**: Fill fill/primary and border border/primary, an inset border so nothing moves. Hover: fill/primary-hover and border/primary-hover. Open and keyboard focus: fill/primary and border/primary-active. Keyboard focus: the focus ring outside the well, border/focus, stroke/2. Disabled: fill/primary-disabled, border/primary-disabled, text content/primary-disabled. All changes run at duration/fast (D-031). The well carries the inner shade, like the text field's.
+- **well**: Fill fill/primary and border border/primary, an inset border so nothing moves. Hover: fill/primary-hover and border/primary-hover. Open and focus: fill/primary and border/primary-active; no ring (subtle, like the text field). Disabled: fill/primary-disabled, border/primary-disabled, text content/primary-disabled. All changes run at duration/fast (D-031). The well carries the inner shade, like the text field's.
 - **value**: The chosen label in content/primary. With nothing chosen, the placeholder in content/tertiary. A long label is cut with an ellipsis, never wrapped. The chosen option's icon shows in the well before the label, content/secondary.
 - **invalid**: Invalid: border/critical (hover border/critical-hover, open border/critical-active), the message below in content/critical with aria-describedby and aria-invalid on the trigger. The message starts with a circle-alert icon (size/icon/xs) and replaces the hint, in the same space.
 - **chevron**: chevron-down, size/icon/sm, content/secondary, at the end of the well. On open it turns over: chevron-down fades out and turns 180 degrees while chevron-up turns in and fades in, duration/base, easing/standard (D-031). Reduced motion: the fade stays, the turn goes.
@@ -45,8 +45,6 @@ A field: label above, the trigger (well with an optional icon, the value or plac
 | `--sel-well-hover-border` | `border/primary-hover` |
 | `--sel-well-open-fill` | `fill/primary` |
 | `--sel-well-open-border` | `border/primary-active` |
-| `--sel-well-focus-ring` | `border/focus` |
-| `--sel-well-focus-width` | `stroke/2` |
 | `--sel-well-invalid-border` | `border/critical` |
 | `--sel-well-invalid-hover` | `border/critical-hover` |
 | `--sel-well-invalid-open` | `border/critical-active` |

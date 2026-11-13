@@ -1,5 +1,5 @@
 /* Radio. Every colour and size comes from components/radio.json through --rd-* (src/styles/components.css).
-   This file only says which state uses which variable. The inner shade is an effect, not a token (D-021).
+   This file only says which state uses which variable. No inner shade: a small control stays a flat, crisp fill (D-041).
    Row = .rd-row (the whole row is the click target). Nothing moves on hover: the border is an inset box-shadow. */
 .rd-row {
   position: relative; display: inline-flex; align-items: flex-start; gap: var(--rd-row-gap); cursor: pointer; outline: none;
@@ -14,7 +14,7 @@
 .rd-circle {
   position: relative; flex: none; box-sizing: border-box; width: var(--rd-circle); height: var(--rd-circle); border-radius: var(--radius-full);
   background: var(--rd-fill);
-  box-shadow: inset 0 0 0 var(--rd-circle-stroke) var(--rd-border), var(--fx-inner-shade), var(--rd-ring);
+  box-shadow: inset 0 0 0 var(--rd-circle-stroke) var(--rd-border), var(--rd-ring);
   transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
 }
 .rd-row[data-text] .rd-circle { margin-top: calc((var(--rd-lh) - var(--rd-circle)) / 2); }

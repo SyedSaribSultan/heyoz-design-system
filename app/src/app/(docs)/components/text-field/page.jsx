@@ -48,9 +48,9 @@ export default function TextFieldPage() {
             <Cell name="Rest, empty" meta="placeholder content/tertiary"><TextField aria-label="Rest, empty" placeholder={NAME} /></Cell>
             <Cell name="Rest, filled" meta="content/primary"><TextField aria-label="Rest, filled" defaultValue={NAME} /></Cell>
             <Cell name="Hover" meta="fill/primary-hover · border/primary-hover"><TextField aria-label="Hover" defaultValue={NAME} state="hover" /></Cell>
-            <Cell name="Focus" meta="border/primary-active · ring border/focus, stroke/2"><TextField aria-label="Focus" defaultValue={NAME} state="focus" /></Cell>
+            <Cell name="Focus" meta="border/primary-active, no ring"><TextField aria-label="Focus" defaultValue={NAME} state="focus" /></Cell>
             <Cell name="Invalid" meta="border/critical"><TextField aria-label="Invalid" defaultValue={NAME} invalid /></Cell>
-            <Cell name="Invalid, focus" meta="border/critical-active · orange ring"><TextField aria-label="Invalid, focus" defaultValue={NAME} invalid state="focus" /></Cell>
+            <Cell name="Invalid, focus" meta="border/critical-active"><TextField aria-label="Invalid, focus" defaultValue={NAME} invalid state="focus" /></Cell>
             <Cell name="Disabled" meta="fill/primary-disabled · not focusable"><TextField aria-label="Disabled" defaultValue={NAME} disabled /></Cell>
             <Cell name="Read-only" meta="rest look · no hover · focusable"><TextField aria-label="Read-only" defaultValue={NAME} readOnly /></Cell>
           </div>
@@ -128,7 +128,7 @@ export default function TextFieldPage() {
       <Section title="Keyboard" desc={<>Native input and textarea, so everything a browser does still works. <Info info={`${R.keyboard}\n${R.aria}\n${R.focus}`}>The rules</Info></>}>
         <Panel tone="surface/primary" pad={16}>
           <div className="tfd-keys type-body-md-regular">
-            <Token>Tab</Token><span>Moves in and out. Focus shows the ring. The clear and show buttons come next, and are skipped while hidden.</span>
+            <Token>Tab</Token><span>Moves in and out. Focus steps the border up. The clear and show buttons come next, and are skipped while hidden.</span>
             <Token>Esc</Token><span>Clears a field that has a clear button and a value. Otherwise nothing.</span>
             <Token>Enter</Token><span>Submits the form. In a textarea it starts a new line.</span>
             <Token>Space, Enter</Token><span>Press the clear and show / hide buttons. Clear gives focus back to the field.</span>
@@ -155,7 +155,6 @@ export default function TextFieldPage() {
           ['Hint', <Token key="a">body/sm/regular</Token>, <Token key="b">{ref('message-color')}</Token>, <Meta key="c">{px('message-gap')} to the control</Meta>],
           ['Error', <Token key="a">body/sm/regular · {px('message-icon')} icon</Token>, <Token key="b">{ref('message-error')}</Token>, <Meta key="c">replaces the hint</Meta>],
           ['Count', <Token key="a">body/sm/regular</Token>, <Token key="b">{ref('count-color')} · {ref('count-limit')} at max</Token>, <Meta key="c">{px('message-gap-inline')} from the message</Meta>],
-          ['Focus ring', <Meta key="a">outside the border</Meta>, <Token key="b">{ref('frame-ring')}</Token>, <Meta key="c">stroke/{px('frame-ring-width')}</Meta>],
         ]} />
         <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>Inner shade on every state: inset 0 −4 10 #000 at 50%. An effect, not a token (D-021). Borders are inset shadows, so nothing moves.</p>
       </Section>

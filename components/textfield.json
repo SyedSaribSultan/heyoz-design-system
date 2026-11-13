@@ -9,8 +9,8 @@
     "radius": "Squircle like Button: height × 0.375 rounded to 4. xs 12 (radius/lg), sm 16 (radius/xl), md 20 (radius/2xl). Padding x is the Button's for the size: xs space/12, sm space/16, md space/20.",
     "well": "D-036: a field is a well, darker than its surface: fill/primary at rest, with border/primary and the inner shade (0, -4, blur 10, #000 50%, D-021). It is a lit surface (D-020).",
     "border": "stroke/1, drawn as an inset box-shadow, so no state moves anything.",
-    "states": "Rest: fill/primary, border/primary. Hover: fill/primary-hover, border/primary-hover. Focus: border/primary-active plus a ring outside, border/focus at stroke/2 (D-035, D-037). Invalid: border/critical (hover border/critical-hover, focus border/critical-active; the focus ring stays orange). Disabled: fill/primary-disabled, border/primary-disabled, value, placeholder, icons and label content/primary-disabled; not focusable. Read-only: looks like rest and does not change on hover, still focusable, value selectable and submitted, no clear button.",
-    "focus": "The ring shows on keyboard focus of the input or textarea (focus-visible). Focus on the clear or show button gives that button its own ring, not the frame. Clicking anywhere on the frame (not on a button) puts the caret in the input. The ring sits outside the frame and is never clipped: the frame does not clip, the textarea clips only inside the frame.",
+    "states": "Rest: fill/primary, border/primary. Hover: fill/primary-hover, border/primary-hover. Focus: the border steps up to border/primary-active, nothing else: subtle, no ring (D-040). Invalid: border/critical (hover border/critical-hover, focus border/critical-active). Disabled: fill/primary-disabled, border/primary-disabled, value, placeholder, icons and label content/primary-disabled; not focusable. Read-only: looks like rest and does not change on hover, still focusable, value selectable and submitted, no clear button.",
+    "focus": "Focus is the frame's border stepping up (no ring, no outline). Focus on the clear or show button gives that button its own ring, not the frame. Clicking anywhere on the frame (not on a button) puts the caret in the input. The textarea clips only inside the frame.",
     "value": "body/md/regular for xs and sm, body/lg/regular for md, content/primary. Placeholder content/tertiary. A placeholder is an example, never the label: it disappears when you type.",
     "icons": "Leading and trailing icons are Lucide at size/icon/sm (xs, sm) and size/icon/md (md), content/secondary, 8 from the text. They are decoration and are hidden from screen readers. The control carries the meaning.",
     "affix": "Prefix and suffix are text (https://, $, .com, USD) in the value's type and content/tertiary, inside the frame, 8 from the value. Clicking them focuses the input. They are read out with the field (aria-describedby).",
@@ -61,7 +61,6 @@
     "frame": {
       "$about": "The well. Colours per state; every state keeps the same inset stroke/1 border.",
       "border-width": "{stroke/1}",
-      "ring": "{border/focus}",
       "ring-width": "{stroke/2}",
       "rest": { "fill": "{fill/primary}", "border": "{border/primary}" },
       "hover": { "fill": "{fill/primary-hover}", "border": "{border/primary-hover}" },

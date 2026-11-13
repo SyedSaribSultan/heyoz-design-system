@@ -14,7 +14,7 @@ A row: [track with thumb] [label + description], or [label + description] [track
 
 - **states**: Off, on; each at rest, hover, pressed, focus and disabled. Off is a well: fill/primary track with border/secondary, and a content/secondary thumb. On is fill/inverse (white, like shadcn's primary, D-038) with a content/inverse-primary thumb. Orange stays for the one main action (D-003).
 - **hover**: Hover is the -hover fill and border of the track's own family (D-035); the off thumb lights to content/primary. Pressed is one step stronger, the -active fill and border. Hover and press work on the whole row, label included. Nothing moves or changes size: the border is an inset box-shadow.
-- **shade**: Every state with a fill carries the inner shade (inset 0 -4 10, #000 at 50%), like Button (D-021). The track is a lit surface (D-020).
+- **shade**: No inner shade, unlike Button: at 16–20px the shade greys the white out, so on stays a flat, solid fill that pops (D-041). The track is a lit surface (D-020).
 - **motion**: The thumb slides from one end of the track to the other, duration/base, easing/standard (D-031). Track colour and thumb colour change at duration/fast. The first paint never animates. Reduced motion: no slide, the thumb and track fade to the new state.
 - **size**: sm: track 28 x 16, thumb 12. md: track 36 x 20, thumb 16. md is the default. The thumb sits 2 from the track's edge on every side. The thumb's travel is the track width minus the thumb minus 4. Text is the same in both: label body/md/regular, description body/sm/regular.
 - **label**: Right of the switch by default. On the left (labelPosition start), the row can span the full width (block) so the switch sits at the far edge, as in a settings list.

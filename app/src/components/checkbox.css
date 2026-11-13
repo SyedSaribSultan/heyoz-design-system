@@ -1,5 +1,5 @@
 /* Checkbox. Every colour and size comes from components/checkbox.json through --cb-* (src/styles/components.css).
-   This file only says which state uses which variable. The inner shade is an effect, not a token (D-021).
+   This file only says which state uses which variable. No inner shade: a small control stays a flat, crisp fill (D-041).
    Row = .cb-row (the label: the whole row is the click target). States live on the row, so hover and press
    work on the label text too. Nothing moves on hover: the border is an inset box-shadow. */
 .cb-row {
@@ -18,7 +18,7 @@
 .cb-box {
   position: relative; flex: none; box-sizing: border-box; width: var(--cb-box); height: var(--cb-box); border-radius: var(--cb-box-r);
   background: var(--cb-fill);
-  box-shadow: inset 0 0 0 var(--cb-box-stroke) var(--cb-border), var(--fx-inner-shade), var(--cb-ring);
+  box-shadow: inset 0 0 0 var(--cb-box-stroke) var(--cb-border), var(--cb-ring);
   transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
 }
 /* Text rows: the box centres on the first line of the label (line 20). */

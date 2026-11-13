@@ -18,7 +18,7 @@ const STATES = [
   ['Rest', 'fill/primary, border/primary.', {}],
   ['Hover', 'fill/primary-hover, border/primary-hover.', { state: 'hover' }],
   ['Open', 'border/primary-active; the chevron turns over.', { state: 'open' }],
-  ['Focus', 'The focus ring outside, border/focus, stroke/2.', { state: 'focus' }],
+  ['Focus', 'The border steps up to border/primary-active; no ring.', { state: 'focus' }],
   ['Invalid', 'border/critical, with the message in content/critical.', { invalid: true, error: 'Pick a model your plan includes.' }],
   ['Disabled', '-disabled fill, border and text.', { disabled: true }],
 ];

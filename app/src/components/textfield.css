@@ -30,7 +30,7 @@
 /* States. Specificity is stepped on purpose: hover < focus < invalid-hover < invalid-focus. */
 .tf-frame:is(:hover, [data-state='hover']):not([data-disabled], [data-readonly]) { --tf-fill: var(--tf-frame-hover-fill); --tf-border: var(--tf-frame-hover-border); }
 .tf-frame:is(:has(.tf-input:focus-visible), [data-state='focus']):not([data-disabled]) {
-  --tf-fill: var(--tf-frame-focus-fill); --tf-border: var(--tf-frame-focus-border); --tf-ring: 0 0 0 var(--tf-frame-ring-width) var(--tf-frame-ring); }
+  --tf-fill: var(--tf-frame-focus-fill); --tf-border: var(--tf-frame-focus-border); }
 .tf-frame[data-invalid]:not([data-disabled]) { --tf-fill: var(--tf-frame-invalid-fill); --tf-border: var(--tf-frame-invalid-border); }
 .tf-frame[data-invalid]:is(:hover, [data-state='hover']):not([data-disabled], [data-readonly]) { --tf-fill: var(--tf-frame-invalid-hover-fill); --tf-border: var(--tf-frame-invalid-hover-border); }
 .tf-frame[data-invalid]:is(:has(.tf-input:focus-visible), [data-state='focus']):not([data-disabled]) { --tf-fill: var(--tf-frame-invalid-focus-fill); --tf-border: var(--tf-frame-invalid-focus-border); }
