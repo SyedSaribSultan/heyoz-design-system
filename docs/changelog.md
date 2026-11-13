@@ -15,6 +15,13 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ## 2026-11-13
 
+```
+change(app): upgrade the docs site from Next.js 15.5.29 to 16.4.6
+
+Why:    npm audit reported PostCSS advisories (GHSA-qx2v-qp2m-jg93 and others) whose only fix is next@16.4.6. No code changes were needed: the site already uses async params, has no middleware, next/image, or next lint.
+Checks: tokens build leaves generated files unchanged, 29 tests pass, build passes on Turbopack, npm audit 0 vulnerabilities, all 40 routes return 200 on a production server.
+```
+
 - change(owner decisions Q-5 to Q-8): every pop-up (Dialog, Menu, Select, Popover) scrolls with the quiet bar, thumb only on hover (D-037); Button gains a ninth type, critical (D-026), and a destructive dialog confirm uses it; a dialog's main action is primary, white (D-045); "on" stays white (D-041). Nothing is open in decisions.
 
 ```
