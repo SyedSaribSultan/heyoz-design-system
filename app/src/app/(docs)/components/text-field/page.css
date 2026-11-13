@@ -1,0 +1,11 @@
+/* Text field docs page. Page-only layout; the component's own look is in components/textfield.css. */
+.tfd-stage { display: flex; align-items: center; justify-content: center; flex: 1; min-height: 360px; padding: var(--space-24); }
+.tfd-live { width: min(100%, 360px); }
+.tfd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-24) var(--space-16); }
+.tfd-grid[data-wide] { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.tfd-cell { display: flex; flex-direction: column; gap: var(--space-8); min-width: 0; }
+.tfd-cap { display: flex; flex-direction: column; }
+.tfd-use { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-12); }
+.tfd-use ul { margin: var(--space-8) 0 0; padding-left: var(--space-16); display: flex; flex-direction: column; gap: var(--space-6); }
+.tfd-keys { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--space-12) var(--space-16); align-items: baseline; }
+@media (max-width: 860px) { .tfd-use { grid-template-columns: 1fr; } .tfd-stage { min-height: 0; padding: var(--space-16); } }

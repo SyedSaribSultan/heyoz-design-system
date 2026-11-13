@@ -2,7 +2,7 @@
 
 > Generated from `tokens/number.json` by `app/scripts/build-tokens.mjs`. Do not edit.
 
-HeyOz number tokens: space, radius, size and stroke. Source of truth. All values are px. Names say the size: space/16 is 16px, stroke/1 is 1px. Radius and size use t-shirt names (xs to xl; control adds 2xs and 2xl).
+HeyOz number tokens: space, radius, size and stroke. Source of truth. All values are px. Names say the size: space/16 is 16px, stroke/1 is 1px. Radius runs none, xs to 3xl, full; size uses t-shirt names (icon xs to xl; control adds 2xs and 2xl).
 
 ## space
 
@@ -44,7 +44,7 @@ Corner rounding. Nested corners: inner radius = outer radius minus the gap betwe
 
 ## size
 
-Fixed sizes. control = height of buttons, inputs, chips; seven sizes, 2xs 28, then 8px steps from xs 32 to 2xl 72. xs (32) is the everyday size. icon = the icon's frame. iconGrid = the icon grid from Figma (Iconography, 25:6154), as ratios of the frame, so it works at any size: padding keeps the frame's edge clear, square and circle are the key shapes, stroke is the line weight (24 → 2 padding, 18 square, 20 circle, 1.5 stroke). HeyOz icons fill the key square: longest side frame × 0.75, at least 1/8 clear on every side. Every icon asset is exported as its frame, never as the bare vector. target = smallest touch area, built as an invisible layer if the visible element is smaller.
+Fixed sizes. control = height of buttons, inputs, chips; seven sizes, 2xs 28, then 8px steps from xs 32 to 2xl 72. xs (32) is the everyday size. icon = the icon's frame. iconGrid = the icon grid, as ratios of the frame, so it works at any size: padding keeps the frame's edge clear, square and circle are the key shapes, stroke is the line weight (24 → 2 padding, 18 square, 20 circle, 1.5 stroke). HeyOz icons fill the key square: longest side frame × 0.75, at least 1/8 clear on every side. Every icon asset is exported as its frame, never as the bare vector. target = smallest touch area, built as an invisible layer if the visible element is smaller.
 
 | Token | CSS variable | Value |
 |---|---|---|

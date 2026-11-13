@@ -1,0 +1,109 @@
+{
+  "$about": "Slider: every value is a token reference, a plain even number (a set value in px, not a token) or a rule (D-025). Draft: the owner may still change it.",
+  "title": "Slider",
+  "status": "draft",
+  "css": { "selector": ".sl", "prefix": "sl" },
+  "anatomy": "A label row (label left, value readout right), then one row: [number field] track + thumb(s) [number field], then optional tick marks and min / max labels. Single value: one thumb, the track is filled from the start to the thumb. Range: two thumbs, the track is filled between them. The track is drawn by the component; the thumbs are native range inputs laid over it, so the keyboard and screen readers work as they do for any slider.",
+  "rules": {
+    "native": "Each thumb is an <input type=range>: role slider, aria-valuenow, aria-valuemin, aria-valuemax and the name come from the element. aria-valuetext carries the formatted value, with its unit. A range slider is two inputs named \"<label> minimum\" and \"<label> maximum\" in one role=group named by the label. The inputs are transparent and ignore the pointer; only their thumbs take it. A press anywhere else on the control row (the whole 44 height, along the full width) jumps the nearest thumb to that point and carries on as a drag.",
+    "hit": "The control row is size/target (44) tall, so a press anywhere on it counts. The visible track is 8 and the thumb 20, centred in it.",
+    "track": "A well: fill/primary with an inset stroke/1 border, border/secondary, so it reads on every surface. Hover (pointer on the control) border/secondary-hover; dragging border/secondary-active (D-035). The border is an inset shadow drawn above the fill, so it never moves anything.",
+    "range": "The filled part is fill/inverse-active, one step below the thumb, and takes the inner shade. Hover and dragging turn it fill/inverse.",
+    "thumb": "The primary look (D-038, D-020): fill/inverse at rest, fill/inverse-hover on hover, fill/inverse-active while dragging, with the inner shade. A halo of 4 in the thumb's own colour at 24% shows on hover and 40% while dragging. The thumb never changes size and the halo is a shadow, so nothing moves. Effects are not tokens (D-021).",
+    "focus": "Keyboard focus (focus-visible) draws a border/focus ring of stroke/2 around the focused thumb. Nothing clips it: the control row is not a clipping container. Leave 6 free beyond each end of the track (ring 2 + halo 4) when the slider sits in a clipping container (D-037).",
+    "tip": "A value tag floats 8 above the thumb while it is dragged or keyboard-focused: fill/elevated, border/tertiary, radius/md, label/md/medium. It fades in at duration/fast and rises 4px; reduced motion keeps the fade. It is lit (D-020). It is aria-hidden: the input already announces the value.",
+    "ticks": "Optional marks below the track, one per step (up to 20 steps; more steps show 10 even marks, or the count you give). 2 wide, 4 tall, border/tertiary; marks inside the filled part use content/tertiary. They sit on the same centre line as the thumb, so a thumb lands exactly on its mark.",
+    "limits": "Optional min and max labels under the track ends, label/md/regular, content/tertiary.",
+    "field": "Optional number field beside the track (a plain <input type=number>, spin buttons hidden): fill/primary, border/primary, hover border/primary-hover, focus border/focus, radius/lg, height size/control/xs (32), body/md/regular. It follows the slider live while the typed number is inside the range, and snaps to the step and clamps to the range on blur or Enter. Range sliders get two fields, one at each end of the track. With a field, the value readout in the label row is dropped (it would say the same thing twice).",
+    "keyboard": "Tab goes to each thumb in turn (minimum, then maximum). Arrows: one step. Shift + arrows: ten steps. Page Up / Page Down: 10% of the range (at least one step). Home / End: the lowest and highest allowed value (a minimum thumb stops at the maximum thumb, and the other way round). Every change fires onChange; onChangeEnd fires when a drag ends, after a key press and after a field is committed.",
+    "stacking": "When two thumbs sit on the same value the one last used is on top; at the start of the range the maximum thumb is on top and at the end the minimum thumb, so one can always be pulled away.",
+    "motion": "State changes (halo, fill, border) run at duration/fast, easing/standard (D-031). The thumb and the filled part follow the pointer with no easing: they are the pointer position. Reduced motion keeps the fades and drops the tag's rise.",
+    "disabled": "Track fill/primary with border/secondary-disabled, range content/primary-disabled, thumb fill/inverse-disabled, label and value content/primary-disabled. No halo, no tag, the cursor stays an arrow, and the inputs leave the Tab order.",
+    "when": "Use a slider for a value on a continuous or finely stepped scale where the rough position matters more than the exact number: volume, opacity, duration, strength. Add the number field when people need the exact value. Use a segmented control for 2 to 5 named choices, a number field alone for an exact value on a wide range, and a switch for on / off.",
+    "grid": "Set values are on the 4px grid with 2px half-steps (D-025). Thumb 20, track 8, halo 4, tick 2 by 4, tag 24, field 72 wide."
+  },
+  "parts": {
+    "hit": "{size/target}",
+    "gap": "{space/4}",
+    "label": {
+      "$about": "The label above the control.",
+      "type": "{type/label/md/medium}",
+      "color": "{content/primary}",
+      "color-disabled": "{content/primary-disabled}"
+    },
+    "value": {
+      "$about": "The value readout at the right of the label row.",
+      "type": "{type/label/md/medium}",
+      "color": "{content/secondary}",
+      "color-disabled": "{content/primary-disabled}"
+    },
+    "track": {
+      "$about": "The well. 8 tall, a set value.",
+      "height": 8,
+      "radius": "{radius/full}",
+      "fill": "{fill/primary}",
+      "border": "{border/secondary}",
+      "border-hover": "{border/secondary-hover}",
+      "border-active": "{border/secondary-active}",
+      "border-disabled": "{border/secondary-disabled}"
+    },
+    "range": {
+      "$about": "The filled part of the track.",
+      "fill": "{fill/inverse-active}",
+      "fill-hover": "{fill/inverse}",
+      "fill-disabled": "{content/primary-disabled}"
+    },
+    "thumb": {
+      "$about": "20, a set value. The primary look: inverse fill, inner shade.",
+      "size": 20,
+      "halo": 4,
+      "fill": "{fill/inverse}",
+      "fill-hover": "{fill/inverse-hover}",
+      "fill-active": "{fill/inverse-active}",
+      "fill-disabled": "{fill/inverse-disabled}",
+      "ring": "{stroke/2}",
+      "ring-color": "{border/focus}"
+    },
+    "tick": {
+      "$about": "Marks under the track: 2 wide, 4 tall, 4 below the thumb.",
+      "width": 2,
+      "height": 4,
+      "offset": 4,
+      "color": "{border/tertiary}",
+      "color-active": "{content/tertiary}"
+    },
+    "tip": {
+      "$about": "The value tag above a dragged or focused thumb.",
+      "height": 24,
+      "padding-x": "{space/8}",
+      "gap": "{space/8}",
+      "radius": "{radius/md}",
+      "fill": "{fill/elevated}",
+      "border": "{border/tertiary}",
+      "color": "{content/primary}",
+      "type": "{type/label/md/medium}"
+    },
+    "limit": {
+      "$about": "The min and max labels under the track.",
+      "type": "{type/label/md/regular}",
+      "color": "{content/tertiary}"
+    },
+    "field": {
+      "$about": "The number field beside the track, a text field at size/control/xs.",
+      "width": 72,
+      "height": "{size/control/xs}",
+      "gap": "{space/12}",
+      "padding-x": "{space/12}",
+      "radius": "{radius/lg}",
+      "fill": "{fill/primary}",
+      "fill-disabled": "{fill/primary-disabled}",
+      "border": "{border/primary}",
+      "border-hover": "{border/primary-hover}",
+      "border-focus": "{border/focus}",
+      "border-disabled": "{border/primary-disabled}",
+      "color": "{content/primary}",
+      "color-disabled": "{content/primary-disabled}",
+      "type": "{type/body/md/regular}"
+    }
+  }
+}

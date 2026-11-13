@@ -1,6 +1,6 @@
 import './lucide.css';
 
-// Rule: the docs site uses Lucide icons only (public/icons/lucide, redrawn on the HeyOz grid).
+// Lucide icons (public/icons/lucide, redrawn on the HeyOz grid): the one icon helper for components, docs and screens.
 // <Lucide name="arrow-up-right" /> draws the icon in the current text colour at size/icon/sm (16);
 // pass size="xs" | "md" | "lg" for another size/icon token. lucide(name) is the file, for props
 // that take a URL (Button icon / iconAfter).

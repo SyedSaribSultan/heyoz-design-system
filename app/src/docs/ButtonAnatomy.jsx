@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Button, { LinkButton, BUTTON, SIZE_NAMES, TYPE_NAMES, LINK_NAMES, ICON_LIVE } from '@/components/Button';
 import IconGrid from './IconGrid';
 import Segmented from '@/components/Segmented';
-import { lucide } from './Lucide';
+import { lucide } from '@/lib/Lucide';
 
 // Button playground: every parameter, real relative sizes, one zoom for all sizes so sizes compare.
 // The anatomy is drawn on a real Button at the chosen zoom. Overlays sit inside the zoomed

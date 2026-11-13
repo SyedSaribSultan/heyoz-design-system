@@ -1,12 +1,6 @@
 /* DRAFT parts (parts.jsx). Tokens only; the few set values are marked. */
 :where(.ed-mi, .ed-bt, .ed-switch) { all: unset; box-sizing: border-box; cursor: pointer; }
 
-.ed-ic { display: inline-block; flex: none; width: var(--size-icon-sm); height: var(--size-icon-sm); background: currentColor;
-  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
-.ed-ic[data-size='xs'] { width: var(--size-icon-xs); height: var(--size-icon-xs); }
-.ed-ic[data-size='md'] { width: var(--size-icon-md); height: var(--size-icon-md); }
-.ed-ic[data-size='lg'] { width: var(--size-icon-lg); height: var(--size-icon-lg); }
-
 .ed-kbd { font-family: var(--font-label); color: var(--content-tertiary); white-space: nowrap; }
 
 /* Slider */

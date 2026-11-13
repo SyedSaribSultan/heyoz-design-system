@@ -1,6 +1,6 @@
 import t from '@/tokens/tokens.resolved.json';
 import icons from '@/icons/icons.json';
-import { DocPage, Section, Panel, Grid, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import { ICON_GRID as g } from '@/components/Button';
 import IconGrid from '@/docs/IconGrid';

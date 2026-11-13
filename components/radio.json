@@ -1,0 +1,78 @@
+{
+  "$about": "Radio: a round well with a dot. One option of several. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-025). Status draft: the owner may still change it.",
+  "title": "Radio",
+  "status": "draft",
+  "css": { "selector": ".rd", "prefix": "rd" },
+  "anatomy": "A radio group is a column or a row of radios under an optional group label. A radio is a row: [circle] [label + description]. The circle is a round well; the chosen one holds a dot. The whole row is the click target.",
+  "rules": {
+    "states": "Unchecked, checked; each at rest, hover, pressed, focus and disabled. Unchecked is a well: fill/primary with border/secondary. Checked is fill/inverse (white, like shadcn's primary, D-038) with a content/inverse-primary dot. Orange stays for the one main action (D-003).",
+    "hover": "Hover is the -hover fill and border of the circle's own family (D-035). Pressed is one step stronger, the -active fill and border. Hover and press work on the whole row, label included. Nothing moves or changes size: the border is an inset box-shadow.",
+    "shade": "Every state with a fill carries the inner shade (inset 0 -4 10, #000 at 50%), like Button (D-021). The circle is a lit surface (D-020).",
+    "dot": "The dot is a set value: 6 in the sm circle, 8 in the md circle. It grows from 50% to full size while it fades in, and fades out when another radio is chosen (duration/base, easing/standard). Reduced motion: the fade stays, the growth goes (D-031).",
+    "size": "sm: circle 16 (size/icon/sm). md: circle 20 (size/icon/md). md is the default. Text is the same in both: label body/md/regular, description body/sm/regular.",
+    "colours": "Label content/primary, description content/tertiary. Disabled: label content/primary-disabled, description content/tertiary-disabled, circle -disabled fill and border; a disabled checked circle uses fill/secondary-disabled and a content/primary-disabled dot, like a disabled primary Button, because fill/inverse-disabled is the same grey as its dot.",
+    "focus": "Keyboard focus (focus-visible only) draws a ring outside the circle: border/focus, stroke/2. The row never clips it. A scroll or clip container around a group keeps stroke/2 of room (D-037).",
+    "hit": "The visible circle is smaller than size/target (44). An invisible layer around the circle makes the hit area at least 44 x 44 without moving anything. The label and description are part of the click target too.",
+    "keyboard": "Roving tabindex: the group is one Tab stop. Tab lands on the chosen radio, or on the first enabled one when none is chosen. Arrow Down and Right move to the next radio and choose it; Up and Left go back; both wrap round the ends. Home and End go to the first and the last enabled radio and choose it. Space chooses the focused radio. Disabled radios are skipped by the arrows and are not in the Tab order.",
+    "aria": "The group is role=radiogroup named by its group label (aria-labelledby), or by aria-label. Each radio is role=radio with aria-checked, named by its label (aria-labelledby) and described by its description (aria-describedby). Disabled radios carry aria-disabled.",
+    "group": "A group label (body/md/medium, content/primary), then the options. Vertical: space/12 between options. Horizontal: space/24. The group label sits space/8 above the options. A disabled group disables every option. With no default, none is chosen.",
+    "use": "Use a radio group when exactly one of two to five options must be chosen and all of them should be visible. Use Select for more than five. Use Segmented for a view or mode that changes the screen at once. Use a Switch for a single on/off. Clicking the chosen radio again does not clear it; offer a 'None' option when that is needed.",
+    "light": "The circle is lit by light/cursor (D-020). The label is plain text and is not."
+  },
+  "parts": {
+    "circle": {
+      "$about": "The round well. sm and md are icon frames.",
+      "sm": "{size/icon/sm}",
+      "md": "{size/icon/md}",
+      "stroke": "{stroke/1}",
+      "target": "{size/target}",
+      "focus-ring": "{stroke/2}"
+    },
+    "dot": {
+      "$about": "The chosen mark: a set value, not a token.",
+      "sm": 6,
+      "md": 8
+    },
+    "row": {
+      "$about": "The clickable row.",
+      "gap": "{space/8}",
+      "text-gap": "{space/2}"
+    },
+    "label": {
+      "$about": "The option name.",
+      "type": "{type/body/md/regular}",
+      "color": "{content/primary}",
+      "color-disabled": "{content/primary-disabled}"
+    },
+    "description": {
+      "$about": "Help under the label.",
+      "type": "{type/body/sm/regular}",
+      "color": "{content/tertiary}",
+      "color-disabled": "{content/tertiary-disabled}"
+    },
+    "group": {
+      "$about": "Several radios under one label.",
+      "gap": "{space/12}",
+      "gap-horizontal": "{space/24}",
+      "label-gap": "{space/8}",
+      "label": {
+        "type": "{type/body/md/medium}",
+        "color": "{content/primary}"
+      }
+    },
+    "unchecked": {
+      "$about": "A well: darker than the surface it sits on.",
+      "rest": { "fill": "{fill/primary}", "border": "{border/secondary}" },
+      "hover": { "fill": "{fill/primary-hover}", "border": "{border/secondary-hover}" },
+      "pressed": { "fill": "{fill/primary-active}", "border": "{border/secondary-active}" },
+      "disabled": { "fill": "{fill/primary-disabled}", "border": "{border/secondary-disabled}" }
+    },
+    "checked": {
+      "$about": "The chosen radio: the 'on' colour, white (D-038).",
+      "rest": { "fill": "{fill/inverse}", "border": "{border/inverse}", "dot": "{content/inverse-primary}" },
+      "hover": { "fill": "{fill/inverse-hover}", "border": "{border/inverse-hover}", "dot": "{content/inverse-primary}" },
+      "pressed": { "fill": "{fill/inverse-active}", "border": "{border/inverse-active}", "dot": "{content/inverse-primary}" },
+      "disabled": { "fill": "{fill/secondary-disabled}", "border": "{border/secondary-disabled}", "dot": "{content/primary-disabled}" }
+    }
+  }
+}

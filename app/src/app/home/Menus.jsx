@@ -4,11 +4,11 @@ import { createPortal } from 'react-dom';
 import { tk } from '@/lib/tk';
 import Light from '@/lib/Light';
 import Button from '@/components/Button';
+import { lucide } from '@/lib/Lucide';
 import { BrandTrigger } from '@/components/SideNav';
 import usePresence from '@/lib/usePresence';
 
-// Menus and pickers, built from Figma:
-//   brand picker trigger 693:3294 · brand menu + actions 693:3226 · model picker 693:3393 · nav item 693:3307
+// Menus and pickers: brand picker (trigger, menu, row actions) and model picker.
 // Menu surface: surface/tertiary + border/tertiary + inner shade, with the
 // design's soft sheen. Rows: fill/tertiary → hover/selected fill/tertiary-hover.
 const A = (f) => `/home/${f}`;
@@ -113,7 +113,7 @@ function Action({ icon, label, danger, name = 'action', onClick }) {
 }
 const Separator = () => <span {...tk('separator', { bg: 'border/elevated' }, { height: 1, margin: '4px 0' })} className="full" />;
 
-// ─── Brand picker (trigger 693:3294, menu 693:3226) ─────────────────────────
+// ─── Brand picker (trigger and menu) ─────────────────────────
 const BRANDS = [['Apple', 'apple.webp'], ['Tesla', 'tesla.webp'], ['Duolingo', 'duolingo.webp'], ['Brilliant', 'brand-logo.webp'], ['Nike', 'nike.webp']];
 // One brand is active at a time: the trigger shows it, the menu marks it, picking another switches and closes.
 // collapsed: the side nav is a rail, so the trigger is the logo alone (SideNav BrandTrigger).
@@ -145,7 +145,7 @@ export function BrandPicker({ collapsed }) {
                     {/* Brand actions: the Button component (ghost · 2xs · icon only), so it has every button state.
                         It stays pressed while its menu is open. */}
                     <span className="dots" data-show={menuOpen ? '' : undefined}>
-                      <Button type="ghost" size="2xs" icon="/icons/lucide/ellipsis-vertical.svg" label={`${b} actions`}
+                      <Button type="ghost" size="2xs" icon={lucide('ellipsis-vertical')} label={`${b} actions`}
                         state={menuOpen ? 'active' : undefined} aria-haspopup="menu" aria-expanded={menuOpen}
                         onClick={(e) => { e.stopPropagation(); const row = e.currentTarget.closest('[data-row]'); setCtx(menuOpen ? null : { brand: b, row }); }} />
                     </span>
@@ -179,7 +179,7 @@ export function Chip({ icon, iconScale, label, after, name = 'chip', onClick }) 
   );
 }
 
-// Model picker (693:3393)
+// Model picker
 const MODELS = [
   ['GPT Image 2.5 Flare', 'Lightning-fast ads that still look stunning', 'openai.svg'],
   ['GPT Image 2.5 Sunburst', 'Studio-grade detail for your best final ad', 'openai.svg'],
@@ -244,27 +244,4 @@ export function CountChip() {
       )}
     </div>
   );
-}
-
-// ─── Side nav items (693:3307): default · hover · active ─────────────────────
-export function NavList({ groups }) {
-  const [active, setActive] = useState(null);
-  return groups.map((g, i) => (
-    <nav key={i} {...tk('nav group')} className="col">
-      {g.title && <span {...tk('nav group title', { type: 'body/md/regular', color: 'content/tertiary' })}>{g.title}</span>}
-      {g.items.map(([label, icon]) => {
-        const on = active === label;
-        return (
-          <a key={label} href="#" onClick={(e) => { e.preventDefault(); setActive(label); }}
-            {...tk(on ? 'nav item (active)' : 'nav item', on
-              ? { bg: 'fill/primary-active', border: 'border/primary-active', fx: 'inner-shade', radius: 'lg', px: 12, py: 8, gap: 6 }
-              : { bg: 'fill/primary', hover: 'fill/primary-hover', hoverBorder: 'border/primary-hover', hoverFx: 'inner-shade', radius: 'lg', px: 12, py: 8, gap: 6 })}
-            className="hrow full" data-btn>
-            <span {...tk('nav icon', { size: 'icon/md' })} data-icon><img src={A(icon)} alt="" /></span>
-            <span {...tk('nav label', { type: 'body/lg/regular', color: 'content/primary' })}>{label}</span>
-          </a>
-        );
-      })}
-    </nav>
-  ));
 }

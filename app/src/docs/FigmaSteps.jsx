@@ -1,6 +1,6 @@
 import Button, { BUTTON, ICON_LIVE } from '@/components/Button';
 import IconGrid from './IconGrid';
-import { lucide } from './Lucide';
+import { lucide } from '@/lib/Lucide';
 
 // How to build the button in Figma, step by step, drawn at 3× for xs.
 const md = BUTTON.sizes.find((s) => s.size === 'xs'); // the everyday size

@@ -1,0 +1,21 @@
+/* Tooltip (Tooltip.jsx). Every value comes from components/tooltip.json through the --tt-* variables
+   (src/styles/components.css). This file only says where each one goes. The inner shade is an effect, not a token (D-021). */
+.tt { box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--tt-bubble-gap);
+  width: max-content; max-width: min(var(--tt-bubble-max-width), calc(100vw - 2 * var(--tt-bubble-margin))); /* as wide as its text, up to the max, then it wraps */
+  padding: var(--tt-bubble-padding-y) var(--tt-bubble-padding-x); border-radius: var(--tt-bubble-radius);
+  background: var(--tt-bubble-background); color: var(--tt-bubble-color); cursor: default;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--tt-bubble-border), var(--fx-inner-shade);
+  white-space: pre-line; overflow-wrap: break-word; text-wrap: pretty; }
+.tt[data-wide] { max-width: min(var(--tt-bubble-max-width-wide), calc(100vw - 2 * var(--tt-bubble-margin))); }
+.tt-text { min-width: 0; }
+
+/* Shortcut: one chip per key. A chip is centred on the first line of text (line height minus chip height, halved). */
+.tt-keys { display: inline-flex; flex: none; gap: var(--tt-kbd-gap); margin-block: calc((var(--type-label-lg-line-height) - var(--tt-kbd-size)) / 2); }
+.tt-kbd { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-width: var(--tt-kbd-size); height: var(--tt-kbd-size);
+  padding: 0 var(--tt-kbd-padding-x); border-radius: var(--tt-kbd-radius); background: var(--tt-kbd-background); color: var(--tt-kbd-color);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--tt-kbd-border); white-space: nowrap; font-family: inherit; }
+
+/* Floating: fixed to the window and placed by floating.js (left, top). Hidden until it has been measured and placed,
+   so it is never seen at the corner. z-index is a set value: above popovers (1080). */
+.tt-floating { position: fixed; left: 0; top: 0; z-index: 1090; }
+.tt-floating:not([data-placed]) { visibility: hidden; }

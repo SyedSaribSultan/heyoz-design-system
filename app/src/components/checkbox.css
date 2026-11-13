@@ -1,0 +1,68 @@
+/* Checkbox. Every colour and size comes from components/checkbox.json through --cb-* (src/styles/components.css).
+   This file only says which state uses which variable. The inner shade is an effect, not a token (D-021).
+   Row = .cb-row (the label: the whole row is the click target). States live on the row, so hover and press
+   work on the label text too. Nothing moves on hover: the border is an inset box-shadow. */
+.cb-row {
+  position: relative; display: inline-flex; align-items: flex-start; gap: var(--cb-row-gap); cursor: pointer;
+  -webkit-tap-highlight-color: transparent; user-select: none; vertical-align: top;
+  --cb-box: var(--cb-box-md); --cb-box-r: var(--cb-box-radius-md);
+  --cb-fill: var(--cb-unchecked-rest-fill); --cb-border: var(--cb-unchecked-rest-border);
+  --cb-mark-colour: var(--cb-checked-rest-mark); --cb-ring: 0 0 transparent;
+  --cb-lh: var(--type-body-md-line-height);
+}
+.cb-row[data-size='sm'] { --cb-box: var(--cb-box-sm); --cb-box-r: var(--cb-box-radius-sm); }
+
+/* The input is invisible and sits on the box; the label click, Space and forms are native. */
+.cb-input { position: absolute; left: 0; top: 0; width: var(--cb-box); height: var(--cb-box); margin: 0; opacity: 0; pointer-events: none; }
+
+.cb-box {
+  position: relative; flex: none; box-sizing: border-box; width: var(--cb-box); height: var(--cb-box); border-radius: var(--cb-box-r);
+  background: var(--cb-fill);
+  box-shadow: inset 0 0 0 var(--cb-box-stroke) var(--cb-border), var(--fx-inner-shade), var(--cb-ring);
+  transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
+}
+/* Text rows: the box centres on the first line of the label (line 20). */
+.cb-row[data-text] .cb-box { margin-top: calc((var(--cb-lh) - var(--cb-box)) / 2); }
+/* Hit area: an invisible layer, at least size/target (44) square, centred on the box. Takes no room. */
+.cb-box::before { content: ''; position: absolute; inset: calc((var(--cb-box) - var(--cb-box-target)) / 2); }
+
+/* The mark is an icon on the icon grid: the frame is the box, the vector fills the key square. It draws in
+   from the left while it fades (duration/base); reduced motion keeps the fade (below). */
+.cb-mark {
+  position: absolute; inset: 0; background: var(--cb-mark-colour); opacity: 0; clip-path: inset(0 100% 0 0);
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+  transition: opacity var(--duration-fast) var(--easing-standard), clip-path var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard);
+}
+.cb-mark[data-kind='check'] { --icon: url(/icons/lucide/check.svg); }
+.cb-mark[data-kind='mixed'] { --icon: url(/icons/lucide/minus.svg); }
+.cb-input:checked:not(:indeterminate) ~ .cb-box .cb-mark[data-kind='check'],
+.cb-input:indeterminate ~ .cb-box .cb-mark[data-kind='mixed'] { opacity: 1; clip-path: inset(0); }
+
+.cb-text { display: flex; flex-direction: column; gap: var(--cb-row-text-gap); min-width: 0; }
+.cb-label { color: var(--cb-label-color); transition: color var(--duration-fast) var(--easing-standard); }
+.cb-desc { color: var(--cb-description-color); transition: color var(--duration-fast) var(--easing-standard); }
+
+/* States, unchecked: hover, pressed (one step stronger, own border family, D-035), disabled */
+.cb-row:is(:hover, [data-state='hover']):not([data-disabled]) { --cb-fill: var(--cb-unchecked-hover-fill); --cb-border: var(--cb-unchecked-hover-border); }
+.cb-row:is(:active, [data-state='pressed']):not([data-disabled]) { --cb-fill: var(--cb-unchecked-pressed-fill); --cb-border: var(--cb-unchecked-pressed-border); }
+.cb-row[data-disabled] { cursor: default; --cb-fill: var(--cb-unchecked-disabled-fill); --cb-border: var(--cb-unchecked-disabled-border); }
+/* Checked and indeterminate: the "on" colour */
+.cb-row:has(> .cb-input:is(:checked, :indeterminate)) { --cb-fill: var(--cb-checked-rest-fill); --cb-border: var(--cb-checked-rest-border); --cb-mark-colour: var(--cb-checked-rest-mark); }
+.cb-row:has(> .cb-input:is(:checked, :indeterminate)):is(:hover, [data-state='hover']):not([data-disabled]) { --cb-fill: var(--cb-checked-hover-fill); --cb-border: var(--cb-checked-hover-border); --cb-mark-colour: var(--cb-checked-hover-mark); }
+.cb-row:has(> .cb-input:is(:checked, :indeterminate)):is(:active, [data-state='pressed']):not([data-disabled]) { --cb-fill: var(--cb-checked-pressed-fill); --cb-border: var(--cb-checked-pressed-border); --cb-mark-colour: var(--cb-checked-pressed-mark); }
+.cb-row[data-disabled]:has(> .cb-input:is(:checked, :indeterminate)) { --cb-fill: var(--cb-checked-disabled-fill); --cb-border: var(--cb-checked-disabled-border); --cb-mark-colour: var(--cb-checked-disabled-mark); }
+.cb-row[data-disabled] .cb-label { color: var(--cb-label-color-disabled); }
+.cb-row[data-disabled] .cb-desc { color: var(--cb-description-color-disabled); }
+
+/* Focus: a ring outside the box, keyboard only */
+.cb-row:is([data-state='focus'], :has(> .cb-input:focus-visible)) { --cb-ring: 0 0 0 var(--cb-box-focus-ring) var(--border-focus); }
+
+/* Group */
+.cb-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--cb-group-label-gap); }
+.cb-group-label { color: var(--cb-group-label-color); }
+.cb-group-items { display: flex; flex-direction: column; align-items: flex-start; gap: var(--cb-group-gap); }
+.cb-group[data-orientation='horizontal'] .cb-group-items { flex-direction: row; flex-wrap: wrap; gap: var(--cb-group-gap) var(--cb-group-gap-horizontal); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-mark { clip-path: none; transition: opacity var(--duration-fast) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard); }
+}

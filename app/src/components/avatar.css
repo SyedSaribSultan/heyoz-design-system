@@ -1,0 +1,46 @@
+/* Avatar. Every size, colour and tone comes from components/avatar.json through the --av-* variables
+   (src/styles/components.css). This file only says which variable a size, a shape, a tone and a status use.
+   An avatar is not interactive: no hover, no focus. */
+.av { position: relative; display: inline-flex; flex: none; vertical-align: middle; width: var(--av-s); height: var(--av-s); }
+.av[data-size='2xs'] { --av-s: var(--av-2xs-size); --av-rs: var(--av-2xs-radius); --av-i: var(--av-2xs-icon); --av-d: var(--av-2xs-dot); --av-o: var(--av-2xs-overlap); }
+.av[data-size='xs'] { --av-s: var(--av-xs-size); --av-rs: var(--av-xs-radius); --av-i: var(--av-xs-icon); --av-d: var(--av-xs-dot); --av-o: var(--av-xs-overlap); }
+.av[data-size='sm'] { --av-s: var(--av-sm-size); --av-rs: var(--av-sm-radius); --av-i: var(--av-sm-icon); --av-d: var(--av-sm-dot); --av-o: var(--av-sm-overlap); }
+.av[data-size='md'] { --av-s: var(--av-md-size); --av-rs: var(--av-md-radius); --av-i: var(--av-md-icon); --av-d: var(--av-md-dot); --av-o: var(--av-md-overlap); }
+.av[data-size='lg'] { --av-s: var(--av-lg-size); --av-rs: var(--av-lg-radius); --av-i: var(--av-lg-icon); --av-d: var(--av-lg-dot); --av-o: var(--av-lg-overlap); }
+.av[data-size='xl'] { --av-s: var(--av-xl-size); --av-rs: var(--av-xl-radius); --av-i: var(--av-xl-icon); --av-d: var(--av-xl-dot); --av-o: var(--av-xl-overlap); }
+/* Shape: --av-rr is the corner radius as a number (a circle's is half the size); the status dot sits 1 - cos 45° = 29.29% of it in from the corner. */
+.av[data-shape='circle'] { --av-r: var(--av-circle); --av-rr: calc(var(--av-s) / 2); }
+.av[data-shape='squircle'] { --av-r: var(--av-rs); --av-rr: var(--av-rs); }
+.av[data-tone='neutral'] { --av-fill: var(--av-tone-neutral-fill); --av-content: var(--av-tone-neutral-content); }
+.av[data-tone='brand'] { --av-fill: var(--av-tone-brand-fill); --av-content: var(--av-tone-brand-content); }
+.av[data-tone='success'] { --av-fill: var(--av-tone-success-fill); --av-content: var(--av-tone-success-content); }
+.av[data-tone='warning'] { --av-fill: var(--av-tone-warning-fill); --av-content: var(--av-tone-warning-content); }
+.av[data-tone='info'] { --av-fill: var(--av-tone-info-fill); --av-content: var(--av-tone-info-content); }
+
+/* The face clips the picture to the shape; the status dot sits outside it, so it is never clipped.
+   The face is not lit and makes no stacking context: only the fallback fill is lit (D-020), and the picture, a sibling above it, is
+   media (data-media) that rises over the light of the avatar and of any lit panel the avatar sits in. */
+.av-face { box-sizing: border-box; position: relative; overflow: hidden; width: 100%; height: 100%; border-radius: var(--av-r); display: inline-flex; }
+.av-fallback { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%; border-radius: inherit; background: var(--av-fill); color: var(--av-content); user-select: none; white-space: nowrap;
+  transition: background var(--duration-fast) var(--easing-standard), color var(--duration-fast) var(--easing-standard); }
+.av-face .lu.lu { width: var(--av-i); height: var(--av-i); }
+/* The doubled selector keeps the picture absolute: the light rule for [data-media] would make it relative. */
+.av .av-face > .av-img[data-media] { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity var(--duration-fast) var(--easing-standard); }
+.av .av-face > .av-img[data-media][data-loaded] { opacity: 1; }
+/* The edge: 1px border/primary, inside the face, over the picture (after it in the tree, same layer as media). */
+.av-face::after { content: ''; position: absolute; inset: 0; z-index: calc(var(--light-layer, 100) + 1); border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--av-edge); }
+
+/* Status: a dot on the edge at 45°, cut out by a ring of the surface colour. */
+.av-status { position: absolute; right: calc(var(--av-rr) * 0.2929); bottom: calc(var(--av-rr) * 0.2929); transform: translate(50%, 50%);
+  width: var(--av-d); height: var(--av-d); border-radius: var(--av-circle); background: var(--av-status-colour);
+  box-shadow: 0 0 0 var(--av-ring-width) var(--av-ring-colour); transition: background var(--duration-fast) var(--easing-standard); }
+.av[data-status='online'] { --av-status-colour: var(--av-status-online); }
+.av[data-status='away'] { --av-status-colour: var(--av-status-away); }
+.av[data-status='busy'] { --av-status-colour: var(--av-status-busy); }
+.av[data-status='offline'] { --av-status-colour: var(--av-status-offline); }
+
+/* Group: overlap by a set amount per size; each face is cut out by a ring; later faces sit on top. */
+.av-group { display: inline-flex; align-items: center; flex: none; }
+.av-group > .av + .av { margin-left: calc(-1 * var(--av-o)); }
+.av-group > .av > .av-face { box-shadow: 0 0 0 var(--av-ring-width) var(--av-ring-colour); }

@@ -1,5 +1,11 @@
 .vercel
-.env*.local
+# Secrets, at any depth (an example file may be committed)
+.env
+.env.*
+!.env.example
+# OS files
+.DS_Store
+Thumbs.db
 # Claude Code: per-machine state of the review gate, and personal settings
 .claude/.last-review
 .claude/settings.local.json

@@ -1,0 +1,53 @@
+/* Select (Select.jsx). Every value comes from components/select.json through the --sel-* variables in
+   src/styles/components.css (npm run tokens). Change the spec, not this file. This file only says which part uses which
+   variable. The list is the Menu's (menu.css). The inner shade is an effect, not a token (D-021).
+   Same field conventions as the text field (textfield.css), so they sit side by side. Borders are inset shadows: no state moves anything. */
+.sel[data-size='xs'] { --sel-h: var(--sel-size-xs-height); --sel-r: var(--sel-size-xs-radius); --sel-px: var(--sel-size-xs-padding-x); }
+.sel[data-size='sm'] { --sel-h: var(--sel-size-sm-height); --sel-r: var(--sel-size-sm-radius); --sel-px: var(--sel-size-sm-padding-x); }
+.sel[data-size='md'] { --sel-h: var(--sel-size-md-height); --sel-r: var(--sel-size-md-radius); --sel-px: var(--sel-size-md-padding-x); }
+.sel { display: flex; flex-direction: column; width: 100%; min-width: 0; box-sizing: border-box; }
+
+.sel-label { display: block; margin-bottom: var(--sel-label-gap); color: var(--sel-label-color); cursor: default; }
+.sel[data-disabled] .sel-label { color: var(--sel-label-color-disabled); }
+.sel-anchor { display: flex; min-width: 0; }
+
+/* The well: the trigger. */
+:where(.sel-well) { all: unset; } /* zero specificity, so the type class sets the font */
+.sel-well {
+  --sel-fill: var(--sel-well-fill); --sel-border: var(--sel-well-border); --sel-ring: 0 0 0 0 transparent;
+  box-sizing: border-box; display: flex; align-items: center; gap: var(--sel-well-gap); width: 100%; min-width: 0; height: var(--sel-h);
+  padding: 0 var(--sel-px); border-radius: var(--sel-r); background: var(--sel-fill); color: var(--sel-value-color); cursor: pointer;
+  box-shadow: inset 0 0 0 var(--sel-well-border-width) var(--sel-border), var(--fx-inner-shade), var(--sel-ring);
+  transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard), color var(--duration-fast) var(--easing-standard);
+}
+/* States. Specificity is stepped on purpose: hover < open < focus < invalid < invalid hover < invalid open < disabled. */
+.sel-well:is(:hover, [data-state='hover']):not(:disabled) { --sel-fill: var(--sel-well-hover-fill); --sel-border: var(--sel-well-hover-border); }
+.sel-well:is([aria-expanded='true'], [data-state='open']):not(:disabled) { --sel-fill: var(--sel-well-open-fill); --sel-border: var(--sel-well-open-border); }
+.sel-well:is(:focus-visible, [data-state='focus']):not(:disabled) { --sel-border: var(--sel-well-open-border); --sel-ring: 0 0 0 var(--sel-well-focus-width) var(--sel-well-focus-ring); }
+.sel[data-invalid] .sel-well:not(:disabled) { --sel-border: var(--sel-well-invalid-border); }
+.sel[data-invalid] .sel-well:is(:hover, [data-state='hover']):not(:disabled) { --sel-border: var(--sel-well-invalid-hover); }
+.sel[data-invalid] .sel-well:is([aria-expanded='true'], [data-state='open'], :focus-visible, [data-state='focus']):not(:disabled) { --sel-border: var(--sel-well-invalid-open); }
+.sel-well:disabled { --sel-fill: var(--sel-well-disabled-fill); --sel-border: var(--sel-well-disabled-border); color: var(--sel-well-disabled-color); cursor: default; }
+
+.sel-value { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+.sel-value[data-placeholder] { color: var(--sel-value-placeholder); }
+.sel-well:disabled .sel-value[data-placeholder] { color: var(--sel-well-disabled-color); }
+.sel-icon.lu { width: var(--sel-value-icon); height: var(--sel-value-icon); color: var(--sel-value-icon-color); }
+.sel-well:disabled .sel-icon { color: var(--sel-well-disabled-icon); }
+
+/* Chevron (D-031): down fades out and turns over while up turns in and fades in. Reduced motion keeps the fade and drops the turn. */
+.sel-chev { display: inline-grid; flex: none; color: var(--sel-chevron-color); }
+.sel-chev > .lu { grid-area: 1 / 1; width: var(--sel-chevron-size); height: var(--sel-chevron-size);
+  transition: transform var(--duration-base) var(--easing-standard), opacity var(--duration-base) var(--easing-standard), color var(--duration-fast) var(--easing-standard); }
+.sel-chev > .lu:last-child { opacity: 0; transform: rotate(-180deg); }
+.sel-well:is([aria-expanded='true'], [data-state='open']) .sel-chev > .lu:first-child { opacity: 0; transform: rotate(180deg); }
+.sel-well:is([aria-expanded='true'], [data-state='open']) .sel-chev > .lu:last-child { opacity: 1; transform: none; }
+.sel-well:disabled .sel-chev { color: var(--sel-well-disabled-icon); }
+@media (prefers-reduced-motion: reduce) {
+  .sel-chev > .lu:last-child, .sel-well:is([aria-expanded='true'], [data-state='open']) .sel-chev > .lu:first-child { transform: none; }
+}
+
+/* Hint and error, below. The error starts with an icon on the first line. */
+.sel-msg { display: flex; align-items: flex-start; gap: var(--sel-hint-icon-gap); margin-top: var(--sel-hint-gap); color: var(--sel-hint-color); }
+.sel-msg[data-error] { color: var(--sel-error-color); }
+.sel-msg[data-error] .lu { margin-top: calc((1lh - var(--sel-hint-icon)) / 2); width: var(--sel-hint-icon); height: var(--sel-hint-icon); }

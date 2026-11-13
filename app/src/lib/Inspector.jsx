@@ -19,7 +19,7 @@ const load = () => (data ??= Promise.all([import('@/tokens/tokens.resolved.json'
 
 function resolve(d, token) {
   if (token.startsWith('layout')) return { note: 'no token' };
-  if (token.startsWith('effect')) return { note: 'from Figma · not a token' };
+  if (token.startsWith('effect')) return { note: 'set value · not a token (D-021)' };
   const s = d.sem.get(token);
   if (s) return { hex: s.hex, note: `→ ${s.ref} · ${s.hex}` };
   const p = d.prim.get(token);

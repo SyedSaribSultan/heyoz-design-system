@@ -1,0 +1,84 @@
+/* Slider. Every colour and size comes from components/slider.json through --sl-* (components.css); this file only says
+   which state uses which variable. Halo, inner shade and the tag's drop are effects, not tokens (D-021).
+   Geometry: a thumb's centre travels from thumb/2 to width - thumb/2, so one expression places the fill, the ticks and
+   the tag: thumb/2 + (100% - thumb) × p, with p the 0…1 position (--p0, --p1 on the root, --p on a tick or tag). */
+.sl { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--sl-gap); width: 100%; min-width: 0; }
+.sl-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-12); }
+.sl-label { color: var(--sl-label-color); }
+.sl-value { color: var(--sl-value-color); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sl-row { display: flex; align-items: flex-start; gap: var(--sl-field-gap); }
+.sl-main { flex: 1; min-width: 0; }
+
+/* The control row: size/target tall, so a press anywhere on it counts. */
+.sl-box { position: relative; height: var(--sl-hit); cursor: pointer; touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+
+/* Track: a well. The border is an inset shadow above the fill, so it never moves anything. */
+.sl-track { position: absolute; left: 0; right: 0; top: 50%; height: var(--sl-track-height); transform: translateY(-50%); overflow: hidden;
+  border-radius: var(--sl-track-radius); background: var(--sl-track-fill); pointer-events: none;
+  --sl-b: var(--sl-track-border); --sl-f: var(--sl-range-fill); }
+.sl-track::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 var(--stroke-1) var(--sl-b); }
+.sl-fill { position: absolute; top: 0; bottom: 0; left: 0; background: var(--sl-f); box-shadow: var(--fx-inner-shade);
+  width: calc(var(--sl-thumb-size) / 2 + (100% - var(--sl-thumb-size)) * var(--p1)); }
+.sl[data-range] .sl-fill { left: calc(var(--sl-thumb-size) / 2 + (100% - var(--sl-thumb-size)) * var(--p0)); width: calc((100% - var(--sl-thumb-size)) * (var(--p1) - var(--p0))); }
+.sl-box:hover .sl-track, .sl[data-state='hover'] .sl-track { --sl-b: var(--sl-track-border-hover); --sl-f: var(--sl-range-fill-hover); }
+.sl[data-drag] .sl-track, .sl[data-state='active'] .sl-track { --sl-b: var(--sl-track-border-active); --sl-f: var(--sl-range-fill-hover); }
+
+/* Ticks: below the thumb, on its centre line. */
+.sl-tick { position: absolute; width: var(--sl-tick-width); height: var(--sl-tick-height); border-radius: var(--radius-full); background: var(--sl-tick-color); pointer-events: none;
+  top: calc(50% + var(--sl-thumb-size) / 2 + var(--sl-tick-offset));
+  left: calc(var(--sl-thumb-size) / 2 + (100% - var(--sl-thumb-size)) * var(--p) - var(--sl-tick-width) / 2); }
+.sl-tick[data-on] { background: var(--sl-tick-color-active); }
+
+/* Thumbs: native range inputs. The input ignores the pointer; its thumb takes it. */
+.sl-in { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 0; background: transparent; outline: 0; cursor: pointer;
+  -webkit-appearance: none; appearance: none; pointer-events: none;
+  --t-fill: var(--sl-thumb-fill); --t-halo: 0px; --t-halo-a: 24%; --t-ring: 0px;
+  --t-shadow: var(--fx-inner-shade), 0 0 0 var(--t-ring) var(--sl-thumb-ring-color), 0 0 0 calc(var(--t-ring) + var(--t-halo)) color-mix(in oklab, var(--t-fill) var(--t-halo-a), transparent); }
+.sl-in::-webkit-slider-runnable-track { height: var(--sl-hit); background: transparent; border: 0; -webkit-appearance: none; }
+.sl-in::-moz-range-track { height: var(--sl-hit); background: transparent; border: 0; }
+.sl-in::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; pointer-events: auto; box-sizing: border-box; cursor: grab;
+  width: var(--sl-thumb-size); height: var(--sl-thumb-size); margin-top: calc((var(--sl-hit) - var(--sl-thumb-size)) / 2); border: 0; border-radius: var(--radius-full);
+  background: var(--t-fill); box-shadow: var(--t-shadow);
+  transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
+.sl-in::-moz-range-thumb { pointer-events: auto; box-sizing: border-box; cursor: grab;
+  width: var(--sl-thumb-size); height: var(--sl-thumb-size); border: 0; border-radius: var(--radius-full);
+  background: var(--t-fill); box-shadow: var(--t-shadow);
+  transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
+.sl-in:hover, .sl[data-state='hover'] .sl-in { --t-fill: var(--sl-thumb-fill-hover); --t-halo: var(--sl-thumb-halo); }
+.sl-in[data-drag], .sl-in:active, .sl[data-state='active'] .sl-in { --t-fill: var(--sl-thumb-fill-active); --t-halo: var(--sl-thumb-halo); --t-halo-a: 40%; }
+.sl-in[data-drag]::-webkit-slider-thumb { cursor: grabbing; }
+.sl-in[data-drag]::-moz-range-thumb { cursor: grabbing; }
+/* Focus: a ring outside the thumb, inside the halo. */
+.sl-in:focus-visible, .sl[data-state='focus'] .sl-in { --t-ring: var(--sl-thumb-ring); --t-halo: var(--sl-thumb-halo); }
+
+/* Value tag: above the thumb while it is dragged or keyboard-focused. */
+.sl-tip.lit.lit { position: absolute; z-index: 3; display: flex; align-items: center; height: var(--sl-tip-height); padding: 0 var(--sl-tip-padding-x); white-space: nowrap; pointer-events: none;
+  bottom: calc(50% + var(--sl-thumb-size) / 2 + var(--sl-tip-gap)); left: calc(var(--sl-thumb-size) / 2 + (100% - var(--sl-thumb-size)) * var(--p));
+  border-radius: var(--sl-tip-radius); background: var(--sl-tip-fill); color: var(--sl-tip-color); font-variant-numeric: tabular-nums;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--sl-tip-border), var(--fx-inner-shade), var(--fx-drop-sm);
+  opacity: 0; transform: translate(-50%, 4px); transition: opacity var(--duration-fast) var(--easing-standard), transform var(--duration-fast) var(--easing-standard); }
+.sl-tip.lit.lit[data-show], .sl[data-state='active'] .sl-tip.lit.lit, .sl[data-state='focus'] .sl-tip.lit.lit { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .sl-tip.lit.lit { transform: translate(-50%, 0); } }
+
+/* Min and max labels. Sit 4 (gap) under the thumb, or under the ticks when there are some. */
+.sl-limits { display: flex; justify-content: space-between; color: var(--sl-limit-color); margin-top: calc((var(--sl-thumb-size) - var(--sl-hit)) / 2 + var(--sl-gap)); }
+.sl[data-ticks] .sl-limits { margin-top: calc((var(--sl-thumb-size) - var(--sl-hit)) / 2 + var(--sl-tick-offset) + var(--sl-tick-height) + var(--sl-gap)); }
+
+/* Number field: a text field at size/control/xs. */
+.sl-field { box-sizing: border-box; flex: none; width: var(--sl-field-width); height: var(--sl-field-height); margin: calc((var(--sl-hit) - var(--sl-field-height)) / 2) 0 0; padding: 0 var(--sl-field-padding-x);
+  border: 0; outline: 0; border-radius: var(--sl-field-radius); background: var(--sl-field-fill); color: var(--sl-field-color);
+  -moz-appearance: textfield; appearance: textfield; font-variant-numeric: tabular-nums;
+  --sl-fb: var(--sl-field-border); box-shadow: inset 0 0 0 var(--stroke-1) var(--sl-fb); }
+.sl-field::-webkit-inner-spin-button, .sl-field::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.sl-field:hover:not(:disabled) { --sl-fb: var(--sl-field-border-hover); }
+.sl-field:focus-visible { --sl-fb: var(--sl-field-border-focus); }
+.sl-field:disabled { --sl-fb: var(--sl-field-border-disabled); background: var(--sl-field-fill-disabled); color: var(--sl-field-color-disabled); }
+
+/* Disabled */
+.sl[data-disabled] .sl-label, .sl[data-disabled] .sl-value { color: var(--sl-label-color-disabled); }
+.sl[data-disabled] .sl-box { cursor: default; }
+.sl[data-disabled] .sl-track { --sl-b: var(--sl-track-border-disabled); --sl-f: var(--sl-range-fill-disabled); }
+.sl[data-disabled] .sl-fill { box-shadow: none; }
+.sl[data-disabled] .sl-in { --t-fill: var(--sl-thumb-fill-disabled); --t-halo: 0px; --t-ring: 0px; cursor: default; }
+.sl[data-disabled] .sl-in::-webkit-slider-thumb { pointer-events: none; cursor: default; }
+.sl[data-disabled] .sl-in::-moz-range-thumb { pointer-events: none; cursor: default; }

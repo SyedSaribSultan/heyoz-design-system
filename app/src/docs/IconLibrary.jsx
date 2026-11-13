@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { fatIcons } from './icon-index';
-import Lucide from './Lucide';
+import Lucide from '@/lib/Lucide';
 
 // Searchable icon grid. Single-colour icons are drawn from a sprite with <use>, so they take the
 // text colour; colour icons (logos, flags, emoji) are drawn as images, as designed.

@@ -1,0 +1,26 @@
+/* Segmented control (Segmented.jsx, components/segmented.json). The options are Buttons; the frame and the indicator
+   read the --seg-* variables generated from the spec. Sizes (--btn-h, --btn-r …) come from Button's size rules on
+   .seg[data-size] (src/styles/components.css). The inner shade is an effect, not a token (D-021). */
+
+/* Frame. Radius: the option's squircle radius + the frame padding, so inner and outer corners are parallel. */
+.seg { position: relative; display: grid; gap: var(--seg-frame-gap); padding: var(--seg-frame-padding); background: var(--seg-frame-background);
+  box-shadow: inset 0 0 0 var(--seg-frame-border-width) var(--seg-frame-border), var(--fx-inner-shade);
+  border-radius: calc(var(--btn-r) + var(--seg-frame-padding)); }
+/* Hug: as wide as the options, each option as wide as its own content. */
+.seg[data-fit] { display: inline-grid; grid-auto-flow: column; grid-auto-columns: max-content; width: max-content; max-width: 100%; vertical-align: top; }
+
+/* Indicator (D-032): a tertiary Button surface that slides behind the chosen option. It paints the spec's indicator
+   values through Button's own state variables, so its hover and pressed looks are Button's. Until it is placed, the
+   chosen option keeps its own tertiary fill, so the first paint is right without JavaScript. */
+.seg > .btn.seg-thumb { position: absolute; padding: 0; height: var(--ind-h, 0); width: var(--ind-w, 0);
+  --btn-rest-fill: var(--seg-indicator-fill); --btn-rest-border: var(--seg-indicator-border);
+  --btn-hover-fill: var(--seg-indicator-fill-hover); --btn-hover-border: var(--seg-indicator-border-hover);
+  --btn-pressed-fill: var(--seg-indicator-fill-pressed); --btn-pressed-border: var(--seg-indicator-border-pressed); }
+.seg[data-indicator-ready] > .btn[aria-checked='true'] { background: transparent; box-shadow: none; }
+.seg[data-indicator-ready] > .btn[aria-checked='true']:focus-visible { box-shadow: 0 0 0 var(--seg-frame-focus-ring) var(--border-focus); }
+/* Hover / press on the chosen option style the indicator, as they would the button, but only once it has
+   landed: while it travels it keeps the plain selected look (D-032). */
+.seg:not([data-indicator-moving]):has(> .btn[aria-checked='true']:is(:hover, [data-state='hover']):not(:disabled)) > .seg-thumb {
+  --btn-fill: var(--btn-hover-fill); --btn-border: var(--btn-hover-border); --btn-shade: var(--btn-hover-shade, var(--btn-shade-on)); }
+.seg:not([data-indicator-moving]):has(> .btn[aria-checked='true']:is(:active, [data-state='active']):not(:disabled)) > .seg-thumb {
+  --btn-fill: var(--btn-pressed-fill); --btn-border: var(--btn-pressed-border); --btn-shade: var(--btn-pressed-shade, var(--btn-shade-on)); }

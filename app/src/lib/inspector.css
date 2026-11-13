@@ -1,9 +1,9 @@
 /* Token inspector: hold Ctrl + Alt and point at anything. Fixed above the light (100) and menus.
-   Surface: the secondary tier (it floats over primary panels), inner shade (Figma effect, D-021), and
+   Surface: the secondary tier (it floats over primary panels), inner shade (D-021), and
    lit by light/cursor at the real pointer position (D-020: open menus catch the light). */
 [data-inspected] { outline: var(--stroke-1) solid var(--border-focus); outline-offset: -1px; }
 .inspector { position: fixed; overflow: hidden; z-index: 1000; pointer-events: none; min-width: 300px; max-width: 400px; display: flex; flex-direction: column; gap: var(--space-4);
-  padding: var(--space-8) var(--space-12); border-radius: var(--radius-md); background: var(--surface-secondary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary), inset 0 -4px 10px rgba(0, 0, 0, 0.5); color: var(--content-primary); }
+  padding: var(--space-8) var(--space-12); border-radius: var(--radius-md); background: var(--surface-secondary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary), var(--fx-inner-shade); color: var(--content-primary); }
 .insp-dim { color: var(--content-tertiary); }
 .insp-row { display: grid; grid-template-columns: 96px 1fr auto; gap: var(--space-8); align-items: center; }
 .insp-token { display: inline-flex; align-items: center; gap: var(--space-4); color: var(--content-primary); }

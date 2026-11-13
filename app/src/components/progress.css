@@ -1,0 +1,52 @@
+/* Progress: a bar and a ring (the spinner). Colours and sizes come from components/progress.json through --pg-* (components.css).
+   Loop times are set values, not tokens (like the button spinner): ring 0.8s (2.4s with reduced motion), bar 1.4s (pulse 2.4s).
+   The inner shade is an effect, not a token (D-021). */
+.pg { box-sizing: border-box; --pg-fill: var(--pg-tone-neutral-bar); --pg-arc: var(--pg-tone-neutral-ring); }
+.pg[data-tone='neutral'] { --pg-fill: var(--pg-tone-neutral-bar); --pg-arc: var(--pg-tone-neutral-ring); }
+.pg[data-tone='brand'] { --pg-fill: var(--pg-tone-brand-bar); --pg-arc: var(--pg-tone-brand-ring); }
+.pg[data-tone='success'] { --pg-fill: var(--pg-tone-success-bar); --pg-arc: var(--pg-tone-success-ring); }
+.pg[data-tone='critical'] { --pg-fill: var(--pg-tone-critical-bar); --pg-arc: var(--pg-tone-critical-ring); }
+.pg[data-tone='inherit'] { --pg-arc: currentColor; }
+
+/* Bar */
+.pg-bar { display: flex; flex-direction: column; gap: var(--pg-head-gap); width: 100%; min-width: 0; --pg-h: var(--pg-bar-height-md); }
+.pg-bar[data-size='sm'] { --pg-h: var(--pg-bar-height-sm); }
+.pg-bar[data-size='md'] { --pg-h: var(--pg-bar-height-md); }
+.pg-bar[data-size='lg'] { --pg-h: var(--pg-bar-height-lg); }
+.pg-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-12); }
+.pg-label { color: var(--pg-head-label-color); }
+.pg-value { color: var(--pg-head-value-color); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pg-track { position: relative; overflow: hidden; width: 100%; height: var(--pg-h); border-radius: var(--pg-bar-radius); background: var(--pg-bar-track); }
+.pg-fill { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--v) * 100%); border-radius: inherit; background: var(--pg-fill);
+  transition: width var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard); }
+.pg-bar[data-size='lg'] .pg-fill { box-shadow: var(--fx-inner-shade); } /* at 2 and 4 the shade would fill the whole bar */
+
+/* Indeterminate: a segment 40% wide travels across. */
+.pg-bar[data-indeterminate] .pg-fill { width: 40%; transition: none; animation: pg-slide 1.4s var(--easing-standard) infinite; }
+@keyframes pg-slide { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+@keyframes pg-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* Ring: an icon frame, the arc inside the key square. */
+.pg-ring { display: inline-block; flex: none; vertical-align: middle; width: var(--pg-s, var(--pg-ring-size-md)); height: var(--pg-s, var(--pg-ring-size-md)); }
+.pg-ring[data-size='xs'] { --pg-s: var(--pg-ring-size-xs); }
+.pg-ring[data-size='sm'] { --pg-s: var(--pg-ring-size-sm); }
+.pg-ring[data-size='md'] { --pg-s: var(--pg-ring-size-md); }
+.pg-ring[data-size='lg'] { --pg-s: var(--pg-ring-size-lg); }
+.pg-ring[data-size='xl'] { --pg-s: var(--pg-ring-size-xl); }
+.pg-ring svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.pg-ring circle { fill: none; }
+.pg-ring-track { stroke: var(--pg-ring-track); }
+.pg-ring-arc { stroke: var(--pg-arc); stroke-linecap: round; stroke-dasharray: 75 100;
+  transform-box: view-box; transform-origin: 50% 50%; transition: opacity var(--duration-fast) var(--easing-standard); }
+.pg-ring:not([data-determinate]) svg { animation: pg-spin 0.8s linear infinite; }
+@keyframes pg-spin { to { transform: rotate(360deg); } }
+/* Determinate: starts at 12 o'clock and grows clockwise. */
+.pg-ring[data-determinate] .pg-ring-arc { stroke-dasharray: 100 100; stroke-dashoffset: calc(100 - var(--n)); transform: rotate(-90deg);
+  transition: stroke-dashoffset var(--duration-base) var(--easing-standard), opacity var(--duration-fast) var(--easing-standard), stroke var(--duration-fast) var(--easing-standard); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-fill { transition: background-color var(--duration-fast) var(--easing-standard); }
+  .pg-bar[data-indeterminate] .pg-fill { width: 100%; animation: pg-pulse 2.4s var(--easing-standard) infinite; }
+  .pg-ring:not([data-determinate]) svg { animation-duration: 2.4s; }
+  .pg-ring[data-determinate] .pg-ring-arc { transition: opacity var(--duration-fast) var(--easing-standard), stroke var(--duration-fast) var(--easing-standard); }
+}

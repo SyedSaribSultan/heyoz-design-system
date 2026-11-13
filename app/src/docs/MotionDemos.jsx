@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Button from '@/components/Button';
-import Lucide, { lucide } from './Lucide';
+import Lucide, { lucide } from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
 import Segmented from '@/components/Segmented';
 

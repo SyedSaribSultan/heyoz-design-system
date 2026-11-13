@@ -2,27 +2,17 @@ import { tk } from '@/lib/tk';
 import RestGlow from './RestGlow';
 import { ModelChip, AddMenu, CountChip, Chip as MChip } from './Menus';
 import HomeSideNav from './HomeSideNav';
+import IconButton from './IconButton';
 import './home.css';
 
-// Home · Static Ads. Figma "Heyoz - Design System V1", node 693:4599.
+// Home · Static Ads.
 // Built only from HeyOz tokens through tk(). Hold Ctrl + Alt and point at anything to see its tokens.
-// Not reproduced on purpose: drop shadows and inner shadows (not tokenised yet, D-021).
+// Effects (drop-md, drop-sm, inner-shade) are set values, not tokens (D-021): tk() FX → --fx-* in globals.css.
 
 const A = (f) => `/home/${f}`;
 
 function Icon({ src, size = 'icon/md', name = 'icon' }) {
   return <span {...tk(name, { size })} data-icon><img src={A(src)} alt="" /></span>;
-}
-
-// Icon buttons, sized as in Figma: 32 (control/xs), 40 (control/sm), 28 (not on the control scale).
-export function IconButton({ icon, size = 'control/xs', radius = 'full', bg, name = 'icon button', label }) {
-  // size: a size/control token, or a number for a Figma size that is not on the control scale
-  const sized = typeof size === 'number' ? [{}, { width: size, height: size }] : [{ size }, {}];
-  return (
-    <button {...tk(name, { ...(bg && { bg, hover: `${bg}-hover` }), radius, ...sized[0] }, sized[1])} aria-label={label} title={label} data-btn>
-      <span data-icon><img src={A(icon)} alt="" /></span>
-    </button>
-  );
 }
 
 function PromptBox() {

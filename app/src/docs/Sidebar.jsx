@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SideNav from '@/components/SideNav';
-import Lucide from './Lucide';
+import Lucide from '@/lib/Lucide';
 import { openSearch, SearchKey } from './DocsChrome';
 
-// The docs sidebar is the HeyOz SideNav (Figma 707:12639): expanded 300, collapsed 54 (remembered for this session, D-033).
+// The docs sidebar is the HeyOz SideNav: expanded 300, collapsed 54 (remembered for this session, D-033).
 // Narrow screens: a top bar, and the same SideNav, always expanded, as a drawer.
 export default function Sidebar({ nav }) {
   const path = usePathname();

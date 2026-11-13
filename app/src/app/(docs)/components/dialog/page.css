@@ -1,0 +1,25 @@
+/* Dialog docs page only. Values are tokens; the dialog itself is components/dialog.json. */
+.dg-play { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-16); }
+.dg-controls { display: flex; flex-wrap: wrap; gap: var(--space-16) var(--space-24); }
+.dg-ctl { display: flex; flex-direction: column; gap: var(--space-8); align-items: flex-start; }
+.dg-specs { display: flex; flex-direction: column; gap: var(--space-32); }
+.dg-two { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: var(--space-32) var(--space-24); }
+.dg-spec { display: flex; flex-direction: column; gap: var(--space-12); min-width: 0; max-width: 100%; }
+.dg-live { margin-top: var(--space-16); }
+.dg-use { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-12); }
+.dg-use ul { margin: var(--space-12) 0 0; padding-left: var(--space-20); display: flex; flex-direction: column; gap: var(--space-8); color: var(--content-secondary); }
+.dg-use h3 { margin: 0; }
+.dg-long p, .dg-spec p { margin: 0 0 var(--space-12); }
+.dg-long p:last-child, .dg-spec p:last-child { margin-bottom: 0; }
+
+/* Specimen stage: the frame is the window the panel sits in, with the scrim's colour over the page. */
+.dg-spec .dlg-frame { border-radius: var(--radius-xl); background: color-mix(in oklab, var(--background) 72%, transparent); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); }
+
+/* A plain field for the demo (the real one is the text field component). */
+.dg-field { display: flex; flex-direction: column; gap: var(--space-8); }
+.dg-input { all: unset; box-sizing: border-box; height: var(--size-control-sm); padding: 0 var(--space-12); border-radius: var(--radius-lg); background: var(--fill-primary); color: var(--content-primary);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary); }
+.dg-input:hover { box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary-hover); }
+.dg-input:focus-visible { box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary-hover), 0 0 0 var(--stroke-2) var(--border-focus); }
+
+@media (max-width: 720px) { .dg-use { grid-template-columns: minmax(0, 1fr); } }

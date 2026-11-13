@@ -1,0 +1,49 @@
+{
+  "$about": "Tooltip: a short label that names or explains one control. One look for the whole system: the side nav's rail tooltips and the docs site's info tips switch to this component. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-002, D-025).",
+  "title": "Tooltip",
+  "status": "draft",
+  "css": { "selector": ".tt", "prefix": "tt" },
+  "anatomy": "One bubble: a label of one short sentence, then an optional keyboard shortcut (one key chip per key). No arrow, no title, no buttons. It floats above the page, fixed to the window, beside the element it describes, 8 away.",
+  "rules": {
+    "use": "Use it to name an icon-only control, to add a shortcut, or to add one short extra fact to a control that already has a visible label. Never put the only copy of important information in it, and never anything the user must act on: it is hidden on touch, and it is gone as soon as the pointer or focus leaves. Longer or interactive content is a Popover. A control that already shows its own name and needs nothing more gets no tooltip.",
+    "surface": "surface/secondary with border/secondary, radius/md and the inner shade (0, -4, blur 10, #000 50%): the values the side nav's tooltip already used, so there is one tooltip look (D-021, D-036). It floats above other lit surfaces, so it is a light root (<Light>, D-020). No drop shadow and no arrow: the border and the 8 gap tie it to its control.",
+    "text": "label/lg/medium (14/18), content/primary. One sentence, no full stop, sentence case ('Close sidebar'), under about 60 characters. The bubble is as wide as its text up to the max width (240; 320 for the wide kind, e.g. a token's details), then wraps; a word that does not fit breaks. New lines in the text are kept. It never scrolls and never truncates.",
+    "shortcut": "A shortcut shows after the text as one chip per key (kbd): label/md/medium, content/secondary, fill/tertiary with border/tertiary, radius/xs, 16 tall and at least 16 wide, 2 apart, 8 from the text. Write keys as the user presses them: 'Ctrl', 'K'. The tooltip only shows the shortcut; the control must also work with it.",
+    "timing": "Hover: opens after 500 ms. That is long enough that a pointer crossing a toolbar shows nothing, and short enough that a pause feels answered. Warm: once a tooltip has been open, the next one opens at once while the pointer moves from control to control, and for 300 ms after the last one closed. An open tooltip closes at the moment the next one opens, so there is never more than one. Keyboard focus: opens at once, no delay. Leaving: 100 ms of grace, so the pointer can cross the 8 gap onto the bubble (it can be hovered and its text selected, WCAG 1.4.13); then it fades out. These are set values in components/tooltip-timing.js (DELAY, WARM, GRACE).",
+    "dismiss": "It closes on pointer leave, on blur, on Esc (even while the pointer is still over the control; Esc closes the tooltip and nothing else, a second Esc reaches the page or the popover around it), when the control is pressed (the user has seen it; it returns only after the pointer leaves and comes back) and when the control is removed or disabled.",
+    "touch": "Never on a touch-only tap or long press: hover does not exist there, so a tooltip would be a trap. Touch pointer events are ignored. Focus opens it only for keyboard focus (:focus-visible), never for a click or tap focus. So anything a tooltip says must also be findable another way.",
+    "placement": "top (default), bottom, left, right, centred on the control, 8 away (space/8). If the preferred side has no room and the opposite side does, it flips; if neither fits it takes the side with more room. It is then clamped to stay 8 (space/8) inside the window on every side, so near an edge it slides along the edge. It follows the control while the page scrolls or resizes. It is position: fixed in a portal on the document, so no scroll container or overflow: hidden ever clips it. Layer z-index 1090 (set value), above popovers.",
+    "motion": "Enter: fade, a 4 slide towards its final place from the control's side, scale from 0.98: duration/base, easing/enter (motion-pop, D-031). Left and right placements fade and scale only (motion-pop moves vertically). Leave: fade, duration/fast, easing/exit; it stays mounted until it has faded (usePresence). Reduced motion keeps the fade and drops the movement.",
+    "aria": "role=tooltip on the bubble, with an id. While it is open, the control gets aria-describedby pointing at it (added to any the control already has). A tooltip is a description, never the name: an icon-only Button keeps its own label (aria-label); when the tooltip text repeats that label, pass describe={false} so screen readers do not hear it twice. The control must be focusable: a disabled control gets no events, so wrap it in a focusable span or use aria-disabled.",
+    "api": "<Tooltip content=\"Save\" shortcut=\"Ctrl S\" placement=\"top\"><Button .../></Tooltip>. The child is one element that accepts a ref (Button, a link, a native element). Props: content, shortcut (a string split on spaces, or an array of keys), placement, wide, delay, disabled, describe. TooltipBubble draws the same bubble inline, for documentation specimens.",
+    "migrate": "The side nav (data-tip, ::before, useTips) and the docs info tips (InfoTips, data-info) become <Tooltip> wrappers; both then lose their own tooltip code."
+  },
+  "parts": {
+    "bubble": {
+      "$about": "The tooltip. Same values as the side nav's tooltip (surface/secondary, border/secondary, radius/md, padding 8 / 4, offset 8, label/lg/medium). Max widths 240 and 320 are set values.",
+      "background": "{surface/secondary}",
+      "border": "{border/secondary}",
+      "color": "{content/primary}",
+      "radius": "{radius/md}",
+      "padding-x": "{space/8}",
+      "padding-y": "{space/4}",
+      "gap": "{space/8}",
+      "offset": "{space/8}",
+      "margin": "{space/8}",
+      "max-width": 240,
+      "max-width-wide": 320,
+      "type": "{type/label/lg/medium}"
+    },
+    "kbd": {
+      "$about": "One key of a shortcut, inside the bubble.",
+      "background": "{fill/tertiary}",
+      "border": "{border/tertiary}",
+      "color": "{content/secondary}",
+      "radius": "{radius/xs}",
+      "size": "{size/icon/sm}",
+      "padding-x": "{space/4}",
+      "gap": "{space/2}",
+      "type": "{type/label/md/medium}"
+    }
+  }
+}

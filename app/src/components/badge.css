@@ -1,0 +1,48 @@
+/* Badge. Every colour and size comes from components/badge.json through the --bdg-* variables
+   (src/styles/components.css). This file only says which variable a tone, a variant and a size use.
+   The inner shade is an effect, not a token (D-021). A badge is not interactive: no hover, no focus. */
+.bdg {
+  box-sizing: border-box; position: relative; flex: none; vertical-align: middle;
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--bdg-gap);
+  padding: var(--bdg-py) var(--bdg-px); border-radius: var(--bdg-radius);
+  white-space: nowrap; cursor: default; user-select: none;
+  --bdg-h: calc(var(--bdg-lh) + 2 * var(--bdg-py)); /* height = line height + padding y twice; never typed */
+  --bdg-ringsh: 0 0 0 0 transparent; --bdg-shade: 0 0 0 0 transparent;
+  background: var(--bdg-fill); color: var(--bdg-content);
+  box-shadow: var(--bdg-ringsh), var(--bdg-shade);
+  transition: background var(--duration-fast) var(--easing-standard), color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
+}
+.bdg[data-size='sm'] { --bdg-px: var(--bdg-sm-padding-x); --bdg-py: var(--bdg-sm-padding-y); --bdg-gap: var(--bdg-sm-gap); --bdg-icon: var(--bdg-sm-icon); --bdg-dot: var(--bdg-sm-dot); --bdg-signal: var(--bdg-sm-signal); --bdg-lh: var(--type-label-sm-line-height); }
+.bdg[data-size='md'] { --bdg-px: var(--bdg-md-padding-x); --bdg-py: var(--bdg-md-padding-y); --bdg-gap: var(--bdg-md-gap); --bdg-icon: var(--bdg-md-icon); --bdg-dot: var(--bdg-md-dot); --bdg-signal: var(--bdg-md-signal); --bdg-lh: var(--type-label-md-line-height); }
+
+/* Tones: soft (tint) and solid. --bdg-mark is the dot-only colour: the vivid one. */
+.bdg[data-variant='soft'][data-tone='neutral'] { --bdg-fill: var(--bdg-soft-neutral-fill); --bdg-content: var(--bdg-soft-neutral-content); --bdg-dot-colour: var(--bdg-soft-neutral-dot); --bdg-mark: var(--bdg-soft-neutral-dot); }
+.bdg[data-variant='soft'][data-tone='brand'] { --bdg-fill: var(--bdg-soft-brand-fill); --bdg-content: var(--bdg-soft-brand-content); --bdg-dot-colour: var(--bdg-soft-brand-dot); --bdg-mark: var(--bdg-soft-brand-dot); }
+.bdg[data-variant='soft'][data-tone='success'] { --bdg-fill: var(--bdg-soft-success-fill); --bdg-content: var(--bdg-soft-success-content); --bdg-dot-colour: var(--bdg-soft-success-dot); --bdg-mark: var(--bdg-soft-success-dot); }
+.bdg[data-variant='soft'][data-tone='warning'] { --bdg-fill: var(--bdg-soft-warning-fill); --bdg-content: var(--bdg-soft-warning-content); --bdg-dot-colour: var(--bdg-soft-warning-dot); --bdg-mark: var(--bdg-soft-warning-dot); }
+.bdg[data-variant='soft'][data-tone='critical'] { --bdg-fill: var(--bdg-soft-critical-fill); --bdg-content: var(--bdg-soft-critical-content); --bdg-dot-colour: var(--bdg-soft-critical-dot); --bdg-mark: var(--bdg-soft-critical-dot); }
+.bdg[data-variant='soft'][data-tone='info'] { --bdg-fill: var(--bdg-soft-info-fill); --bdg-content: var(--bdg-soft-info-content); --bdg-dot-colour: var(--bdg-soft-info-dot); --bdg-mark: var(--bdg-soft-info-dot); }
+.bdg[data-variant='solid'][data-tone='neutral'] { --bdg-fill: var(--bdg-solid-neutral-fill); --bdg-content: var(--bdg-solid-neutral-content); --bdg-dot-colour: var(--bdg-solid-neutral-content); --bdg-mark: var(--bdg-solid-neutral-fill); }
+.bdg[data-variant='solid'][data-tone='brand'] { --bdg-fill: var(--bdg-solid-brand-fill); --bdg-content: var(--bdg-solid-brand-content); --bdg-dot-colour: var(--bdg-solid-brand-content); --bdg-mark: var(--bdg-solid-brand-fill); }
+.bdg[data-variant='solid'][data-tone='success'] { --bdg-fill: var(--bdg-solid-success-fill); --bdg-content: var(--bdg-solid-success-content); --bdg-dot-colour: var(--bdg-solid-success-content); --bdg-mark: var(--bdg-solid-success-fill); }
+.bdg[data-variant='solid'][data-tone='warning'] { --bdg-fill: var(--bdg-solid-warning-fill); --bdg-content: var(--bdg-solid-warning-content); --bdg-dot-colour: var(--bdg-solid-warning-content); --bdg-mark: var(--bdg-solid-warning-fill); }
+.bdg[data-variant='solid'][data-tone='critical'] { --bdg-fill: var(--bdg-solid-critical-fill); --bdg-content: var(--bdg-solid-critical-content); --bdg-dot-colour: var(--bdg-solid-critical-content); --bdg-mark: var(--bdg-solid-critical-fill); }
+.bdg[data-variant='solid'][data-tone='info'] { --bdg-fill: var(--bdg-solid-info-fill); --bdg-content: var(--bdg-solid-info-content); --bdg-dot-colour: var(--bdg-solid-info-content); --bdg-mark: var(--bdg-solid-info-fill); }
+.bdg[data-variant='solid'] { --bdg-shade: var(--fx-inner-shade); }
+
+/* Count: tabular figures; one digit is a circle (min-width = height). */
+.bdg[data-kind='count'] { min-width: var(--bdg-h); font-variant-numeric: tabular-nums; }
+/* Dot only: a signal, not a surface. No padding, no text, no light, no shade. */
+.bdg[data-kind='dot'] { width: var(--bdg-signal); height: var(--bdg-signal); padding: 0; background: var(--bdg-mark); --bdg-shade: 0 0 0 0 transparent; }
+
+.bdg-dot { width: var(--bdg-dot); height: var(--bdg-dot); flex: none; border-radius: var(--radius-full); background: var(--bdg-dot-colour); transition: background var(--duration-fast) var(--easing-standard); }
+.bdg .lu.lu { width: var(--bdg-icon); height: var(--bdg-icon); }
+.bdg-text { min-width: 0; }
+.bdg-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* On another element: top-right corner, centred on it, with a ring of the surface colour.
+   On a circle the corner is 1 - cos 45° = 14.64% / 2 in from each side, so it sits on the edge. */
+.bdg-anchor { position: relative; display: inline-flex; flex: none; --bdg-edge: 0%; }
+.bdg-anchor[data-shape='circle'] { --bdg-edge: 14.64%; }
+.bdg-pin { position: absolute; z-index: 1; top: var(--bdg-edge); right: var(--bdg-edge); transform: translate(50%, -50%); display: inline-flex; pointer-events: none; }
+.bdg-pin > .bdg { --bdg-ringsh: 0 0 0 var(--bdg-ring-width) var(--bdg-ring-colour); }

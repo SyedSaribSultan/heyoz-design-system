@@ -1,8 +1,8 @@
 import t from '@/tokens/tokens.resolved.json';
-import { DocPage, Section, Panel, Token, Table, v, Info } from '@/docs/ui';
+import { DocPage, Section, Token, Table, v, Info } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import Button from '@/components/Button';
-import { lucide } from '@/docs/Lucide';
+import { lucide } from '@/lib/Lucide';
 
 export const metadata = meta('/foundations/light');
 const L = t.light[0];

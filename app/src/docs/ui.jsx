@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { pageFor, neighbours } from './nav';
 import Toc from './Toc';
 import { slug } from './slug';
-import Lucide from './Lucide';
+import Lucide from '@/lib/Lucide';
 import { TypeSummary } from '@/lib/TypeCopy';
+import { rec } from '@/lib/rec';
 
 export const v = (name) => `var(--${name.replaceAll('/', '-')})`;
-// Records tokens for the inspector (hold Ctrl + Alt): rows of [property, token].
-export const rec = (name, rows) => ({ 'data-name': name, 'data-tokens': JSON.stringify(rows) });
+export { rec }; // records tokens for the inspector (Ctrl + Alt), lib/rec.js
 export { slug };
 
 export function DocPage({ href, children }) {

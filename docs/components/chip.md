@@ -1,0 +1,75 @@
+# Chip (generated)
+
+> Generated from `components/chip.json` by `app/scripts/build-tokens.mjs`. Do not edit.
+
+Chip: a compact interactive control: a filter, a choice, an input or a setting. Built from the owner-reviewed settings chips in Home's prompt box. Every value is a token reference, a plain even number (a set value in px, not a token), 'none' or a rule (D-025).
+
+Status: **draft**
+
+## Anatomy
+
+One frame: [check or icon or image] [label] [trailing icon or remove button]. Fixed height from size/control, so children are centred and padding y is not set. Four kinds share it: action (a setting that opens or does something), filter (toggles on and off), choice (one of a group, with a sliding indicator) and input (a value you can remove).
+
+## Rules
+
+- **kinds**: Action: a plain button, optionally with a menu or a trailing icon. Filter: aria-pressed, toggles on click, Space and Enter. Choice: role radio in a radiogroup, one selected, arrow keys move. Input: a value the user added; the trailing cross Button removes it.
+- **sizes**: Two sizes on the Button scale: xs 32 (the everyday size, the Home prompt box) and 2xs 28. Label is label/md/medium at xs (12/16, as Home) and label/sm/medium at 2xs (11/14). The icon frame is size/icon/sm (16) in both.
+- **radius**: Squircle like Button: xs radius/lg (12), 2xs 10 (set, like Button 2xs). Nesting: the remove Button is a 2xs Button (28, radius 10); inside an xs chip it sits 2 from the end, and 2 + 10 = 12 keeps the corners parallel. Inside a 2xs chip it fills the end.
+- **states**: Rest, hover, pressed, selected, disabled, plus a focus ring. Hover: fill/tertiary-hover, border/tertiary-hover, icon content/brand (as the Button tertiary type). Pressed: fill/tertiary-active, border/tertiary-active, icon content/brand (D-035). Selected is the pressed look held: the -active fill and border, icon content/brand, plus a check where there is no leading icon. Hover on a selected chip keeps the selected look. Choice chips in a group rest as outlines (no fill, border/tertiary) so the indicator can be seen sliding under them; the chosen one takes the selected look. Disabled uses the -disabled fill and border and content/primary-disabled.
+- **border**: Always stroke/1 and inset, drawn as a box-shadow, so nothing moves or changes size on hover or press (D-035).
+- **shade**: The inner shade (0, -4, blur 10, #000 50%) on every state that has a fill (not the outlined choice rest). An effect, not a token (D-021).
+- **light**: A chip is lit (D-020). A leading image or logo is media (data-media) and sits above the light.
+- **focus**: A ring outside the border: border/focus, stroke/2, drawn on focus-visible only. The container keeps stroke/2 of room on every side, so the ring is never clipped (D-037).
+- **swap**: A trailing icon can swap to another on hover and focus: Home's tool chip shows a double chevron that becomes a cross. The two icons crossfade and slide 4px at duration/base, easing/standard (motion-swap, D-031). The swap is a hint on the chip; it is not a separate button.
+- **check**: A filter chip with no leading icon shows a 16 check when selected. It grows in from zero width and fades at duration/fast, so the label does not jump. With a leading icon or image there is no check: the icon turns content/brand.
+- **indicator**: A choice group has one indicator, a chip surface in the selected look, that slides from the old chip to the new one: position and size together, duration/base, easing/standard, the same time at any distance, in a straight line along a row, a column or a grid (D-032). The chosen chip paints no fill of its own, so nothing flashes. The first paint never animates. Hover and press on the chosen chip style the indicator once it has landed. Reduced motion: a cross-fade.
+- **keyboard**: Tab reaches every chip. Space and Enter press an action chip and toggle a filter chip. In a choice group Tab stops once, on the chosen chip (roving tabindex); arrow keys move and choose, Home and End jump. On an input chip Backspace and Delete remove it; the cross Button is for the mouse and touch, so it is out of the Tab order and the chip is one stop. After removing, focus moves to the next chip, or the previous one.
+- **aria**: Action: a button. Filter: a button with aria-pressed. Choice: a radiogroup with radio chips (aria-checked). Input: a group labelled with its text and aria-keyshortcuts Backspace Delete; its cross Button is named 'Remove <label>'. A chip with only an icon needs a label. Disabled chips stay in the DOM and keep their place.
+- **motion**: Every state change (fill, border, icon colour, shadow) fades at duration/fast (D-031). Reduced motion keeps the fades and drops the slides.
+- **usage**: Use a Chip for a compact setting, a filter, one choice among a few short options, or a value the user typed or picked. Use a Button for an action on the page, a Segmented control for a mode that reads as a tool switch, a Badge for a status that is not clickable, a Menu or Select for more than about six options.
+
+## Values
+
+| Variable | Value |
+|---|---|
+| `--chp-xs-height` | `size/control/xs` |
+| `--chp-xs-padding-x` | `space/12` |
+| `--chp-xs-padding-end-input` | 2px (set) |
+| `--chp-xs-gap` | `space/4` |
+| `--chp-xs-radius` | `radius/lg` |
+| `--chp-2xs-height` | `size/control/2xs` |
+| `--chp-2xs-padding-x` | 10px (set) |
+| `--chp-2xs-padding-end-input` | 0px (set) |
+| `--chp-2xs-gap` | `space/4` |
+| `--chp-2xs-radius` | 10px (set) |
+| `--chp-icon` | `size/icon/sm` |
+| `--chp-image-size` | `size/icon/sm` |
+| `--chp-image-radius` | `radius/xs` |
+| `--chp-rest-fill` | `fill/tertiary` |
+| `--chp-rest-border` | `border/tertiary` |
+| `--chp-rest-label` | `content/primary` |
+| `--chp-rest-icon` | `content/primary` |
+| `--chp-hover-fill` | `fill/tertiary-hover` |
+| `--chp-hover-border` | `border/tertiary-hover` |
+| `--chp-hover-label` | `content/primary` |
+| `--chp-hover-icon` | `content/brand` |
+| `--chp-pressed-fill` | `fill/tertiary-active` |
+| `--chp-pressed-border` | `border/tertiary-active` |
+| `--chp-pressed-label` | `content/primary` |
+| `--chp-pressed-icon` | `content/brand` |
+| `--chp-selected-fill` | `fill/tertiary-active` |
+| `--chp-selected-border` | `border/tertiary-active` |
+| `--chp-selected-label` | `content/primary` |
+| `--chp-selected-icon` | `content/brand` |
+| `--chp-choice-fill` | none |
+| `--chp-choice-border` | `border/tertiary` |
+| `--chp-choice-label` | `content/primary` |
+| `--chp-choice-icon` | `content/primary` |
+| `--chp-disabled-fill` | `fill/tertiary-disabled` |
+| `--chp-disabled-border` | `border/tertiary-disabled` |
+| `--chp-disabled-label` | `content/primary-disabled` |
+| `--chp-disabled-icon` | `content/primary-disabled` |
+| `--chp-focus-ring` | `border/focus` |
+| `--chp-focus-width` | `stroke/2` |
+| type · xs | `type-label-md-medium` |
+| type · 2xs | `type-label-sm-medium` |

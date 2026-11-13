@@ -2,9 +2,9 @@
 
 > Generated from `components/sidenav.json` by `app/scripts/build-tokens.mjs`. Do not edit.
 
-Side nav: one component for every sidebar (the HeyOz app and the docs site). Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule. Started from Figma 707:12639; this spec is the authority (D-002, D-030).
+Side nav: one component for every sidebar (the HeyOz app and the docs site). Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule. This spec is the authority (D-002, D-030).
 
-Status: **stable** · Figma 707:12639
+Status: **stable**
 
 ## Anatomy
 

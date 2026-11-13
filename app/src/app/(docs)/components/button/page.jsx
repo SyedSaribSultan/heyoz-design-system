@@ -3,7 +3,7 @@ import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import ButtonAnatomy from '@/docs/ButtonAnatomy';
 import FigmaSteps from '@/docs/FigmaSteps';
-import { lucide } from '@/docs/Lucide';
+import { lucide } from '@/lib/Lucide';
 
 export const metadata = meta('/components/button');
 // Specimens: the circle icon on both sides and the text "button", so every icon frame and edge can be checked.

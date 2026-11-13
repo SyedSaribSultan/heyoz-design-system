@@ -1,0 +1,24 @@
+/* Popover page only (pp-). */
+.pp-pg { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--space-24); align-items: stretch; }
+.pp-stage { display: flex; align-items: center; justify-content: center; min-height: 360px; padding: var(--space-24); border-radius: var(--radius-xl); background: var(--background); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); } /* the page background: not lit */
+.pp-controls { display: flex; flex-direction: column; gap: var(--space-16); }
+.pp-ctl { display: flex; flex-direction: column; gap: var(--space-6); }
+.pp-ctl-label { color: var(--content-tertiary); }
+@media (max-width: 900px) { .pp-pg { grid-template-columns: minmax(0, 1fr); } }
+
+.pp-note { margin: var(--space-16) 0 var(--space-12); }
+.pp-bar { display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: center; padding: var(--stroke-2); margin: calc(-1 * var(--stroke-2)); }
+.pp-text { margin: 0; }
+.pp-form { display: flex; flex-direction: column; gap: var(--space-8); }
+.pp-form-label { color: var(--content-tertiary); }
+
+.pp-specs { display: flex; flex-wrap: wrap; gap: var(--space-24); align-items: flex-start; }
+.pp-spec { display: flex; flex-direction: column; gap: var(--space-12); min-width: 0; max-width: 100%; }
+.pp-spec-in { display: flex; max-width: 100%; }
+
+/* The clipping box: shorter than the popover, overflow hidden. The popover is fixed to the window, so it is not cut. */
+.pp-clip { height: 56px; overflow: hidden; display: flex; align-items: center; padding: 0 var(--space-16); border-radius: var(--radius-lg); background: var(--background); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); }
+
+.pp-use { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
+.pp-list { margin: var(--space-12) 0 0; padding: 0 0 0 var(--space-16); display: flex; flex-direction: column; gap: var(--space-8); color: var(--content-secondary); }
+@media (max-width: 700px) { .pp-use { grid-template-columns: minmax(0, 1fr); } }

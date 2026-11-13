@@ -1,7 +1,7 @@
 /* Type preview (TypeSwitcher.jsx, D-033). Secondary tier, inner shade, lit; enters with motion-pop.
    Fixed bottom-right on every page, above the page and its menus. */
 .ts { position: fixed; right: var(--space-16); bottom: var(--space-16); z-index: 1040; display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-8);
-  --ts-shade: inset 0 -4px 10px rgba(0, 0, 0, 0.5); /* inner shade: Figma effect, not a token (D-021) */ }
+  --ts-shade: var(--fx-inner-shade); }
 :where(.ts-trigger) { all: unset; }
 .ts-trigger { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--space-8); height: var(--size-control-sm); padding: 0 var(--space-12) 0 var(--space-12);
   border-radius: var(--radius-full); background: var(--surface-secondary); color: var(--content-primary); cursor: pointer;

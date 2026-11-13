@@ -207,14 +207,20 @@ for (const file of fs.existsSync(compDir) ? fs.readdirSync(compDir).filter((f) =
       [k, { about: l.$about, ...Object.fromEntries(STATES.map((st) => [st, refOf(l[st], `button/link-${k}/${st}`)])) }]));
     components.button = { ...spec, sizes, types, links };
   }
-  if (name === 'sidenav') {
-    // Every leaf of parts is a token reference, a plain number (a set px value from the design) or none.
-    // A "type" leaf must be a type style; it becomes a class name.
+  if (name !== 'button') {
+    // Every other component is a parts spec (D-025): title, status, css { selector, prefix }, anatomy, rules, parts.
+    // Every leaf of parts is a token reference, a plain number (a set px value) or none. A "type" leaf must be a
+    // type style; it becomes a class name. Each leaf becomes --{prefix}-{path} on the component's selector.
+    for (const k of ['title', 'status', 'anatomy', 'rules', 'parts']) if (!spec[k]) fail(`${name}: ${k} is missing`);
+    if (!['draft', 'stable', 'deprecated'].includes(spec.status)) fail(`${name}: status must be draft, stable or deprecated`);
+    if (!/^\.[a-z][a-z0-9-]*$/.test(spec.css?.selector || '') || !/^[a-z][a-z0-9]*$/.test(spec.css?.prefix || '')) fail(`${name}: css needs a selector (.class) and a prefix (lowercase letters and digits)`);
+    const owner = Object.entries(components).find(([, x]) => x.css?.prefix === spec.css.prefix);
+    if (owner) fail(`${name}: css prefix "${spec.css.prefix}" is already used by ${owner[0]}`);
     const vars = [], types = {};
     const walk = (o, trail) => {
       for (const [k, v] of Object.entries(o)) {
         if (k.startsWith('$')) continue;
-        const key = [...trail, k].join('-'), where = `sidenav/${[...trail, k].join('/')}`;
+        const key = [...trail, k].join('-'), where = `${name}/${[...trail, k].join('/')}`;
         if (v && typeof v === 'object') walk(v, [...trail, k]);
         else if (k === 'type') { const r = refOf(v, where); if (!r.startsWith('type/')) fail(`${where}: ${v} is not a type style`); types[trail.join('-')] = 'type-' + r.slice(5).replaceAll('/', '-'); }
         else if (typeof v === 'number') { if (v % 2) fail(`${where} ${v} is off the 2px half-step grid`); vars.push({ key, px: v }); }
@@ -222,9 +228,8 @@ for (const file of fs.existsSync(compDir) ? fs.readdirSync(compDir).filter((f) =
         else vars.push({ key, ref: refOf(v, where) });
       }
     };
-    if (!spec.parts) fail('sidenav: parts is missing');
     walk(spec.parts, []);
-    components.sidenav = { ...spec, vars, types };
+    components[name] = { ...spec, vars, types };
   }
 }
 
@@ -297,9 +302,10 @@ if (components.button) {
   ccss.push('/* Link · colours per state */');
   for (const [k, l] of Object.entries(b.links)) ccss.push(`.btn-link[data-type='${k}'] { ${STATES.flatMap((st) => [`--btn-${st}-label: ${paint(l[st])};`, `--btn-${st}-icon: ${paint(l[st])};`]).join(' ')} }`);
 }
-if (components.sidenav) {
-  ccss.push('/* Side nav (components/sidenav.json): every part as a variable, read by sidenav.css */',
-    '.sn { ' + components.sidenav.vars.map((x) => `--sn-${x.key}: ${x.ref ? `var(${cssVar(x.ref)})` : x.none ? 'transparent' : `${x.px}px`};`).join(' ') + ' }');
+for (const [name, cpt] of Object.entries(components)) {
+  if (name === 'button') continue;
+  ccss.push(`/* ${cpt.title} (components/${name}.json): every part as a --${cpt.css.prefix}-* variable */`,
+    `${cpt.css.selector} { ` + cpt.vars.map((x) => `--${cpt.css.prefix}-${x.key}: ${x.ref ? `var(${cssVar(x.ref)})` : x.none ? 'transparent' : `${x.px}px`};`).join(' ') + ' }');
 }
 write('src/styles/components.css', ccss.join('\n') + '\n');
 
@@ -345,15 +351,16 @@ fs.writeFileSync(path.join(root, 'docs/tokens-motion.md'), [
   ...Object.entries(motion.easing).map(([k, v]) => `| \`easing/${k}\` | \`--easing-${k}\` | \`${v}\` |`), '',
 ].join('\n'));
 
-if (components.sidenav) {
-  const sn = components.sidenav, tick = '`';
+for (const [name, sn] of Object.entries(components)) {
+  if (name === 'button') continue;
+  const tick = '`', pre = sn.css.prefix;
   fs.mkdirSync(path.join(root, 'docs/components'), { recursive: true });
-  fs.writeFileSync(path.join(root, 'docs/components/sidenav.md'), [
-    '# Side nav (generated)', '', '> Generated from ' + tick + 'components/sidenav.json' + tick + ' by ' + tick + 'app/scripts/build-tokens.mjs' + tick + '. Do not edit.', '',
-    sn.$about, '', 'Status: **' + sn.status + '** · Figma ' + sn.figma, '', '## Anatomy', '', sn.anatomy, '', '## Rules', '',
+  fs.writeFileSync(path.join(root, `docs/components/${name}.md`), [
+    `# ${sn.title} (generated)`, '', '> Generated from ' + tick + `components/${name}.json` + tick + ' by ' + tick + 'app/scripts/build-tokens.mjs' + tick + '. Do not edit.', '',
+    sn.$about, '', 'Status: **' + sn.status + '**', '', '## Anatomy', '', sn.anatomy, '', '## Rules', '',
     ...Object.entries(sn.rules).map(([k, r]) => '- **' + k + '**: ' + r), '',
     '## Values', '', '| Variable | Value |', '|---|---|',
-    ...sn.vars.map((x) => '| ' + tick + '--sn-' + x.key + tick + ' | ' + (x.ref ? tick + x.ref + tick : x.none ? 'none' : x.px + 'px (set)') + ' |'),
+    ...sn.vars.map((x) => '| ' + tick + `--${pre}-` + x.key + tick + ' | ' + (x.ref ? tick + x.ref + tick : x.none ? 'none' : x.px + 'px (set)') + ' |'),
     ...Object.entries(sn.types).map(([k, c]) => '| type · ' + k + ' | ' + tick + c + tick + ' |'), '',
   ].join('\n'));
 }

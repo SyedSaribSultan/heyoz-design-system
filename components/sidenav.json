@@ -1,7 +1,8 @@
 {
-  "$about": "Side nav: one component for every sidebar (the HeyOz app and the docs site). Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule. Started from Figma 707:12639; this spec is the authority (D-002, D-030).",
+  "$about": "Side nav: one component for every sidebar (the HeyOz app and the docs site). Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule. This spec is the authority (D-002, D-030).",
+  "title": "Side nav",
   "status": "stable",
-  "figma": "707:12639",
+  "css": { "selector": ".sn", "prefix": "sn" },
   "anatomy": "A column: logo row (logomark + wordmark, close button), brand picker, slot (e.g. search), groups of menu items (title + items), then the community card and the profile. Collapsed: a 54 rail of icons, the logomark opens it.",
   "rules": {
     "states": "Menu item: default, hover, active. Brand picker: default, hover. Hover and active add an inset border and the inner shade, so nothing moves. Active uses border/primary-active (D-035).",

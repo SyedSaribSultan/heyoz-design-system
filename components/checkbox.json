@@ -1,0 +1,76 @@
+{
+  "$about": "Checkbox: a square well that holds a tick. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-025). Status draft: the owner may still change it.",
+  "title": "Checkbox",
+  "status": "draft",
+  "css": { "selector": ".cb", "prefix": "cb" },
+  "anatomy": "A row: [box] [label + description]. The box is a square well with a tick (checked) or a dash (indeterminate) drawn as an icon inside it. The whole row is the click target. A group is a column or a row of these rows under a group label.",
+  "rules": {
+    "states": "Unchecked, checked, indeterminate; each at rest, hover, pressed, focus and disabled. Unchecked is a well: fill/primary with border/secondary. Checked and indeterminate look the same: fill/inverse (white, like shadcn's primary, D-038) with a content/inverse-primary mark. Orange stays for the one main action (D-003).",
+    "hover": "Hover is the -hover fill and border of the box's own family (D-035). Pressed is one step stronger, the -active fill and border. Hover and press work on the whole row, label included. Nothing moves or changes size: the border is an inset box-shadow.",
+    "shade": "Every state with a fill carries the inner shade (inset 0 -4 10, #000 at 50%), like Button (D-021). The box is a lit surface (D-020).",
+    "mark": "The mark is an icon on the icon grid (D-028): the box is the icon frame (sm 16, md 20) and the vector fills the key square (75%). Lucide check and minus. It draws in from the left while it fades (duration/base, easing/standard) and fades out the same way. Check and dash swap by drawing one out and the other in. Reduced motion: the fade stays, the draw goes (D-031).",
+    "size": "sm: box 16 (size/icon/sm), radius xs. md: box 20 (size/icon/md), radius sm. md is the default. Text is the same in both: label body/md/regular, description body/sm/regular.",
+    "colours": "Label content/primary, description content/tertiary. Disabled: label content/primary-disabled, description content/tertiary-disabled, box -disabled fill and border; a disabled checked box uses fill/secondary-disabled and a content/primary-disabled mark, like a disabled primary Button, because fill/inverse-disabled is the same grey as its mark.",
+    "focus": "Keyboard focus (focus-visible only) draws a ring outside the box: border/focus, stroke/2. The row never clips it. A scroll or clip container around a checkbox keeps stroke/2 of room (D-037).",
+    "hit": "The visible box is smaller than size/target (44). An invisible layer around the box makes the hit area at least 44 x 44 without moving anything. The label and description are part of the click target too.",
+    "keyboard": "Tab reaches each checkbox. Space toggles it. Enter does not (that submits a form). A disabled checkbox leaves the Tab order.",
+    "aria": "A native input type=checkbox, so form, label and mixed state work as usual. The label names it (aria-labelledby), the description describes it (aria-describedby). Indeterminate is the input's own indeterminate state (aria-checked mixed). With no visible label, pass aria-label. A group is role=group named by its group label.",
+    "indeterminate": "Mixed state for a parent that controls a list: some of the children are checked. Clicking it checks it (the parent decides what the children do). It is a display state, never something a user sets on a single option.",
+    "group": "A group label (body/md/medium, content/primary), then the options. Vertical: space/12 between options. Horizontal: space/24. The group label sits space/8 above the options. A disabled group disables every option.",
+    "use": "Use a checkbox when each option is independent and zero, one or many can be on, or for one explicit agreement. Use a Switch when the change takes effect at once. Use Radio when exactly one of several must be chosen.",
+    "light": "The box is lit by light/cursor (D-020). The label is plain text and is not."
+  },
+  "parts": {
+    "box": {
+      "$about": "The square. sm and md are icon frames.",
+      "sm": "{size/icon/sm}",
+      "md": "{size/icon/md}",
+      "radius-sm": "{radius/xs}",
+      "radius-md": "{radius/sm}",
+      "stroke": "{stroke/1}",
+      "target": "{size/target}",
+      "focus-ring": "{stroke/2}"
+    },
+    "row": {
+      "$about": "The clickable row.",
+      "gap": "{space/8}",
+      "text-gap": "{space/2}"
+    },
+    "label": {
+      "$about": "The option name.",
+      "type": "{type/body/md/regular}",
+      "color": "{content/primary}",
+      "color-disabled": "{content/primary-disabled}"
+    },
+    "description": {
+      "$about": "Help under the label.",
+      "type": "{type/body/sm/regular}",
+      "color": "{content/tertiary}",
+      "color-disabled": "{content/tertiary-disabled}"
+    },
+    "group": {
+      "$about": "Several checkboxes under one label.",
+      "gap": "{space/12}",
+      "gap-horizontal": "{space/24}",
+      "label-gap": "{space/8}",
+      "label": {
+        "type": "{type/body/md/medium}",
+        "color": "{content/primary}"
+      }
+    },
+    "unchecked": {
+      "$about": "A well: darker than the surface it sits on.",
+      "rest": { "fill": "{fill/primary}", "border": "{border/secondary}" },
+      "hover": { "fill": "{fill/primary-hover}", "border": "{border/secondary-hover}" },
+      "pressed": { "fill": "{fill/primary-active}", "border": "{border/secondary-active}" },
+      "disabled": { "fill": "{fill/primary-disabled}", "border": "{border/secondary-disabled}" }
+    },
+    "checked": {
+      "$about": "Checked and indeterminate: the 'on' colour, white (D-038).",
+      "rest": { "fill": "{fill/inverse}", "border": "{border/inverse}", "mark": "{content/inverse-primary}" },
+      "hover": { "fill": "{fill/inverse-hover}", "border": "{border/inverse-hover}", "mark": "{content/inverse-primary}" },
+      "pressed": { "fill": "{fill/inverse-active}", "border": "{border/inverse-active}", "mark": "{content/inverse-primary}" },
+      "disabled": { "fill": "{fill/secondary-disabled}", "border": "{border/secondary-disabled}", "mark": "{content/primary-disabled}" }
+    }
+  }
+}

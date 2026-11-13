@@ -1,4 +1,4 @@
-// The HeyOz app navigation (Figma 707:14180), with the Lucide icon for each item.
+// The HeyOz app navigation, with the Lucide icon for each item.
 // Used by the Home screen and the Sidebar docs page, so both always show the same nav.
 export const APP_NAV = [
   { items: [{ label: 'Home', icon: 'house' }, { label: 'My Assets', icon: 'folders' }] },

@@ -1,0 +1,22 @@
+/* Popover (Popover.jsx). Every value comes from components/popover.json through the --pop-* variables
+   (src/styles/components.css). This file only says where each one goes. Inner shade and drop shadow are effects, not tokens (D-021). */
+.pop { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--pop-panel-gap);
+  width: var(--pop-panel-width-md); max-width: calc(100vw - 2 * var(--pop-panel-margin)); max-height: calc(100vh - 2 * var(--pop-panel-margin)); max-height: calc(100dvh - 2 * var(--pop-panel-margin));
+  padding: var(--pop-panel-padding); border-radius: var(--pop-panel-radius); background: var(--pop-panel-background); color: var(--pop-header-color); outline: none;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--pop-panel-border), var(--fx-inner-shade), var(--fx-drop-md); }
+.pop[data-size='sm'] { width: var(--pop-panel-width-sm); }
+.pop[data-size='lg'] { width: var(--pop-panel-width-lg); }
+
+.pop-head { display: flex; flex: none; align-items: center; justify-content: space-between; gap: var(--pop-header-gap); min-height: var(--pop-header-min-height); }
+.pop-title { min-width: 0; color: var(--pop-header-color); overflow-wrap: anywhere; }
+
+/* Body: the only part that scrolls, so the header and the footer stay. It keeps stroke/2 of room on every side for
+   focus rings (padding, pulled back by a matching negative margin, so the gaps stay exactly 12), D-037. */
+.pop-body { flex: 1 1 auto; min-height: 0; overflow: auto; overscroll-behavior: contain; color: var(--pop-body-color);
+  padding: var(--stroke-2); margin: calc(-1 * var(--stroke-2)); }
+.pop-foot { display: flex; flex: none; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--pop-footer-gap); }
+
+/* Floating: fixed to the window and placed by floating.js (left, top). Hidden until measured and placed.
+   z-index is a set value: below tooltips (1090). */
+.pop-floating { position: fixed; left: 0; top: 0; z-index: 1080; }
+.pop-floating:not([data-placed]) { visibility: hidden; }

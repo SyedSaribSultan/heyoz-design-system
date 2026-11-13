@@ -4,7 +4,7 @@ import { NAV } from '@/docs/nav';
 import Button from '@/components/Button';
 import { TypeSummary } from '@/lib/TypeCopy';
 import { rec } from '@/docs/ui';
-import Lucide, { lucide } from '@/docs/Lucide';
+import Lucide, { lucide } from '@/lib/Lucide';
 // Tiles record their tokens for the inspector; each tile is a lit surface, the page frame is not (D-020).
 const TILE = rec('page tile · lit', [['background', 'surface/primary'], ['background · hover', 'surface/secondary'], ['border', 'border/primary'], ['border · hover', 'border/primary-hover'], ['radius', 'radius/xl'], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']]);
 
@@ -26,8 +26,9 @@ const ART = {
   '/components/button': () => <><Button size="xs" icon={lucide('wand-sparkles')} tabIndex={-1}>Enhance</Button><Button size="xs" shape="pill" icon={lucide('plus')} label="Add" tabIndex={-1} /></>,
   '/components/sidebar': () => <span className="sn o-sn">{[['house', 'Home', 1], ['image', 'Image'], ['square-play', 'Video']].map(([i, l, on]) => <span key={l} className="sn-item type-body-lg-regular" data-active={on ? '' : undefined}><Lucide name={i} size="md" /><span className="sn-label">{l}</span></span>)}</span>,
   '/home': () => <img src="/home/logomark.svg" alt="" width={40} height={40} />,
-  // The editor's sidebar icon (Lucide clapperboard), at the same 40 as the Home logomark.
+  // Each screen's sidebar icon (Lucide), at the same 40 as the Home logomark.
   '/editor': () => <span className="o-icon" style={{ '--icon': 'url(/icons/lucide/clapperboard.svg)', width: 'var(--size-control-sm)', height: 'var(--size-control-sm)' }} />,
+  '/dashboard': () => <span className="o-icon" style={{ '--icon': 'url(/icons/lucide/layout-dashboard.svg)', width: 'var(--size-control-sm)', height: 'var(--size-control-sm)' }} />,
 };
 
 export default function Overview() {

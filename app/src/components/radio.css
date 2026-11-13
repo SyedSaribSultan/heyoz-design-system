@@ -1,0 +1,59 @@
+/* Radio. Every colour and size comes from components/radio.json through --rd-* (src/styles/components.css).
+   This file only says which state uses which variable. The inner shade is an effect, not a token (D-021).
+   Row = .rd-row (the whole row is the click target). Nothing moves on hover: the border is an inset box-shadow. */
+.rd-row {
+  position: relative; display: inline-flex; align-items: flex-start; gap: var(--rd-row-gap); cursor: pointer; outline: none;
+  -webkit-tap-highlight-color: transparent; user-select: none; vertical-align: top;
+  --rd-circle: var(--rd-circle-md); --rd-dot-size: var(--rd-dot-md);
+  --rd-fill: var(--rd-unchecked-rest-fill); --rd-border: var(--rd-unchecked-rest-border);
+  --rd-dot-colour: var(--rd-checked-rest-dot); --rd-ring: 0 0 transparent;
+  --rd-lh: var(--type-body-md-line-height);
+}
+.rd-row[data-size='sm'] { --rd-circle: var(--rd-circle-sm); --rd-dot-size: var(--rd-dot-sm); }
+
+.rd-circle {
+  position: relative; flex: none; box-sizing: border-box; width: var(--rd-circle); height: var(--rd-circle); border-radius: var(--radius-full);
+  background: var(--rd-fill);
+  box-shadow: inset 0 0 0 var(--rd-circle-stroke) var(--rd-border), var(--fx-inner-shade), var(--rd-ring);
+  transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
+}
+.rd-row[data-text] .rd-circle { margin-top: calc((var(--rd-lh) - var(--rd-circle)) / 2); }
+/* Hit area: an invisible layer, at least size/target (44) square, centred on the circle. Takes no room. */
+.rd-circle::before { content: ''; position: absolute; inset: calc((var(--rd-circle) - var(--rd-circle-target)) / 2); }
+
+/* The dot grows from 50% while it fades in (duration/base); reduced motion keeps the fade. */
+.rd-dot {
+  position: absolute; inset: 0; margin: auto; width: var(--rd-dot-size); height: var(--rd-dot-size); border-radius: var(--radius-full);
+  background: var(--rd-dot-colour); opacity: 0; transform: scale(0.5);
+  transition: opacity var(--duration-fast) var(--easing-standard), transform var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard);
+}
+.rd-row[aria-checked='true'] .rd-dot { opacity: 1; transform: none; }
+
+.rd-text { display: flex; flex-direction: column; gap: var(--rd-row-text-gap); min-width: 0; }
+.rd-label { color: var(--rd-label-color); transition: color var(--duration-fast) var(--easing-standard); }
+.rd-desc { color: var(--rd-description-color); transition: color var(--duration-fast) var(--easing-standard); }
+
+/* States, unchecked: hover, pressed (one step stronger, own border family, D-035), disabled */
+.rd-row:is(:hover, [data-state='hover']):not([data-disabled]) { --rd-fill: var(--rd-unchecked-hover-fill); --rd-border: var(--rd-unchecked-hover-border); }
+.rd-row:is(:active, [data-state='pressed']):not([data-disabled]) { --rd-fill: var(--rd-unchecked-pressed-fill); --rd-border: var(--rd-unchecked-pressed-border); }
+.rd-row[data-disabled] { cursor: default; --rd-fill: var(--rd-unchecked-disabled-fill); --rd-border: var(--rd-unchecked-disabled-border); }
+/* Checked: the "on" colour */
+.rd-row[aria-checked='true'] { --rd-fill: var(--rd-checked-rest-fill); --rd-border: var(--rd-checked-rest-border); --rd-dot-colour: var(--rd-checked-rest-dot); }
+.rd-row[aria-checked='true']:is(:hover, [data-state='hover']):not([data-disabled]) { --rd-fill: var(--rd-checked-hover-fill); --rd-border: var(--rd-checked-hover-border); --rd-dot-colour: var(--rd-checked-hover-dot); }
+.rd-row[aria-checked='true']:is(:active, [data-state='pressed']):not([data-disabled]) { --rd-fill: var(--rd-checked-pressed-fill); --rd-border: var(--rd-checked-pressed-border); --rd-dot-colour: var(--rd-checked-pressed-dot); }
+.rd-row[aria-checked='true'][data-disabled] { --rd-fill: var(--rd-checked-disabled-fill); --rd-border: var(--rd-checked-disabled-border); --rd-dot-colour: var(--rd-checked-disabled-dot); }
+.rd-row[data-disabled] .rd-label { color: var(--rd-label-color-disabled); }
+.rd-row[data-disabled] .rd-desc { color: var(--rd-description-color-disabled); }
+
+/* Focus: a ring outside the circle, keyboard only */
+.rd-row:is(:focus-visible, [data-state='focus']) { --rd-ring: 0 0 0 var(--rd-circle-focus-ring) var(--border-focus); }
+
+/* Group */
+.rd-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--rd-group-label-gap); }
+.rd-group-label { color: var(--rd-group-label-color); }
+.rd-group-items { display: flex; flex-direction: column; align-items: flex-start; gap: var(--rd-group-gap); }
+.rd-group[data-orientation='horizontal'] .rd-group-items { flex-direction: row; flex-wrap: wrap; gap: var(--rd-group-gap) var(--rd-group-gap-horizontal); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rd-dot { transform: none; transition: opacity var(--duration-fast) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard); }
+}

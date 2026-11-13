@@ -4,7 +4,7 @@ import SideNav, { CommunityCard } from '@/components/SideNav';
 import { APP_NAV, APP_PROFILE } from '@/components/sidenav-data';
 import { BrandPicker } from './Menus';
 
-// The Home screen's side nav: the shared SideNav (Figma 707:12639), collapsible, with the live brand menu.
+// The Home screen's side nav: the shared SideNav, collapsible, with the live brand menu.
 export default function HomeSideNav() {
   const [collapsed, setCollapsed] = useState(false);
   const [active, setActive] = useState('Home');

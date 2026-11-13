@@ -1,0 +1,110 @@
+{
+  "$about": "Avatar: who or what something belongs to. Shows a picture, falls back to initials, then to an icon. Every value is a token reference, a plain even number (a set value in px, not a token), 'none' or a rule (D-025).",
+  "title": "Avatar",
+  "status": "draft",
+  "css": {
+    "selector": ".av",
+    "prefix": "av"
+  },
+  "anatomy": "One face: a picture, or initials on a tinted fill, or an icon. Optional status dot on the edge. A group stacks faces with overlap and ends with a +N face. The face carries the border/primary edge; the status dot sits outside it so it is never clipped.",
+  "rules": {
+    "fallback": "Three layers, in order: the picture; initials from the name; an icon (Lucide user) when there is no name. The fallback is always painted underneath, so a slow or broken picture never leaves a hole. The picture fades in at duration/fast when it has loaded; if it fails, the fallback stays. Initials are the first letter of the first and last word: one letter at 2xs and xs, two from sm up.",
+    "tone": "The fill of a fallback is picked from the name, so the same name always gets the same colour. Five tones: neutral, brand, success, warning, info, each fill/*-secondary with content/*. Critical is left out (red reads as an error) and so is purple (D-015). A tone prop overrides the pick.",
+    "sizes": "Six sizes taken from the size tokens: 2xs 20 (icon/md), xs 24 (icon/lg), sm 32 (control/xs, the side nav profile), md 40 (control/sm, the default), lg 48 (control/md), xl 56 (control/lg). 20 and 24 sit in a line of text or a dense list and show one initial; 32 to 56 stand alone. Above 56 an avatar is a picture, not a component size. Initial type grows with the face: 10, 10, 12, 14, 16, 20.",
+    "shape": "Circle (radius/full) for people. Squircle for brands, products and workspaces: radius is size × 0.3, to the nearest 2 under 12 and the nearest 4 above (6, 8, 10, 12, 16, 16). The 0.3 matches the side nav brand logo (40, radius/lg 12). Set values, listed per size.",
+    "edge": "A 1px border/primary edge drawn over the picture, inside the face, so a picture that is the same colour as the surface still has an outline (as the side nav profile). It sits on the media layer, after the picture.",
+    "status": "Four statuses: online fill/success, away fill/warning, busy fill/critical, offline content/tertiary. The dot sits on the face's edge at 45° (inset = radius × 0.2929, so it sits on the circle, or on the squircle's rounded corner), with a ring of the surface colour (ring-colour, stroke/2). Dot sizes 6, 6, 8, 10, 12, 14 by avatar size. The status is also in the accessible name; colour is never the only signal.",
+    "group": "A group overlaps faces by a set amount per size (4, 6, 8, 10, 12, 14), each with a ring of the surface colour so the faces cut into each other. Later faces sit on top. Past max it shows one +N face (neutral tone, same size) and names the rest. The group is one unit: role group, labelled; each face keeps its name.",
+    "light": "A fallback face is a surface and is lit (D-020). A picture is media (data-media): it sits above the light, which dims to 25% while the pointer is over it.",
+    "motion": "A picture fades in at duration/fast; a status change fades at duration/fast (D-031). Nothing moves or resizes.",
+    "a11y": "A face is an image with the name as its accessible name (role img, aria-label), plus the status. Where the name is written next to the face, pass decorative: the face is then hidden from assistive tech and the name is not read twice. A +N face is named 'and N more'.",
+    "interactive": "An avatar is not a button. To make it one, wrap it in a Button or a link; the focus ring then belongs to that control.",
+    "usage": "Use an Avatar for a person, a brand or a workspace. For a count or a status label on its own use a Badge. A group of more than about five faces should show +N."
+  },
+  "parts": {
+    "2xs": {
+      "size": "{size/icon/md}",
+      "radius": 6,
+      "icon": "{size/icon/xs}",
+      "dot": 6,
+      "overlap": 4,
+      "type": "{type/label/xs/medium}"
+    },
+    "xs": {
+      "size": "{size/icon/lg}",
+      "radius": 8,
+      "icon": "{size/icon/xs}",
+      "dot": 6,
+      "overlap": 6,
+      "type": "{type/label/xs/medium}"
+    },
+    "sm": {
+      "size": "{size/control/xs}",
+      "radius": 10,
+      "icon": "{size/icon/sm}",
+      "dot": 8,
+      "overlap": 8,
+      "type": "{type/label/md/medium}"
+    },
+    "md": {
+      "size": "{size/control/sm}",
+      "radius": 12,
+      "icon": "{size/icon/md}",
+      "dot": 10,
+      "overlap": 10,
+      "type": "{type/label/lg/medium}"
+    },
+    "lg": {
+      "size": "{size/control/md}",
+      "radius": 16,
+      "icon": "{size/icon/lg}",
+      "dot": 12,
+      "overlap": 12,
+      "type": "{type/label/xl/medium}"
+    },
+    "xl": {
+      "size": "{size/control/lg}",
+      "radius": 16,
+      "icon": "{size/icon/xl}",
+      "dot": 14,
+      "overlap": 14,
+      "type": "{type/body/2xl/medium}"
+    },
+    "circle": "{radius/full}",
+    "edge": "{border/primary}",
+    "ring": {
+      "$about": "The cut-out ring around a status dot and between grouped faces.",
+      "colour": "{surface/primary}",
+      "width": "{stroke/2}"
+    },
+    "status": {
+      "online": "{fill/success}",
+      "away": "{fill/warning}",
+      "busy": "{fill/critical}",
+      "offline": "{content/tertiary}"
+    },
+    "tone": {
+      "$about": "Fallback fill, picked from the name.",
+      "neutral": {
+        "fill": "{fill/tertiary}",
+        "content": "{content/primary}"
+      },
+      "brand": {
+        "fill": "{fill/brand-secondary}",
+        "content": "{content/brand}"
+      },
+      "success": {
+        "fill": "{fill/success-secondary}",
+        "content": "{content/success}"
+      },
+      "warning": {
+        "fill": "{fill/warning-secondary}",
+        "content": "{content/warning}"
+      },
+      "info": {
+        "fill": "{fill/info-secondary}",
+        "content": "{content/info}"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+/* Toast (Toast.jsx). Every value comes from components/toast.json through the --tst-* variables in
+   src/styles/components.css (npm run tokens). Change the spec, not this file. This file only says which part uses which
+   variable. Set values, not tokens (D-021): the effects (--fx-*), z-index 1070 (above dialogs 1040 and search 1050). */
+
+/* The toaster: a zero-height fixed region in the corner. Toasts are stacked from its bottom edge by Toast.jsx (--tst-offset). */
+.tst-region { position: fixed; z-index: 1070; right: var(--tst-region-inset); bottom: var(--tst-region-inset); width: var(--tst-region-width); max-width: calc(100vw - 2 * var(--tst-region-inset));
+  height: 0; pointer-events: none; }
+.tst-list { margin: 0; padding: 0; list-style: none; }
+.tst-item { position: absolute; right: 0; bottom: 0; width: 100%; pointer-events: auto; touch-action: pan-y;
+  transform: translateY(calc(var(--tst-offset, 0px) * -1)); transition: transform var(--duration-base) var(--easing-standard); }
+/* The gap between two toasts belongs to the lower one, so the pointer never leaves the toaster between them (hover pauses every timer). */
+.tst-item::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: var(--tst-region-gap); }
+
+.tst-card { box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--tst-card-gap);
+  padding: var(--tst-card-padding-y) var(--tst-card-padding-right) var(--tst-card-padding-y) var(--tst-card-padding-left);
+  border-radius: var(--tst-card-radius); background: var(--tst-card-background); color: var(--tst-message-color);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--tst-card-border), var(--fx-inner-shade), var(--fx-drop-md);
+  translate: var(--tst-drag, 0) 0; transition: translate var(--duration-base) var(--easing-standard);
+  animation: tst-in var(--duration-base) var(--easing-enter) both; }
+.tst-card[data-dragging] { transition: none; }
+.tst-card[data-leaving] { animation: motion-pop-out var(--duration-fast) var(--easing-exit) both; pointer-events: none; }
+@keyframes tst-in { from { opacity: 0; transform: translateY(var(--tst-region-travel)); } }
+
+/* One centre line: the icon, the first line of text and both buttons share a row as tall as the buttons. */
+.tst-icon { flex: none; display: grid; place-items: center; height: var(--tst-card-row); color: var(--tst-tone, var(--tst-icon-neutral)); }
+.tst-card[data-type='success'] { --tst-tone: var(--tst-icon-success); }
+.tst-card[data-type='warning'] { --tst-tone: var(--tst-icon-warning); }
+.tst-card[data-type='critical'] { --tst-tone: var(--tst-icon-critical); }
+.tst-card[data-type='info'] { --tst-tone: var(--tst-icon-info); }
+.tst-text { flex: 1 1 0; min-width: 0; }
+.tst-msg { margin: 0; padding-block: calc((var(--tst-card-row) - var(--type-body-md-line-height)) / 2); color: var(--tst-message-color); overflow-wrap: anywhere; text-wrap: pretty; }
+.tst-desc { margin: 0; color: var(--tst-description-color); overflow-wrap: anywhere; text-wrap: pretty; }
+.tst-card > .btn { align-self: flex-start; }
+
+/* Below 640: full width along the bottom, clear of the device's safe area. */
+@media (width < 640px) {
+  .tst-region { left: var(--tst-region-inset-narrow); right: var(--tst-region-inset-narrow); width: auto; max-width: none; bottom: max(var(--tst-region-inset-narrow), env(safe-area-inset-bottom)); }
+}
+/* Reduced motion keeps the fades and drops the rise and the stack's glide. */
+@media (prefers-reduced-motion: reduce) {
+  .tst-card:not([data-leaving]) { animation-name: motion-fade-in; }
+  .tst-item { transition: none; }
+}
+/* A docs specimen is a picture: it does not rise on load. */
+.tst-frame .tst-card { animation: none; }

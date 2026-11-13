@@ -1,16 +1,20 @@
 import { DocPage, Section, Panel, Token, Table, Info } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
+import t from '@/tokens/tokens.resolved.json';
+import { SideNavLive, ItemStates, BrandStates } from '@/docs/SideNavDemo';
 
 const SPEC = c.sidenav;
-import { SideNavLive, ItemStates, BrandStates } from '@/docs/SideNavDemo';
+// A spec value in px: a set number, or the token it points at (components/sidenav.json).
+const val = (key) => { const x = SPEC.vars.find((v) => v.key === key); return x.px ?? t.numbers.find((n) => n.name === x.ref).px; };
+const OPEN = val('nav-width'), FOLDED = val('nav-width-collapsed');
 
 export const metadata = meta('/components/sidebar');
 
 export default function SidebarPage() {
   return (
     <DocPage href="/components/sidebar">
-      <Section title="Open and folded" desc={<>Open (300) and folded (54), both live: click a page to go there; the button by the logo folds it, the logo opens it. <Info info="Expanded 300px · collapsed 54px">Sizes</Info></>}>
+      <Section title="Open and folded" desc={<>Open ({OPEN}) and folded ({FOLDED}), both live: click a page to go there; the button by the logo folds it, the logo opens it. <Info info={`Expanded ${OPEN}px · collapsed ${FOLDED}px`}>Sizes</Info></>}>
         <div className="sd-stage">
           <div className="sd-states">
             <SideNavLive />
@@ -19,14 +23,14 @@ export default function SidebarPage() {
         </div>
       </Section>
 
-      <Section title="Menu items" desc={<>Each menu item: default, hover, and active (the page you are on). <Info info="40 tall · padding 8 / 12 · gap 6 · 20 icon · body/lg\nPointing and current add an inset border and the inner shade">The details</Info></>}>
+      <Section title="Menu items" desc={<>Each menu item: default, hover, and active (the page you are on). <Info info={`${val('item-height')} tall · padding ${val('item-padding-y')} / ${val('item-padding-x')} · gap ${val('item-gap')} · ${val('item-icon')} icon · body/lg\nPointing and current add an inset border and the inner shade`}>The details</Info></>}>
         <Panel tone="surface/primary" pad={24}>
           <div className="sd-row"><ItemStates /></div>
           <div className="sd-row" style={{ marginTop: 'var(--space-24)' }}><ItemStates collapsed /></div>
         </Panel>
       </Section>
 
-      <Section title="Brand picker" desc={<>Where you switch brands. On hover its chevron turns into a double chevron. <Info info="Tertiary fill and border, inner shade\nFolded: the logo alone, 28 in a 36 box">The details</Info></>}>
+      <Section title="Brand picker" desc={<>Where you switch brands. On hover its chevron turns into a double chevron. <Info info={`Tertiary fill and border, inner shade\nFolded: the logo alone, ${val('brand-logo-collapsed')} in a ${val('brand-size-collapsed')} box`}>The details</Info></>}>
         <Panel tone="surface/primary" pad={24}>
           <div className="sd-row"><BrandStates /></div>
           <div className="sd-row" style={{ marginTop: 'var(--space-24)' }}><BrandStates collapsed /></div>

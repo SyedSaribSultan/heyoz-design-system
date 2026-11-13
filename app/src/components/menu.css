@@ -1,0 +1,97 @@
+/* Menu (Menu.jsx) and the surface and item look Select reuses. Every value comes from components/menu.json through the
+   --mn-* variables in src/styles/components.css (npm run tokens). Change the spec, not this file. This file only says which
+   part uses which variable. The inner shade, the sheen and the 10% sheen opacity are effects, not tokens (D-021).
+   Nothing moves or changes size on hover: the highlight is one indicator behind the items (D-032), its border is inset. */
+.mn-anchor { display: inline-flex; }
+
+/* Surface: a floating light root on the popover layer. It places itself (Menu.jsx sets left, top, max-height) and stays hidden until placed. */
+.mn { box-sizing: border-box; display: flex; flex-direction: column; padding: var(--mn-surface-padding); border-radius: var(--mn-surface-radius);
+  background: var(--mn-surface-background); color: var(--mn-item-color);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--mn-surface-border), var(--fx-inner-shade);
+  min-width: var(--mn-surface-min-width); max-width: var(--mn-surface-max-width); max-height: var(--mn-surface-max-height); }
+.mn[data-floating] { position: fixed; left: 0; top: 0; z-index: calc(var(--light-layer) + 2); width: max-content; visibility: hidden; }
+.mn[data-floating][data-placed] { visibility: visible; }
+.mn[data-attached] { min-width: 0; max-width: none; } /* a field's list is exactly as wide as the field */
+.mn[data-side='bottom'] { --motion-pop-from: calc(-1 * var(--space-4)); --motion-pop-origin: top left; }
+.mn[data-side='top'] { --motion-pop-from: var(--space-4); --motion-pop-origin: bottom left; }
+.mn[data-side='right'] { --motion-pop-from: 0px; --motion-pop-origin: top left; }
+.mn[data-side='left'] { --motion-pop-from: 0px; --motion-pop-origin: top right; }
+.mn[data-align='end'][data-side='bottom'] { --motion-pop-origin: top right; }
+.mn[data-align='end'][data-side='top'] { --motion-pop-origin: bottom right; }
+
+/* Sheen: Home's four soft blobs, content/primary at 10%, clipped to the surface, above the items, never catching the pointer. */
+.mn-sheen { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.mn-sheen i { position: absolute; width: var(--mn-sheen-width); height: var(--mn-sheen-height); border-radius: 50%; background: var(--mn-sheen-color); opacity: 0.1; filter: blur(var(--mn-sheen-blur)); }
+.mn-sheen i:nth-child(1) { left: 0; bottom: calc(var(--mn-sheen-height) * -0.5); }
+.mn-sheen i:nth-child(2) { left: 30%; top: calc(var(--mn-sheen-height) * -0.5); }
+.mn-sheen i:nth-child(3) { right: calc(var(--mn-sheen-width) * -0.5); top: 50%; }
+.mn-sheen i:nth-child(4) { left: calc(var(--mn-sheen-width) * -0.5); top: 30%; }
+
+/* Scroll area: only the list scrolls, never the page. stroke/2 of clip room on every side, pulled back so nothing moves (D-037).
+   The bar is the one global style, 8 wide here like the sidebar's, so it sits in the surface padding. */
+.mn-scroll { position: relative; z-index: 0; flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: var(--mn-surface-scroll-room); margin: calc(-1 * var(--mn-surface-scroll-room)); }
+.mn-scroll::-webkit-scrollbar { width: 8px; }
+.mn-scroll::-webkit-scrollbar-thumb { border-width: 2px; }
+.mn-scroll::-webkit-scrollbar-thumb:hover { border-width: 2px; }
+
+/* List: items in a column; positioned, so the indicator can be placed in it. */
+.mn-list { position: relative; display: flex; flex-direction: column; gap: var(--mn-item-list-gap); outline: none; }
+.mn-grouped { display: flex; flex-direction: column; gap: var(--mn-item-list-gap); }
+.mn-group { padding: var(--mn-label-padding-top) var(--mn-label-padding-x) var(--mn-label-padding-bottom); color: var(--mn-label-color); }
+.mn-sep { height: var(--mn-separator-height); margin: var(--mn-separator-margin-y) var(--mn-separator-margin-x); background: var(--mn-separator-background); flex: none; }
+
+/* The one indicator (D-032): fill and inset border of the hover look, the inner shade, hidden until an item is reached.
+   It is the list's first child, so the items (positioned, later in the tree) paint above it. */
+.mn-ind { border-radius: var(--mn-item-radius); background: var(--mn-item-hover-fill); opacity: 0;
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--mn-item-hover-border), var(--fx-inner-shade); }
+.mn-ind[data-on] { opacity: 1; }
+.mn-ind[data-kb] { box-shadow: inset 0 0 0 var(--mn-item-focus-width) var(--mn-item-focus-ring), inset 0 0 0 var(--stroke-1) var(--mn-item-hover-border), var(--fx-inner-shade); }
+.mn-list[data-indicator-ready] > .mn-ind.motion-indicator { transition: transform var(--duration-base) var(--easing-standard), width var(--duration-base) var(--easing-standard),
+  height var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard), opacity var(--duration-fast) var(--easing-standard); }
+/* Pressed: one step stronger, in its own border family (D-035), once the indicator has landed. */
+.mn-list:not([data-indicator-moving]):is([data-force='pressed'], :has(.mn-item:active:not([aria-disabled]))) > .mn-ind { background: var(--mn-item-pressed-fill);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--mn-item-pressed-border), var(--fx-inner-shade); }
+.mn-list[data-force='hover'] > .mn-ind, .mn-list[data-force='pressed'] > .mn-ind, .mn-list[data-force='focus'] > .mn-ind { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .mn-list[data-indicator-ready] > .mn-ind.motion-indicator { transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard), opacity var(--duration-fast) var(--easing-standard); }
+}
+
+/* Item */
+.mn-item { box-sizing: border-box; position: relative; display: flex; align-items: center; gap: var(--mn-item-gap); min-height: var(--mn-item-height);
+  padding: var(--mn-item-padding-y) var(--mn-item-padding-x); border-radius: var(--mn-item-radius); color: var(--mn-item-color); cursor: pointer; outline: none; user-select: none; }
+.mn-item .lu { width: var(--mn-item-icon); height: var(--mn-item-icon); }
+.mn-icon { color: var(--mn-item-icon-color); }
+.mn-item[data-active] .mn-icon { color: var(--mn-item-hover-icon); }
+.mn-text { display: flex; flex-direction: column; flex: 1 1 auto; min-width: 0; text-align: left; }
+.mn-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mn-desc { color: var(--mn-item-description-color); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mn-kbd { flex: none; margin-left: var(--mn-item-shortcut-gap); color: var(--mn-item-shortcut-color); white-space: nowrap; }
+.mn-chev { flex: none; margin-left: auto; color: var(--mn-item-chevron-color); }
+.mn-chev.lu { width: var(--mn-item-chevron-size); height: var(--mn-item-chevron-size); }
+.mn-kbd + .mn-chev { margin-left: 0; }
+
+/* Checkable items: a leading mark slot, empty when unchecked, so labels line up. It fades with the state (D-031). */
+.mn-mark { display: grid; place-items: center; flex: none; width: var(--mn-item-icon); height: var(--mn-item-icon); color: var(--mn-item-mark-color); }
+.mn-mark > * { opacity: 0; }
+.mn-item[data-checked='true'] .mn-mark > * { opacity: 1; }
+.mn-dot { display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-full); background: currentColor; }
+/* Listbox option: the check sits at the end and is always in the layout, so the width never changes. */
+.mn-check { margin-left: auto; color: var(--mn-item-mark-color); opacity: 0; }
+.mn-item[data-selected='true'] .mn-check { opacity: 1; }
+
+.mn-item[data-danger] { color: var(--mn-item-danger-color); }
+.mn-item[data-danger] .mn-icon, .mn-item[data-danger][data-active] .mn-icon { color: var(--mn-item-danger-icon); }
+.mn-item[aria-disabled='true'] { color: var(--mn-item-disabled-color); cursor: default; }
+.mn-item[aria-disabled='true'] .mn-icon { color: var(--mn-item-disabled-icon); }
+.mn-item[aria-disabled='true'] .mn-desc { color: var(--mn-item-disabled-description); }
+.mn-item[aria-disabled='true'] .mn-kbd, .mn-item[aria-disabled='true'] .mn-chev { color: var(--mn-item-disabled-shortcut); }
+.mn-item[aria-disabled='true'] .mn-mark, .mn-item[aria-disabled='true'] .mn-check { color: var(--mn-item-disabled-icon); }
+
+/* Drawn in place (docs specimens): positioned, so the light and the sheen lay over the surface and nothing else. */
+.mn:not([data-floating]) { position: relative; }
+/* A forced look (docs) is painted on the item itself, so it is right on the first paint, before any measuring. */
+.mn-list[data-force] > .mn-ind { display: none; }
+.mn-list[data-force] .mn-item[data-active] { background: var(--mn-item-hover-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--mn-item-hover-border), var(--fx-inner-shade); }
+.mn-list[data-force='pressed'] .mn-item[data-active] { background: var(--mn-item-pressed-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--mn-item-pressed-border), var(--fx-inner-shade); }
+.mn-list[data-force='focus'] .mn-item[data-active] { box-shadow: inset 0 0 0 var(--mn-item-focus-width) var(--mn-item-focus-ring), inset 0 0 0 var(--stroke-1) var(--mn-item-hover-border), var(--fx-inner-shade); }

@@ -1,5 +1,5 @@
 /* Button. Types (brand … brand-ghost) only swap the --btn-{state}-* colours; the inner shade follows the fill, state by state. Every colour and size comes from components/button.json through the variables Button.jsx
-   sets (--btn-*). This file only says which state uses which variable. The inner shade is a Figma
+   sets (--btn-*). This file only says which state uses which variable. The inner shade is an
    effect, not a token (D-021). */
 :where(.btn) { all: unset; } /* zero specificity, so the type-* class sets the font */
 .btn {
@@ -9,7 +9,7 @@
   white-space: nowrap; cursor: pointer;
   --btn-fill: var(--btn-rest-fill); --btn-border: var(--btn-rest-border);
   --btn-label: var(--btn-rest-label); --btn-icon-colour: var(--btn-rest-icon);
-  --btn-shade-on: inset 0 -4px 10px rgba(0, 0, 0, 0.5); /* Figma: inner shadow 0 / −4 / blur 10 / spread 0 / #000 50% */
+  --btn-shade-on: var(--fx-inner-shade);
   --btn-shade: var(--btn-rest-shade, var(--btn-shade-on));
   background: var(--btn-fill); color: var(--btn-label);
   box-shadow: inset 0 0 0 var(--stroke-1) var(--btn-border), var(--btn-shade);
@@ -50,22 +50,3 @@
 .btn-link:is(:active, [data-state='active']):not(:disabled, [aria-disabled]) { --btn-label: var(--btn-pressed-label); --btn-icon-colour: var(--btn-pressed-icon); }
 .btn-link:is(:disabled, [aria-disabled]) { cursor: default; --btn-label: var(--btn-disabled-label); --btn-icon-colour: var(--btn-disabled-icon); }
 .btn-link:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
-
-/* Segmented control (Segmented.jsx), kept here so it ships with the button CSS. */
-/* Segmented control frame. The options are Buttons (Segmented.jsx). Radius: the button's squircle
-   radius (xs: 12) + the frame padding, so inner and outer corners are parallel. */
-.seg { display: grid; gap: var(--space-4); padding: var(--space-4); background: var(--surface-primary);
-  box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary), inset 0 -4px 10px rgba(0, 0, 0, 0.5);
-  border-radius: calc(var(--btn-r) + var(--space-4)); } /* nesting: its buttons' radius (--btn-r for data-size, components.css) + padding 4 */ /* inner shade: Figma effect (D-021) */ /* xs button radius 12 + padding 4 */
-
-/* Segmented indicator (D-032): a tertiary Button surface that slides behind the chosen option. Until it is
-   placed, the chosen option keeps its own tertiary fill, so the first paint is right without JavaScript. */
-.seg > .btn.seg-thumb { position: absolute; padding: 0; height: var(--ind-h, 0); width: var(--ind-w, 0); }
-.seg[data-indicator-ready] > .btn[aria-checked='true'] { background: transparent; box-shadow: none; }
-.seg[data-indicator-ready] > .btn[aria-checked='true']:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
-/* Hover / press on the chosen option style the indicator, as they would the button, but only once it has
-   landed: while it travels it keeps the plain selected look (D-032). */
-.seg:not([data-indicator-moving]):has(> .btn[aria-checked='true']:hover:not(:disabled)) > .seg-thumb {
-  --btn-fill: var(--btn-hover-fill); --btn-border: var(--btn-hover-border); --btn-shade: var(--btn-hover-shade, var(--btn-shade-on)); }
-.seg:not([data-indicator-moving]):has(> .btn[aria-checked='true']:active:not(:disabled)) > .seg-thumb {
-  --btn-fill: var(--btn-pressed-fill); --btn-border: var(--btn-pressed-border); --btn-shade: var(--btn-pressed-shade, var(--btn-shade-on)); }

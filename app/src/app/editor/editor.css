@@ -2,7 +2,7 @@
    Layers: content → light (100) → media (101) → popovers, sheets, toast (102+). */
 .ed-light { position: fixed; inset: 0; background: var(--background); --light-layer: 100; --ed-pop-layer: calc(var(--light-layer) + 2);
   --ed-drop: 0 14px 36px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.4); /* Figma effect, not a token (D-021) */
-  --ed-drop-sm: 0 1px 3px rgba(0, 0, 0, 0.4); --ed-on-media: #fff; /* text on footage is always white */ --ed-inner: inset 0 -4px 10px rgba(0, 0, 0, 0.5); }
+  --ed-drop-sm: 0 1px 3px rgba(0, 0, 0, 0.4); --ed-on-media: #fff; /* text on footage is always white */ --ed-inner: var(--fx-inner-shade); }
 .ed { position: absolute; inset: 0; display: grid; overflow: hidden; color: var(--content-primary);
   grid-template-columns: minmax(0, 1fr) 0; grid-template-rows: 52px minmax(0, 1fr) auto 68px;
   grid-template-areas: 'top top' 'main insp' 'tl tl' 'bar bar';
@@ -23,7 +23,7 @@
 .ed-pname:focus { background: var(--surface-secondary); }
 .ed-pname:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: var(--stroke-1); }
 .ed-save { display: flex; align-items: center; gap: var(--space-4); color: var(--content-tertiary); white-space: nowrap; }
-.ed-vsep { width: var(--stroke-1); height: 20px; margin: 0 var(--space-2); background: var(--border-secondary); flex: none; }
+.ed-vsep { width: var(--stroke-1); height: var(--size-icon-md); margin: 0 var(--space-2); background: var(--border-secondary); flex: none; }
 
 /* Preview */
 .ed-main { grid-area: main; display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--surface-primary); border-radius: var(--radius-2xl); overflow: hidden;
@@ -71,9 +71,9 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 .ed-fld > span:first-child { width: 56px; flex: none; color: var(--content-secondary); }
 .ed-vrow output, .ed-fld output { width: 44px; flex: none; text-align: right; color: var(--content-secondary); }
 .ed-sw { display: flex; gap: var(--space-6); flex-wrap: wrap; }
-.ed-sw button { all: unset; cursor: pointer; width: 24px; height: 24px; display: grid; place-items: center; border-radius: var(--radius-full); box-shadow: 0 0 0 var(--stroke-1) var(--border-tertiary); }
+.ed-sw button { all: unset; cursor: pointer; width: var(--size-icon-lg); height: var(--size-icon-lg); display: grid; place-items: center; border-radius: var(--radius-full); box-shadow: 0 0 0 var(--stroke-1) var(--border-tertiary); }
 .ed-sw button[aria-checked='true'] { box-shadow: 0 0 0 var(--stroke-2) var(--surface-primary), 0 0 0 4px var(--content-primary); }
-.ed-sw button:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: 4px; }
+.ed-sw button:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: var(--space-4); }
 .ed-aicard { padding: var(--space-4); border-radius: var(--radius-xl); background: var(--surface-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-tertiary); margin-bottom: var(--space-12); }
 .ed-arow { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: var(--space-12); width: 100%; padding: var(--space-8); border-radius: var(--radius-lg); text-align: left; }
 .ed-arow:hover { background: var(--fill-tertiary-hover); }
@@ -82,7 +82,7 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 .ed-arow[aria-disabled]:hover { background: transparent; }
 .ed-arow[aria-disabled] b { color: var(--content-primary-disabled); }
 .ed-arow[aria-disabled] .ed-aic { color: var(--content-secondary-disabled); }
-.ed-aic { width: 32px; height: 32px; flex: none; display: grid; place-items: center; border-radius: var(--radius-md); background: var(--fill-secondary); color: var(--content-secondary); }
+.ed-aic { width: var(--size-control-xs); height: var(--size-control-xs); flex: none; display: grid; place-items: center; border-radius: var(--radius-md); background: var(--fill-secondary); color: var(--content-secondary); }
 .ed-atx { display: flex; flex-direction: column; min-width: 0; }
 .ed-atx em { font-style: normal; color: var(--content-tertiary); }
 .ed-made { display: flex; align-items: center; gap: var(--space-6); margin-top: var(--space-12); color: var(--content-tertiary); }
@@ -167,7 +167,7 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 .ed-pre:hover { background: var(--fill-tertiary-hover); }
 .ed-pre:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: var(--stroke-2); }
 .ed-pre > span { font-size: 22px; line-height: 1; } /* a sample of the video text, not UI type */
-.ed-pre-cap { font-size: 15px !important; padding: 3px 6px; border-radius: var(--radius-xs); background: rgba(0, 0, 0, 0.6); color: #fff; }
+.ed-pre-cap { font-size: 15px !important; padding: 3px 6px; border-radius: var(--radius-xs); background: rgba(0, 0, 0, 0.6); color: var(--ed-on-media); } /* caption on footage: media, set values */
 .ed-pre em { font-style: normal; color: var(--content-tertiary); }
 .ed-card { margin-top: var(--space-16); padding: var(--space-12); border-radius: var(--radius-xl); background: var(--surface-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); }
 .ed-card > b { display: block; margin-bottom: var(--space-2); }

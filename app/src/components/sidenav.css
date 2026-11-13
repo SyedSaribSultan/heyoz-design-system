@@ -1,8 +1,8 @@
 /* Side nav (SideNav.jsx). Every value comes from components/sidenav.json through the --sn-* variables in
    src/styles/components.css (npm run tokens). Change the spec, not this file. This file only says which
-   part uses which variable. The inner shade and highlight are Figma effects, not tokens (D-021).
+   part uses which variable. The inner shade and highlight are effects, not tokens (D-021, --fx-* in globals.css).
    Hover never changes size: borders are inset. */
-.sn { --sn-shade: inset 0 -4px 10px rgba(0, 0, 0, 0.5); --sn-highlight: inset 0 4px 12px rgba(255, 255, 255, 0.08);
+.sn { --sn-shade: var(--fx-inner-shade); --sn-highlight: var(--fx-inner-highlight);
   display: flex; flex-direction: column; width: var(--sn-nav-width); height: 100%; min-height: 0; flex: none;
   background: var(--sn-nav-background); box-shadow: var(--sn-shade); color: var(--sn-item-color); }
 /* Collapse / expand is a larger move (D-031): width and every spacing change animate together at duration/slow;
@@ -19,6 +19,7 @@
 .sn-body { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-between; gap: var(--sn-nav-gap); padding: var(--sn-nav-padding); }
 .sn[data-collapsed] .sn-body { padding: var(--sn-nav-padding) var(--sn-nav-padding-collapsed); }
 .sn-top { display: flex; flex-direction: column; gap: var(--sn-nav-gap); flex: 1 1 auto; min-height: 0; }
+.sn-top > :not(.sn-groups) { flex-shrink: 0; } /* logo row, brand picker and slot (search) keep their size; only the list gives way */
 /* Only the groups scroll (short screens), so the brand menu above and the footer below are never clipped.
    Tooltips are fixed to the window, so scrolling never clips them either. */
 .sn-groups { display: flex; flex-direction: column; gap: var(--sn-nav-gap); flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }

@@ -1,0 +1,58 @@
+/* Switch. Every colour and size comes from components/switch.json through --sw-* (src/styles/components.css).
+   This file only says which state uses which variable. The inner shade is an effect, not a token (D-021).
+   Row = .sw-row (the label: the whole row is the click target). Nothing moves on hover: the border is an
+   inset box-shadow. The thumb slides on transform; the first paint never animates (it is placed by CSS). */
+.sw-row {
+  position: relative; display: inline-flex; align-items: flex-start; gap: var(--sw-row-gap); cursor: pointer;
+  -webkit-tap-highlight-color: transparent; user-select: none; vertical-align: top;
+  --sw-w: var(--sw-track-width-md); --sw-h: var(--sw-track-height-md); --sw-thumb-size: var(--sw-thumb-md);
+  --sw-fill: var(--sw-off-rest-fill); --sw-border: var(--sw-off-rest-border); --sw-thumb-colour: var(--sw-thumb-off);
+  --sw-ring: 0 0 transparent; --sw-lh: var(--type-body-md-line-height);
+}
+.sw-row[data-size='sm'] { --sw-w: var(--sw-track-width-sm); --sw-h: var(--sw-track-height-sm); --sw-thumb-size: var(--sw-thumb-sm); }
+.sw-row[data-position='start'] { flex-direction: row-reverse; }
+.sw-row[data-block] { display: flex; width: 100%; justify-content: space-between; }
+
+.sw-input { position: absolute; left: 0; top: 0; width: var(--sw-w); height: var(--sw-h); margin: 0; opacity: 0; pointer-events: none; }
+.sw-row[data-position='start'] .sw-input { left: auto; right: 0; }
+
+.sw-track {
+  position: relative; flex: none; box-sizing: border-box; width: var(--sw-w); height: var(--sw-h); border-radius: var(--sw-track-radius);
+  background: var(--sw-fill);
+  box-shadow: inset 0 0 0 var(--sw-track-stroke) var(--sw-border), var(--fx-inner-shade), var(--sw-ring);
+  transition: background-color var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard);
+}
+.sw-row[data-text] .sw-track { margin-top: calc((var(--sw-lh) - var(--sw-h)) / 2); }
+/* Hit area: an invisible layer, at least size/target (44) square, centred on the track. Takes no room. */
+.sw-track::before { content: ''; position: absolute; inset: calc((var(--sw-h) - var(--sw-track-target)) / 2) calc((var(--sw-w) - var(--sw-track-target)) / 2); }
+
+/* The thumb sits track-padding from the edge and slides the track width minus the thumb minus 2 paddings. */
+.sw-thumb {
+  position: absolute; left: var(--sw-track-padding); top: var(--sw-track-padding); width: var(--sw-thumb-size); height: var(--sw-thumb-size); border-radius: var(--radius-full);
+  background: var(--sw-thumb-colour);
+  transition: transform var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard);
+}
+.sw-input:checked ~ .sw-track .sw-thumb { transform: translateX(calc(var(--sw-w) - var(--sw-thumb-size) - 2 * var(--sw-track-padding))); }
+
+.sw-text { display: flex; flex-direction: column; gap: var(--sw-row-text-gap); min-width: 0; }
+.sw-label { color: var(--sw-label-color); transition: color var(--duration-fast) var(--easing-standard); }
+.sw-desc { color: var(--sw-description-color); transition: color var(--duration-fast) var(--easing-standard); }
+
+/* States, off: hover (the thumb lights too), pressed (one step stronger, own border family, D-035), disabled */
+.sw-row:is(:hover, [data-state='hover']):not([data-disabled]) { --sw-fill: var(--sw-off-hover-fill); --sw-border: var(--sw-off-hover-border); --sw-thumb-colour: var(--sw-thumb-off-hover); }
+.sw-row:is(:active, [data-state='pressed']):not([data-disabled]) { --sw-fill: var(--sw-off-pressed-fill); --sw-border: var(--sw-off-pressed-border); }
+.sw-row[data-disabled] { cursor: default; --sw-fill: var(--sw-off-disabled-fill); --sw-border: var(--sw-off-disabled-border); --sw-thumb-colour: var(--sw-thumb-off-disabled); }
+/* On: the "on" colour */
+.sw-row:has(> .sw-input:checked) { --sw-fill: var(--sw-on-rest-fill); --sw-border: var(--sw-on-rest-border); --sw-thumb-colour: var(--sw-thumb-on); }
+.sw-row:has(> .sw-input:checked):is(:hover, [data-state='hover']):not([data-disabled]) { --sw-fill: var(--sw-on-hover-fill); --sw-border: var(--sw-on-hover-border); }
+.sw-row:has(> .sw-input:checked):is(:active, [data-state='pressed']):not([data-disabled]) { --sw-fill: var(--sw-on-pressed-fill); --sw-border: var(--sw-on-pressed-border); }
+.sw-row[data-disabled]:has(> .sw-input:checked) { --sw-fill: var(--sw-on-disabled-fill); --sw-border: var(--sw-on-disabled-border); --sw-thumb-colour: var(--sw-thumb-on-disabled); }
+.sw-row[data-disabled] .sw-label { color: var(--sw-label-color-disabled); }
+.sw-row[data-disabled] .sw-desc { color: var(--sw-description-color-disabled); }
+
+/* Focus: a ring outside the track, keyboard only */
+.sw-row:is([data-state='focus'], :has(> .sw-input:focus-visible)) { --sw-ring: 0 0 0 var(--sw-track-focus-ring) var(--border-focus); }
+
+@media (prefers-reduced-motion: reduce) {
+  .sw-thumb { transition: background-color var(--duration-fast) var(--easing-standard); }
+}

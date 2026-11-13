@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Segmented from '@/components/Segmented';
-import Lucide from '@/docs/Lucide';
+import Lucide from '@/lib/Lucide';
 import usePresence from './usePresence';
 import { TYPE_OPTIONS, DEFAULT_TYPE, TYPE_KEY, applyType } from './typeOptions';
 import './type-switcher.css';

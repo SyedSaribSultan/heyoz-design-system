@@ -3,24 +3,22 @@ import { useEffect, useRef, useState } from 'react';
 import useIndicator from '@/lib/useIndicator';
 import cssTime from '@/lib/cssTime';
 import Link from 'next/link';
-import Lucide from '@/docs/Lucide';
+import Lucide, { lucide } from '@/lib/Lucide';
 import Button from './Button';
-import { lucide } from '@/docs/Lucide';
 import c from '@/tokens/components.json';
 import '@/styles/components.css';
 import './sidenav.css';
+import { rec } from '@/lib/rec';
 
 // Type styles come from the spec (components/sidenav.json → components.json), like every other value.
 const TY = c.sidenav.types;
 
-// Side nav, from Figma "Heyoz - Design System V1" → sidenav (707:12639):
-//   v0-side-nav expanded 707:14180 · collapsed 707:14224 · v0-menu-item 707:14163 · v0-brand-picker 707:14150
+// Side nav: expanded and collapsed, menu items, brand picker. Spec: components/sidenav.json (D-030).
 // One component for every sidebar: the HeyOz app (/home) and this docs site.
 // Surface surface/primary with the inner shade, lit by light/cursor (D-020). Icons are Lucide.
 //
 // <SideNav groups={[{ title, items: [{ label, icon, href, active }] }]} collapsed onToggle
 //          brand={<BrandPicker />} slot={…} footer={…} profile={{ name, plan, avatar }} />
-const rec = (name, rows) => ({ 'data-name': name, 'data-tokens': JSON.stringify(rows) });
 const ITEM = [['height', 'layout · 40px'], ['padding x', 'space/12'], ['padding y', 'space/8'], ['gap', 'space/6'], ['radius', 'radius/lg'], ['icon', 'size/icon/md'], ['type', 'type/body/lg/regular'], ['text colour', 'content/primary']];
 const ITEM_STATE = {
   default: [['background', 'fill/primary'], ['background · hover', 'fill/primary-hover'], ['border · hover', 'border/primary-hover'], ['effect · hover', 'effect · inner-shade']],
@@ -28,7 +26,7 @@ const ITEM_STATE = {
   active: [['background', 'fill/primary-active'], ['border', 'border/primary-active'], ['effect', 'effect · inner-shade']],
 };
 
-// v0-menu-item (707:14163): default · hover · active. state forces a look (docs); otherwise hover is live.
+// Menu item: default · hover · active. state forces a look (docs); otherwise hover is live.
 export function SideNavItem({ label, icon, href, active, state, collapsed, onClick, external }) {
   const look = active ? 'active' : state === 'hover' ? 'hover' : 'default';
   const props = {
@@ -41,7 +39,7 @@ export function SideNavItem({ label, icon, href, active, state, collapsed, onCli
   return <Link href={href} {...props} target={external ? '_blank' : undefined} prefetch={external ? false : undefined}>{body}</Link>;
 }
 
-// v0-brand-picker (707:14150): default · hover. The chevron doubles on hover.
+// Brand picker: default · hover. The chevron doubles on hover.
 export function BrandTrigger({ name = 'Brilliant', logo = '/home/brand-logo.webp', state, collapsed, ...props }) {
   return (
     <button type="button" className="sn-brand" data-state={state} data-collapsed={collapsed || undefined} aria-label={collapsed ? `Brand: ${name}` : undefined} data-tip={collapsed ? name : undefined}

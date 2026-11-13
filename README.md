@@ -93,17 +93,18 @@ heyoz-design-system/
 │   ├── scripts/build-icons.mjs   ← npm run icons: puts Lucide on the icon grid, prepares the HeyOz icons
 │   ├── public/icons/             ← generated icon files and sprites
 │   └── src/
-│       ├── styles/, tokens/      ← generated CSS (tokens, type, components) and JSON (resolved: server only; components: for the browser)
-│       ├── lib/                  ← tk() (applies tokens, records them), LightField (cursor light) + Light (popover light root),
-│       │                            useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt), TypeSwitcher
+│       ├── styles/               ← generated: tokens.css, typography.css, components.css · by hand: motion.css (D-031)
+│       ├── tokens/, icons/       ← generated JSON: tokens.resolved.json (server only), components.json (browser), icons.json (icon index)
+│       ├── lib/                  ← tk() (applies tokens, records them), rec() (records them), Lucide (the one icon helper), LightField (cursor light)
+│       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt), TypeSwitcher
 │       ├── components/           ← components built from their spec: Button, SideNav; Segmented (built on Button)
 │       ├── docs/                 ← the docs frame: nav.js (the site map + each page's sections), Sidebar, Shell, DocsChrome (search, copy), ui blocks
-│       └── app/                  ← routes: / · foundations/* · components/* · home and editor (screens)
+│       └── app/                  ← routes: / · foundations/* · components/* · screens: home, editor, dashboard
 ├── archive/                      ← kept for reference, never deployed (old assets, the archived Figma colour export)
 └── current-figma-tokens-11.03.2026/   ← the original Figma export, reference only, never deployed
 ```
 
-**Generated, never edit by hand:** `app/src/styles/tokens.css`, `typography.css`, `components.css`; `app/src/tokens/*.json`; `docs/tokens-*.md`; `docs/components/*.md`; `figma/tokens-studio.json`; `exports/shadcn/globals.css`, `docs/shadcn.md`; `app/public/icons/`. Everything else is written by hand.
+**Generated, never edit by hand:** `app/src/styles/tokens.css`, `typography.css`, `components.css`; `app/src/tokens/*.json`; `docs/tokens-*.md`; `docs/components/*.md`; `figma/tokens-studio.json`; `exports/shadcn/globals.css`, `docs/shadcn.md`; `app/public/icons/`, `app/src/icons/icons.json` (`npm run icons`). Everything else is written by hand.
 
 **How it connects:** `tokens/*.json` + `components/*.json` → `npm run tokens` → CSS variables, type classes, `tokens.resolved.json`, `docs/*.md`, `figma/tokens-studio.json`, `exports/shadcn/globals.css`. The docs site and the components read only the generated files, so every page shows exactly what the sources say.
 
@@ -125,18 +126,18 @@ Code: **https://github.com/SyedSaribSultan/heyoz-design-system** (private, branc
 
 Live: **https://heyoz.syedsarib.com** (Vercel project `heyoz-design-system`, root directory `app`). Deploy from the **repo root** with `vercel deploy --prod` (the build reads `tokens/` and `components/`).
 
-Pages: `/` overview · `/foundations/colour` · `/foundations/typography` · `/foundations/spacing` · `/foundations/radius` · `/foundations/size` · `/foundations/icons` · `/foundations/motion` · `/foundations/light` · `/components/button` · `/components/sidebar` · screens `/home` and `/editor` (demo states: `/editor?scene=none|clip|text|ai|empty|grown`; below 820px wide it switches to the narrow layout). On any page, hold **Ctrl + Alt** and point at something to see its tokens. Press **/** or **Ctrl K** to search pages, sections and tokens; click a token chip to copy it. Add a page in `app/src/docs/nav.js`.
+Pages: the site map is `app/src/docs/nav.js` (add a page there). `/foundations` and `/components` redirect to their first page. Screens with demo states: `/editor?scene=none|clip|text|ai|empty|grown` (below 820px wide it switches to the narrow layout) and `/dashboard` (keys 1–5, D-039). On any page, hold **Ctrl + Alt** and point at something to see its tokens. Press **/** or **Ctrl K** to search pages, sections and tokens; click a token chip to copy it.
 
 `npm run tokens` rebuilds every generated file (it writes only the files whose content changed). `npm run icons` (needs `npm install` once, for `lucide-static`) regenerates the icon files; run it after re-exporting icons from Figma or updating Lucide. The build fails if a rule is broken or a spec points at a token that doesn't exist.
 
 ## Working with Claude Code
 
-`.claude/` holds a review gate for agents working in this repository. After any reply that changed, added or removed files here (except `.claude/`, `archive/`, the old Figma export and the generated icons), a Stop hook (`.claude/hooks/repo-review-gate.mjs`) has Claude run the **repo-sync-reviewer** agent (`.claude/agents/repo-sync-reviewer.md`): it checks that decisions, specs, generated docs, site pages, README and changelog all match the change, and Claude fixes what it finds before finishing. It runs once per reply and never loops; `/hooks` shows or disables it.
+`.claude/` holds a review gate for agents working in this repository. After any reply that changed, added or removed files here (except `.claude/`, `.vercel/`, `.playwright-mcp/`, `archive/`, the old Figma export and the generated icons), a Stop hook (`.claude/hooks/repo-review-gate.mjs`) has Claude run the **repo-sync-reviewer** agent (`.claude/agents/repo-sync-reviewer.md`): it checks that decisions, specs, generated docs, site pages, README and changelog all match the change, and Claude fixes what it finds before finishing. It runs once per reply and never loops; `/hooks` shows or disables it.
 
 ## Add a component
 
-1. Write `components/<name>.json`: every value a token reference, a set number, `none` or a rule. Behaviour that is not a value (motion, keyboard, scroll) goes in `rules`.
-2. Run `npm run tokens`. The build checks every reference and writes `docs/components/<name>.md` and the CSS variables.
+1. Write `components/<name>.json` with `title`, `status`, `css` (`selector` and a unique `prefix`), `anatomy`, `rules` and `parts`. Every `parts` value is a token reference, a set number or `none`; a `type` value is a type style. Behaviour that is not a value (motion, keyboard, scroll) goes in `rules`. Button is the one older format (sizes × types).
+2. Run `npm run tokens`. The build checks every reference and writes `docs/components/<name>.md` and one `--<prefix>-*` variable per value on the component's selector (`src/styles/components.css`).
 3. Build `app/src/components/<Name>.jsx` from the generated files only, never from raw values.
 4. Add its page: one entry in `app/src/docs/nav.js` and a route under `app/src/app/(docs)/components/`.
 5. Record the decision in [Decisions](docs/decisions.md) and log it in the [Changelog](docs/changelog.md).

@@ -1,0 +1,21 @@
+/* Progress page only. */
+.pgd { display: grid; gap: var(--space-12); }
+.pgd-stage { display: flex; align-items: center; justify-content: space-between; gap: var(--space-32); min-height: 120px; }
+.pgd-bar { flex: 1; min-width: 0; }
+.pgd-ring { flex: none; display: flex; align-items: center; justify-content: center; min-width: var(--size-icon-xl); }
+.pgd-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-16); }
+.pgd-opt { display: flex; flex-direction: column; gap: var(--space-8); align-items: flex-start; min-width: 0; }
+.pgd-value { align-items: stretch; }
+.pgp-rows { display: grid; gap: var(--space-24); }
+.pgp-row { display: grid; grid-template-columns: 120px minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-24); align-items: center; }
+.pgp-head { color: var(--content-tertiary); }
+.pgp-ring-row { display: grid; grid-template-columns: 120px repeat(5, minmax(0, 1fr)); gap: var(--space-24); align-items: center; justify-items: start; }
+.pgp-tones { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-24); }
+/* The icon frame (dashed) and its key square (solid) drawn round a spinner, 4 times larger. */
+.pgp-frame { position: relative; width: 128px; height: 128px; flex: none; }
+.pgp-frame > .pg-ring { position: absolute; inset: 0; width: 128px; height: 128px; }
+.pgp-frame::before, .pgp-frame::after { content: ''; position: absolute; pointer-events: none; }
+.pgp-frame::before { inset: 0; outline: 1px dashed var(--border-secondary); outline-offset: -1px; }
+.pgp-frame::after { inset: 12.5%; outline: 1px solid var(--border-secondary-hover); outline-offset: -1px; }
+.pgp-spec { display: flex; align-items: center; gap: var(--space-24); flex-wrap: wrap; }
+.pgp-btns { display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: center; }

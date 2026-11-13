@@ -152,7 +152,6 @@ export function applyKey(P, c, k, v) {
   }
   relayout(P);
 }
-export const getKey = (c, k) => (k === 'dur' ? cdur(c) : ['in', 'out', 'start'].includes(k) ? c[k] : k.split('.').reduce((o, x) => o && o[x], c));
 // Trim one edge by dT seconds of timeline, from the clip as it was when the drag began (o).
 export function trimEdge(c, side, o, t) {
   const s = spd(c), endO = o.start + (o.out - o.in) / s;

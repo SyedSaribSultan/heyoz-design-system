@@ -196,4 +196,3 @@ export function scene(name) {
 }
 
 export { M };
-export const trackOfSel = () => S.sel && trackOf(S.project, S.sel);

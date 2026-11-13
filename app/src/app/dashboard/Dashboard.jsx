@@ -4,6 +4,8 @@ import { tk } from '@/lib/tk';
 import Button from '@/components/Button';
 import Segmented from '@/components/Segmented';
 import HomeSideNav from '../home/HomeSideNav';
+import IconButton from '../home/IconButton';
+import { Ic, iconUrl as L } from '../editor/parts/parts';
 import { BRAND, IDEAS, WORKING, COMPETITORS, RESULTS, STATES } from './data';
 
 // Oz dashboard: one prompt box (Oz), one suggested next move, then everything Oz knows, in plain words.
@@ -11,16 +13,6 @@ import { BRAND, IDEAS, WORKING, COMPETITORS, RESULTS, STATES } from './data';
 // Rules: one orange fill per view (the Ask Oz button) · one decision at a time · nothing that costs
 // credits or money happens without a yes · one picture, one sentence, one button per card.
 
-const L = (n) => `/icons/lucide/${n}.svg`;
-const Ic = ({ n, s = 'md' }) => <span className="oz-ic" data-s={s} style={{ '--i': `url(${L(n)})` }} aria-hidden />;
-// Same as Home's IconButton (home/page.jsx is a server file, so it can't be imported into this client page).
-function IconButton({ icon, bg, radius = 'full', name = 'icon button', label }) {
-  return (
-    <button {...tk(name, { ...(bg && { bg, hover: `${bg}-hover` }), radius, size: 'control/xs' })} aria-label={label} title={label} data-btn>
-      <span data-icon><img src={`/home/${icon}`} alt="" /></span>
-    </button>
-  );
-}
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // ─── Ad creative (drawn, so every ad reads as a real static ad without stock photos) ───────────────
@@ -45,7 +37,7 @@ const STATUS = {
   making: ['Making', 'neutral'], ready: ['Ready', 'neutral'], winning: ['Winning', 'success'], okay: ['Okay', 'warning'], stopped: ['Stopped', 'critical'], boosted: ['Winning · more money', 'success'],
 };
 function Pill({ kind = 'neutral', icon, children }) {
-  return <span className="oz-pill" data-kind={kind}>{icon && <Ic n={icon} s="xs" />}{children}</span>;
+  return <span className="oz-pill" data-kind={kind}>{icon && <Ic n={icon} size="xs" />}{children}</span>;
 }
 
 function Section({ title, sub, more, children, id }) {
@@ -56,7 +48,7 @@ function Section({ title, sub, more, children, id }) {
           <h2 {...tk('section title', { type: 'body/lg/medium', color: 'content/primary' })}>{title}</h2>
           {sub && <p {...tk('section sub', { type: 'body/sm/regular', color: 'content/tertiary' })}>{sub}</p>}
         </div>
-        {more && <a href="#" {...tk('see all', { gap: 6, type: 'label/md/medium', color: 'content/tertiary' })} className="hrow oz-more" onClick={(e) => e.preventDefault()}>Open {more} <Ic n="chevron-right" s="sm" /></a>}
+        {more && <a href="#" {...tk('see all', { gap: 6, type: 'label/md/medium', color: 'content/tertiary' })} className="hrow oz-more" onClick={(e) => e.preventDefault()}>Open {more} <Ic n="chevron-right" size="sm" /></a>}
       </div>
       {children}
     </section>
@@ -67,11 +59,11 @@ function Section({ title, sub, more, children, id }) {
 function OzCard({ oz, onAct }) {
   if (!oz) return null;
   return (
-    <div {...tk('oz answer', { bg: 'surface/secondary', border: 'border/secondary', radius: '2xl', p: 16, gap: 12 }, { width: 1024, maxWidth: '100%' })} className="col oz-card" aria-live="polite">
+    <div {...tk('oz answer', { bg: 'surface/secondary', border: 'border/secondary', radius: '2xl', p: 16, gap: 12 }, { width: 1024, maxWidth: '100%' })} className="col oz-card motion-pop" aria-live="polite">
       <div className="hrow oz-who"><span className="oz-avatar" data-busy={oz.working || undefined} /><span {...tk('oz name', { type: 'label/md/medium', color: 'content/secondary' })}>Oz</span>
         {!oz.working && <span style={{ marginLeft: 'auto' }}><Button type="ghost" size="2xs" icon={L('x')} label="Close" onClick={() => onAct('close')} /></span>}</div>
       {oz.steps && (
-        <ul className="oz-steps">{oz.steps.map((s, i) => <li key={s} data-done={i < oz.done || undefined}>{i < oz.done ? <Ic n="check" s="sm" /> : <span className="oz-spin sm" />}{s}</li>)}</ul>
+        <ul className="oz-steps">{oz.steps.map((s, i) => <li key={s} data-done={i < oz.done || undefined}>{i < oz.done ? <Ic n="check" size="sm" /> : <span className="oz-spin" />}{s}</li>)}</ul>
       )}
       {oz.text && <p {...tk('oz says', { type: 'body/lg/regular', color: 'content/primary' })}>{oz.text}</p>}
       {oz.facts && <div className="oz-facts">{oz.facts.map(([k, v]) => <div key={k}><span>{k}</span><b>{v}</b></div>)}</div>}
@@ -238,7 +230,7 @@ export default function Dashboard() {
 
             {/* 2 · Oz: the prompt box. Anything typed works; Oz answers right below it. */}
             <div className="col center-x full" style={{ gap: 'var(--space-12)' }}>
-              <form {...tk('oz prompt', { bg: 'surface/secondary', border: 'border/brand-secondary', radius: '3xl', p: 12, gap: 8 }, { width: 1024, maxWidth: '100%' })} className="hrow end oz-prompt"
+              <form {...tk('oz prompt', { bg: 'surface/secondary', border: 'border/brand-secondary', fx: 'drop-md', radius: '3xl', p: 12, gap: 8 }, { width: 1024, maxWidth: '100%' })} className="hrow end oz-prompt"
                 onSubmit={(e) => { e.preventDefault(); ask(text); }}>
                 <div className="col grow stretch between" style={{ gap: 'var(--space-12)' }}>
                   <textarea ref={box} rows={2} value={text} onChange={(e) => setText(e.target.value)} aria-label="Ask Oz"
@@ -247,12 +239,12 @@ export default function Dashboard() {
                     {...tk('prompt', { pt: 6, pl: 6, pr: 12, type: 'body/lg/regular', color: 'content/primary' })} />
                   <div className="hrow wrap" style={{ gap: 'var(--space-4)' }}>
                     {state !== 'new' && <span {...tk('brand chip', { bg: 'fill/tertiary', radius: 'lg', px: 8, py: 4, gap: 6, type: 'label/md/medium', color: 'content/primary' })} className="hrow"><img src={BRAND.logo} alt="" className="oz-chiplogo" />{BRAND.name}</span>}
-                    <span {...tk('where chip', { bg: 'fill/tertiary', radius: 'lg', px: 8, py: 4, gap: 6, type: 'label/md/medium', color: 'content/secondary' })} className="hrow"><Ic n="megaphone" s="sm" />Instagram + TikTok</span>
+                    <span {...tk('where chip', { bg: 'fill/tertiary', radius: 'lg', px: 8, py: 4, gap: 6, type: 'label/md/medium', color: 'content/secondary' })} className="hrow"><Ic n="megaphone" size="sm" />Instagram + TikTok</span>
                     <Button type="ghost" size="2xs" icon={L('mic')} label="Speak instead" />
                   </div>
                 </div>
                 <button type="submit" {...tk('ask oz', { gradient: ['fill/brand-hover', 'fill/brand'], fx: 'inner-shade', radius: 'lg', type: 'body/md/medium', color: 'content/on-brand', gap: 4 }, { width: 125, height: 100 })} className="col center oz-send" data-btn>
-                  <Ic n="arrow-up" />
+                  <Ic n="arrow-up" size="md" />
                   <span>Ask Oz</span>
                 </button>
               </form>
@@ -261,13 +253,13 @@ export default function Dashboard() {
               {(!oz || (!oz.acts && !oz.working)) && SUGGEST && (
                 <div className="col full oz-suggest" style={{ gap: 'var(--space-8)', maxWidth: 1024 }}>
                   <button {...tk('oz suggests', { bg: 'surface/primary', border: 'border/secondary', radius: '2xl', p: 16, gap: 16 })} className="hrow oz-next" onClick={() => act(SUGGEST.act)}>
-                    <span className="oz-next-ic"><Ic n={SUGGEST.icon} s="lg" /></span>
+                    <span className="oz-next-ic"><Ic n={SUGGEST.icon} size="lg" /></span>
                     <span className="col grow" style={{ gap: 'var(--space-2)', textAlign: 'left' }}>
                       <span {...tk('label', { type: 'label/xs/medium', color: 'content/brand' })}>OZ SUGGESTS</span>
                       <span {...tk('next title', { type: 'body/lg/medium', color: 'content/primary' })}>{SUGGEST.title}</span>
                       <span {...tk('next why', { type: 'body/sm/regular', color: 'content/tertiary' })}>{SUGGEST.why}</span>
                     </span>
-                    <span className="btn lit type-label-md-medium" data-type="primary" data-size="sm" data-shape="squircle" data-component="button">Do it</span>
+                    <span className="btn lit type-body-md-medium" data-type="primary" data-size="sm" data-shape="squircle" data-component="button">Do it</span>
                   </button>
                   <div className="hrow wrap center" style={{ gap: 'var(--space-8)' }}>
                     {SUGGEST.more.map((m) => <Button key={m} type="tertiary" size="xs" shape="pill" onClick={() => ask(m)}>{m}</Button>)}
@@ -321,7 +313,7 @@ export default function Dashboard() {
                     <div className="oz-how">
                       {[['globe', 'Learns your brand', 'From your website, in about a minute.'], ['search', 'Finds what works', 'The ads that run longest in your niche.'], ['wand-sparkles', 'Makes your ads', 'In your colours and your voice.'], ['trending-up', 'Tests and improves', 'Keeps the winners, stops the rest.']].map(([i, t, d], k) => (
                         <div key={t} {...tk('step', { bg: 'surface/primary', border: 'border/tertiary', radius: 'xl', p: 16, gap: 8 })} className="col">
-                          <span className="oz-num">{k + 1}</span><Ic n={i} s="lg" /><b className="oz-how-t">{t}</b><span className="oz-how-d">{d}</span>
+                          <span className="oz-num">{k + 1}</span><Ic n={i} size="lg" /><b className="oz-how-t">{t}</b><span className="oz-how-d">{d}</span>
                         </div>
                       ))}
                     </div>
@@ -367,7 +359,7 @@ export default function Dashboard() {
                         </div>
                       ))}
                     </div>
-                    <p className="oz-source"><Ic n="info" s="xs" />From the Meta Ad Library and TikTok Creative Center. Sample data in this prototype.</p>
+                    <p className="oz-source"><Ic n="info" size="xs" />From the Meta Ad Library and TikTok Creative Center. Sample data in this prototype.</p>
                   </Section>
                 </div>
               )}
@@ -379,7 +371,7 @@ export default function Dashboard() {
                       {COMPETITORS.map((c) => (
                         <div key={c.name} {...tk('competitor', { bg: 'surface/primary', border: 'border/tertiary', radius: 'xl', p: 12, gap: 12 })} className="hrow">
                           <span className="oz-mark lg" data-ground={c.ground}>{c.mark}</span>
-                          <div className="col grow" style={{ gap: 2 }}>
+                          <div className="col grow" style={{ gap: 'var(--space-2)' }}>
                             <b className="oz-adtitle">{c.name}</b>
                             <span className="oz-why">{c.active} ads running · best one {c.longest} days</span>
                           </div>

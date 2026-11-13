@@ -1,0 +1,53 @@
+{
+  "$about": "Popover: an anchored, non-modal floating panel with any content, opened by a click on its trigger. For a list of commands use a Menu; for a question that blocks the page use a Dialog. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-002, D-025).",
+  "title": "Popover",
+  "status": "draft",
+  "css": { "selector": ".pop", "prefix": "pop" },
+  "anatomy": "A floating card beside its trigger: an optional header (title on the left, a ghost close Button on the right), a body with any content, and an optional footer of actions aligned to the right. The page behind stays usable.",
+  "rules": {
+    "use": "Use it for a small task or a detail that belongs to one control: a setting group, an export panel, a share box, a colour picker. Not for a list of commands (Menu), not for a one-line label (Tooltip), and not when the user must answer before going on (Dialog). Keep it to one task; if it needs a lot of scrolling, it wants a page or a sheet.",
+    "surface": "surface/tertiary, border/tertiary, radius/xl, inner shade and drop shadow (D-021): the floating-card tier of D-036, which is what the editor's popovers and Home's menus already use. Tertiary is one step above the secondary panels and cards it opens from, so it reads as raised without a heavier shadow. It is a light root (<Light>, D-020): it carries its own light wherever it opens. Inside, wells go darker (fill/primary) and raised things lighter, as in D-036.",
+    "layout": "A column. Padding 16 (space/16), gap 12 (space/12) between header, body and footer. No dividers: space tells the parts apart (D-036). Header: the title in heading/xs/semibold, content/primary; the close button is a ghost Button, size 2xs, icon x, label Close. Body: body/md/regular, content/secondary; it brings its own controls and colours. Footer: right-aligned Buttons, size xs, 8 apart, wrapping when narrow; the one main action is primary or brand (one brand fill per view), the other is ghost or secondary. Header and footer are optional; with no title, give the popover a label (aria-label).",
+    "sizes": "Three fixed widths: sm 240, md 320 (default), lg 400, all set values. The width never depends on where the popover sits. It never exceeds the window minus 8 on each side. Height follows the content up to the window height minus 16; past that the body scrolls (header and footer stay) with the one minimal scrollbar (D-037), and keeps a stroke/2 margin for focus rings so they are never clipped.",
+    "placement": "bottom (default), top, left, right, with align start (default), center or end along the trigger's edge. 8 from the trigger (space/8). It flips to the opposite side when the preferred side has no room and the other has; if neither fits it takes the side with more room. It is then clamped 8 inside the window on every side. It follows the trigger while the page scrolls or resizes. position: fixed in a portal on the document: no scroll container clips it and no lit surface traps it beneath another layer. Layer z-index 1080 (set value), below tooltips.",
+    "open": "A click (or Enter / Space) on the trigger toggles it. Esc, a press outside, a focus move outside, the close button and any action that calls close() shut it. One Esc closes one popover: the newest (nested popovers close from the inside out). Controlled (open, onOpenChange) or not (defaultOpen).",
+    "focus": "Opened by keyboard: focus moves into the popover, to the element marked data-autofocus, else the first control of the body or footer, else the panel itself. Opened by pointer: focus stays on the trigger (the pointer user has not asked for focus to move), and Tab from the trigger goes into the popover. Tab at the end of the popover leaves it for whatever follows the trigger in the page, and Shift+Tab at the start goes back to the trigger, so a non-modal popover never traps focus. Focus returns to the trigger when it closes by Esc, close button or action; it does not when the user pressed or tabbed somewhere else. A popover that starts open (defaultOpen) does not take focus.",
+    "aria": "The trigger gets aria-haspopup=dialog, aria-expanded (true while open) and aria-controls (the panel's id, while open). The panel is role=dialog (not aria-modal: the page stays usable), named by aria-labelledby (the title) or, with no title, aria-label.",
+    "motion": "Enter: fade, a 4 slide towards its final place from the trigger's side, scale from 0.98 from the corner it grows from: duration/base, easing/enter (motion-pop, D-031). Left and right placements fade and scale only. Leave: fade, duration/fast, easing/exit; it stays mounted until it has faded (usePresence) and ignores the pointer while it does. Reduced motion keeps the fade and drops the movement.",
+    "api": "<Popover trigger={<Button>Export</Button>} title=\"Export\" size=\"md\" placement=\"bottom\" align=\"start\" footer={...}>body</Popover>. trigger is one element that accepts a ref and onClick (a Button, or a Tooltip wrapping one, which passes them on). children and footer may be functions of { close }. Other props: label, closable (false hides the close button), open, defaultOpen, onOpenChange. PopoverPanel draws the same panel inline, for documentation specimens.",
+    "migrate": "The editor's popovers (Popovers.jsx, .ed-pop) become <Popover>; so do the panel-style popups in Home's Menus.jsx. Menus of commands wait for the Menu component."
+  },
+  "parts": {
+    "panel": {
+      "$about": "The card. Widths 240 / 320 / 400 are set values.",
+      "background": "{surface/tertiary}",
+      "border": "{border/tertiary}",
+      "radius": "{radius/xl}",
+      "padding": "{space/16}",
+      "gap": "{space/12}",
+      "offset": "{space/8}",
+      "margin": "{space/8}",
+      "width": {
+        "sm": 240,
+        "md": 320,
+        "lg": 400
+      }
+    },
+    "header": {
+      "$about": "Title and close button. As tall as a 2xs Button.",
+      "min-height": "{size/control/2xs}",
+      "gap": "{space/8}",
+      "color": "{content/primary}",
+      "type": "{type/heading/xs/semibold}"
+    },
+    "body": {
+      "$about": "Any content.",
+      "color": "{content/secondary}",
+      "type": "{type/body/md/regular}"
+    },
+    "footer": {
+      "$about": "Actions, right-aligned.",
+      "gap": "{space/8}"
+    }
+  }
+}

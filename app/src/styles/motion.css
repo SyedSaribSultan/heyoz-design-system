@@ -2,7 +2,7 @@
    (tokens/motion.json). Zero specificity, so a component can always set its own transition.
 
    State change   colour, fill, border, shadow, glow, opacity      duration/fast · easing/standard
-   Icon swap      crossfade + 4px slide (brand chevron, 693:3294)   duration/base · easing/standard
+   Icon swap      crossfade + 4px slide (brand chevron)             duration/base · easing/standard
    Popup enter    fade + 4px drop + scale from 0.98                  duration/base · easing/enter
    Popup leave    fade                                               duration/fast · easing/exit
    Larger moves   drawers, panels, side nav width                    duration/slow · easing/standard

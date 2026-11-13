@@ -1,7 +1,6 @@
 {
   "$about": "Light effects. Source of truth. Philosophy: light falls on every surface above the background, never on the background itself and never on media (D-020). One cursor light per screen: each lit surface paints its own share of it at the cursor's true position, so neighbouring surfaces join seamlessly and the background between them stays dark. It blends with soft-light, so it brightens each surface in proportion to its own lightness. Media sits above the light and the light dims while the cursor is over media. 'fill' references a semantic colour; 'fade' references a motion duration. 'blur' is in Figma layer-blur units; CSS blur() uses half of it. The build turns size and blur into the falloff of a blurred disc, so a larger blur spreads the light wider and dimmer, exactly as in Figma.",
   "cursor": {
-    "$source": "Started from Figma 693:3121. Tuned 2026-11-05: blur 120, opacity 100% (see the changelog).",
     "fill": "{content/primary}",
     "blend": "soft-light",
     "opacity": 1,

@@ -1,0 +1,78 @@
+/* Dialog (Dialog.jsx). Every value comes from components/dialog.json through the --dlg-* variables in
+   src/styles/components.css (npm run tokens). Change the spec, not this file. This file only says which part uses which
+   variable. Set values, not tokens (D-021): the scrim strength 72% (the same as the search dialog), the effects (--fx-*),
+   the sheet's 85% height. The scrim and the panel are the search dialog's look, so there is one modal look. */
+
+/* Scroll lock: only html is locked. The gutter is kept only when the page had a scrollbar, so nothing shifts sideways. */
+html[data-dlg-lock] { overflow: hidden; }
+html[data-dlg-lock][data-dlg-bar] { scrollbar-gutter: stable; }
+
+/* The root is a size container, so the sheet layout answers to the width it is in: the window for the modal, the frame for a docs specimen. */
+.dlg-root { container: dlg / inline-size; }
+.dlg-ov { position: fixed; inset: 0; z-index: 1040;
+  background: color-mix(in oklab, var(--dlg-scrim-background) 72%, transparent); backdrop-filter: blur(var(--dlg-scrim-blur)); } /* enters / leaves: motion-fade (D-031) */
+.dlg-layout { box-sizing: border-box; height: 100%; display: flex; align-items: center; justify-content: center; padding: var(--dlg-panel-inset); }
+
+.dlg-panel { box-sizing: border-box; width: min(var(--dlg-w), 100%); max-height: 100%; display: flex; flex-direction: column; outline: none;
+  border-radius: var(--dlg-panel-radius); background: var(--dlg-panel-background); color: var(--dlg-body-color);
+  box-shadow: inset 0 0 0 var(--stroke-1) var(--dlg-panel-border), var(--fx-inner-shade);
+  --motion-pop-origin: center; } /* enters / leaves: motion-pop (D-031) */
+.dlg-panel[data-size='sm'] { --dlg-w: var(--dlg-panel-width-sm); }
+.dlg-panel[data-size='md'] { --dlg-w: var(--dlg-panel-width-md); }
+.dlg-panel[data-size='lg'] { --dlg-w: var(--dlg-panel-width-lg); }
+
+/* Header: the title and the close button share a row as tall as the button; the description sits under both. */
+.dlg-head { flex: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; row-gap: var(--dlg-header-gap);
+  padding: var(--dlg-header-padding-top) var(--dlg-header-padding-right) var(--dlg-header-padding-bottom) var(--dlg-header-padding-left); }
+.dlg-title { grid-column: 1; min-height: var(--dlg-header-close-size); display: flex; align-items: center; margin: 0; color: var(--dlg-header-title-color); text-wrap: balance; }
+.dlg-close { grid-column: 2; grid-row: 1; display: flex; }
+.dlg .dlg-close .btn { --btn-h: var(--dlg-header-close-size); }
+.dlg-desc { grid-column: 1 / -1; margin: 0; color: var(--dlg-header-description-color); text-wrap: pretty; }
+
+/* Body: the only part that scrolls. No scroll bar in a pop-up: a blurred fade shows there is more (top once scrolled, bottom while
+   more is below). Its padding is the room for focus rings (D-037). */
+.dlg-main { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.dlg-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none;
+  padding: var(--dlg-body-padding-y) var(--dlg-body-padding-x); color: var(--dlg-body-color); text-wrap: pretty; }
+.dlg-body::-webkit-scrollbar { display: none; }
+/* A scroller with nothing to focus is a Tab stop in Chrome: its ring is drawn inside, where the panel cannot clip it. */
+.dlg-body:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: calc(var(--stroke-2) * -1); border-radius: var(--radius-sm); }
+.dlg-main::before, .dlg-main::after { content: ''; position: absolute; left: 0; right: 0; z-index: 1; height: var(--dlg-fade-height); pointer-events: none; opacity: 0;
+  backdrop-filter: blur(var(--dlg-fade-blur)); transition: opacity var(--duration-fast) var(--easing-standard); }
+.dlg-main::before { top: 0; background: linear-gradient(to bottom, var(--dlg-panel-background), transparent);
+  -webkit-mask: linear-gradient(to bottom, #000 35%, transparent); mask: linear-gradient(to bottom, #000 35%, transparent); }
+.dlg-main::after { bottom: 0; background: linear-gradient(to top, var(--dlg-panel-background), transparent);
+  -webkit-mask: linear-gradient(to top, #000 35%, transparent); mask: linear-gradient(to top, #000 35%, transparent); }
+.dlg-main[data-top]::before, .dlg-main[data-bottom]::after { opacity: 1; }
+
+/* Footer: the actions on the right, the safe one first and the main one last. */
+.dlg-foot { flex: none; display: flex; align-items: center; justify-content: flex-end; gap: var(--dlg-footer-gap);
+  padding: var(--dlg-footer-padding-top) var(--dlg-footer-padding-x) var(--dlg-footer-padding-bottom); }
+.dlg-foot-start { margin-right: auto; min-width: 0; color: var(--content-secondary); }
+.dlg .dlg-foot .btn { --btn-h: var(--dlg-footer-button); }
+
+/* A destructive confirm: a secondary Button with the label and icon in content/critical. Button has no critical type (proposal in the report). */
+.dlg .btn[data-tone='critical'] { --btn-rest-label: var(--dlg-critical-rest); --btn-rest-icon: var(--dlg-critical-rest);
+  --btn-hover-label: var(--dlg-critical-hover); --btn-hover-icon: var(--dlg-critical-hover);
+  --btn-pressed-label: var(--dlg-critical-pressed); --btn-pressed-icon: var(--dlg-critical-pressed); }
+
+/* Docs specimens: the panel alone in a frame. Its container width is the frame's, so below 640 it is a sheet, like on a phone. */
+.dlg-frame { position: relative; width: 100%; }
+
+/* Bottom sheet: below 640 (--dlg-sheet-below; a container query cannot read a variable, so keep the two equal). */
+@container dlg (width < 640px) {
+  .dlg-layout { align-items: flex-end; padding: 0; }
+  .dlg-panel { width: 100%; max-height: 85%; border-radius: var(--dlg-panel-radius) var(--dlg-panel-radius) 0 0; }
+  .dlg .dlg-close .btn { --btn-h: var(--dlg-header-close-size-sheet); }
+  .dlg-foot { padding-bottom: max(var(--dlg-footer-padding-bottom), env(safe-area-inset-bottom)); }
+  .dlg .dlg-foot .btn { --btn-h: var(--dlg-footer-button-sheet); flex: 1 1 0; min-width: 0; }
+  .dlg-foot-start { flex: 1 1 100%; margin-right: 0; }
+  .dlg-foot:has(.dlg-foot-start) { flex-wrap: wrap; }
+  /* A larger move (D-031): the sheet rises from its own height at duration/slow and leaves with the fade. */
+  .dlg-panel.motion-pop:not([data-leaving]) { animation-name: dlg-sheet-in; animation-duration: var(--duration-slow); }
+}
+@keyframes dlg-sheet-in { from { transform: translateY(100%); } }
+/* Reduced motion keeps the fade and drops the slide. */
+@media (prefers-reduced-motion: reduce) {
+  .dlg-panel.motion-pop:not([data-leaving]) { animation-name: motion-pop-in; animation-duration: var(--duration-base); }
+}

@@ -1,0 +1,74 @@
+{
+  "$about": "Progress: a linear bar and a ring (the spinner). Every value is a token reference, a plain even number (a set value in px, not a token) or a rule (D-025). Draft: the owner may still change it.",
+  "title": "Progress",
+  "status": "draft",
+  "css": { "selector": ".pg", "prefix": "pg" },
+  "anatomy": "Bar: an optional head row (label left, value right) over a track with one filled part. Ring: a square icon frame (the Spinner) with an arc inside it. The ring is an icon (D-028): the same frame as every icon, the ring fills the key square (size/icon/grid/square, 75% of the frame) and its line weight is frame x size/icon/grid/stroke (1/16). Determinate or indeterminate, for both.",
+  "rules": {
+    "choose": "Bar: work with a known end that takes longer than about 2 seconds and has a place of its own (an upload, a render, a step in a flow). Ring: work with no known end, or a place too small for a bar (inside a button, next to a label, a block waiting for its data). Skeleton: the shape of the content is known and it will fill in. There is no skeleton component yet; until there is one, use a ring for a short wait and a bar for a long one. Under about 400 ms show nothing: a flash of progress reads as slower than none.",
+    "aria": "The bar is role=progressbar with aria-valuemin 0, aria-valuemax 100, aria-valuenow (rounded) and aria-valuetext when the text says more than the percentage. Indeterminate: aria-valuenow is left out, which is how a screen reader hears \"busy, no value\". It is named by its label (aria-labelledby) or by aria-label. aria-busy is true until the value reaches 100; the region being loaded should carry aria-busy too. The ring is role=progressbar with the same rules and the accessible name \"Loading\" unless you pass a label. Inside a Button, the button already says busy (aria-busy) and the ring there is decoration.",
+    "sizes": "Bar heights are set values, 2, 4 and 8, not tokens: stroke tokens stop at 2 and space tokens are for gaps. 2 (sm) is a hairline under a header or on a card edge; 4 (md) is the everyday bar; 8 (lg) is for a bar that is the content of its place, such as an upload row. Ring sizes are the icon scale: xs 12, sm 16, md 20, lg 24, xl 32 (D-022).",
+    "tones": "Neutral (default): fill/inverse, the primary look (D-038); progress is status, not the one main action. Brand: fill/brand, only when the progress is the main event of the screen (the one orange thing). Success: fill/success, for a finished or healthy state. Critical: fill/critical, for a failed one. The track never changes: fill/tertiary on a bar, fill/tertiary-active on a ring (its line is thin, so it needs one step more).",
+    "determinate": "Changes in value animate: the filled width follows at duration/base, easing/standard (D-031). The first paint never animates. The value is clamped to 0 to 100. Reduced motion drops the movement: the bar jumps.",
+    "indeterminate": "A segment 40% of the track wide travels from before the start to after the end, 1.4s per pass, easing/standard, repeating. Reduced motion: no travel; the whole bar pulses slowly between 40% and 100% opacity (2.4s).",
+    "shade": "The inner shade (0, -4, blur 10, #000 50%) goes on the 8 bar's filled part. At 2 and 4 it would fill the whole bar, so those have none. The ring has none (it is a line, like an icon).",
+    "light": "A bar is a thin indicator, not a surface: it is not lit.",
+    "ring": "An SVG in the icon frame. The arc is round-capped like the HeyOz icon set. Indeterminate: a 3/4 arc turning once every 0.8s, linear. Reduced motion: 2.4s (still turns, so it still reads as busy). Determinate: the arc starts at 12 o'clock and grows clockwise; the filled length follows the value at duration/base. The colour is the tone, or the surrounding text colour with tone inherit.",
+    "label": "The head row is label/md/medium: the label in content/primary, the value in content/secondary with tabular figures, so the number does not jiggle. The value is hidden from screen readers (the bar already announces it).",
+    "grid": "Set values are on the 4px grid with 2px half-steps (D-025). Loop times are set values and not tokens: 0.8s and 2.4s for the ring, 1.4s and 2.4s for the bar (the same set values as the button spinner)."
+  },
+  "parts": {
+    "head": {
+      "$about": "The label row above a bar.",
+      "gap": "{space/8}",
+      "label": {
+        "type": "{type/label/md/medium}",
+        "color": "{content/primary}"
+      },
+      "value": {
+        "type": "{type/label/md/medium}",
+        "color": "{content/secondary}"
+      }
+    },
+    "bar": {
+      "$about": "The track and its filled part.",
+      "height": {
+        "sm": 2,
+        "md": 4,
+        "lg": 8
+      },
+      "radius": "{radius/full}",
+      "track": "{fill/tertiary}"
+    },
+    "ring": {
+      "$about": "The spinner: icon frames, one per icon size.",
+      "size": {
+        "xs": "{size/icon/xs}",
+        "sm": "{size/icon/sm}",
+        "md": "{size/icon/md}",
+        "lg": "{size/icon/lg}",
+        "xl": "{size/icon/xl}"
+      },
+      "track": "{fill/tertiary-active}"
+    },
+    "tone": {
+      "$about": "The colour of the filled part (bar) and of the arc (ring).",
+      "neutral": {
+        "bar": "{fill/inverse}",
+        "ring": "{content/primary}"
+      },
+      "brand": {
+        "bar": "{fill/brand}",
+        "ring": "{content/brand}"
+      },
+      "success": {
+        "bar": "{fill/success}",
+        "ring": "{content/success}"
+      },
+      "critical": {
+        "bar": "{fill/critical}",
+        "ring": "{content/critical}"
+      }
+    }
+  }
+}

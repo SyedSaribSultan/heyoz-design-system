@@ -13,6 +13,34 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ---
 
+## 2026-11-13
+
+```
+fix(repo): everything documented once, in sync, no duplicates
+
+Why:    the owner asked for the repository to be well documented, synced and free of redundancy.
+What:   Dashboard (/dashboard): documented (D-039, site map, overview tile, README); its CSS uses tokens only
+        (type variables instead of raw px, size/space/radius tokens, no scrollbar-width, D-035 hover and
+        focus borders); Oz's answer enters with motion-pop; it shares Home's IconButton (now
+        home/IconButton.jsx) and the Lucide icon instead of copies; its README keeps only states and data sources.
+        Effects (D-021): written once as --fx-inner-shade, --fx-inner-highlight, --fx-drop-md, --fx-drop-sm in
+        globals.css; Button, Segmented, side nav, docs, inspector, type switcher, editor and tk() FX use them
+        (were 10 copies). Same values, no visual change.
+        Shared helpers: Lucide moved to lib/ (a shipped component no longer imports from the docs frame);
+        rec() lives once in lib/rec.js (was 3 copies); the editor's Ic and iconUrl are the shared Lucide.
+        Dead code removed: Home's old NavList, tk() hoverBorder/hoverFx and unused classes, unused CSS,
+        getKey, trackOfSel, unused imports. Raw values replaced by existing tokens in the editor.
+        Docs site: motion, size and sidebar numbers and the icon count are read from the tokens and specs
+        (no hand-typed copies). Figma node ids removed from specs, tokens, comments and decisions (D-002).
+        Fixed: D-030 said labels fade at duration/slow (they fade at duration/fast); number.json radius
+        names; README generated-file list (icons.json), styles/ (motion.css is hand-written), redirects.
+        Build: every component spec other than Button is one generic "parts" format with its own selector
+        and prefix (D-025), so new components need no build change. .gitignore covers .env files at any
+        depth; app/.gitignore was a duplicate.
+Checks: npm run tokens (unchanged output for the side nav), npm test 9/9, every route 200, /dashboard
+        checked in all five states
+```
+
 ## 2026-11-06
 
 ```

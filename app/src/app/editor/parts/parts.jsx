@@ -3,14 +3,15 @@
 // and waits for sign-off before it moves to src/components with a spec and a docs page.
 // Every part writes data-tokens, so Ctrl + Alt shows what it paints.
 import { useId } from 'react';
+import Lucide from '@/lib/Lucide';
 import './parts.css';
 
 const T = (rows) => JSON.stringify(rows);
-export const iconUrl = (n) => `/icons/lucide/${n}.svg`;
+export { lucide as iconUrl } from '@/lib/Lucide';
 
-// Icon: a Lucide icon from the grid set, painted in currentColor. size: icon/sm 16 · md 20 · lg 24.
+// Icon: the shared Lucide icon (lib/Lucide.jsx) with the ed-ic class for editor styling. size: icon/xs 12 · sm 16 · md 20 · lg 24.
 export function Ic({ n, size = 'sm', className = '' }) {
-  return <span className={`ed-ic ${className}`} data-size={size} style={{ '--icon': `url(${iconUrl(n)})` }} aria-hidden />;
+  return <Lucide name={n} size={size} className={`ed-ic ${className}`.trim()} />;
 }
 
 export function Kbd({ children }) {

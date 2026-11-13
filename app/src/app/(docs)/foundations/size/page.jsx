@@ -1,5 +1,5 @@
 import t from '@/tokens/tokens.resolved.json';
-import { DocPage, Section, Panel, Token, Meta, Table } from '@/docs/ui';
+import { DocPage, Section, Panel, Token } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 
 export const metadata = meta('/foundations/size');

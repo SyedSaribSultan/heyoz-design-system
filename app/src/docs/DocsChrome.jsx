@@ -2,13 +2,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { slug } from './slug';
-import Lucide, { lucide } from './Lucide';
+import Lucide, { lucide } from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
 import InfoTips from './InfoTips';
+import { rec } from '@/lib/rec';
 
-// Search surface: the primary tier, like the docs nav (Home nav item 693:3307). Lit by light/cursor
-// (D-020: open menus catch the light). Inner shade is the Figma effect, not a token (D-021).
-const rec = (name, rows) => ({ 'data-name': name, 'data-tokens': JSON.stringify(rows) });
+// Search surface: the primary tier, like the docs nav. Lit by light/cursor
+// (D-020: open menus catch the light). Inner shade is an effect, not a token (D-021).
 const PANEL = rec('search panel · lit', [['background', 'surface/primary'], ['border', 'border/primary'], ['border width', 'stroke/1'], ['radius', 'radius/2xl'], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']]);
 const ROW = rec('search result', [['background', 'fill/primary'], ['background · hover', 'fill/primary-hover'], ['border · hover', 'border/primary-hover'], ['effect · hover', 'effect · inner-shade'], ['radius', 'radius/lg'], ['type', 'type/body/md/medium']]);
 const ROW_ON = rec('search result · highlighted', [['background', 'fill/primary-hover'], ['border', 'border/primary-hover'], ['border width', 'stroke/1'], ['effect', 'effect · inner-shade'], ['radius', 'radius/lg'], ['type', 'type/body/md/medium']]);

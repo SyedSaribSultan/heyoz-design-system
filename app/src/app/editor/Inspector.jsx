@@ -1,9 +1,9 @@
 'use client';
 // Contextual inspector: only the selected object. Right column on desktop, bottom sheet when narrow.
-import { useRef } from 'react';
+
 import Button from '@/components/Button';
 import Segmented from '@/components/Segmented';
-import { S, useEd, bump, checkpoint, markSaved, toast, select, openAI, aiBlocked, openPop, closeSheet, track, M } from './store';
+import { S, useEd, bump, checkpoint, markSaved, toast, openAI, aiBlocked, openPop, closeSheet, track, M } from './store';
 import { Ic, Slider, Switch, NumberField, TextArea, Hint, Label, iconUrl } from './parts/parts';
 import { rectOf } from './dom';
 
@@ -113,7 +113,7 @@ export default function Inspector() {
         <div className="ed-fld"><span className="type-body-sm-regular">Size</span><Slider label="Size" min={3} max={14} step={0.5} value={p.size} onChange={(v) => edit(c, 'props.size', v)} onCommit={commitEdit} /></div>
         <div className="ed-fld"><span className="type-body-sm-regular">Colour</span>
           <div className="ed-sw" role="radiogroup" aria-label="Colour">{COLORS.map(([v, n]) => (
-            <button key={v} type="button" role="radio" aria-checked={p.color === v} aria-label={n} onClick={() => setk('props.color', v)} style={{ background: v, color: v === '#111111' || v === '#ff3d01' ? '#fff' : '#111' }}>{p.color === v && <Ic n="check" size="xs" />}</button>))}
+            <button key={v} type="button" role="radio" aria-checked={p.color === v} aria-label={n} onClick={() => setk('props.color', v)} style={{ background: v, color: v === '#111111' || v === '#ff3d01' ? 'var(--content-fixed-inverse)' : 'var(--content-fixed-primary)' }}>{p.color === v && <Ic n="check" size="xs" />}</button>))}
           </div></div>
         <div className="ed-gap8" />
         <Segmented label="Alignment" size="2xs" items={[['left', 'Left'], ['center', 'Centre'], ['right', 'Right']]} value={p.align} onChange={(v) => setk('props.align', v)} />

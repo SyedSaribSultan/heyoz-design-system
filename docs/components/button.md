@@ -134,4 +134,4 @@ Links have no frame: text (and an optional icon) in the button's label style for
 
 - **Loading.** Disabled colours; the trailing icon becomes a spinner. The spinner is an icon: same frame, the ring fills the key square, line weight = frame × size/icon/grid/stroke.
 - **Focus.** Rest colours plus a ring outside the border: border/focus, stroke/2.
-- **Effects.** Inner shade on every filled state, inset 0 -4 10 rgba(0,0,0,.5). A Figma effect, not a token (D-021).
+- **Effects.** Inner shade on every filled state, inset 0 -4 10 rgba(0,0,0,.5). An effect, not a token (D-021).

@@ -26,7 +26,6 @@
 .home img[data-media], .home img[data-name='brand logo'], .home img[data-name='avatar'] { object-fit: cover; flex: none; }
 
 .sidenav { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; flex: none; z-index: 10; }
-.sidenav nav a { width: 100%; }
 
 .main { position: relative; overflow: hidden; }
 .divider { display: inline-flex; align-items: center; justify-content: center; }
@@ -44,7 +43,7 @@
 /* 9:16 aspect icon: an outlined portrait frame, drawn in the design as a bordered box. */
 [data-name='aspect chip']::before { content: ""; width: 7px; height: 13px; margin: 0 var(--space-2) 0 var(--space-2); border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--content-primary); }
 
-/* Tile resting glow (Figma 693:3121): top-right, under the tile's content, 15% as designed. A Figma
+/* Tile resting glow: top-right, under the tile's content, 15% as designed. A Figma
    effect with set values, not a token (D-021): a 75px disc, CSS blur 37.5px, content/primary at 15%. Its own
    values on purpose, so tuning the cursor light (D-020) never changes it. The moving light comes from LightField. */
 .rest-glow { position: relative; isolation: isolate; overflow: hidden; flex: none; }
@@ -72,8 +71,6 @@
 .tile { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; overflow: hidden; }
 .tile > img:is([src$=".png"], [src$=".webp"]) { width: 100%; height: 100%; object-fit: cover; }
 .tile-shade { position: absolute; inset: 0; pointer-events: none; }
-.home .full { width: 100%; }
-[style*='--hover-shadow']:hover { box-shadow: var(--hover-shadow) !important; }
 .check::before { content: ""; }
 
 /* Hover = the token recorded by tk({ hover }) */
