@@ -26,15 +26,16 @@
 /* Hit area: an invisible layer, at least size/target (44) square, centred on the box. Takes no room. */
 .cb-box::before { content: ''; position: absolute; inset: calc((var(--cb-box) - var(--cb-box-target)) / 2); }
 
-/* The mark is an icon on the icon grid: the frame is the box, the vector fills the key square. It draws in
+/* The mark is drawn for the box, not a Lucide icon: it spans about 7/16 of the box (a full icon read too big)
+   with a stroke of 2/16 (2px in the 16 box, 2.5 in the 20), thicker than the icon grid's 1/16. It draws in
    from the left while it fades (duration/base); reduced motion keeps the fade (below). */
 .cb-mark {
   position: absolute; inset: 0; background: var(--cb-mark-colour); opacity: 0; clip-path: inset(0 100% 0 0);
   -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
   transition: opacity var(--duration-fast) var(--easing-standard), clip-path var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard);
 }
-.cb-mark[data-kind='check'] { --icon: url(/icons/lucide/check.svg); }
-.cb-mark[data-kind='mixed'] { --icon: url(/icons/lucide/minus.svg); }
+.cb-mark[data-kind='check'] { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.25l2.4 2.4 4.6-4.9'/%3E%3C/svg%3E"); }
+.cb-mark[data-kind='mixed'] { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M5 8h6'/%3E%3C/svg%3E"); }
 .cb-input:checked:not(:indeterminate) ~ .cb-box .cb-mark[data-kind='check'],
 .cb-input:indeterminate ~ .cb-box .cb-mark[data-kind='mixed'] { opacity: 1; clip-path: inset(0); }
 
