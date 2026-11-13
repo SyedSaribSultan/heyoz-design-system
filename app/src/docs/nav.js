@@ -33,8 +33,8 @@ export const NAV = [
   {
     group: 'Components',
     items: [
-      { href: '/components/button', icon: 'mouse-pointer-click', toc: ['Playground', 'Eight kinds', 'Icon buttons', 'Links', 'Seven sizes', 'Build it in Figma', 'Size details', 'Colour details'], title: 'Button',
-        summary: 'Eight types, seven sizes, squircle or pill, with rest, hover, pressed, disabled and loading states.' },
+      { href: '/components/button', icon: 'mouse-pointer-click', toc: ['Playground', 'Nine kinds', 'Icon buttons', 'Links', 'Seven sizes', 'Build it in Figma', 'Size details', 'Colour details'], title: 'Button',
+        summary: 'Nine types, seven sizes, squircle or pill, with rest, hover, pressed, disabled and loading states.' },
       { href: '/components/sidebar', icon: 'panel-left', toc: ['Open and folded', 'Menu items', 'Brand picker', 'On this site', 'The details'], title: 'Sidebar',
         summary: `One side nav for every screen, this site included: ${SN['nav-width']} open, ${SN['nav-width-collapsed']} folded, Ctrl+B to toggle. Menu items, brand picker and their states.` },
       { href: '/components/text-field', icon: 'text-cursor-input', toc: ['Playground', 'Sizes', 'States', 'Label, hint and error', 'Icons, text and buttons', 'Textarea', 'Usage', 'Keyboard', 'The details'], title: 'Text field',

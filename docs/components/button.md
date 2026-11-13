@@ -13,7 +13,7 @@ One frame: [icon] [label] [icon]. The frame carries height, padding x, gap, radi
 - **Icon.** A square frame from the icon scale, chosen by text size: 16 for 12 and 14px text, 20 for 16px, 24 for 18 and 20px, 32 for 24px. The vector follows the icon grid: it fills the key square (size/icon/grid/square, 75%).
 - **Radius.** Squircle: height × 0.375 (xs: 12 on 32), rounded to the nearest 4, so every size stays about equally round. 2xs sets its own: 10. Pill: radius/full (1000 in Figma). Same padding for both.
 - **Border.** stroke/1 at every size.
-- **States.** Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone and brand-ghost change fill only.
+- **States.** Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone, brand-ghost and critical change fill only.
 - **Shade.** Every state that has a fill gets the inner shade: inner shadow x 0, y −4, blur 10, spread 0, #000000 at 50%. No fill, no shade (outline, ghost and brand-ghost at rest; they get it on hover and press).
 - **Grid.** Every value you type in Figma is on the 4px grid; values under 12 may use 2px half-steps (2xs: padding x 10, radius 10). A plain number in a size means a set value that is not a token.
 
@@ -122,6 +122,17 @@ Brand text, fill only on hover.
 | hover | `fill/brand-secondary` | `none` | `content/brand` | `content/brand` | yes |
 | pressed | `fill/brand-secondary-hover` | `none` | `content/brand` | `content/brand` | yes |
 | disabled | `none` | `none` | `content/brand-disabled` | `content/brand-disabled` | no |
+
+### critical
+
+A destructive action: delete, remove, discard. Only where the answer cannot be undone.
+
+| State | Fill | Border | Label | Icon | Inner shade |
+|---|---|---|---|---|---|
+| rest | `fill/critical` | `none` | `content/on-critical` | `content/on-critical` | yes |
+| hover | `fill/critical-hover` | `none` | `content/on-critical` | `content/on-critical` | yes |
+| pressed | `fill/critical-active` | `none` | `content/on-critical` | `content/on-critical` | yes |
+| disabled | `fill/critical-disabled` | `none` | `content/on-critical-disabled` | `content/on-critical-disabled` | yes |
 
 ## Links
 

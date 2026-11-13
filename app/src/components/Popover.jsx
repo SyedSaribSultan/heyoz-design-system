@@ -41,7 +41,7 @@ export function PopoverPanel({ as: Tag = 'div', title, titleId, closable = true,
           {closable && <Button type="ghost" size="2xs" icon={lucide('x')} label="Close" onClick={onClose} />}
         </div>
       )}
-      <div className={`pop-body ${TY.body}`} data-name="popover body" data-tokens={JSON.stringify([['type', 'type/body/md/regular'], ['colour', 'content/secondary']])}>{children}</div>
+      <div className={`pop-body scroll-quiet ${TY.body}`} data-name="popover body" data-tokens={JSON.stringify([['type', 'type/body/md/regular'], ['colour', 'content/secondary']])}>{children}</div>
       {footer && <div className="pop-foot" data-name="popover footer" data-tokens={JSON.stringify([['gap', 'space/8']])}>{footer}</div>}
     </Tag>
   );

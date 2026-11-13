@@ -23,8 +23,8 @@ import './dialog.css';
 //   blocking                 no Esc, no scrim press, no close button: only the actions end it.
 //   scrimClose               a press on the scrim closes (default true). Off when blocking.
 //   actions                  [{ label, type, tone, onClick, primary, focus, disabled, loading, icon }]. The last is the main action
-//                            unless one says primary. type defaults: main → brand, others → secondary. tone 'critical' = a
-//                            destructive confirm (secondary Button, content/critical label). At most one brand Button.
+//                            unless one says primary. type defaults: main → primary (white), others → secondary. tone 'critical' = a
+//                            destructive confirm (the critical Button type).
 //   footerStart              a node on the left of the footer (a note, a checkbox)
 //   initialFocus             a ref, or a selector inside the panel. Default: [data-dlg-focus] → first field in the body →
 //                            the main action → the panel.
@@ -65,7 +65,7 @@ function firstFocus(panel, initialFocus) {
 // ─── The panel: header, body, footer ─────────────────────────────────────────────────────────────────────────
 export function Action({ label, type, tone, primary, focus, onClick, ...rest }) {
   const critical = tone === 'critical';
-  return <Button size="sm" type={type || (critical ? 'secondary' : primary ? 'brand' : 'secondary')} data-tone={critical ? 'critical' : undefined}
+  return <Button size="sm" type={type || (critical ? 'critical' : primary ? 'primary' : 'secondary')}
     data-dlg-primary={primary ? '' : undefined} data-dlg-focus={focus ? '' : undefined} onClick={onClick} {...rest}>{label}</Button>;
 }
 
@@ -100,7 +100,7 @@ function Panel({ title, description, size = 'md', role = 'dialog', closable = tr
       </div>
       {children != null && (
         <div className="dlg-main" data-top={top || undefined} data-bottom={bottom || undefined}>
-          <div ref={bodyRef} className={`dlg-body ${TY.body}`} {...rec('dialog body', [['padding x', 'space/24'], ['padding y', 'space/4'], ['type', 'type/body/md/regular'], ['text colour', 'content/primary']])}>
+          <div ref={bodyRef} className={`dlg-body scroll-quiet ${TY.body}`} {...rec('dialog body', [['padding x', 'space/24'], ['padding y', 'space/4'], ['type', 'type/body/md/regular'], ['text colour', 'content/primary']])}>
             <div ref={contentRef}>{children}</div>
           </div>
         </div>
@@ -196,7 +196,7 @@ export default function Dialog({ open, onClose, blocking = false, scrimClose = t
 
 // Alert dialog: one question, confirm or cancel. No close button, no scrim press, sm wide. Esc cancels.
 // While `loading` the dialog stays open until the work ends: Esc does nothing (it is blocking) and Cancel is disabled.
-// tone 'critical': the confirm is destructive, so focus starts on Cancel and the confirm is a critical secondary Button.
+// tone 'critical': the confirm is destructive, so focus starts on Cancel and the confirm is a critical Button.
 export function AlertDialog({ open, title, description, confirmLabel = 'Confirm', cancelLabel = 'Cancel', tone, loading, onConfirm, onCancel, ...rest }) {
   const critical = tone === 'critical';
   return (

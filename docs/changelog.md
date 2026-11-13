@@ -15,6 +15,8 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ## 2026-11-13
 
+- change(owner decisions Q-5 to Q-8): every pop-up (Dialog, Menu, Select, Popover) scrolls with the quiet bar, thumb only on hover (D-037); Button gains a ninth type, critical (D-026), and a destructive dialog confirm uses it; a dialog's main action is primary, white (D-045); "on" stays white (D-041). Nothing is open in decisions.
+
 ```
 fix(state): 50 implicit state machines audited; every safe fix applied (docs/state-machines.md)
 

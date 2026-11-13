@@ -58,8 +58,8 @@ The owner's screenshots first, then this folder. The existing codebase carries n
 **D-025 · Components have a spec file** · 2026-11-04, updated 2026-11-13
 Each component has `components/<name>.json`: token references and rules only. The build checks every reference, writes `docs/components/<name>.md`, and the code component reads the resolved spec. A component changes here first: spec, then code, then its docs page. Behaviour that the spec cannot hold as a token (animation, keyboard, scroll) is written in the spec's `rules`. A spec names its CSS `selector` and a unique `prefix`; every value becomes a `--<prefix>-*` variable, so a new component needs no change to the build.
 
-**D-026 · Button (draft)** · 2026-11-04, updated 2026-11-05
-Eight types: brand, primary, secondary, tertiary, outline, ghost, brand-tone, brand-ghost; every type also as an icon button. Two links: brand, neutral. Seven sizes on `size/control`: 2xs 28, then 8px steps from xs 32 to 2xl 72; xs (32) is the everyday size and the start of the scale. 2xs is set by hand: padding 6 top and bottom, 10 left and right, radius 10. Text is the body role only, medium: 12, 14, 14, 16, 18, 20, 24. Icon frame from the icon scale by text size (16, 20, 24, 32). Squircle radius = height × 0.375 rounded to the nearest 4; pill = `radius/full`. Every typed value is on the 4px grid (2px half-steps under 12); padding y is not set (fixed height, centred). States rest, hover, pressed, disabled, loading. Secondary, tertiary, outline and ghost: hover and pressed turn the icon `content/brand`; the border stays in its own family: hover `border/secondary-hover`, pressed `border/secondary-active` (tertiary: `border/tertiary-hover`, `border/tertiary-active`). Inner shade (0, −4, blur 10, #000 50%) on every state with a fill. Spec: `components/button.json`; border states follow D-035.
+**D-026 · Button (draft)** · 2026-11-04, updated 2026-11-13
+Nine types: brand, primary, secondary, tertiary, outline, ghost, brand-tone, brand-ghost, critical (fill/critical, for an action that cannot be undone, added 2026-11-13); every type also as an icon button. Two links: brand, neutral. Seven sizes on `size/control`: 2xs 28, then 8px steps from xs 32 to 2xl 72; xs (32) is the everyday size and the start of the scale. 2xs is set by hand: padding 6 top and bottom, 10 left and right, radius 10. Text is the body role only, medium: 12, 14, 14, 16, 18, 20, 24. Icon frame from the icon scale by text size (16, 20, 24, 32). Squircle radius = height × 0.375 rounded to the nearest 4; pill = `radius/full`. Every typed value is on the 4px grid (2px half-steps under 12); padding y is not set (fixed height, centred). States rest, hover, pressed, disabled, loading. Secondary, tertiary, outline and ghost: hover and pressed turn the icon `content/brand`; the border stays in its own family: hover `border/secondary-hover`, pressed `border/secondary-active` (tertiary: `border/tertiary-hover`, `border/tertiary-active`). Inner shade (0, −4, blur 10, #000 50%) on every state with a fill. Spec: `components/button.json`; border states follow D-035.
 
 **D-027 · Docs site: one thing per page** · 2026-11-04
 Overview, then a page per foundation and per component, all built from the same blocks. Pages are listed once in `app/src/docs/nav.js`.
@@ -95,7 +95,7 @@ Editor regions are panels on `background`, told apart by surface step and 12px o
 *Why:* with one surface and 1px dividers the regions were hard to tell apart.
 
 **D-037 · One minimal scrollbar** · 2026-11-05
-Every scroll area uses one style, set once in `app/globals.css`: a pill on a transparent track with no arrows, `border/tertiary`, 4px at rest, 6px and `border/elevated` on hover, `border/elevated-hover` while dragged. Firefox gets the thin standard bar in the same colours. Nothing else sets `scrollbar-width` or `scrollbar-color` (in Chrome they turn the style off). The sidebar's link list scrolls on its own when it is taller than the screen and never passes the scroll to the page (`overscroll-behavior: contain`). Its bar is a slimmer variant: an 8px gutter, always kept and sitting in the nav's padding so items never change width, with the thumb shown only while the pointer is over the nav.
+Every scroll area uses one style, set once in `app/globals.css`: a pill on a transparent track with no arrows, `border/tertiary`, 4px at rest, 6px and `border/elevated` on hover, `border/elevated-hover` while dragged. Firefox gets the thin standard bar in the same colours. Pop-ups (Dialog, Menu, Select, Popover) use the quiet variant, class `scroll-quiet`: an 8px gutter whose thumb shows only while the pointer is over the pop-up, so it never reads as a bar. Nothing else sets `scrollbar-width` or `scrollbar-color` (in Chrome they turn the style off). The sidebar's link list scrolls on its own when it is taller than the screen and never passes the scroll to the page (`overscroll-behavior: contain`). Its bar is a slimmer variant: an 8px gutter, always kept and sitting in the nav's padding so items never change width, with the thumb shown only while the pointer is over the nav.
 A scroll or clipping container clips anything painted outside it, so it keeps `stroke/2` of room on every side (padding, pulled back with a matching negative margin) for focus rings and outer borders. A specimen that is only a picture leaves the Tab order.
 *Why:* the default Windows scrollbar looked out of place; a scrolling sidebar must never move the page; a focus ring must never be cut.
 
@@ -126,8 +126,7 @@ The side nav and the docs site's token and info notes use this Tooltip. Open, di
 *Cost:* tooltips wait 500ms, so the collapsed side nav's labels no longer appear instantly.
 
 **D-045 · Dialog and Toast (draft)** · 2026-11-13
-Dialog is the one modal: the search dialog's scrim (background at 72%, `space/4` blur) and a `surface/primary` panel, radius 2xl, inner shade; widths 400, 520, 640. It traps focus, closes on Esc or a scrim press, gives focus back to its opener and locks the page without shifting it. Below 640 it becomes a bottom sheet. Alert dialog confirms or cancels. Toast: one toaster, bottom right (full width below 640); five types, the status shows on the icon only, the card stays `surface/tertiary`. Gone after 5s, 10s with an action; critical stays. Up to 3 stack; hover and focus pause them; F8 reaches them. One `<Toaster />` is mounted in the root layout; the docs site's "Copied" message uses it.
-*Cost:* the destructive confirm is styled locally until Button has a critical type (Open, Q-6).
+Dialog is the one modal: the search dialog's scrim (background at 72%, `space/4` blur) and a `surface/primary` panel, radius 2xl, inner shade; widths 400, 520, 640. It traps focus, closes on Esc or a scrim press, gives focus back to its opener and locks the page without shifting it. Below 640 it becomes a bottom sheet. Alert dialog confirms or cancels. The main action is a primary (white) Button, so orange stays for the screen's one main action; a destructive confirm is the critical Button. Toast: one toaster, bottom right (full width below 640); five types, the status shows on the icon only, the card stays `surface/tertiary`. Gone after 5s, 10s with an action; critical stays. Up to 3 stack; hover and focus pause them; F8 reaches them. One `<Toaster />` is mounted in the root layout; the docs site's "Copied" message uses it.
 
 **D-046 · Badge, Chip and Avatar (draft)** · 2026-11-13
 Badge is a status label you cannot press: 6 tones, soft (`fill/*-secondary` + `content/*`) or solid (`fill/*` + `content/on-*`), 18 or 24 tall from padding, `radius/full`, plus counts (99+) and a dot. Chip is the Home prompt chip made a component: tertiary fill, inner shade, 32 or 28 tall; action, filter (selected = the pressed look held, D-035), choice (one sliding indicator) and input (removable). Avatar: picture, then initials, then an icon; 6 sizes from 20 to 56 on existing tokens; circle for people, squircle for brands; status dot and overlapping groups. The picture is media (D-020).
@@ -141,12 +140,7 @@ Slider: native range inputs over a drawn 8-tall well track, a 20 white thumb (th
 
 ## Open
 
-Draft components (D-040 to D-047) wait for the owner's sign-off. The defaults below are in place.
-
-- **Q-5 · Scroll in pop-ups.** Dialog hides its scrollbar and fades the edge; Menu uses the slim side-nav variant (8 wide, thumb on hover); Popover uses the one scrollbar (D-037). Default: as built. Pick one rule for every pop-up.
-- **Q-6 · A critical Button type.** Destructive confirms need one (fill/critical, content/on-critical). Default: a local style in the dialog.
-- **Q-7 · White or orange for "on".** Checkbox, Radio, Switch and the Tabs underline are white (D-038). Default: white.
-- **Q-8 · The main action in a dialog.** Brand (orange) or primary (white). Default: brand.
+Nothing open.
 
 ---
 
@@ -161,4 +155,8 @@ Draft components (D-040 to D-047) wait for the owner's sign-off. The defaults be
 - Q-3 Canonical tool names → dropped (2026-11-04).
 - D-033 typeface preview (switcher for stakeholder review) → removed 2026-11-13; fonts stay D-018.
 - D-039 Oz dashboard (/dashboard, a prototype screen) → removed 2026-11-13 with the screen.
+- Q-5 Scroll in pop-ups → decided 2026-11-13: the quiet variant for every pop-up (D-037).
+- Q-6 A critical Button type → decided 2026-11-13: added (D-026).
+- Q-7 White or orange for "on" → decided 2026-11-13: white (D-041, D-042).
+- Q-8 The main action in a dialog → decided 2026-11-13: primary, white (D-045).
 - Q-4 Label colour on the brand fill → decided 2026-11-05: white stays (D-003).

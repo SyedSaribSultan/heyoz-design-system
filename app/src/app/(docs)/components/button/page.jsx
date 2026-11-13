@@ -19,7 +19,7 @@ export default function ButtonPage() {
         <ButtonAnatomy />
       </Section>
 
-      <Section title="Eight kinds" desc="Eight types share every size and shape; only colour changes. Brand (orange) is for the one main action on a screen.">
+      <Section title="Nine kinds" desc="Nine types share every size and shape; only colour changes. Brand (orange) is for the one main action on a screen; critical (red) only for an action that cannot be undone.">
         <Panel lit pad={8} className="b-matrix">
           <div className="b-mrow b-types b-mhead type-label-lg-medium d-dim"><span>Type</span>{STATES.map(([n]) => <span key={n}>{n}</span>)}</div>
           {TYPE_NAMES.map((ty) => (
@@ -31,7 +31,7 @@ export default function ButtonPage() {
         </Panel>
       </Section>
 
-      <Section title="Icon buttons" desc="The same eight types with an icon and no label: square, or a circle when the shape is pill.">
+      <Section title="Icon buttons" desc="The same nine types with an icon and no label: square, or a circle when the shape is pill.">
         <Panel lit pad={8} className="b-matrix">
           <div className="b-mrow b-types b-mhead type-label-lg-medium d-dim"><span>Type</span>{STATES.map(([n]) => <span key={n}>{n}</span>)}</div>
           {TYPE_NAMES.map((ty) => (

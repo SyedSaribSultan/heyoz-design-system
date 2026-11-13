@@ -35,7 +35,7 @@ If a screenshot and these docs disagree, follow the screenshot and flag the drif
 | [Motion](docs/tokens-motion.md) | Durations, easing | `tokens/motion.json` | Stable v1 |
 | [Light](docs/tokens-light.md) | Cursor light: on every surface above the background, never on the background or media | `tokens/light.json` | Stable v1 |
 | Icons (docs site `/foundations/icons`) | Icon grid, rules, 1,077 HeyOz icons, 2,019 Lucide icons on the grid | `icons/heyoz/` + `lucide-static` | Stable v1 |
-| [Button](docs/components/button.md) | 8 types, icon buttons, 2 links, 7 sizes, squircle and pill | `components/button.json` | Draft |
+| [Button](docs/components/button.md) | 9 types, icon buttons, 2 links, 7 sizes, squircle and pill | `components/button.json` | Draft |
 | [Sidebar](docs/components/sidenav.md) | Side nav: expanded / collapsed, states, collapse motion, Ctrl+B, scrolling; every sidebar uses it | `components/sidenav.json` | Stable |
 | More components (docs/components/*.md) | Text field, Checkbox, Radio, Switch, Segmented, Tabs, Menu, Select, Tooltip, Popover, Dialog, Toast, Badge, Chip, Avatar, Slider, Progress (D-040 to D-047) | `components/<name>.json` | Draft |
 | Tokens Studio export | All tokens as Figma variables (optional) | `figma/tokens-studio.json` (generated) | Stable v1 |

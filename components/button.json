@@ -8,7 +8,7 @@
     "icon": "A square frame from the icon scale, chosen by text size: 16 for 12 and 14px text, 20 for 16px, 24 for 18 and 20px, 32 for 24px. The vector follows the icon grid: it fills the key square (size/icon/grid/square, 75%).",
     "radius": "Squircle: height \u00d7 0.375 (xs: 12 on 32), rounded to the nearest 4, so every size stays about equally round. 2xs sets its own: 10. Pill: radius/full (1000 in Figma). Same padding for both.",
     "border": "stroke/1 at every size.",
-    "states": "Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone and brand-ghost change fill only.",
+    "states": "Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone, brand-ghost and critical change fill only.",
     "shade": "Every state that has a fill gets the inner shade: inner shadow x 0, y \u22124, blur 10, spread 0, #000000 at 50%. No fill, no shade (outline, ghost and brand-ghost at rest; they get it on hover and press).",
     "grid": "Every value you type in Figma is on the 4px grid; values under 12 may use 2px half-steps (2xs: padding x 10, radius 10). A plain number in a size means a set value that is not a token."
   },
@@ -274,6 +274,13 @@
         "label": "{content/brand-disabled}",
         "icon": "{content/brand-disabled}"
       }
+    },
+    "critical": {
+      "$about": "A destructive action: delete, remove, discard. Only where the answer cannot be undone.",
+      "rest": { "fill": "{fill/critical}", "border": "none", "label": "{content/on-critical}", "icon": "{content/on-critical}" },
+      "hover": { "fill": "{fill/critical-hover}", "border": "none", "label": "{content/on-critical}", "icon": "{content/on-critical}" },
+      "pressed": { "fill": "{fill/critical-active}", "border": "none", "label": "{content/on-critical}", "icon": "{content/on-critical}" },
+      "disabled": { "fill": "{fill/critical-disabled}", "border": "none", "label": "{content/on-critical-disabled}", "icon": "{content/on-critical-disabled}" }
     }
   },
   "links": {

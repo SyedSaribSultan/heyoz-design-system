@@ -109,7 +109,7 @@ export function Surface({ rect, side = 'bottom', align = 'start', attached, matc
       data-side={inline ? undefined : side} data-owner={owner} data-leaving={leaving || undefined}
       data-component="menu" {...rec(name, SURFACE_ROWS)} {...rest}>
       <Sheen />
-      <div className="mn-scroll">{children}</div>
+      <div className="mn-scroll scroll-quiet">{children}</div>
     </Light>
   );
   return inline ? node : createPortal(node, document.body);

@@ -44,7 +44,7 @@ export default function DialogPage() {
         </div>
       </Section>
 
-      <Section title="Alert dialog" desc={<>One question, answered by confirm or cancel. It has no close button and a scrim press does not close it; Esc cancels. When the confirm cannot be undone, focus starts on Cancel and the confirm is a critical Button. <Info info={`role alertdialog, ${W.sm} wide\nThe description is required: it is the question\nCritical: secondary Button, label and icon content/critical`}>The details</Info></>}>
+      <Section title="Alert dialog" desc={<>One question, answered by confirm or cancel. It has no close button and a scrim press does not close it; Esc cancels. When the confirm cannot be undone, focus starts on Cancel and the confirm is a critical Button. <Info info={`role alertdialog, ${W.sm} wide\nThe description is required: it is the question\nCritical: the critical Button type (fill/critical)`}>The details</Info></>}>
         <div className="dg-specs dg-two">
           <Spec label="Confirm" note="focus starts on the confirm">
             <DialogPanel fit size="sm" role="alertdialog" closable={false} title="Leave without saving?" description="Your changes to this clip are not saved yet."
@@ -115,7 +115,7 @@ export default function DialogPage() {
             </ul>
           </Panel>
         </div>
-        <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>At most one brand Button per dialog (D-026). Order: the safe action first, the main action last. Cancel is ghost.</p>
+        <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>The main action is primary (white); a destructive one is critical. Order: the safe action first, the main action last. Cancel is ghost.</p>
       </Section>
 
       <Section title="The details" desc={<>Every value the dialog is made of. <Info info="Source: components/dialog.json, checked by npm run tokens\nEach value is a --dlg-* variable; plain numbers are set values, not tokens\nThe scrim strength (72%) and the effects are set values in dialog.css (D-021)">How to read this</Info></>}>

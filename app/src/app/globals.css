@@ -24,5 +24,11 @@ html { scroll-behavior: smooth; }
   background: var(--border-tertiary) padding-box; }
 ::-webkit-scrollbar-thumb:hover { border-width: 3px; background-color: var(--border-elevated); }
 ::-webkit-scrollbar-thumb:active { background-color: var(--border-elevated-hover); }
+/* Pop-ups (Dialog, Menu, Select, Popover) use the quiet variant (D-037): an 8px gutter whose thumb is invisible
+   until the pointer is over the pop-up, so a scroll area reads as calm content, never as a bar. Class: scroll-quiet. */
+.scroll-quiet::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-quiet::-webkit-scrollbar-thumb { border-width: 2px; background-color: transparent; }
+.scroll-quiet:hover::-webkit-scrollbar-thumb { background-color: var(--border-tertiary); }
+.scroll-quiet:hover::-webkit-scrollbar-thumb:hover { background-color: var(--border-elevated); }
 @supports not selector(::-webkit-scrollbar) { * { scrollbar-width: thin; scrollbar-color: var(--border-tertiary) transparent; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

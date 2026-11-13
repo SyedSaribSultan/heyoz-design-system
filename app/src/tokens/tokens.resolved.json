@@ -4298,7 +4298,7 @@
         "icon": "A square frame from the icon scale, chosen by text size: 16 for 12 and 14px text, 20 for 16px, 24 for 18 and 20px, 32 for 24px. The vector follows the icon grid: it fills the key square (size/icon/grid/square, 75%).",
         "radius": "Squircle: height × 0.375 (xs: 12 on 32), rounded to the nearest 4, so every size stays about equally round. 2xs sets its own: 10. Pill: radius/full (1000 in Figma). Same padding for both.",
         "border": "stroke/1 at every size.",
-        "states": "Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone and brand-ghost change fill only.",
+        "states": "Secondary, tertiary, outline and ghost: hover and pressed turn the icon content/brand; the label stays content/primary; the border stays in its own family, -hover on hover and -active when pressed (D-035). Brand, primary, brand-tone, brand-ghost and critical change fill only.",
         "shade": "Every state that has a fill gets the inner shade: inner shadow x 0, y −4, blur 10, spread 0, #000000 at 50%. No fill, no shade (outline, ghost and brand-ghost at rest; they get it on hover and press).",
         "grid": "Every value you type in Figma is on the 4px grid; values under 12 may use 2px half-steps (2xs: padding x 10, radius 10). A plain number in a size means a set value that is not a token."
       },
@@ -4678,6 +4678,37 @@
             "label": "content/brand-disabled",
             "icon": "content/brand-disabled",
             "shade": false
+          }
+        },
+        "critical": {
+          "about": "A destructive action: delete, remove, discard. Only where the answer cannot be undone.",
+          "rest": {
+            "fill": "fill/critical",
+            "border": "none",
+            "label": "content/on-critical",
+            "icon": "content/on-critical",
+            "shade": true
+          },
+          "hover": {
+            "fill": "fill/critical-hover",
+            "border": "none",
+            "label": "content/on-critical",
+            "icon": "content/on-critical",
+            "shade": true
+          },
+          "pressed": {
+            "fill": "fill/critical-active",
+            "border": "none",
+            "label": "content/on-critical",
+            "icon": "content/on-critical",
+            "shade": true
+          },
+          "disabled": {
+            "fill": "fill/critical-disabled",
+            "border": "none",
+            "label": "content/on-critical-disabled",
+            "icon": "content/on-critical-disabled",
+            "shade": true
           }
         }
       },
@@ -5233,7 +5264,7 @@
         "variants": "Dialog (role dialog) and alert dialog (role alertdialog). The alert dialog has no close button, does not close on a scrim press, is sm wide, and is for one question: confirm or cancel. When the confirm action is destructive the focus starts on Cancel, never on the destructive action.",
         "size": "sm 400, md 520, lg 640. The panel is never wider than the window minus 2 x panel.inset. Height follows the content up to the window height minus 2 x panel.inset (100dvh); beyond that only the body scrolls.",
         "layout": "Panel: surface/primary, border/primary, radius/2xl, the inner shade (0, -4, blur 10, #000 50%), the same panel as the search dialog, so there is one modal look. Header: title (heading/sm/semibold) and the close button on one line, 32 tall; the description (body/md/regular, content/secondary) sits under the title. The text starts 24 from the left edge. Body: body/md/regular. Footer: actions on the right, gap 8; an optional note or checkbox on the left. Order: the safe action first, the main action last.",
-        "actions": "At most one brand Button per dialog (D-026). The main action is a brand Button; a dialog whose answer is a plain yes uses primary (white). Cancel is ghost. Other actions are secondary. Buttons are size sm (40), size md (48) in the sheet so every target is at least 44. A destructive confirm has no Button type of its own: it is a secondary Button with the label and icon in content/critical (hover content/critical-hover, pressed content/critical-active). Proposal: a critical Button type.",
+        "actions": "The main action is a primary Button (white): a dialog is a quiet place and orange stays for the screen's one main action (D-045). A destructive confirm is a critical Button (fill/critical). Cancel is ghost. Other actions are secondary. Buttons are size sm (40), size md (48) in the sheet so every target is at least 44.",
         "scrim": "color-mix of background at 72% and transparent, with a backdrop blur of scrim.blur (space/4): the same values as the search dialog. 72% is a set value, not a token (D-021). The scrim fades in at duration/base and out at duration/fast (motion-fade). A press (pointerdown) on the scrim closes the dialog unless the dialog is blocking or scrimClose is off; a press inside the panel that ends on the scrim does not.",
         "motion": "Enter: the scrim fades; the panel fades, drops 4px and scales from 0.98 at duration/base, easing/enter (motion-pop, origin centre). Leave: both fade at duration/fast, easing/exit; the panel stays mounted until the fade ends (usePresence). Sheet: enters by sliding up from its own height at duration/slow, easing/enter, and leaves with the fade. Reduced motion keeps every fade and drops the scale, the drop and the slide (D-031). While it leaves, the dialog is inert and focus is already back on the element that opened it; opening again during the fade starts a fresh dialog.",
         "focus": "On open, focus moves into the panel: the first field in the body, else the main action in the footer (the safe action in an alert dialog whose confirm is destructive), else the panel itself (tabindex -1). The close button is never the first stop. Tab and Shift+Tab cycle inside the panel; focus that escapes (a click on the page, a script) is pulled back. On close, focus returns to the element that had it when the dialog opened, or to a trigger passed in. Focus rings are never clipped: header and footer keep their padding, the body keeps panel.body.padding-y and padding-x, both larger than stroke/2 (D-037).",
@@ -5308,12 +5339,6 @@
         "sheet": {
           "$about": "Below this container width the panel is a bottom sheet. Keep equal to the container query in dialog.css.",
           "below": 640
-        },
-        "critical": {
-          "$about": "Label and icon of a destructive confirm Button (secondary Button, content/critical).",
-          "rest": "{content/critical}",
-          "hover": "{content/critical-hover}",
-          "pressed": "{content/critical-active}"
         }
       },
       "vars": [
@@ -5436,18 +5461,6 @@
         {
           "key": "sheet-below",
           "px": 640
-        },
-        {
-          "key": "critical-rest",
-          "ref": "content/critical"
-        },
-        {
-          "key": "critical-hover",
-          "ref": "content/critical-hover"
-        },
-        {
-          "key": "critical-pressed",
-          "ref": "content/critical-active"
         }
       ],
       "types": {
