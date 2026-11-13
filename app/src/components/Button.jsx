@@ -26,13 +26,13 @@ export function Icon({ src }) {
 
 // type: brand … brand-ghost · size: 2xs … 2xl · block: fill the width · shape: squircle | pill · icon / iconAfter: svg url · state: 'hover' | 'active' to force one (docs)
 // href: renders a link that looks exactly like the button (navigation, not an action)
-export default function Button({ type = 'secondary', size = 'md', shape = 'squircle', icon, iconAfter, loading, disabled, state, block, children, label, href, ...props }) {
+export default function Button({ type = 'secondary', size = 'md', shape = 'squircle', icon, iconAfter, loading, disabled, state, block, children, label, href, className = '', ...props }) {
   const iconOnly = !children, Tag = href ? Link : 'button';
   return (
     <Tag
       href={href}
       type={href ? undefined : 'button'}
-      className={`btn lit ${SIZE[size].labelClass}`}
+      className={`btn lit ${SIZE[size].labelClass} ${className}`.trim()}
       data-component="button"
       data-name={`button · ${type} · ${size} · ${shape}`}
       data-type={type}

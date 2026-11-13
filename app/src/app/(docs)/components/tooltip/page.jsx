@@ -1,4 +1,4 @@
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Meta, Table, Info, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
 import t from '@/tokens/tokens.resolved.json';
@@ -104,9 +104,7 @@ export default function TooltipPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the tooltip is made of. <Info info="Source: components/tooltip.json, checked by npm run tokens\nEach value is a --tt-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={280} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--tt-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
+        <SpecTable spec={SPEC} prefix="tt" extra={[
           ['Inner shade', 'effect · inner-shade (D-021)'],
           ['Hover delay · warm · grace', `${DELAY} ms · ${WARM} ms · ${GRACE} ms (set values)`],
           ['Layer', 'z-index 1090 (set value), above popovers'],

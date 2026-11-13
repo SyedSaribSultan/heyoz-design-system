@@ -4,7 +4,7 @@
 // playhead and clip edges, scrub on the ruler, ⌘/Ctrl-scroll to zoom, auto-fit until you zoom.
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import Button from '@/components/Button';
-import { S, useEd, bump, setTime, select, stop, checkpoint, markSaved, track, openPop, openTab, M } from './store';
+import { S, useEd, bump, setTime, select, stop, editStep, markSaved, track, openPop, openTab, dragStart, dragStep, dragFinish, dragCancel, M } from './store';
 import { Ic, iconUrl } from './parts/parts';
 import { rectOf } from './dom';
 
@@ -35,7 +35,7 @@ function Clip({ c, top, h }) {
     if (e.key === 'Enter') { e.preventDefault(); select(c.id); }
     // Keyboard trim: [ and ] move the out point, with Alt the in point (brief: trim without a mouse).
     if ((e.key === '[' || e.key === ']') && !gen) {
-      e.preventDefault(); checkpoint(); const d = (e.key === ']' ? 1 : -1) * (e.shiftKey ? 1 : 1 / 30) * M.spd(c);
+      e.preventDefault(); editStep(`${c.id}:${e.altKey ? 'in' : 'out'}`); const d = (e.key === ']' ? 1 : -1) * (e.shiftKey ? 1 : 1 / 30) * M.spd(c);
       M.applyKey(S.project, c, e.altKey ? 'in' : 'out', (e.altKey ? c.in : c.out) + d); track('clip_trimmed', { kind: c.kind, via: 'keyboard' }); markSaved(); bump();
     }
   };
@@ -73,8 +73,8 @@ export default function Timeline() {
 
   const tOf = (e) => (e.clientX - inner.current.getBoundingClientRect().left - GUT) / S.pps;
   const down = (e) => {
-    if (e.button > 0) return; const tg = e.target;
-    if (tg.closest('[data-ruler]')) { S.drag = { type: 'scrub' }; stop(); setTime(tOf(e)); scroll.current.setPointerCapture(e.pointerId); e.preventDefault(); return; }
+    if (e.button > 0 || S.drag) return; const tg = e.target;
+    if (tg.closest('[data-ruler]')) { dragStart('scrub'); stop(); setTime(tOf(e)); scroll.current.setPointerCapture(e.pointerId); e.preventDefault(); return; }
     const ce = tg.closest('.ed-clip');
     if (ce) {
       const c = findClip(S.project, ce.dataset.id); if (!c) return;
@@ -82,15 +82,15 @@ export default function Timeline() {
       if (S.sel !== c.id) select(c.id); else bump();
       if (c.meta.status === 'generating') return;
       const hd = tg.closest('.ed-hd');
-      S.drag = { type: hd ? 'trim' : 'move', side: hd?.dataset.h, id: c.id, x0: e.clientX, orig: { start: c.start, in: c.in, out: c.out }, moved: false, cp: false };
+      dragStart(hd ? 'trim' : 'move', { side: hd?.dataset.h, id: c.id, x0: e.clientX, orig: { start: c.start, in: c.in, out: c.out } });
       scroll.current.setPointerCapture(e.pointerId); return;
     }
     if (tg.closest('.ed-ltrack') && !tg.closest('button') && S.sel) select(null);
   };
   const move = (e) => {
-    const d = S.drag; if (!d) return;
+    const d = S.drag; if (!d || d.type === 'text') return;
     if (d.type === 'scrub') return setTime(tOf(e));
-    const dx = e.clientX - d.x0; if (!d.moved && Math.abs(dx) < 3) return; d.moved = true; if (!d.cp) { checkpoint(); d.cp = true; }
+    const dx = e.clientX - d.x0; if (dragStep(dx) === 'ignore') return;
     const c = findClip(S.project, d.id); if (!c) return; const s = M.spd(c), dT = dx / S.pps, o = d.orig, endO = o.start + (o.out - o.in) / s, th = 8 / S.pps;
     if (d.type === 'trim') trimEdge(c, d.side, o, snapT(S.project, (d.side === 'r' ? endO : o.start) + dT, c.id, S.t, th));
     else if (c.kind === 'video') reorder(S.project, c, o.start + cdur(c) / 2 + dT);
@@ -98,8 +98,9 @@ export default function Timeline() {
     relayout(S.project); bump();
   };
   const up = () => {
-    const d = S.drag; S.drag = null;
-    if (d?.moved) { markSaved(); track(d.type === 'trim' ? 'clip_trimmed' : d.type === 'move' && findClip(S.project, d.id)?.kind === 'video' ? 'clip_reordered' : 'clip_moved', { via: 'drag' }); bump(); }
+    if (S.drag?.type === 'text') return;
+    const d = dragFinish();
+    if (d) { track(d.type === 'trim' ? 'clip_trimmed' : d.type === 'move' && findClip(S.project, d.id)?.kind === 'video' ? 'clip_reordered' : 'clip_moved', { via: 'drag' }); }
   };
   const ctx = (e) => {
     e.preventDefault(); const ce = e.target.closest('.ed-clip'), r = rectOf({ x: e.clientX, y: e.clientY });
@@ -112,7 +113,7 @@ export default function Timeline() {
   const TR = packRows(tx), AU = packRows(au);
   return (
     <section className="ed-tl lit" aria-label="Timeline" data-name="timeline" data-tokens={JSON.stringify([['background', 'surface/secondary'], ['border', 'border/secondary'], ['radius', 'radius/2xl'], ['lane', 'fill/primary · border/primary · radius/lg'], ['playhead', 'fill/brand'], ['ruler label', 'type/label/sm/medium']])}>
-      <div ref={scroll} className="ed-tl-scroll" onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={() => { S.drag = null; }} onContextMenu={ctx}>
+      <div ref={scroll} className="ed-tl-scroll" onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={dragCancel} onLostPointerCapture={dragCancel} onContextMenu={ctx}>
         <div ref={inner} className="ed-tl-inner" style={{ width: GUT + W }}>
           <div className="ed-rrow">
             <div className="ed-gut ed-gut-tools">

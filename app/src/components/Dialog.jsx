@@ -4,6 +4,8 @@ import { createPortal } from 'react-dom';
 import Button from './Button';
 import { lucide } from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
+import useDismiss from '@/lib/useDismiss';
+import { tabbables } from './floating';
 import { rec } from '@/lib/rec';
 import c from '@/tokens/components.json';
 import '@/styles/components.css';
@@ -27,6 +29,10 @@ import './dialog.css';
 //   initialFocus             a ref, or a selector inside the panel. Default: [data-dlg-focus] → first field in the body →
 //                            the main action → the panel.
 //   returnFocus              a ref to focus on close. Default: the element that had focus when it opened.
+//   className · aria-label   className goes on the panel · aria-label names the dialog when there is no title
+// Lifecycle (usePresence): closed → open (page locked, focus trapped, Esc answered) → leaving (focus already given back, panel
+// inert, page still locked while it fades) → closed (page unlocked). Every open mounts a fresh Layer, so the element to give
+// focus back to is always the one that had focus at that open, even when it reopens during the fade.
 // Esc: a layer inside the dialog (select, menu) that handles Esc must call event.preventDefault(), so the dialog stays open.
 // Specimen for the docs: <DialogPanel static …> draws the panel only (no scrim, trap or keys) and leaves the Tab order.
 const spec = c.dialog;
@@ -47,11 +53,7 @@ function unlockScroll() {
   document.documentElement.removeAttribute('data-dlg-lock');
   document.documentElement.removeAttribute('data-dlg-bar');
 }
-const stack = []; // open dialogs, topmost last: only the top one traps focus and answers Esc
-
-const TABBABLE = 'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]), [contenteditable="true"]';
 const FIELD = 'input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [data-autofocus]';
-const tabbables = (root) => [...root.querySelectorAll(TABBABLE)].filter((el) => !el.closest('[inert]') && el.getClientRects().length);
 
 function firstFocus(panel, initialFocus) {
   if (initialFocus?.current) return initialFocus.current;
@@ -68,7 +70,7 @@ export function Action({ label, type, tone, primary, focus, onClick, ...rest }) 
 }
 
 // The panel itself. fade forces the scroll fades for a specimen ('top' | 'bottom' | 'both').
-function Panel({ title, description, size = 'md', role = 'dialog', closable = true, onClose, actions = [], footerStart, children, panelRef, titleId, descId, leaving, static: isStatic, fade }) {
+function Panel({ title, description, size = 'md', role = 'dialog', closable = true, onClose, actions = [], footerStart, children, panelRef, titleId, descId, leaving, static: isStatic, fade, className = '', 'aria-label': ariaLabel }) {
   const bodyRef = useRef(null), contentRef = useRef(null);
   const [edge, setEdge] = useState({ top: false, bottom: false });
   useEffect(() => {
@@ -87,8 +89,8 @@ function Panel({ title, description, size = 'md', role = 'dialog', closable = tr
   const top = fade === 'top' || fade === 'both' || edge.top, bottom = fade === 'bottom' || fade === 'both' || edge.bottom;
   const primary = actions.some((a) => a.primary) ? -1 : actions.length - 1;
   const panel = (
-    <div ref={panelRef} className="dlg-panel lit motion-pop" data-size={size} data-leaving={leaving || undefined}
-      role={isStatic ? undefined : role} aria-modal={isStatic ? undefined : 'true'} aria-labelledby={titleId} aria-describedby={description ? descId : undefined}
+    <div ref={panelRef} className={`dlg-panel lit motion-pop ${className}`.trim()} data-size={size} data-leaving={leaving || undefined}
+      role={isStatic ? undefined : role} aria-modal={isStatic ? undefined : 'true'} aria-labelledby={title ? titleId : undefined} aria-label={title ? undefined : ariaLabel} aria-describedby={description ? descId : undefined}
       tabIndex={-1} inert={isStatic || undefined}
       {...rec(`${role === 'alertdialog' ? 'alert dialog' : 'dialog'} · ${size}`, [['background', 'surface/primary'], ['border', 'border/primary'], ['radius', 'radius/2xl'], ['width', `layout · ${WIDTH[size]}px`], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']])}>
       <div className="dlg-head" {...rec('dialog header', [['padding left', 'space/24'], ['padding right', 'space/16'], ['padding top', 'space/16'], ['padding bottom', 'space/8'], ['gap', 'space/4']])}>
@@ -139,28 +141,25 @@ function Layer({ open, leaving, onClose, blocking, scrimClose, initialFocus, ret
     return unlockScroll;
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // While open: trap focus, answer Esc, pull stray focus back, start inside. On close: give focus back at once.
+  // Esc closes the newest layer only (lib/useDismiss). A layer inside the dialog (select, menu) that handled Esc has prevented
+  // the default, so the dialog stays. A press on the scrim is handled below, not as an outside press.
+  const { isTop } = useDismiss({ open, press: false, escape: !blocking, onDismiss: (_, e) => { e.preventDefault(); live.current.onClose?.('escape'); } });
+
+  // While open: trap focus, pull stray focus back, start inside. On close: give focus back at once.
   useEffect(() => {
     if (!open) return;
-    const me = {}; stack.push(me);
-    const top = () => stack[stack.length - 1] === me;
     const allowed = (el) => el?.closest?.('[data-focus-allow]');
     const onKey = (e) => {
-      if (!top()) return;
-      if (e.key === 'Escape') {
-        if (e.defaultPrevented || live.current.blocking) return;
-        e.preventDefault(); live.current.onClose?.('escape');
-      } else if (e.key === 'Tab') {
-        const p = panel.current, list = tabbables(p), a = document.activeElement;
-        if (allowed(a)) return;
-        if (!list.length) { e.preventDefault(); p.focus(); return; }
-        const first = list[0], last = list[list.length - 1], inside = p.contains(a) && a !== p;
-        if (e.shiftKey && (!inside || a === first)) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && (!inside || a === last)) { e.preventDefault(); first.focus(); }
-      }
+      if (e.key !== 'Tab' || !isTop()) return;
+      const p = panel.current, list = tabbables(p), a = document.activeElement;
+      if (allowed(a)) return;
+      if (!list.length) { e.preventDefault(); p.focus(); return; }
+      const first = list[0], last = list[list.length - 1], inside = p.contains(a) && a !== p;
+      if (e.shiftKey && (!inside || a === first)) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (!inside || a === last)) { e.preventDefault(); first.focus(); }
     };
     const onFocusIn = (e) => {
-      if (!top() || panel.current.contains(e.target) || allowed(e.target)) return;
+      if (!isTop() || panel.current.contains(e.target) || allowed(e.target)) return;
       (tabbables(panel.current)[0] || panel.current).focus({ preventScroll: true });
     };
     document.addEventListener('keydown', onKey);
@@ -168,7 +167,6 @@ function Layer({ open, leaving, onClose, blocking, scrimClose, initialFocus, ret
     firstFocus(panel.current, initialFocus)?.focus({ preventScroll: true });
     return () => {
       document.removeEventListener('keydown', onKey); document.removeEventListener('focusin', onFocusIn);
-      stack.splice(stack.indexOf(me), 1);
       const back = opener.current;
       if (back && back.isConnected) back.focus({ preventScroll: true });
     };
@@ -176,7 +174,7 @@ function Layer({ open, leaving, onClose, blocking, scrimClose, initialFocus, ret
 
   const press = (e) => { if (!panel.current.contains(e.target) && scrimClose && !blocking) onClose?.('scrim'); };
   return (
-    <div className="dlg dlg-root dlg-ov motion-fade" data-leaving={leaving || undefined} data-light-root="" onPointerDown={press}
+    <div className="dlg dlg-root dlg-ov motion-fade" data-leaving={leaving || undefined} data-state={leaving ? 'leaving' : 'open'} inert={leaving || undefined} data-light-root="" onPointerDown={press}
       {...rec('dialog scrim', [['background', 'background · 72%'], ['blur', 'space/4']])}>
       <div className="dlg-layout">
         <Panel {...rest} closable={closable && !blocking} onClose={onClose} panelRef={panel} titleId={titleId} descId={descId} leaving={leaving} />
@@ -187,22 +185,23 @@ function Layer({ open, leaving, onClose, blocking, scrimClose, initialFocus, ret
 
 
 export default function Dialog({ open, onClose, blocking = false, scrimClose = true, closable = true, initialFocus, returnFocus, role = 'dialog', size = 'md', ...rest }) {
-  const { mounted, leaving } = usePresence(open);
+  const { mounted, leaving, gen } = usePresence(open);
   const [host, setHost] = useState(null);
   useEffect(() => setHost(document.body), []);
   if (!host || !mounted) return null;
   return createPortal(
-    <Layer open={open} leaving={leaving} onClose={onClose} blocking={blocking} scrimClose={scrimClose} closable={closable} initialFocus={initialFocus}
+    <Layer key={gen} open={open} leaving={leaving} onClose={onClose} blocking={blocking} scrimClose={scrimClose} closable={closable} initialFocus={initialFocus}
       returnFocus={returnFocus} role={role} size={size} {...rest} />, host);
 }
 
 // Alert dialog: one question, confirm or cancel. No close button, no scrim press, sm wide. Esc cancels.
+// While `loading` the dialog stays open until the work ends: Esc does nothing (it is blocking) and Cancel is disabled.
 // tone 'critical': the confirm is destructive, so focus starts on Cancel and the confirm is a critical secondary Button.
 export function AlertDialog({ open, title, description, confirmLabel = 'Confirm', cancelLabel = 'Cancel', tone, loading, onConfirm, onCancel, ...rest }) {
   const critical = tone === 'critical';
   return (
-    <Dialog open={open} role="alertdialog" size="sm" closable={false} scrimClose={false} title={title} description={description}
-      onClose={() => onCancel?.()}
+    <Dialog open={open} role="alertdialog" size="sm" closable={false} scrimClose={false} blocking={!!loading} title={title} description={description}
+      onClose={() => { if (!loading) onCancel?.(); }}
       actions={[{ label: cancelLabel, type: 'ghost', onClick: onCancel, focus: critical, disabled: loading },
         { label: confirmLabel, primary: true, tone, loading, onClick: onConfirm, focus: !critical }]} {...rest} />
   );

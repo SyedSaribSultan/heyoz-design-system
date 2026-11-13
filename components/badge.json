@@ -18,7 +18,7 @@
     "anchor": "On an icon, a button or an avatar the badge sits on the top-right corner, centred on it, with a ring of the surface colour (ring-colour, stroke/2) so it cuts out of what it covers. On a circle the corner is 14.6% in from each side, so the badge sits on the circle's edge. BadgeAnchor does this; the ring colour follows the surface the badge sits on.",
     "motion": "A change of tone or variant fades at duration/fast (D-031). A badge that appears fades in; nothing slides or scales. Reduced motion keeps the fade.",
     "clip": "A badge outside its anchor paints beyond the anchor's box, so a scrolling or clipping parent needs space for it (stroke/2 plus half the badge, D-037).",
-    "usage": "Use a Badge for a status (Live, Failed, Draft), a count on a nav item or icon, or a quiet 'New'. Do not use it for an action (Button), a removable or selectable tag (Chip), a message (Toast, Callout) or a long label: if it needs more than about two words, it is text."
+    "use": "Use a Badge for a status (Live, Failed, Draft), a count on a nav item or icon, or a quiet 'New'. Do not use it for an action (Button), a removable or selectable tag (Chip), a message (Toast, Callout) or a long label: if it needs more than about two words, it is text."
   },
   "parts": {
     "sm": {

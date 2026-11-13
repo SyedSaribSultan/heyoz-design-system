@@ -52,7 +52,7 @@
 .sn-logo > .sn-label { white-space: nowrap; }
 .sn[data-collapsed] .sn-logo-row > .sn-logo { gap: 0; }
 .sn[data-collapsed] .sn-logo > .sn-label { flex: 0 0 0; width: 0; overflow: hidden; } /* fades and clips like the item labels */
-/* Collapsed: the open button lies exactly over the logomark (the selector outranks the tooltip rule `.sn [data-tip]`, which sets position: relative); on hover or focus the logomark gives way to the icon. */
+/* Collapsed: the open button lies exactly over the logomark; on hover or focus the logomark gives way to the icon. */
 .sn .sn-logo-row > .sn-logo-open { all: unset; box-sizing: border-box; position: absolute; left: var(--stroke-2); top: var(--stroke-2); display: inline-flex; align-items: center; justify-content: center;
   width: var(--sn-logo-size); height: var(--sn-logo-size); border-radius: var(--radius-md); cursor: pointer; }
 .sn .sn-logo-row > .sn-logo-open:focus-visible { box-shadow: 0 0 0 var(--stroke-2) var(--border-focus); }
@@ -61,9 +61,8 @@
 .sn-logo-row:has(.sn-logo-open:is(:hover, :focus-visible)) .sn-logo img { opacity: 0; }
 .sn-logo-open:is(:hover, :focus-visible) .sn-open-icon { opacity: 1; }
 /* The close button stays mounted: collapsed it leaves the flow and fades, so it never pops in or out. */
-.sn-close { transition: opacity var(--duration-fast) var(--easing-standard); }
+.sn-close { display: inline-flex; transition: opacity var(--duration-fast) var(--easing-standard); }
 .sn[data-collapsed] .sn-close { position: absolute; right: var(--stroke-2); opacity: 0; pointer-events: none; }
-.sn-tip-host { display: inline-flex; }
 
 /* Groups: title, then items */
 .sn-group { display: flex; flex-direction: column; }
@@ -119,19 +118,6 @@
 .sn-avatar { width: var(--sn-profile-avatar); height: var(--sn-profile-avatar); flex: none; border-radius: var(--radius-full); object-fit: cover; box-shadow: 0 0 0 var(--stroke-1) var(--sn-profile-avatar-border); }
 .sn-who { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .sn-who > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-/* Tooltips: fixed to the window (SideNav places them via --tip-x / --tip-y). A pseudo-element can't take a
-   type class, so its font reads the label/lg variables named by the spec (tooltip.type). */
-.sn [data-tip] { position: relative; }
-.sn [data-tip]::before { content: attr(data-tip); opacity: 0; visibility: hidden; transition: opacity var(--duration-fast) var(--easing-standard), visibility 0s linear var(--duration-fast); }
-.sn [data-tip]:hover::before, .sn [data-tip]:focus-visible::before { opacity: 1; visibility: visible; transition: opacity var(--duration-fast) var(--easing-standard); }
-.sn [data-tip]::before { position: fixed; z-index: 1200; top: var(--tip-y, 50%); left: var(--tip-x, 100%); transform: translateY(-50%);
-  padding: var(--sn-tooltip-padding-y) var(--sn-tooltip-padding-x); border-radius: var(--sn-tooltip-radius); white-space: nowrap; pointer-events: none;
-  background: var(--sn-tooltip-background); color: var(--sn-item-color); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-tooltip-border), var(--sn-shade);
-  font: var(--font-weight-medium) var(--type-label-lg-size) / var(--type-label-lg-line-height) var(--font-label); letter-spacing: var(--type-label-lg-tracking); }
-/* Placement never depends on hover (only visibility does), so a tooltip fades out where it was shown. */
-.sn-tip-host[data-tip]::before { transform: translateX(-100%); }
-@media (hover: none) { .sn [data-tip]::before { display: none; } }
 
 /* Active highlight (D-032): one surface that slides to the active item, across groups. It carries the active
    look; the active item itself paints none. Items sit on it transparently (their default fill/primary equals the

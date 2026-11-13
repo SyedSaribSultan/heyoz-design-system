@@ -8,7 +8,7 @@
     "dev": "npm run tokens && next dev --turbopack",
     "build": "npm run tokens && next build",
     "start": "next start",
-    "test": "node --test src/app/editor/model.test.mjs"
+    "test": "node --test src/app/editor/model.test.mjs src/app/editor/store.test.mjs"
   },
   "dependencies": {
     "culori": "4.0.2",

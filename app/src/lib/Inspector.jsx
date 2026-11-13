@@ -50,12 +50,13 @@ const rowsOf = (d, el) => {
 export default function Inspector() {
   const [tip, setTip] = useState(null);
   useEffect(() => {
-    let last = null, pos = null, on = false;
-    const clear = () => { on = false; last?.removeAttribute('data-inspected'); last = null; setTip(null); };
+    let last = null, pos = null, on = false, run = 0; // run: the newest show() call; an older one that resumes after its await stops
+    const clear = () => { on = false; run++; last?.removeAttribute('data-inspected'); last = null; setTip(null); };
     const show = async (x, y) => {
       on = true;
+      const mine = ++run;
       const d = await load();
-      if (!on) return; // released while loading
+      if (!on || mine !== run) return; // released while loading, or a newer call took over
       const stack = document.elementsFromPoint(x, y).filter(hasTokens);
       const top = stack[0];
       if (last && last !== top) last.removeAttribute('data-inspected');

@@ -38,11 +38,11 @@ export function ModelPick({ model, open, onToggle }) {
   );
 }
 
-export default function Panel() {
+export default function Panel({ leaving }) {
   useEd(); const T = S.tab;
   const title = { media: 'Media', text: 'Text', audio: 'Sound', ai: 'AI' }[T];
   return (
-    <aside className="ed-panel lit motion-pop" data-light-root="" aria-label={`${title} panel`} data-name="tool panel (draft)" data-tokens={JSON.stringify([['background', 'surface/secondary'], ['border', 'border/tertiary'], ['radius', 'radius/xl'], ['effect', 'effect · drop-md']])}>
+    <aside className="ed-panel lit motion-pop" data-leaving={leaving || undefined} data-light-root="" aria-label={`${title} panel`} data-name="tool panel (draft)" data-tokens={JSON.stringify([['background', 'surface/secondary'], ['border', 'border/tertiary'], ['radius', 'radius/xl'], ['effect', 'effect · drop-md']])}>
       <div className="ed-ph"><h3 className="type-heading-xs-semibold">{title}</h3>
         {T === 'media' && <Button type="ghost" size="2xs" icon={iconUrl('plus')} onClick={() => toast('Upload is not wired in the design system app')}>Upload</Button>}
         <Button type="ghost" size="xs" icon={iconUrl('x')} label="Close" onClick={closeSheet} />

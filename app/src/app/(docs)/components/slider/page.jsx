@@ -1,8 +1,7 @@
 import Slider from '@/components/Slider';
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Meta, Table, Info, SpecTable, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
-import t from '@/tokens/tokens.resolved.json';
 import SliderPlayground from './SliderPlayground';
 import './page.css';
 
@@ -10,7 +9,7 @@ export const metadata = meta('/components/slider');
 
 const SPEC = c.slider;
 // A spec value in px: a set number, or the token it points at (components/slider.json).
-const px = (key) => { const x = SPEC.vars.find((v) => v.key === key); return x.px ?? t.numbers.find((n) => n.name === x.ref).px; };
+const { px } = specOf(SPEC);
 const KEYS = [
   ['← → ↑ ↓', 'One step.'],
   ['Shift + arrows', 'Ten steps.'],
@@ -58,7 +57,7 @@ export default function SliderPage() {
         <Table first={260} cols={['Key', 'Does']} rows={KEYS.map(([k, d]) => [<Token key="k">{k}</Token>, d])} />
       </Section>
 
-      <Section title="When to use" desc={SPEC.rules.when}>
+      <Section title="When to use" desc={SPEC.rules.use}>
         <Table first={200} cols={['Need', 'Use']} rows={[
           ['A rough value on a scale', 'Slider.'],
           ['An exact value too', 'Slider with a number field.'],
@@ -70,10 +69,7 @@ export default function SliderPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the slider is made of. <Info info="Source: components/slider.json, checked by npm run tokens\nEach value is a --sl-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={260} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--sl-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="sl" />
         <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>{SPEC.rules.focus} {SPEC.rules.stacking}</p>
       </Section>
     </DocPage>

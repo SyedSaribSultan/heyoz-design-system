@@ -19,7 +19,7 @@ import './slider.css';
 // onChange(value)       on every change · onChangeEnd(value): drag end, key press, field commit
 // min · max · step      the scale (default 0 · 100 · 1)
 // unit · format(v)      readout text: unit is appended; format replaces it
-// label                 shown above; also the accessible name (ariaLabel when there is no label)
+// label                 shown above; also the accessible name (aria-label, or ariaLabel, when there is no label)
 // readout               value at the right of the label row (default true; hidden when `field` is on)
 // ticks                 true: a mark per step (10 even marks past 20 steps) · a number: that many intervals
 // limits                min and max labels under the track · field: number field(s) beside the track
@@ -39,13 +39,15 @@ function NumField({ value, set, min, max, step, label, disabled }) {
   );
 }
 
-export default function Slider({ label, ariaLabel, value, defaultValue, onChange, onChangeEnd, min = 0, max = 100, step = 1, unit = '', format,
+export default function Slider({ label, ariaLabel: ariaLabelProp, 'aria-label': ariaLabelAlt, value, defaultValue, onChange, onChangeEnd, min = 0, max = 100, step = 1, unit = '', format,
   readout = true, ticks, limits, field, disabled, state, className = '' }) {
-  const range = Array.isArray(value ?? defaultValue);
+  const ariaLabel = ariaLabelAlt ?? ariaLabelProp, range = Array.isArray(value ?? defaultValue);
   const [own, setOwn] = useState(defaultValue ?? (range ? [min, max] : min));
   const val = value ?? own;
+  // drag: null (idle) or { i: the thumb, mode: 'native' (the browser drags the real thumb) | 'custom' (a press on the track: we move it), id: the pointer }.
+  // One object, so the thumb, the mode and the pointer can never disagree.
   const [drag, setDrag] = useState(null), [focusI, setFocusI] = useState(null), [last, setLast] = useState(0);
-  const box = useRef(null), mode = useRef(null), inputs = useRef([]);
+  const box = useRef(null), inputs = useRef([]);
   const lid = useId();
 
   const dp = Math.max(decimals(step), decimals(min));
@@ -72,22 +74,23 @@ export default function Slider({ label, ariaLabel, value, defaultValue, onChange
   const down = (e) => {
     if (disabled || (e.button && e.button > 0)) return;
     const native = e.target.closest?.('input');
-    if (native) { const i = +native.dataset.i; setDrag(i); setLast(i); mode.current = 'native'; return; }
+    if (native) { const i = +native.dataset.i; setDrag({ i, mode: 'native', id: e.pointerId }); setLast(i); return; }
     const v = fromX(e.clientX);
     const cur = range ? live.current.val : [live.current.val];
     const da = Math.abs(v - cur[0]), db = range ? Math.abs(v - cur[1]) : Infinity;
     const i = da < db ? 0 : db < da ? 1 : v < cur[0] ? 0 : 1;
-    setThumb(i, v); setDrag(i); setLast(i); mode.current = 'custom';
+    setThumb(i, v); setDrag({ i, mode: 'custom', id: e.pointerId }); setLast(i);
     inputs.current[i]?.focus({ preventScroll: true });
     e.preventDefault();
   };
   useEffect(() => {
     if (drag === null) return;
-    const move = (e) => { if (mode.current === 'custom') live.current.setThumb(drag, fromX(e.clientX)); };
-    const up = () => { setDrag(null); mode.current = null; live.current.onChangeEnd?.(live.current.val); };
+    const move = (e) => { if (e.pointerId === drag.id && drag.mode === 'custom') live.current.setThumb(drag.i, fromX(e.clientX)); };
+    const up = (e) => { if (e.pointerId !== drag.id) return; setDrag(null); live.current.onChangeEnd?.(live.current.val); };
     window.addEventListener('pointermove', move); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
     return () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up); };
   }, [drag]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (disabled && drag) setDrag(null); }, [disabled, drag]); // disabling mid-drag ends it
 
   // Keys: arrows one step · Shift ×10 · Page Up/Down 10% of the range · Home/End the allowed ends.
   const key = (i) => (e) => {
@@ -133,14 +136,14 @@ export default function Slider({ label, ariaLabel, value, defaultValue, onChange
             })}
             {thumbs.map((v, i) => (
               <input key={i} ref={(el) => { inputs.current[i] = el; }} className="sl-in" type="range" min={min} max={max} step={step} value={v} disabled={disabled}
-                data-i={i} data-drag={drag === i || undefined} style={{ zIndex: i === top ? 2 : 1 }}
+                data-i={i} data-drag={drag?.i === i || undefined} style={{ zIndex: i === top ? 2 : 1 }}
                 aria-labelledby={range ? undefined : label ? lid : undefined} aria-label={range ? nameOf(i) : label ? undefined : ariaLabel}
                 aria-valuetext={fmt(v)}
                 onChange={(e) => setThumb(i, +e.target.value)} onKeyDown={key(i)}
                 onFocus={(e) => { setLast(i); if (e.target.matches(':focus-visible')) setFocusI(i); }} onBlur={() => setFocusI(null)} />
             ))}
             {thumbs.map((v, i) => (
-              <span key={i} className={`sl-tip lit ${TY.tip}`} style={{ '--p': pct(v) }} data-show={drag === i || focusI === i || undefined} aria-hidden
+              <span key={i} className={`sl-tip lit ${TY.tip}`} style={{ '--p': pct(v) }} data-show={drag?.i === i || focusI === i || undefined} aria-hidden
                 {...rec('slider value tag', [['background', 'fill/elevated'], ['border', 'border/tertiary'], ['radius', 'radius/md'], ['type', 'type/label/md/medium'], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']])}>{fmt(v)}</span>
             ))}
           </div>

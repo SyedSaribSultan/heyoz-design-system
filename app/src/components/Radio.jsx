@@ -1,5 +1,6 @@
 'use client';
-import { createContext, useContext, useEffect, useId, useRef, useState } from 'react';
+import { createContext, useContext, useId, useRef, useState } from 'react';
+import useRoving from '@/lib/useRoving';
 import c from '@/tokens/components.json';
 import { rec } from '@/lib/rec';
 import '@/styles/components.css';
@@ -27,25 +28,12 @@ const tokens = (size) => [['circle', V[`circle-${size}`]], ['dot', V[`dot-${size
   ['fill · hover', V['unchecked-hover-fill']], ['border · hover', V['unchecked-hover-border']], ['fill · pressed', V['unchecked-pressed-fill']], ['focus ring', `${V['circle-focus-ring']} · border/focus`],
   ['text colour', V['label-color']], ['label', 'type/body/md/regular'], ['description', 'type/body/sm/regular'], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']];
 
-const STEP = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
-
 export function RadioGroup({ label, 'aria-label': ariaLabel, value, defaultValue, onChange, name, orientation = 'vertical', size = 'md', disabled, children, className = '', ...props }) {
   const id = useId(), ref = useRef(null);
   const [inner, setInner] = useState(defaultValue ?? null);
-  const [first, setFirst] = useState(null); // the first enabled radio: the Tab stop while none is chosen
   const controlled = value !== undefined, current = controlled ? value : inner;
   const select = (v) => { if (!controlled) setInner(v); if (v !== current) onChange?.(v); };
-  useEffect(() => { setFirst(ref.current?.querySelector('[role="radio"]:not([aria-disabled="true"])')?.dataset.value ?? null); });
-
-  const onKeyDown = (e) => {
-    if (!(e.key in STEP) && e.key !== 'Home' && e.key !== 'End') return;
-    const items = [...ref.current.querySelectorAll('[role="radio"]:not([aria-disabled="true"])')], at = items.indexOf(e.target.closest('[role="radio"]'));
-    if (!items.length || at < 0) return;
-    e.preventDefault();
-    const next = e.key === 'Home' ? items[0] : e.key === 'End' ? items[items.length - 1] : items[(at + STEP[e.key] + items.length) % items.length];
-    next.focus();
-    next.click();
-  };
+  const { onKeyDown, first } = useRoving({ ref, item: '[role="radio"]', track: true }); // first: the Tab stop while none is chosen
 
   return (
     <Ctx.Provider value={{ value: current, select, size, disabled, first }}>

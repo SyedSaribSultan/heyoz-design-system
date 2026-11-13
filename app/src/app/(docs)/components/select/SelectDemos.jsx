@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Select from '@/components/Select';
 import Segmented from '@/components/Segmented';
 import Button from '@/components/Button';
-import './menu-docs.css';
 
 // Live selects for the Select page. Options are plain data, shared with the page.
 export const MODELS = [

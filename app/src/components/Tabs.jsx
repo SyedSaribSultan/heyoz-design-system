@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import useIndicator from '@/lib/useIndicator';
+import useRoving from '@/lib/useRoving';
 import c from '@/tokens/components.json';
 import './tabs.css';
 
@@ -17,12 +18,12 @@ import './tabs.css';
 //             a tab with no panel (panel undefined) is a plain tab: no aria-controls, the caller shows the content
 // value:      the selected value (controlled) · defaultValue: the first enabled one when uncontrolled · onChange(value)
 // activation: 'auto' (arrows move and select) | 'manual' (arrows move focus, Enter / Space select)
+// label or aria-label: the tab list's name · className: on the root
 // size:       'md' (40, default) | 'sm' (32) · stretch: the tabs share the full width
 // Keyboard:   one Tab stop (the selected tab); Left / Right move, Home / End jump, wrapping, disabled skipped.
 const TABS = c.tabs;
-const MOVE = { ArrowLeft: -1, ArrowRight: 1 };
 
-export default function Tabs({ label, items, value, defaultValue, onChange, activation = 'auto', size = 'md', stretch, className = '' }) {
+export default function Tabs({ label, 'aria-label': ariaLabel, items, value, defaultValue, onChange, activation = 'auto', size = 'md', stretch, className = '' }) {
   const uid = useId();
   const [inner, setInner] = useState(defaultValue ?? items.find((i) => !i.off)?.value);
   const current = value !== undefined ? value : inner;
@@ -61,19 +62,7 @@ export default function Tabs({ label, items, value, defaultValue, onChange, acti
   }, [current]);
 
   const stop = items.some((i) => i.value === current && !i.off) ? current : items.find((i) => !i.off)?.value;
-  const onKeyDown = (e) => {
-    if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey) return;
-    const tabs = [...trackRef.current.querySelectorAll('[role="tab"]:not(:disabled)')];
-    const at = tabs.indexOf(document.activeElement);
-    let to;
-    if (e.key === 'Home') to = 0;
-    else if (e.key === 'End') to = tabs.length - 1;
-    else if (MOVE[e.key] && at >= 0) to = (at + MOVE[e.key] + tabs.length) % tabs.length;
-    else return;
-    e.preventDefault();
-    tabs[to].focus();
-    if (activation === 'auto') tabs[to].click();
-  };
+  const { onKeyDown } = useRoving({ ref: trackRef, item: '[role="tab"]', axis: 'x', activate: activation === 'auto' ? 'click' : 'focus' });
 
   const labelClass = TABS.types[`tab-${size}`];
   const id = (v, part) => `${uid}-${part}-${String(v).replace(/\s+/g, '-')}`;
@@ -81,7 +70,7 @@ export default function Tabs({ label, items, value, defaultValue, onChange, acti
     <div className={`tabs ${className}`.trim()} data-size={size} data-stretch={stretch || undefined} data-component="tabs" data-name={`tabs · ${size}${stretch ? ' · stretch' : ''}`}
       data-tokens={JSON.stringify([['baseline', 'border/primary'], ['baseline width', 'stroke/1'], ['indicator', 'content/primary · stroke/2 (slides, D-032)'], ['label colour', 'content/secondary'], ['label colour · selected', 'content/primary'], ['gap', 'space/4'], ['clip room', 'stroke/2']])}>
       <div ref={listRef} className="tabs-list" onScroll={measure} data-fade-start={fade.start || undefined} data-fade-end={fade.end || undefined}>
-        <div ref={trackRef} className="tabs-track" role="tablist" aria-label={label} aria-orientation="horizontal" onKeyDown={onKeyDown}
+        <div ref={trackRef} className="tabs-track" role="tablist" aria-label={ariaLabel ?? label} aria-orientation="horizontal" onKeyDown={onKeyDown}
           data-indicator-ready={ready || undefined} data-indicator-moving={moving || undefined}>
           <span className="tabs-ink motion-indicator" style={vars} aria-hidden />
           {items.map((it) => (

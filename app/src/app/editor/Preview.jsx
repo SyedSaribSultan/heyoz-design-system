@@ -3,7 +3,7 @@
 // The canvas is media (data-media): the cursor light passes behind it.
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Button from '@/components/Button';
-import { S, useEd, select, selClip, checkpoint, markSaved, bump, openTab, M } from './store';
+import { S, useEd, select, selClip, bump, openTab, dragStart, dragStep, dragFinish, dragCancel, M } from './store';
 import { Ic, iconUrl } from './parts/parts';
 
 const { AR, PAL, FONTS, clamp, activeVideo, trk, cend, spd, findClip, allClips } = M;
@@ -62,24 +62,24 @@ export default function Preview() {
   const v = activeVideo(P, t), gen = v?.meta.status === 'generating', sel = selClip();
   const texts = trk(P, 'text').clips.filter((c) => t >= c.start && t < cend(c));
 
-  // Text drag in the preview: one undo step per drag.
-  const drag = useRef(null);
+  // Text drag in the preview: one undo step per drag, on the store's drag shell (so it cannot overlap a timeline drag).
   const down = (e) => {
     const o = e.target.closest('[data-text]');
-    if (o) { const c = findClip(P, o.dataset.text); if (!c) return; if (S.sel !== c.id) select(c.id); drag.current = { id: c.id, cp: false }; e.currentTarget.setPointerCapture(e.pointerId); e.preventDefault(); return; }
+    if (o) { const c = findClip(P, o.dataset.text); if (!c) return; if (S.drag) return; if (S.sel !== c.id) select(c.id); dragStart('text', { id: c.id }); e.currentTarget.setPointerCapture(e.pointerId); e.preventDefault(); return; }
     if (e.target.closest('button')) return;
     if (v && S.sel !== v.id) select(v.id);
   };
   const move = (e) => {
-    const d = drag.current; if (!d) return; const c = findClip(S.project, d.id); if (!c) return; if (!d.cp) { checkpoint(); d.cp = true; }
+    const d = S.drag; if (!d || d.type !== 'text') return; const c = findClip(S.project, d.id); if (!c) return; dragStep(0);
     const r = e.currentTarget.getBoundingClientRect(); c.props.x = clamp(((e.clientX - r.left) / r.width) * 100, 6, 94); c.props.y = clamp(((e.clientY - r.top) / r.height) * 100, 6, 94); bump();
   };
-  const up = () => { if (drag.current?.cp) markSaved(); drag.current = null; };
+  const up = () => { if (S.drag?.type === 'text') dragFinish(); };
+  const cancel = () => { if (S.drag?.type === 'text') dragCancel(); };
 
   return (
     <div ref={pv} className="ed-pv" onPointerDown={(e) => { if (e.target === pv.current && S.sel) select(null); }}>
       <div className="ed-cvbox" data-media data-sel={(sel && sel.kind === 'video' && v === sel) || undefined} style={{ width: box.w, height: box.h, '--sh': `${box.h}px` }}
-        onPointerDown={down} onPointerMove={move} onPointerUp={up}
+        onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={cancel} onLostPointerCapture={cancel}
         data-name="preview (media)" data-tokens={JSON.stringify([['radius', 'radius/lg'], ['selected ring', 'border/selected'], ['border', 'border/primary']])}>
         <canvas ref={cv} aria-label="Video preview" />
         <div className="ed-ov">

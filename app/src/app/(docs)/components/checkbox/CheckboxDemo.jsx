@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Checkbox, { CheckboxGroup } from '@/components/Checkbox';
 import Switch from '@/components/Switch';
 import Segmented from '@/components/Segmented';
-import './selection-docs.css';
 
 // Playground: one live checkbox and the knobs that change it. The knobs are Switches and a Segmented (our own parts).
 export function CheckboxPlayground({ sm, md }) {

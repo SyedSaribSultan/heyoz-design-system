@@ -21,9 +21,9 @@ One face: a picture, or initials on a tinted fill, or an icon. Optional status d
 - **group**: A group overlaps faces by a set amount per size (4, 6, 8, 10, 12, 14), each with a ring of the surface colour so the faces cut into each other. Later faces sit on top. Past max it shows one +N face (neutral tone, same size) and names the rest. The group is one unit: role group, labelled; each face keeps its name.
 - **light**: A fallback face is a surface and is lit (D-020). A picture is media (data-media): it sits above the light, which dims to 25% while the pointer is over it.
 - **motion**: A picture fades in at duration/fast; a status change fades at duration/fast (D-031). Nothing moves or resizes.
-- **a11y**: A face is an image with the name as its accessible name (role img, aria-label), plus the status. Where the name is written next to the face, pass decorative: the face is then hidden from assistive tech and the name is not read twice. A +N face is named 'and N more'.
+- **aria**: A face is an image with the name as its accessible name (role img, aria-label), plus the status. Where the name is written next to the face, pass decorative: the face is then hidden from assistive tech and the name is not read twice. A +N face is named 'and N more'.
 - **interactive**: An avatar is not a button. To make it one, wrap it in a Button or a link; the focus ring then belongs to that control.
-- **usage**: Use an Avatar for a person, a brand or a workspace. For a count or a status label on its own use a Badge. A group of more than about five faces should show +N.
+- **use**: Use an Avatar for a person, a brand or a workspace. For a count or a status label on its own use a Badge. A group of more than about five faces should show +N.
 
 ## Values
 

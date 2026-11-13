@@ -1,6 +1,7 @@
 import t from '@/tokens/tokens.resolved.json';
 import { DocPage, Section, Panel, Grid, Token, Info, v, rec } from '@/docs/ui';
 import { meta } from '@/docs/nav';
+import Tooltip from '@/components/Tooltip';
 
 export const metadata = meta('/foundations/colour');
 const STATES = ['', 'hover', 'active', 'disabled'];
@@ -29,12 +30,13 @@ function contentBg(leaf) {
   return 'surface/primary';
 }
 // Every colour on this page copies its hex on click (data-copy, handled by DocsChrome).
-const copyHex = (s) => ({ 'data-copy': s.hex, 'data-info': `${s.name}${s.ref ? `\n→ ${s.ref}` : ''}\n${s.hex}\nClick to copy` });
+const copyHex = (s) => ({ 'data-copy': s.hex });
+const hexTip = (s) => `${s.name}${s.ref ? `\n→ ${s.ref}` : ''}\n${s.hex}\nClick to copy`;
 function Swatch({ group, s }) {
   const leaf = s.name.slice(group.length + 1);
-  if (group === 'content') return <div {...copyHex(s)} className="c-sw type-body-md-medium" style={{ background: v(contentBg(leaf)), color: v(s.name) }} {...rec(s.name, [['text colour', s.name], ['background', contentBg(leaf)]])}>Aa</div>;
-  if (group === 'border') return <div {...copyHex(s)} className="c-sw" style={{ background: v('surface/primary'), boxShadow: `inset 0 0 0 var(--stroke-1) ${v(s.name)}` }} {...rec(s.name, [['border', s.name]])} />;
-  return <div {...copyHex(s)} className="c-sw" style={{ background: v(s.name), boxShadow: `inset 0 0 0 var(--stroke-1) ${v('border/primary')}` }} {...rec(s.name, [['background', s.name]])} />;
+  if (group === 'content') return <Tooltip wide content={hexTip(s)}><div {...copyHex(s)} className="c-sw type-body-md-medium" style={{ background: v(contentBg(leaf)), color: v(s.name) }} {...rec(s.name, [['text colour', s.name], ['background', contentBg(leaf)]])}>Aa</div></Tooltip>;
+  if (group === 'border') return <Tooltip wide content={hexTip(s)}><div {...copyHex(s)} className="c-sw" style={{ background: v('surface/primary'), boxShadow: `inset 0 0 0 var(--stroke-1) ${v(s.name)}` }} {...rec(s.name, [['border', s.name]])} /></Tooltip>;
+  return <Tooltip wide content={hexTip(s)}><div {...copyHex(s)} className="c-sw" style={{ background: v(s.name), boxShadow: `inset 0 0 0 var(--stroke-1) ${v('border/primary')}` }} {...rec(s.name, [['background', s.name]])} /></Tooltip>;
 }
 function StateTable({ group }) {
   return (
@@ -60,10 +62,11 @@ export default function Colour() {
   const Nest = ({ i }) => {
     const s = ladder[i], prev = ladder[i - 1];
     return (
-      <div {...copyHex(s)} className={i === 0 ? 'c-ladder' : 'c-rung lit'} style={{ background: v(s.name) }} {...rec(s.name, [['background', s.name]])}>
+      <Tooltip wide content={hexTip(s)}><div {...copyHex(s)} className={i === 0 ? 'c-ladder' : 'c-rung lit'} style={{ background: v(s.name) }} {...rec(s.name, [['background', s.name]])}>
         <div className="c-rung-label"><Token info={`→ ${s.ref} · ${s.hex}\nLightness ${s.lch[0]}${prev ? ` (+${(s.lch[0] - prev.lch[0]).toFixed(3)})` : ''}`}>{s.name}</Token></div>
         {i < ladder.length - 1 && <Nest i={i + 1} />}
       </div>
+      </Tooltip>
     );
   };
   return (
@@ -71,10 +74,10 @@ export default function Colour() {
       <Section title="Colour families" desc={<>Six ramps, each 12 steps from near-black to near-white, and every step has one job: 1–2 backgrounds, 3–5 component fills, 6–8 borders, 9 the solid colour, 10 its hover, 11–12 text. Our orange's shade 9 is <Info info="orange/9 · #FF3D01">the HeyOz orange</Info>. Click any colour to copy it.</>}>
         <Panel pad={20}>
           <div className="c-scale">
-            <span />{JOBS.map((j, i) => <span key={i} className="c-job type-label-lg-regular" data-info={`Shade ${i + 1}: ${JOB_INFO[i]}`}><b className="type-label-lg-medium">{i + 1}</b>{j}</span>)}
+            <span />{JOBS.map((j, i) => <Tooltip key={i} wide content={`Shade ${i + 1}: ${JOB_INFO[i]}`}><span className="c-job type-label-lg-regular"><b className="type-label-lg-medium">{i + 1}</b>{j}</span></Tooltip>)}
             {t.ramps.map((r) => [
               <span key={r.name} className="c-rname type-label-lg-medium">{r.name}</span>,
-              ...r.steps.map((p) => <div className="c-step" key={p.name}><div {...copyHex(p)} className="c-chip" style={{ background: v(p.name) }} {...rec(p.name, [['background', p.name]])} /></div>),
+              ...r.steps.map((p) => <div className="c-step" key={p.name}><Tooltip wide content={hexTip(p)}><div {...copyHex(p)} className="c-chip" style={{ background: v(p.name) }} {...rec(p.name, [['background', p.name]])} /></Tooltip></div>),
             ])}
           </div>
         </Panel>

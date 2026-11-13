@@ -1,17 +1,13 @@
-import { DocPage, Section, Panel, Token, Table, Meta, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Meta, Info, SpecTable, RuleTable, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
-import t from '@/tokens/tokens.resolved.json';
 import Select from '@/components/Select';
-import { SelectPlayground, FormDemo, MODELS, RATIOS, LANGS } from '@/docs/SelectDemos';
-import '@/docs/menu-docs.css';
+import { SelectPlayground, FormDemo, MODELS, RATIOS, LANGS } from './SelectDemos';
 
 export const metadata = meta('/components/select');
 const SPEC = c.select, MENU = c.menu; // the specs, read here: a client module's exports are not values on the server
-const px = (r) => t.numbers.find((n) => n.name === r)?.px;
-const val = (spec, key) => { const x = spec.vars.find((v) => v.key === key); return x.px ?? px(x.ref); };
+const val = (spec, key) => specOf(spec).px(key);
 const rule = (k) => SPEC.rules[k];
-const RuleTable = ({ keys }) => <Table first={160} cols={['Topic', 'Rule']} rows={keys.map(([k, title]) => [<span key="t" className="type-label-lg-medium">{title}</span>, rule(k)])} />;
 const SIZES = ['xs', 'sm', 'md'];
 
 const STATES = [
@@ -41,7 +37,7 @@ export default function SelectPage() {
             ))}
           </div>
         </Panel>
-        <RuleTable keys={[['well', 'The well'], ['invalid', 'Invalid'], ['chevron', 'Chevron']]} />
+        <RuleTable spec={SPEC} keys={[['well', 'The well'], ['invalid', 'Invalid'], ['chevron', 'Chevron']]} />
       </Section>
 
       <Section title="Three sizes" desc={`Heights on size/control: xs ${val(SPEC, 'size-xs-height')} (everyday), sm ${val(SPEC, 'size-sm-height')}, md ${val(SPEC, 'size-md-height')}. Radius follows the height (lg, xl, 2xl) and padding x follows Button (${val(SPEC, 'size-xs-padding-x')}, ${val(SPEC, 'size-sm-padding-x')}, ${val(SPEC, 'size-md-padding-x')}). The text field uses the same numbers, so the two line up in a form. The list is always the same item size.`}>
@@ -55,7 +51,7 @@ export default function SelectPage() {
             ))}
           </div>
         </Panel>
-        <RuleTable keys={[['fieldConventions', 'Field conventions']]} />
+        <RuleTable spec={SPEC} keys={[['fieldConventions', 'Field conventions']]} />
       </Section>
 
       <Section title="Options" desc={<>Options can carry an icon and a description, sit in groups, and be disabled. The list is the Menu&apos;s surface ({MENU.parts.surface.background}) and item look, as wide as the trigger. <Info info={`Surface: components/menu.json\nItem ${val(MENU, 'item-height')} tall, icon ${val(MENU, 'item-icon')}\nChosen option: a check at the end, size/icon/sm\nOver ${val(MENU, 'surface-max-height')}px tall it scrolls inside (D-037)`}>The details</Info></>}>
@@ -66,7 +62,7 @@ export default function SelectPage() {
             <div className="mnd-cell"><Select label="Language" options={LANGS} defaultValue="Italiano" /><Meta>Fourteen options: it scrolls and opens on the chosen one</Meta></div>
           </div>
         </Panel>
-        <RuleTable keys={[['surface', 'The list'], ['options', 'Options'], ['highlight', 'Highlight']]} />
+        <RuleTable spec={SPEC} keys={[['surface', 'The list'], ['options', 'Options'], ['highlight', 'Highlight']]} />
       </Section>
 
       <Section title="In a form" desc="With a name the select posts its value like a native one. The error shows in the hint's place, starts with an icon, and is read out when it appears. Press Continue with no ratio chosen.">
@@ -74,20 +70,15 @@ export default function SelectPage() {
       </Section>
 
       <Section title="When to use" desc="Pick the control by how many options there are and what the choice does.">
-        <RuleTable keys={[['when', 'Use it when']]} />
+        <RuleTable spec={SPEC} keys={[['use', 'Use it when']]} />
       </Section>
 
       <Section title="Keyboard and screen readers" desc="Focus stays on the trigger while the list is open; the highlighted option is named with aria-activedescendant.">
-        <RuleTable keys={[['keyboard', 'Keyboard'], ['aria', 'Roles and names'], ['states', 'States'], ['motion', 'Motion']]} />
+        <RuleTable spec={SPEC} keys={[['keyboard', 'Keyboard'], ['aria', 'Roles and names'], ['states', 'States'], ['motion', 'Motion']]} />
       </Section>
 
       <Section title="The details" desc={<>Every value the select is made of. <Info info="Source: components/select.json, checked by npm run tokens\nEach value is a --sel-* variable; the list's values are the Menu's --mn-* variables\nPlain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={300} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--sel-{x.key}</Token>, x.ref
-            ? <span key="v" className="d-row" style={{ gap: 'var(--space-8)' }}><Token>{x.ref}</Token>{px(x.ref) != null && <Meta>{px(x.ref)}px</Meta>}</span>
-            : x.none ? 'none' : <span key="v">{x.px}px <Meta>set, not a token</Meta></span>]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls.replaceAll('-', '/')}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="sel" />
       </Section>
     </DocPage>
   );

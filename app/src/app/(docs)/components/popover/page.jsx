@@ -1,4 +1,4 @@
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Meta, Table, Info, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
 import t from '@/tokens/tokens.resolved.json';
@@ -86,9 +86,7 @@ export default function PopoverPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the popover is made of. <Info info="Source: components/popover.json, checked by npm run tokens\nEach value is a --pop-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={280} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--pop-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
+        <SpecTable spec={SPEC} prefix="pop" extra={[
           ['Effects', 'effect · inner-shade, effect · drop-md (D-021)'],
           ['Close button', 'Button ghost, 2xs, icon x, label Close'],
           ['Layer', 'z-index 1080 (set value), below tooltips'],

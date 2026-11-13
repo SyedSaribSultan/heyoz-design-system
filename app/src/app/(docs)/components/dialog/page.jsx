@@ -1,4 +1,4 @@
-import { DocPage, Section, Panel, Token, Table, Info, Meta } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Table, Info, Meta, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import { DialogPanel } from '@/components/Dialog';
 import c from '@/tokens/components.json';
@@ -119,10 +119,7 @@ export default function DialogPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the dialog is made of. <Info info="Source: components/dialog.json, checked by npm run tokens\nEach value is a --dlg-* variable; plain numbers are set values, not tokens\nThe scrim strength (72%) and the effects are set values in dialog.css (D-021)">How to read this</Info></>}>
-        <Table first={300} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--dlg-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="dlg" />
       </Section>
     </DocPage>
   );

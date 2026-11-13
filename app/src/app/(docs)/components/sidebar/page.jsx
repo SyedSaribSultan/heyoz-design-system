@@ -1,8 +1,8 @@
-import { DocPage, Section, Panel, Token, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Info, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
 import t from '@/tokens/tokens.resolved.json';
-import { SideNavLive, ItemStates, BrandStates } from '@/docs/SideNavDemo';
+import { SideNavLive, ItemStates, BrandStates } from './SideNavDemo';
 
 const SPEC = c.sidenav;
 // A spec value in px: a set number, or the token it points at (components/sidenav.json).
@@ -40,10 +40,7 @@ export default function SidebarPage() {
       <Section title="On this site" desc="The menu on the left of this site is the very same piece, with search added on top. Fold it with the button by the logo, or press Ctrl+B (⌘B on a Mac). Folded, every icon stays on the same line and the names fade, so nothing jumps; opening plays the same move backwards. If the list is taller than the screen it scrolls on its own and never moves the page. On a phone it slides in from the side." />
 
       <Section title="The details" desc={<>Every value the sidebar is made of. <Info info="Source: components/sidenav.json, checked by npm run tokens\nEach value is a --sn-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={260} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--sn-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="sn" />
       </Section>
     </DocPage>
   );

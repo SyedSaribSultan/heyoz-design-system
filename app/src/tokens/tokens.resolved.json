@@ -3695,9 +3695,9 @@
         "group": "A group overlaps faces by a set amount per size (4, 6, 8, 10, 12, 14), each with a ring of the surface colour so the faces cut into each other. Later faces sit on top. Past max it shows one +N face (neutral tone, same size) and names the rest. The group is one unit: role group, labelled; each face keeps its name.",
         "light": "A fallback face is a surface and is lit (D-020). A picture is media (data-media): it sits above the light, which dims to 25% while the pointer is over it.",
         "motion": "A picture fades in at duration/fast; a status change fades at duration/fast (D-031). Nothing moves or resizes.",
-        "a11y": "A face is an image with the name as its accessible name (role img, aria-label), plus the status. Where the name is written next to the face, pass decorative: the face is then hidden from assistive tech and the name is not read twice. A +N face is named 'and N more'.",
+        "aria": "A face is an image with the name as its accessible name (role img, aria-label), plus the status. Where the name is written next to the face, pass decorative: the face is then hidden from assistive tech and the name is not read twice. A +N face is named 'and N more'.",
         "interactive": "An avatar is not a button. To make it one, wrap it in a Button or a link; the focus ring then belongs to that control.",
-        "usage": "Use an Avatar for a person, a brand or a workspace. For a count or a status label on its own use a Badge. A group of more than about five faces should show +N."
+        "use": "Use an Avatar for a person, a brand or a workspace. For a count or a status label on its own use a Badge. A group of more than about five faces should show +N."
       },
       "parts": {
         "2xs": {
@@ -4011,7 +4011,7 @@
         "anchor": "On an icon, a button or an avatar the badge sits on the top-right corner, centred on it, with a ring of the surface colour (ring-colour, stroke/2) so it cuts out of what it covers. On a circle the corner is 14.6% in from each side, so the badge sits on the circle's edge. BadgeAnchor does this; the ring colour follows the surface the badge sits on.",
         "motion": "A change of tone or variant fades at duration/fast (D-031). A badge that appears fades in; nothing slides or scales. Reduced motion keeps the fade.",
         "clip": "A badge outside its anchor paints beyond the anchor's box, so a scrolling or clipping parent needs space for it (stroke/2 plus half the badge, D-037).",
-        "usage": "Use a Badge for a status (Live, Failed, Draft), a count on a nav item or icon, or a quiet 'New'. Do not use it for an action (Button), a removable or selectable tag (Chip), a message (Toast, Callout) or a long label: if it needs more than about two words, it is text."
+        "use": "Use a Badge for a status (Live, Failed, Draft), a count on a nav item or icon, or a quiet 'New'. Do not use it for an action (Button), a removable or selectable tag (Chip), a message (Toast, Callout) or a long label: if it needs more than about two words, it is text."
       },
       "parts": {
         "sm": {
@@ -4988,7 +4988,7 @@
         "keyboard": "Tab reaches every chip. Space and Enter press an action chip and toggle a filter chip. In a choice group Tab stops once, on the chosen chip (roving tabindex); arrow keys move and choose, Home and End jump. On an input chip Backspace and Delete remove it; the cross Button is for the mouse and touch, so it is out of the Tab order and the chip is one stop. After removing, focus moves to the next chip, or the previous one.",
         "aria": "Action: a button. Filter: a button with aria-pressed. Choice: a radiogroup with radio chips (aria-checked). Input: a group labelled with its text and aria-keyshortcuts Backspace Delete; its cross Button is named 'Remove <label>'. A chip with only an icon needs a label. Disabled chips stay in the DOM and keep their place.",
         "motion": "Every state change (fill, border, icon colour, shadow) fades at duration/fast (D-031). Reduced motion keeps the fades and drops the slides.",
-        "usage": "Use a Chip for a compact setting, a filter, one choice among a few short options, or a value the user typed or picked. Use a Button for an action on the page, a Segmented control for a mode that reads as a tool switch, a Badge for a status that is not clickable, a Menu or Select for more than about six options."
+        "use": "Use a Chip for a compact setting, a filter, one choice among a few short options, or a value the user typed or picked. Use a Button for an action on the page, a Segmented control for a mode that reads as a tool switch, a Badge for a status that is not clickable, a Menu or Select for more than about six options."
       },
       "parts": {
         "xs": {
@@ -5235,7 +5235,7 @@
         "layout": "Panel: surface/primary, border/primary, radius/2xl, the inner shade (0, -4, blur 10, #000 50%), the same panel as the search dialog, so there is one modal look. Header: title (heading/sm/semibold) and the close button on one line, 32 tall; the description (body/md/regular, content/secondary) sits under the title. The text starts 24 from the left edge. Body: body/md/regular. Footer: actions on the right, gap 8; an optional note or checkbox on the left. Order: the safe action first, the main action last.",
         "actions": "At most one brand Button per dialog (D-026). The main action is a brand Button; a dialog whose answer is a plain yes uses primary (white). Cancel is ghost. Other actions are secondary. Buttons are size sm (40), size md (48) in the sheet so every target is at least 44. A destructive confirm has no Button type of its own: it is a secondary Button with the label and icon in content/critical (hover content/critical-hover, pressed content/critical-active). Proposal: a critical Button type.",
         "scrim": "color-mix of background at 72% and transparent, with a backdrop blur of scrim.blur (space/4): the same values as the search dialog. 72% is a set value, not a token (D-021). The scrim fades in at duration/base and out at duration/fast (motion-fade). A press (pointerdown) on the scrim closes the dialog unless the dialog is blocking or scrimClose is off; a press inside the panel that ends on the scrim does not.",
-        "motion": "Enter: the scrim fades; the panel fades, drops 4px and scales from 0.98 at duration/base, easing/enter (motion-pop, origin centre). Leave: both fade at duration/fast, easing/exit; the panel stays mounted until the fade ends (usePresence). Sheet: enters by sliding up from its own height at duration/slow, easing/enter, and leaves with the fade. Reduced motion keeps every fade and drops the scale, the drop and the slide (D-031).",
+        "motion": "Enter: the scrim fades; the panel fades, drops 4px and scales from 0.98 at duration/base, easing/enter (motion-pop, origin centre). Leave: both fade at duration/fast, easing/exit; the panel stays mounted until the fade ends (usePresence). Sheet: enters by sliding up from its own height at duration/slow, easing/enter, and leaves with the fade. Reduced motion keeps every fade and drops the scale, the drop and the slide (D-031). While it leaves, the dialog is inert and focus is already back on the element that opened it; opening again during the fade starts a fresh dialog.",
         "focus": "On open, focus moves into the panel: the first field in the body, else the main action in the footer (the safe action in an alert dialog whose confirm is destructive), else the panel itself (tabindex -1). The close button is never the first stop. Tab and Shift+Tab cycle inside the panel; focus that escapes (a click on the page, a script) is pulled back. On close, focus returns to the element that had it when the dialog opened, or to a trigger passed in. Focus rings are never clipped: header and footer keep their padding, the body keeps panel.body.padding-y and padding-x, both larger than stroke/2 (D-037).",
         "keyboard": "Esc closes (unless blocking), but only when no layer inside the dialog (a select, a menu) already handled it (event.defaultPrevented). Tab and Shift+Tab cycle. Space and Enter activate the focused Button. Only the topmost of stacked dialogs answers Esc and traps focus.",
         "aria": "role dialog or alertdialog, aria-modal true, aria-labelledby the title, aria-describedby the description (alert dialog: the description is required, it is the question). The close button has aria-label Close. The panel is the only thing reading as interactive while open: nothing behind it takes focus. The scrim is not focusable and has no role.",
@@ -5244,7 +5244,7 @@
         "blocking": "A blocking dialog ignores Esc and scrim presses and has no close button, so only its actions end it. Use it only while work is running that must not be interrupted. It still traps focus and still has a title.",
         "layers": "z-index 1040: above the page and the side nav, below the search dialog (1050) and the toaster (1070), so a toast fired from a dialog stays visible. The overlay is a light root (data-light-root): the panel is a lit surface (D-020).",
         "static": "A specimen for the docs only: the panel without the scrim, the portal, the trap, the scroll lock or the keys. It is inert, so it leaves the Tab order.",
-        "states": "Actions use the Button states. The panel itself has none. Loading is the Button's: the confirm shows the spinner and the dialog stays open until the work ends."
+        "states": "Actions use the Button states. The panel itself has none. Loading is the Button's: the confirm shows the spinner and the dialog stays open until the work ends. An alert dialog that is loading is blocking: Esc and scrim presses do nothing and Cancel is disabled until the work ends."
       },
       "parts": {
         "scrim": {
@@ -5466,7 +5466,7 @@
       },
       "anatomy": "A floating surface (a light root) holding one scrolling list. The list holds items, group labels and separators. An item is: leading mark or icon, label (+ description), then a shortcut or a submenu chevron. One highlight indicator sits behind the items and slides to the one pointed at or reached by keyboard. A submenu is a second surface beside its parent item (one level).",
       "rules": {
-        "when": "Use a Menu for a list of actions or settings behind one trigger (more, account, view options). Use Select to choose one value for a field. Use Segmented when 2 to 4 options must stay visible. Never put a form field or a long page of content in a menu.",
+        "use": "Use a Menu for a list of actions or settings behind one trigger (more, account, view options). Use Select to choose one value for a field. Use Segmented when 2 to 4 options must stay visible. Never put a form field or a long page of content in a menu.",
         "trigger": "Any Button (or any control). The trigger gets aria-haspopup='menu', aria-expanded and aria-controls from the Menu. It stays pressed (state active) while the menu is open.",
         "tier": "The surface is surface/tertiary, the tier of floating cards (D-036), with border/tertiary and the inner shade, exactly like Home's brand menu. surface/secondary is the tooltip tier and is not used here. Items sit on the surface, so the highlight is fill/tertiary-hover, one step lighter.",
         "sheen": "The surface carries the four soft blobs of Home's brand menu: content/primary, 10% opacity, a 38px blur (Figma blur 75), clipped to the surface and above the items, pointer-events none. A Figma effect, not a token (D-021).",
@@ -5479,7 +5479,7 @@
         "submenu": "One level. It opens beside the parent item (after duration/fast of hover, on click, Enter, Space or ArrowRight), top-aligned with the item, and flips to the left when the right side has no room. The parent item keeps the highlight and aria-expanded while it is open. ArrowLeft or Esc closes it and returns focus to the parent item. Selecting a submenu item closes every level. Moving the pointer to another item of the parent closes it after the same delay.",
         "placement": "Below the trigger (default), aligned to its start edge, surface.offset away. It flips above when below is too short and above is longer, and ends up inside the viewport, surface.viewport-margin from every edge. Align end puts the right edges together. Width fits the content between surface.min-width and surface.max-width. It repositions on scroll and resize.",
         "scroll": "Height is at most surface.max-height and what the viewport leaves. Taller content scrolls inside the surface, never the page (overscroll contain), with the one scrollbar (D-037). The scroll area keeps stroke/2 of room on every side (padding, pulled back by a matching negative margin) so the focus ring and the indicator border are never cut.",
-        "keyboard": "On the trigger: Enter, Space and ArrowDown open the menu and focus the first item; ArrowUp opens it and focuses the last. In the menu: ArrowDown and ArrowUp move (wrapping), Home and End jump, ArrowRight opens a submenu, ArrowLeft closes one, Enter and Space run the item, a letter jumps to the next item whose label starts with what you typed (the typed text resets after 500 ms), Esc closes and returns focus to the trigger, Tab closes and moves on from the trigger. A click on the trigger opens the menu with no item focused, so no highlight shows until you point at one or press a key.",
+        "keyboard": "On the trigger: Enter, Space and ArrowDown open the menu and focus the first item; ArrowUp opens it and focuses the last. In the menu: ArrowDown and ArrowUp move (wrapping), Home and End jump, ArrowRight opens a submenu, ArrowLeft closes one, Enter and Space run the item, a letter jumps to the next item whose label starts with what you typed (the typed text resets after 500 ms), Esc closes and returns focus to the trigger, Tab closes and moves on from the trigger. A click on the trigger opens the menu with no item focused, so no highlight shows until you point at one or press a key. Esc also closes it when focus has left the list. A menu that is fading out answers no key (Enter cannot choose twice), and opening it again during the fade starts a fresh menu.",
         "pointer": "Pointing at an item focuses it and moves the highlight. Clicking outside the menu and its submenu closes it, and the press is not passed on as a selection. Leaving the list hides the highlight.",
         "aria": "Surface role='menu' (aria-orientation vertical) labelled by the trigger. Items as above. The trigger names the menu. Icons are decorative (aria-hidden). Focus moves onto the item (roving), so screen readers read it.",
         "motion": "The surface enters with motion-pop from the side it opens on (fade, 4px drop, scale from 0.98, duration/base, easing/enter) and leaves with a fade (duration/fast, easing/exit), kept mounted by usePresence. Every state change runs at duration/fast (D-031). Reduced motion keeps the fades and drops the drop and the scale.",
@@ -5809,7 +5809,7 @@
         "layout": "A column. Padding 16 (space/16), gap 12 (space/12) between header, body and footer. No dividers: space tells the parts apart (D-036). Header: the title in heading/xs/semibold, content/primary; the close button is a ghost Button, size 2xs, icon x, label Close. Body: body/md/regular, content/secondary; it brings its own controls and colours. Footer: right-aligned Buttons, size xs, 8 apart, wrapping when narrow; the one main action is primary or brand (one brand fill per view), the other is ghost or secondary. Header and footer are optional; with no title, give the popover a label (aria-label).",
         "sizes": "Three fixed widths: sm 240, md 320 (default), lg 400, all set values. The width never depends on where the popover sits. It never exceeds the window minus 8 on each side. Height follows the content up to the window height minus 16; past that the body scrolls (header and footer stay) with the one minimal scrollbar (D-037), and keeps a stroke/2 margin for focus rings so they are never clipped.",
         "placement": "bottom (default), top, left, right, with align start (default), center or end along the trigger's edge. 8 from the trigger (space/8). It flips to the opposite side when the preferred side has no room and the other has; if neither fits it takes the side with more room. It is then clamped 8 inside the window on every side. It follows the trigger while the page scrolls or resizes. position: fixed in a portal on the document: no scroll container clips it and no lit surface traps it beneath another layer. Layer z-index 1080 (set value), below tooltips.",
-        "open": "A click (or Enter / Space) on the trigger toggles it. Esc, a press outside, a focus move outside, the close button and any action that calls close() shut it. One Esc closes one popover: the newest (nested popovers close from the inside out). Controlled (open, onOpenChange) or not (defaultOpen).",
+        "open": "A click (or Enter / Space) on the trigger toggles it. Esc, a press outside, a focus move outside, the close button and any action that calls close() shut it. One Esc closes one popover: the newest (nested popovers close from the inside out). Controlled (open, onOpenChange) or not (defaultOpen). If the trigger leaves the page while it is open, it closes.",
         "focus": "Opened by keyboard: focus moves into the popover, to the element marked data-autofocus, else the first control of the body or footer, else the panel itself. Opened by pointer: focus stays on the trigger (the pointer user has not asked for focus to move), and Tab from the trigger goes into the popover. Tab at the end of the popover leaves it for whatever follows the trigger in the page, and Shift+Tab at the start goes back to the trigger, so a non-modal popover never traps focus. Focus returns to the trigger when it closes by Esc, close button or action; it does not when the user pressed or tabbed somewhere else. A popover that starts open (defaultOpen) does not take focus.",
         "aria": "The trigger gets aria-haspopup=dialog, aria-expanded (true while open) and aria-controls (the panel's id, while open). The panel is role=dialog (not aria-modal: the page stays usable), named by aria-labelledby (the title) or, with no title, aria-label.",
         "motion": "Enter: fade, a 4 slide towards its final place from the trigger's side, scale from 0.98 from the corner it grows from: duration/base, easing/enter (motion-pop, D-031). Left and right placements fade and scale only. Leave: fade, duration/fast, easing/exit; it stays mounted until it has faded (usePresence) and ignores the pointer while it does. Reduced motion keeps the fade and drops the movement.",
@@ -5926,7 +5926,7 @@
       },
       "anatomy": "Bar: an optional head row (label left, value right) over a track with one filled part. Ring: a square icon frame (the Spinner) with an arc inside it. The ring is an icon (D-028): the same frame as every icon, the ring fills the key square (size/icon/grid/square, 75% of the frame) and its line weight is frame x size/icon/grid/stroke (1/16). Determinate or indeterminate, for both.",
       "rules": {
-        "choose": "Bar: work with a known end that takes longer than about 2 seconds and has a place of its own (an upload, a render, a step in a flow). Ring: work with no known end, or a place too small for a bar (inside a button, next to a label, a block waiting for its data). Skeleton: the shape of the content is known and it will fill in. There is no skeleton component yet; until there is one, use a ring for a short wait and a bar for a long one. Under about 400 ms show nothing: a flash of progress reads as slower than none.",
+        "use": "Bar: work with a known end that takes longer than about 2 seconds and has a place of its own (an upload, a render, a step in a flow). Ring: work with no known end, or a place too small for a bar (inside a button, next to a label, a block waiting for its data). Skeleton: the shape of the content is known and it will fill in. There is no skeleton component yet; until there is one, use a ring for a short wait and a bar for a long one. Under about 400 ms show nothing: a flash of progress reads as slower than none.",
         "aria": "The bar is role=progressbar with aria-valuemin 0, aria-valuemax 100, aria-valuenow (rounded) and aria-valuetext when the text says more than the percentage. Indeterminate: aria-valuenow is left out, which is how a screen reader hears \"busy, no value\". It is named by its label (aria-labelledby) or by aria-label. aria-busy is true until the value reaches 100; the region being loaded should carry aria-busy too. The ring is role=progressbar with the same rules and the accessible name \"Loading\" unless you pass a label. Inside a Button, the button already says busy (aria-busy) and the ring there is decoration.",
         "sizes": "Bar heights are set values, 2, 4 and 8, not tokens: stroke tokens stop at 2 and space tokens are for gaps. 2 (sm) is a hairline under a header or on a card edge; 4 (md) is the everyday bar; 8 (lg) is for a bar that is the content of its place, such as an upload row. Ring sizes are the icon scale: xs 12, sm 16, md 20, lg 24, xl 32 (D-022).",
         "tones": "Neutral (default): fill/inverse, the primary look (D-038); progress is status, not the one main action. Brand: fill/brand, only when the progress is the main event of the screen (the one orange thing). Success: fill/success, for a finished or healthy state. Critical: fill/critical, for a failed one. The track never changes: fill/tertiary on a bar, fill/tertiary-active on a ring (its line is thin, so it needs one step more).",
@@ -6370,7 +6370,7 @@
         "disabled": "A disabled option stays in place, dimmed, and cannot be chosen or focused by arrow keys. The group keeps its size, so nothing shifts. Never remove an option that does not apply; disable it.",
         "width": "Fill (default): the frame is as wide as its container and the options share it equally (grid columns of 1fr). Hug (fit): the frame is as wide as its options, each option as wide as its own content, icon-only options square. Pass cols for a grid, for example 2 columns of 2, or 1 for a column.",
         "motion": "The indicator slides from the old option to the new one: position and size together, duration/base, easing/standard, in a straight line, the same duration whatever the distance (D-032). Labels change colour in place at duration/fast (D-031). The first paint never animates. Reduced motion: no slide, a cross-fade.",
-        "keyboard": "role radiogroup with role radio options (aria-checked). One Tab stop for the group: the chosen option (the first enabled one if none is chosen). Arrow keys (left or up = previous, right or down = next) move focus and choose, skipping disabled options and wrapping at the ends. Home and End go to the first and last enabled option. Space and Enter choose the focused option. The frame carries aria-label (label).",
+        "keyboard": "role radiogroup with role radio options (aria-checked). One Tab stop for the group: the chosen option (the first enabled one if none is chosen). Arrow keys (left or up = previous, right or down = next) move focus and choose, skipping disabled options and wrapping at the ends. Home and End go to the first and last enabled option. Space and Enter choose the focused option. The frame carries aria-label (label). Controlled (value, onChange) or not (defaultValue).",
         "focus": "A stroke/2 ring in border/focus around the focused option, drawn outside it. The frame is not a clipping container, so the ring is never cut; inside the frame the padding (4) is larger than the ring (2).",
         "light": "The frame is a lit surface above the background (D-020), and so are the options (Button). The inner shade sits on the frame and on filled options (D-021)."
       },
@@ -6456,7 +6456,7 @@
       },
       "anatomy": "A field: label above, the trigger (well with an optional icon, the value or placeholder, a chevron), then a hint or an error below. Pressing the trigger opens a listbox under it, as wide as the trigger. The chosen option shows a check at its end.",
       "rules": {
-        "when": "Use Select to pick one value from 4 to about 12 options in a form. Use Segmented for 2 to 4 options that should stay visible. Use Menu for actions. Over about 12 options a list needs search, which Select does not have yet.",
+        "use": "Use Select to pick one value from 4 to about 12 options in a form. Use Segmented for 2 to 4 options that should stay visible. Use Menu for actions. Over about 12 options a list needs search, which Select does not have yet.",
         "fieldConventions": "Shared with the text field so they sit side by side. Heights on size/control: xs 32 (everyday), sm 40, md 48. Radius: xs radius/lg, sm radius/xl, md radius/2xl. Padding x as Button for the size: xs space/12, sm space/16, md space/20. Value body/md/regular (xs, sm) and body/lg/regular (md). Label label/md/medium content/secondary, gap space/6 to the well. Hint and error body/sm/regular, gap space/6.",
         "well": "Fill fill/primary and border border/primary, an inset border so nothing moves. Hover: fill/primary-hover and border/primary-hover. Open and focus: fill/primary and border/primary-active; no ring (subtle, like the text field). Disabled: fill/primary-disabled, border/primary-disabled, text content/primary-disabled. All changes run at duration/fast (D-031). The well carries the inner shade, like the text field's.",
         "value": "The chosen label in content/primary. With nothing chosen, the placeholder in content/tertiary. A long label is cut with an ellipsis, never wrapped. The chosen option's icon shows in the well before the label, content/secondary.",
@@ -6722,7 +6722,7 @@
         "light": "Lit by light/cursor like everything else (D-020).",
         "scroll": "Only the link list scrolls on short screens, so the brand menu and the footer are never clipped. It never passes the scroll to the page (overscroll contain). Its scrollbar is an 8px gutter kept in the nav's padding (items never change width), with the thumb shown only while the pointer is over the nav (D-037). Tooltips are fixed to the window.",
         "icons": "Lucide. Item icons in a size/icon/md frame (20, vector 15). The 'opens in a new tab' arrow is a hint one step smaller: item.ext-icon, size/icon/sm (16, vector 12).",
-        "collapse": "Collapsed (54 rail), every item is 36 x 36 with its icon anchored left, never centred, so icons glide on one line while the width animates. Labels stay in place at zero width and fade (never display: none), so opening mirrors closing. Item height is fixed (40 open, 36 collapsed) so it animates instead of snapping. The logo row is never swapped: collapsed, the open button lies over the logomark, the wordmark fades and clips like a label and the close button fades out of the flow, so the logomark glides one way (16 to 10 from the nav edge) with no jump. Toggling from the logo row keeps keyboard focus on the toggle (open and close hand focus to each other); Ctrl+B leaves focus where it is, unless it is on one of those toggles, which hands over the same way. Width, spacing and size move at duration/slow; labels fade at duration/fast (D-031).",
+        "collapse": "Collapsed (54 rail), every item is 36 x 36 with its icon anchored left, never centred, so icons glide on one line while the width animates. Labels stay in place at zero width and fade (never display: none), so opening mirrors closing. Item height is fixed (40 open, 36 collapsed) so it animates instead of snapping. The logo row is never swapped: collapsed, the open button lies over the logomark, the wordmark fades and clips like a label and the close button fades out of the flow, so the logomark glides one way (16 to 10 from the nav edge) with no jump. Toggling from the logo row keeps keyboard focus on the toggle (open and close hand focus to each other); Ctrl+B leaves focus where it is, unless it is on one of those toggles, which hands over the same way. Collapsed, the items, the brand picker, the open button and the avatar are named by a Tooltip on the right (the Tooltip component: the same look, delay and dismiss rules as everywhere); the close button's Tooltip sits below it. Width, spacing and size move at duration/slow; labels fade at duration/fast (D-031).",
         "shortcut": "Ctrl+B / Cmd+B opens and closes the page's main nav. Ignored while typing in a field."
       },
       "parts": {
@@ -6828,16 +6828,6 @@
           "plan": {
             "type": "{type/body/sm/regular}"
           }
-        },
-        "tooltip": {
-          "$about": "Close sidebar / item names when collapsed. Secondary tier.",
-          "background": "{surface/secondary}",
-          "border": "{border/secondary}",
-          "radius": "{radius/md}",
-          "padding-x": "{space/8}",
-          "padding-y": "{space/4}",
-          "offset": "{space/8}",
-          "type": "{type/label/lg/medium}"
         }
       },
       "vars": [
@@ -7064,30 +7054,6 @@
         {
           "key": "profile-muted",
           "ref": "content/tertiary"
-        },
-        {
-          "key": "tooltip-background",
-          "ref": "surface/secondary"
-        },
-        {
-          "key": "tooltip-border",
-          "ref": "border/secondary"
-        },
-        {
-          "key": "tooltip-radius",
-          "ref": "radius/md"
-        },
-        {
-          "key": "tooltip-padding-x",
-          "ref": "space/8"
-        },
-        {
-          "key": "tooltip-padding-y",
-          "ref": "space/4"
-        },
-        {
-          "key": "tooltip-offset",
-          "ref": "space/8"
         }
       ],
       "types": {
@@ -7098,8 +7064,7 @@
         "community-title": "type-body-md-medium",
         "community-copy": "type-body-sm-regular",
         "profile-name": "type-body-md-regular",
-        "profile-plan": "type-body-sm-regular",
-        "tooltip": "type-label-lg-medium"
+        "profile-plan": "type-body-sm-regular"
       }
     },
     "slider": {
@@ -7126,7 +7091,7 @@
         "stacking": "When two thumbs sit on the same value the one last used is on top; at the start of the range the maximum thumb is on top and at the end the minimum thumb, so one can always be pulled away.",
         "motion": "State changes (halo, fill, border) run at duration/fast, easing/standard (D-031). The thumb and the filled part follow the pointer with no easing: they are the pointer position. Reduced motion keeps the fades and drops the tag's rise.",
         "disabled": "Track fill/primary with border/secondary-disabled, range content/primary-disabled, thumb fill/inverse-disabled, label and value content/primary-disabled. No halo, no tag, the cursor stays an arrow, and the inputs leave the Tab order.",
-        "when": "Use a slider for a value on a continuous or finely stepped scale where the rough position matters more than the exact number: volume, opacity, duration, strength. Add the number field when people need the exact value. Use a segmented control for 2 to 5 named choices, a number field alone for an exact value on a wide range, and a switch for on / off.",
+        "use": "Use a slider for a value on a continuous or finely stepped scale where the rough position matters more than the exact number: volume, opacity, duration, strength. Add the number field when people need the exact value. Use a segmented control for 2 to 5 named choices, a number field alone for an exact value on a wide range, and a switch for on / off.",
         "grid": "Set values are on the 4px grid with 2px half-steps (D-025). Thumb 20, track 8, halo 4, tick 2 by 4, tag 24, field 72 wide."
       },
       "parts": {
@@ -8289,10 +8254,10 @@
         "api": "toast(message, options) from anywhere, no provider. toast.success, toast.warning, toast.critical, toast.info set the type. Options: description, action { label, onClick }, duration (ms, Infinity keeps it), icon (a Lucide name), id (a toast with the same id is updated in place, its timer restarts), dismissible (default true). toast.dismiss(id) closes one, toast.dismiss() closes all. It returns the id. Render <Toaster /> once, in the root layout; a second Toaster renders nothing.",
         "types": "neutral, success, warning, critical, info. The status shows on the icon only: the surface, border and text are the same for every type. Reason: a stack of tinted cards turns a corner of the screen into a traffic light and fights the content behind it, and tinted fills need their own text and border sets; the icon colour plus its own shape (check, triangle, cross, i) carries the type without relying on colour alone. Neutral has no icon unless one is given.",
         "surface": "surface/tertiary, border/tertiary, radius/xl, the inner shade and the drop shadow (drop-md). It floats above the page and above dialogs (surface/primary), so it is one step lighter than both. A lit surface (D-020), and a light root, because it opens over other lit surfaces.",
-        "live": "The toaster is a region (aria-label Notifications) with aria-live polite, aria-relevant additions and text. Each toast is role status, except critical, which is role alert (assertive, interrupts). A toast never takes focus when it appears. F8 moves focus into the toaster (newest toast first, then its controls in order); Esc on a focused toast closes it and returns focus to where it was; Tab leaves the toaster normally. The close Button has aria-label Dismiss notification.",
+        "live": "The toaster is a region (aria-label Notifications) with aria-live polite, aria-relevant additions and text. Each toast is role status, except critical, which is role alert (assertive, interrupts). A toast never takes focus when it appears. F8 moves focus into the toaster (newest toast first, then its controls in order); Esc on a focused toast closes it and returns focus to where it was; Tab leaves the toaster normally. The close Button has aria-label Dismiss notification. A toast that leaves any way (timer, close, swipe, overflow) never leaves the toaster paused: focus and pointer state reset with it.",
         "time": "Auto-dismiss: 5000 ms. With an action: 10000 ms, because an Undo that stays for minutes undoes something other than what the person remembers, and the pause rules below give time to reach it. Critical: stays until dismissed. All can be set with duration. The timer pauses while the pointer is over the toaster, while focus is inside it, and while the tab is hidden, and it resumes with the time that was left. With the toaster paused no toast leaves, so the stack never moves under the pointer.",
         "stack": "At most 3 visible. The newest sits at the bottom, next to the corner where the eye already is; older toasts move up by the height of the newest plus the gap. A fourth toast removes the oldest non-critical one (critical toasts go last). Toasts move to their new place at duration/base, easing/standard (D-031), never snap.",
-        "motion": "Enter: the card fades in and rises region.travel (space/12) at duration/base, easing/enter. Leave: a fade at duration/fast, easing/exit, then the stack closes up. Swipe (touch and pen): drag sideways to follow the finger, release past 80px to dismiss, otherwise it springs back at duration/base. Reduced motion keeps the fades, drops the rise.",
+        "motion": "Enter: the card fades in and rises region.travel (space/12) at duration/base, easing/enter. Leave: a fade at duration/fast, easing/exit, then the stack closes up. Swipe (touch and pen): drag sideways to follow the finger, release past 80px to dismiss, otherwise it springs back at duration/base. Reduced motion keeps the fades, drops the rise. A swipe dismissal goes through the same close as the button, so focus is returned the same way.",
         "placement": "Desktop: bottom-right, region.width wide, region.inset from the right and bottom edges. Below 640: full width with region.inset-narrow on the sides and bottom, above the device's bottom safe area. A toast does not avoid a bottom sheet; the toaster sits above it (z-index 1070).",
         "actions": "The action is a secondary Button, size 2xs (28). It runs its onClick and then closes the toast (action.dismiss false keeps it). At most one action. There is no brand Button in a toast (D-026, one per view). The close Button is ghost, size 2xs, icon only.",
         "static": "A specimen for the docs only: the card without the toaster, the timer, the keys or the swipe. It is inert, so it leaves the Tab order.",
@@ -8430,7 +8395,7 @@
       }
     },
     "tooltip": {
-      "$about": "Tooltip: a short label that names or explains one control. One look for the whole system: the side nav's rail tooltips and the docs site's info tips switch to this component. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-002, D-025).",
+      "$about": "Tooltip: a short label that names or explains one control. One look for the whole system: the side nav and the docs site use this component. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-002, D-025).",
       "title": "Tooltip",
       "status": "draft",
       "css": {
@@ -8450,7 +8415,7 @@
         "motion": "Enter: fade, a 4 slide towards its final place from the control's side, scale from 0.98: duration/base, easing/enter (motion-pop, D-031). Left and right placements fade and scale only (motion-pop moves vertically). Leave: fade, duration/fast, easing/exit; it stays mounted until it has faded (usePresence). Reduced motion keeps the fade and drops the movement.",
         "aria": "role=tooltip on the bubble, with an id. While it is open, the control gets aria-describedby pointing at it (added to any the control already has). A tooltip is a description, never the name: an icon-only Button keeps its own label (aria-label); when the tooltip text repeats that label, pass describe={false} so screen readers do not hear it twice. The control must be focusable: a disabled control gets no events, so wrap it in a focusable span or use aria-disabled.",
         "api": "<Tooltip content=\"Save\" shortcut=\"Ctrl S\" placement=\"top\"><Button .../></Tooltip>. The child is one element that accepts a ref (Button, a link, a native element). Props: content, shortcut (a string split on spaces, or an array of keys), placement, wide, delay, disabled, describe. TooltipBubble draws the same bubble inline, for documentation specimens.",
-        "migrate": "The side nav (data-tip, ::before, useTips) and the docs info tips (InfoTips, data-info) become <Tooltip> wrappers; both then lose their own tooltip code."
+        "migrate": "Done: the side nav (collapsed items, the logo, open and close buttons) and the docs site's token and info notes use <Tooltip>; neither has tooltip code of its own."
       },
       "parts": {
         "bubble": {

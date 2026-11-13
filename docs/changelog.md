@@ -16,6 +16,28 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 ## 2026-11-13
 
 ```
+fix(state): 50 implicit state machines audited; every safe fix applied (docs/state-machines.md)
+
+Why:    the owner asked for every implicit state machine and a stable state.
+What:   Editor: one layer model (sheet + one popover; AI is a popover), shortcuts blocked while a layer is
+        open, one Esc chain; per-field undo steps (600 ms burst, sliders and number fields one step);
+        toast Undo only while its step is newest; job table with cancel; export owned by the store;
+        playback resets on stop; one drag shell with pointercancel; reset() on scene change; popovers and
+        the tool panel fade out (D-031). Rules in editor/logic.js with 20 new tests.
+        Components: shared useDismiss (newest layer first), useRoving (4 groups), usePresence with an
+        explicit phase and gen (reopen during a fade gets a fresh instance); one placement (floating.js)
+        for Menu, Select, Popover, Tooltip and Home's menus; Menu, Select, Popover and Dialog remount per
+        open; AlertDialog blocks Esc and Cancel while loading; Toast focus can't stick, swipe goes through
+        close; Chip timer cleared; Slider drag is one object; side nav phase + focus hand-off lapse; every
+        component takes className and aria-label; Segmented takes defaultValue.
+        Docs: side nav and the docs token and info notes use Tooltip (InfoTips gone); "Copied" uses the
+        shared Toaster; one SpecTable, RuleTable, Matrix and px/ref helper set in docs/ui.jsx (4 helper
+        files deleted); demos sit next to their pages; spec rule keys unified (use, aria); Toc listener and
+        IconLibrary retry fixed.
+Checks: npm run tokens; npm test 29/29; production build; every route 200 with no page errors
+```
+
+```
 feat(components): 17 draft components, each with a spec, a component and a docs page (D-040 to D-047)
 
 Why:    the owner wants the baseline components, built to the Button and Sidebar standard.

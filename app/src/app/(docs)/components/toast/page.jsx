@@ -1,4 +1,4 @@
-import { DocPage, Section, Panel, Token, Table, Info, Meta } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Table, Info, Meta, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import { ToastCard } from '@/components/Toast';
 import { TOAST } from '@/components/toast-config';
@@ -98,9 +98,7 @@ export default function ToastPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the toast is made of. <Info info={`Source: components/toast.json, checked by npm run tokens\nEach value is a --tst-* variable; plain numbers are set values, not tokens\nTimes and counts are in components/toast-config.js (written in the spec rules)`}>How to read this</Info></>}>
-        <Table first={300} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--tst-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
+        <SpecTable spec={SPEC} prefix="tst" extra={[
           ['max visible', `${TOAST.max} · set`], ['auto-dismiss', `${TOAST.duration} ms · set`], ['auto-dismiss with action', `${TOAST.actionDuration} ms · set`], ['swipe to dismiss', `${TOAST.swipe}px · set`],
         ]} />
       </Section>

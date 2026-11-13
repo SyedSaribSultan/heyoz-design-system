@@ -42,6 +42,7 @@ If a screenshot and these docs disagree, follow the screenshot and flag the drif
 | [shadcn/ui](docs/shadcn.md) | HeyOz in shadcn's variable names: paste-ready `globals.css` for Tailwind v4 | `exports/shadcn/map.json` → `exports/shadcn/globals.css` (generated) | Stable v1 |
 | [Decisions](docs/decisions.md) | The judgment calls and why | – | Live |
 | [Changelog](docs/changelog.md) | What changed, when, and why | – | Live |
+| [State machines](docs/state-machines.md) | The 50 implicit state machines in the code: states, transitions, risks, what was done | – | Audit, 2026-11-13 |
 
 **Status:** *Draft* (open for change) → *Stable* (safe to build on) → *Deprecated* (don't use, see the replacement).
 **This repository is the source of truth** (D-002). Every change starts in the source files here. Figma was a one-time starting point; where it differs, the repository wins.
@@ -97,8 +98,10 @@ heyoz-design-system/
 │       ├── styles/               ← generated: tokens.css, typography.css, components.css · by hand: motion.css (D-031)
 │       ├── tokens/, icons/       ← generated JSON: tokens.resolved.json (server only), components.json (browser), icons.json (icon index)
 │       ├── lib/                  ← tk() (applies tokens, records them), rec() (records them), Lucide (the one icon helper), LightField (cursor light)
-│       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt)
-│       ├── components/           ← components built from their spec: Button, SideNav, Segmented, Tabs, TextField, Menu, Select, Dialog, …
+│       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations: phase + gen),
+│       │                            useDismiss (Esc and outside press, newest layer first), useRoving (arrow-key groups), Inspector (Ctrl + Alt)
+│       ├── components/           ← components built from their spec: Button, SideNav, Segmented, Tabs, TextField, Menu, Select, Dialog, …;
+│       │                            floating.js = the one placement (flip, clamp, match width) for Menu, Select, Popover, Tooltip and Home's menus
 │       ├── docs/                 ← the docs frame: nav.js (the site map + each page's sections), Sidebar, Shell, DocsChrome (search, copy), ui blocks
 │       └── app/                  ← routes: / · foundations/* · components/* · screens: home, editor
 ├── archive/                      ← kept for reference, never deployed (old assets, the archived Figma colour export)
@@ -137,7 +140,7 @@ Pages: the site map is `app/src/docs/nav.js` (add a page there). `/foundations` 
 
 ## Add a component
 
-1. Write `components/<name>.json` with `title`, `status`, `css` (`selector` and a unique `prefix`), `anatomy`, `rules` and `parts`. Every `parts` value is a token reference, a set number or `none`; a `type` value is a type style. Behaviour that is not a value (motion, keyboard, scroll) goes in `rules`. Button is the one older format (sizes × types).
+1. Write `components/<name>.json` with `title`, `status`, `css` (`selector` and a unique `prefix`), `anatomy`, `rules` and `parts`. Every `parts` value is a token reference, a set number or `none`; a `type` value is a type style. Behaviour that is not a value (motion, keyboard, scroll) goes in `rules`. Button is the one older format (sizes × types). Size names belong to each component: Button's scale (2xs–2xl) for controls on `size/control`, sm/md for the small controls and cards; say the pixel size in the spec.
 2. Run `npm run tokens`. The build checks every reference and writes `docs/components/<name>.md` and one `--<prefix>-*` variable per value on the component's selector (`src/styles/components.css`).
 3. Build `app/src/components/<Name>.jsx` from the generated files only, never from raw values.
 4. Add its page: one entry in `app/src/docs/nav.js` and a route under `app/src/app/(docs)/components/`.

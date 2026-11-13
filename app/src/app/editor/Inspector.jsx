@@ -3,16 +3,16 @@
 
 import Button from '@/components/Button';
 import Segmented from '@/components/Segmented';
-import { S, useEd, bump, checkpoint, markSaved, toast, openAI, aiBlocked, openPop, closeSheet, track, M } from './store';
+import { S, useEd, bump, checkpoint, markSaved, toast, openAI, aiBlocked, openPop, closeSheet, track, editStep, holdEdit, endEdit, M } from './store';
 import { Ic, Slider, Switch, NumberField, TextArea, Hint, Label, iconUrl } from './parts/parts';
 import { rectOf } from './dom';
 
 const { cdur, durS, MODELS, ACTIONS, COLORS, canDo, applyKey, spd, thumbBg, cend } = M;
 
-// One undo step per continuous change (a slider drag, typing in a field).
-let armed = true;
-const edit = (c, k, v, done) => { if (armed) { checkpoint(); armed = false; } applyKey(S.project, c, k, v); markSaved(); bump(); if (done) armed = true; };
-const commitEdit = () => { armed = true; };
+// One undo step per continuous change of one field (a slider drag, a typing burst, a number field
+// while it has focus). The step is keyed by clip and property; see editStep in the store.
+const edit = (c, k, v) => { editStep(`${c.id}:${k}`); applyKey(S.project, c, k, v); markSaved(); bump(); };
+const commitEdit = endEdit, startEdit = () => holdEdit(true);
 const once = (c, fn) => { checkpoint(); fn(c); M.relayout(S.project); markSaved(); bump(); };
 
 function Sec({ title, children, details, onOpen }) {
@@ -40,7 +40,7 @@ function Volume({ c }) {
     <div className="ed-vrow">
       <Button type="ghost" size="xs" icon={iconUrl(c.props.muted ? 'volume-x' : 'volume-2')} label={c.props.muted ? 'Unmute clip' : 'Mute clip'} aria-pressed={c.props.muted}
         onClick={() => once(c, (c) => { c.props.muted = !c.props.muted; })} />
-      <Slider label="Volume" min={0} max={2} step={0.05} value={c.props.volume} onChange={(v) => edit(c, 'props.volume', v)} onCommit={commitEdit} disabled={c.props.muted} />
+      <Slider label="Volume" min={0} max={2} step={0.05} value={c.props.volume} onChange={(v) => edit(c, 'props.volume', v)} onStart={startEdit} onCommit={commitEdit} disabled={c.props.muted} />
       <output className="type-body-sm-regular">{Math.round(c.props.volume * 100)}%</output>
     </div>
   );
@@ -96,9 +96,9 @@ export default function Inspector() {
       <Sec title="Volume"><Volume c={c} /></Sec>
       <Sec title="AI"><AIRows c={c} /><Made c={c} /></Sec>
       <Sec title="Advanced" details>
-        <div className="ed-fr"><NumberField label="In" value={c.in} onChange={(v) => edit(c, 'in', v, true)} /><NumberField label="Out" value={c.out} onChange={(v) => edit(c, 'out', v, true)} /></div>
+        <div className="ed-fr"><NumberField label="In" value={c.in} onStart={startEdit} onCommit={commitEdit} onChange={(v) => edit(c, 'in', v)} /><NumberField label="Out" value={c.out} onStart={startEdit} onCommit={commitEdit} onChange={(v) => edit(c, 'out', v)} /></div>
         <Label>Framing</Label><Segmented label="Framing" size="2xs" items={[['fill', 'Fill'], ['fit', 'Fit']]} value={c.props.fit} onChange={(v) => setk('props.fit', v)} />
-        <div className="ed-fld"><span className="type-body-sm-regular">Opacity</span><Slider label="Opacity" min={0} max={1} step={0.05} value={c.props.opacity} onChange={(v) => edit(c, 'props.opacity', v)} onCommit={commitEdit} /></div>
+        <div className="ed-fld"><span className="type-body-sm-regular">Opacity</span><Slider label="Opacity" min={0} max={1} step={0.05} value={c.props.opacity} onChange={(v) => edit(c, 'props.opacity', v)} onStart={startEdit} onCommit={commitEdit} /></div>
         <Switch checked={c.props.flip} onChange={(v) => setk('props.flip', v)}>Flip horizontally</Switch>
       </Sec>
     </>);
@@ -110,7 +110,7 @@ export default function Inspector() {
       <Sec title="Text"><TextArea label="Text content" rows={2} value={p.text} onChange={(v) => { edit(c, 'props.text', v); c.name = v || 'Text'; }} /></Sec>
       <Sec title="Style">
         <Segmented label="Font" size="2xs" items={[['display', 'Display'], ['sans', 'Sans'], ['serif', 'Serif']]} value={p.font} onChange={(v) => setk('props.font', v)} />
-        <div className="ed-fld"><span className="type-body-sm-regular">Size</span><Slider label="Size" min={3} max={14} step={0.5} value={p.size} onChange={(v) => edit(c, 'props.size', v)} onCommit={commitEdit} /></div>
+        <div className="ed-fld"><span className="type-body-sm-regular">Size</span><Slider label="Size" min={3} max={14} step={0.5} value={p.size} onChange={(v) => edit(c, 'props.size', v)} onStart={startEdit} onCommit={commitEdit} /></div>
         <div className="ed-fld"><span className="type-body-sm-regular">Colour</span>
           <div className="ed-sw" role="radiogroup" aria-label="Colour">{COLORS.map(([v, n]) => (
             <button key={v} type="button" role="radio" aria-checked={p.color === v} aria-label={n} onClick={() => setk('props.color', v)} style={{ background: v, color: v === '#111111' || v === '#ff3d01' ? 'var(--content-fixed-inverse)' : 'var(--content-fixed-primary)' }}>{p.color === v && <Ic n="check" size="xs" />}</button>))}
@@ -124,7 +124,7 @@ export default function Inspector() {
         <Hint>Drag the text in the preview for fine placement.</Hint>
       </Sec>
       <Sec title="Timing" details>
-        <div className="ed-fr"><NumberField label="Start" value={c.start} onChange={(v) => edit(c, 'start', v, true)} /><NumberField label="Length" value={cdur(c)} onChange={(v) => edit(c, 'dur', v, true)} /></div>
+        <div className="ed-fr"><NumberField label="Start" value={c.start} onStart={startEdit} onCommit={commitEdit} onChange={(v) => edit(c, 'start', v)} /><NumberField label="Length" value={cdur(c)} onStart={startEdit} onCommit={commitEdit} onChange={(v) => edit(c, 'dur', v)} /></div>
         <TrimTo c={c} />
       </Sec>
     </>);
@@ -135,9 +135,9 @@ export default function Inspector() {
     <Sec title="Volume"><Volume c={c} /></Sec>
     <Sec title="AI"><AIRows c={c} /><Made c={c} /></Sec>
     <Sec title="Fades and timing" details>
-      <div className="ed-fld"><span className="type-body-sm-regular">Fade in</span><Slider label="Fade in" min={0} max={3} step={0.1} value={c.props.fadeIn} onChange={(v) => edit(c, 'props.fadeIn', v)} onCommit={commitEdit} /><output className="type-body-sm-regular">{c.props.fadeIn.toFixed(1)}s</output></div>
-      <div className="ed-fld"><span className="type-body-sm-regular">Fade out</span><Slider label="Fade out" min={0} max={3} step={0.1} value={c.props.fadeOut} onChange={(v) => edit(c, 'props.fadeOut', v)} onCommit={commitEdit} /><output className="type-body-sm-regular">{c.props.fadeOut.toFixed(1)}s</output></div>
-      <div className="ed-fr ed-mt12"><NumberField label="Start" value={c.start} onChange={(v) => edit(c, 'start', v, true)} /><NumberField label="Length" value={cdur(c)} onChange={(v) => edit(c, 'dur', v, true)} /></div>
+      <div className="ed-fld"><span className="type-body-sm-regular">Fade in</span><Slider label="Fade in" min={0} max={3} step={0.1} value={c.props.fadeIn} onChange={(v) => edit(c, 'props.fadeIn', v)} onStart={startEdit} onCommit={commitEdit} /><output className="type-body-sm-regular">{c.props.fadeIn.toFixed(1)}s</output></div>
+      <div className="ed-fld"><span className="type-body-sm-regular">Fade out</span><Slider label="Fade out" min={0} max={3} step={0.1} value={c.props.fadeOut} onChange={(v) => edit(c, 'props.fadeOut', v)} onStart={startEdit} onCommit={commitEdit} /><output className="type-body-sm-regular">{c.props.fadeOut.toFixed(1)}s</output></div>
+      <div className="ed-fr ed-mt12"><NumberField label="Start" value={c.start} onStart={startEdit} onCommit={commitEdit} onChange={(v) => edit(c, 'start', v)} /><NumberField label="Length" value={cdur(c)} onStart={startEdit} onCommit={commitEdit} onChange={(v) => edit(c, 'dur', v)} /></div>
       <TrimTo c={c} />
     </Sec>
   </>);

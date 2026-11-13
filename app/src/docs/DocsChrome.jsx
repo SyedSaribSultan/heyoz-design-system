@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { slug } from './slug';
 import Lucide, { lucide } from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
-import InfoTips from './InfoTips';
+import { toast } from '@/components/Toast';
 import { rec } from '@/lib/rec';
 
 // Search surface: the primary tier, like the docs nav. Lit by light/cursor
@@ -17,7 +17,7 @@ const MARK = rec('result icon tile', [['background', 'fill/primary-active'], ['b
 // Site-wide docs behaviour, mounted once by Shell:
 //   · Search (Ctrl K, ⌘K or /): pages, sections and every token. Tokens load on first open.
 //   · Click any token chip (.d-token) to copy it, or any element with data-copy (colours copy their hex).
-//   · One toast for both.
+//   · One toast for both: the shared toast() (the <Toaster /> sits in the root layout).
 export const openSearch = () => window.dispatchEvent(new Event('heyoz:search'));
 
 export function SearchKey() {
@@ -51,14 +51,10 @@ export default function DocsChrome({ nav }) {
   const [tokens, setTokens] = useState(null);
   const [active, setActive] = useState(0);
   const { mounted, leaving } = usePresence(open);
-  const [toast, setToast] = useState({ msg: '', on: false });
-  const input = useRef(null), list = useRef(null), back = useRef(null), toastT = useRef(0);
+  const input = useRef(null), list = useRef(null), back = useRef(null);
 
-  const say = useCallback((msg) => {
-    clearTimeout(toastT.current);
-    setToast({ msg, on: true });
-    toastT.current = setTimeout(() => setToast((t) => ({ ...t, on: false })), 1800);
-  }, []);
+  // Same id: a second copy updates the toast in place instead of stacking another.
+  const say = useCallback((msg) => { toast(msg, { id: 'copied', duration: 1800 }); }, []);
 
   // Pages and their sections, from the site map.
   const base = useMemo(() => [
@@ -97,14 +93,15 @@ export default function DocsChrome({ nav }) {
   // Click a token chip to copy it, or anything with data-copy (e.g. a colour: its hex). The nearest wins,
   // so a token name inside a coloured surface copies the name, the surface around it copies the hex.
   useEffect(() => {
+    const timers = new Set();
     const click = async (e) => {
       const el = e.target.closest?.('[data-copy], .d-token');
       if (!el || e.target.closest('a, button')) return;
       const text = el.dataset.copy || el.textContent.trim();
-      if (await copy(text)) { say(`Copied ${text}`); el.dataset.copied = ''; setTimeout(() => delete el.dataset.copied, 900); }
+      if (await copy(text)) { say(`Copied ${text}`); el.dataset.copied = ''; const t = setTimeout(() => { delete el.dataset.copied; timers.delete(t); }, 900); timers.add(t); }
     };
     document.addEventListener('click', click);
-    return () => document.removeEventListener('click', click);
+    return () => { document.removeEventListener('click', click); timers.forEach(clearTimeout); };
   }, [say]);
 
   useEffect(() => { if (open) requestAnimationFrame(() => input.current?.focus()); }, [open]);
@@ -161,8 +158,6 @@ export default function DocsChrome({ nav }) {
           </div>
         </div>
       )}
-      <InfoTips />
-      <div className="d-toast type-label-lg-medium" role="status" aria-live="polite" data-show={toast.on ? '' : undefined}>{toast.msg}</div>
     </>
   );
 }

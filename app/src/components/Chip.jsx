@@ -1,8 +1,9 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CHIP } from './chip-data';
 import Lucide, { lucide } from '@/lib/Lucide';
 import useIndicator from '@/lib/useIndicator';
+import useRoving from '@/lib/useRoving';
 import cssTime from '@/lib/cssTime';
 import { rec } from '@/lib/rec';
 import Button from './Button';
@@ -28,10 +29,11 @@ const rowsFor = (size, kind, look) => [['height', ref(`${size}-height`)], ['padd
   ['background', ref(`${look}-fill`) || 'none'], ['border', ref(`${look}-border`)], ['border width', 'stroke/1'], ['text colour', ref(`${look}-label`)], ['icon colour', ref(`${look}-icon`)],
   ['background · hover', ref('hover-fill')], ['border · hover', ref('hover-border')], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']];
 
-export default function Chip({ size = 'xs', kind, icon, image, iconAfter, iconAfterHover, selected, onSelectedChange, onRemove, onClick, onKeyDown, disabled, state, label, children, className = '', ...props }) {
+export default function Chip({ size = 'xs', kind, icon, image, iconAfter, iconAfterHover, selected, onSelectedChange, onRemove, onClick, onKeyDown, disabled, state, label, 'aria-label': ariaLabel, children, className = '', ...props }) {
   const k = kind || (onRemove ? 'input' : selected !== undefined ? 'filter' : 'action');
   const [leaving, setLeaving] = useState(false);
-  const root = useRef(null);
+  const root = useRef(null), timer = useRef(0);
+  useEffect(() => () => clearTimeout(timer.current), []); // a chip removed another way must not fire onRemove after it is gone
   const on = k === 'filter' || k === 'choice' ? !!selected : undefined;
   const look = disabled ? 'disabled' : on ? 'selected' : k === 'choice' ? 'choice' : 'rest';
   const text = typeof children === 'string' ? children : label;
@@ -41,7 +43,7 @@ export default function Chip({ size = 'xs', kind, icon, image, iconAfter, iconAf
     const sibs = [...(root.current?.parentElement?.querySelectorAll('.chp[data-kind="input"]') || [])], i = sibs.indexOf(root.current);
     const next = sibs[i + 1] || sibs[i - 1];
     setLeaving(true);
-    setTimeout(() => { onRemove?.(); setLeaving(false); next?.focus(); }, cssTime('--duration-fast', 120)); // fade out, then the row closes up
+    timer.current = setTimeout(() => { onRemove?.(); setLeaving(false); next?.focus(); }, cssTime('--duration-fast', 120)); // fade out, then the row closes up
   };
   const press = (e) => { onClick?.(e); if (k === 'filter') onSelectedChange?.(!selected); };
   const keys = (e) => {
@@ -72,11 +74,11 @@ export default function Chip({ size = 'xs', kind, icon, image, iconAfter, iconAf
     </>
   );
   if (k === 'input') {
-    return <span {...common} role="group" tabIndex={disabled ? undefined : common.tabIndex ?? 0} aria-label={text} aria-keyshortcuts="Backspace Delete" aria-disabled={disabled || undefined}>{body}</span>;
+    return <span {...common} role="group" tabIndex={disabled ? undefined : common.tabIndex ?? 0} aria-label={ariaLabel ?? text} aria-keyshortcuts="Backspace Delete" aria-disabled={disabled || undefined}>{body}</span>;
   }
   return (
     <button {...common} type="button" disabled={disabled} onClick={press}
-      aria-pressed={k === 'filter' ? !!selected : undefined} aria-label={!children ? label : undefined}
+      aria-pressed={k === 'filter' ? !!selected : undefined} aria-label={ariaLabel ?? (!children ? label : undefined)}
       role={k === 'choice' ? 'radio' : undefined} aria-checked={k === 'choice' ? !!selected : undefined}>
       {body}
     </button>
@@ -84,25 +86,16 @@ export default function Chip({ size = 'xs', kind, icon, image, iconAfter, iconAf
 }
 
 // ChipGroup: choice chips, one chosen. The selected look is one indicator that slides between chips (D-032).
-// items: [[value, label]] or [{ value, label, icon, image, disabled }] · value / onChange · label: the group's name
+// items: [[value, label]] or [{ value, label, icon, image, disabled }] · value / onChange · label or aria-label: the group's name · className: on the root
 // Keyboard: Tab stops once, on the chosen chip; arrows move and choose, Home and End jump.
-export function ChipGroup({ label, items, value, onChange, size = 'xs', className = '', ...props }) {
+export function ChipGroup({ label, 'aria-label': ariaLabel, items, value, onChange, size = 'xs', className = '', ...props }) {
   const ref = useRef(null);
   const list = items.map((it) => (Array.isArray(it) ? { value: it[0], label: it[1] } : it));
   const { vars, ready, moving } = useIndicator(ref, '[aria-checked="true"]', [value, list.length, size]);
   const stop = list.some((it) => it.value === value && !it.disabled) ? value : list.find((it) => !it.disabled)?.value;
-  const keys = (e) => {
-    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-    const on = list.filter((it) => !it.disabled);
-    if (!on.length || (step === undefined && e.key !== 'Home' && e.key !== 'End')) return;
-    e.preventDefault();
-    const i = Math.max(0, on.findIndex((it) => it.value === document.activeElement?.dataset.value));
-    const to = e.key === 'Home' ? on[0] : e.key === 'End' ? on[on.length - 1] : on[(i + step + on.length) % on.length];
-    onChange?.(to.value);
-    ref.current?.querySelector(`[data-value="${CSS.escape(String(to.value))}"]`)?.focus();
-  };
+  const { onKeyDown: keys } = useRoving({ ref, item: '[role="radio"]' }); // the focused chip is clicked, which calls onChange
   return (
-    <div ref={ref} className={`chp-group ${className}`.trim()} role="radiogroup" aria-label={label} data-size={size} onKeyDown={keys}
+    <div ref={ref} className={`chp-group ${className}`.trim()} role="radiogroup" aria-label={ariaLabel ?? label} data-size={size} onKeyDown={keys}
       data-indicator-ready={ready || undefined} data-indicator-moving={moving || undefined} {...props}>
       <span className="chp chp-thumb motion-indicator" data-size={size} data-selected data-component="chip" data-name={`chip indicator · selected · ${size}`} style={vars} aria-hidden />
       {list.map((it) => (

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Tabs from '@/components/Tabs';
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Meta, Table, Info, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
 import t from '@/tokens/tokens.resolved.json';
@@ -102,10 +102,7 @@ export default function TabsPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the tabs are made of. <Info info="Source: components/tabs.json, checked by npm run tokens\nEach value is a --tab-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={300} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--tab-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="tab" />
         <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>{R.motion}</p>
       </Section>
     </DocPage>

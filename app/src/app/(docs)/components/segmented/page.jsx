@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Meta, Table, Info, SpecTable } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
 import t from '@/tokens/tokens.resolved.json';
@@ -95,8 +95,7 @@ export default function SegmentedPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value the control is made of. <Info info="Source: components/segmented.json, checked by npm run tokens\nEach value is a --seg-* variable; the options take Button's size variables">How to read this</Info></>}>
-        <Table first={260} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--seg-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
+        <SpecTable spec={SPEC} prefix="seg" extra={[
           ['Nesting', `outer radius = option radius + ${PAD} (the frame padding); gap ${GAP}; focus ring ${RING}`],
         ]} />
         <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>{R.indicator} {R.motion} {R.light}</p>

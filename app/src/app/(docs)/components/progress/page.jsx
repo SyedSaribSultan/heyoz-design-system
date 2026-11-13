@@ -1,9 +1,8 @@
 import Progress, { Spinner } from '@/components/Progress';
 import Button from '@/components/Button';
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Meta, Table, Info, SpecTable, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
-import t from '@/tokens/tokens.resolved.json';
 import ProgressPlayground from './ProgressPlayground';
 import './page.css';
 
@@ -11,7 +10,7 @@ export const metadata = meta('/components/progress');
 
 const SPEC = c.progress, GRID = c.iconGrid;
 // A spec value in px: a set number, or the token it points at (components/progress.json).
-const px = (key) => { const x = SPEC.vars.find((v) => v.key === key); return x.px ?? t.numbers.find((n) => n.name === x.ref).px; };
+const { px } = specOf(SPEC);
 const BARS = [['sm', 'size 2'], ['md', 'size 4'], ['lg', 'size 8']];
 const RINGS = ['xs', 'sm', 'md', 'lg', 'xl'];
 const TONES = ['neutral', 'brand', 'success', 'critical'];
@@ -83,7 +82,7 @@ export default function ProgressPage() {
         </Panel>
       </Section>
 
-      <Section title="Bar, spinner or skeleton" desc={SPEC.rules.choose}>
+      <Section title="Bar, spinner or skeleton" desc={SPEC.rules.use}>
         <Table first={180} cols={['Use', 'When', 'Example']} rows={[
           [<Token key="a">Bar</Token>, 'The end is known, the wait is over 2 seconds, and it has a place of its own.', 'Upload, render, a step in a flow.'],
           [<Token key="b">Spinner</Token>, 'The end is unknown, or the place is too small for a bar.', 'Inside a button, next to a label, a block waiting for data.'],
@@ -105,10 +104,7 @@ export default function ProgressPage() {
       </Section>
 
       <Section title="The details" desc={<>Every value progress is made of. <Info info="Source: components/progress.json, checked by npm run tokens\nEach value is a --pg-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={260} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--pg-{x.key}</Token>, x.ref ? <Token key="v">{x.ref}</Token> : x.none ? 'none' : `${x.px}px · set`]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="pg" />
         <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>{SPEC.rules.indeterminate} {SPEC.rules.shade}</p>
       </Section>
     </DocPage>

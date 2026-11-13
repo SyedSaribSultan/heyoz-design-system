@@ -7,6 +7,7 @@ import Button from '@/components/Button';
 import { lucide } from '@/lib/Lucide';
 import { BrandTrigger } from '@/components/SideNav';
 import usePresence from '@/lib/usePresence';
+import { place } from '@/components/floating';
 
 // Menus and pickers: brand picker (trigger, menu, row actions) and model picker.
 // Menu surface: surface/tertiary + border/tertiary + inner shade, with the
@@ -36,38 +37,35 @@ function Sheen() {
 // the screen (media included). Being above the screen's light, a menu carries its own light.
 //   anchor: ref to the trigger · rect: optional () => DOMRect to place against instead
 //   place: right (beside, tops aligned) · down (below, left edges aligned) · up (above).
-//   A menu flips to the other side when it does not fit, and always stays on screen.
+//   Placement is floating.js place() (the same rule as Popover, Tooltip, Menu): flips to the other side when it does not
+//   fit, and always stays on screen. It is written in the frame's coordinates and follows scroll and resize once per frame.
 //   Motion (D-031): it enters with motion-pop from the side it opens on and leaves with a fade
 //   (leaving: from usePresence in the owner, which keeps it mounted while it fades out).
 const GAP = 8; // space/8
-export function Menu({ name, place = 'up', width, pad = 6, gap = 4, anchor, rect, owner, leaving, children }) {
+const SIDE = { up: 'top', down: 'bottom', right: 'right' };
+export function Menu({ name, place: where = 'up', width, pad = 6, gap = 4, anchor, rect, owner, leaving, children }) {
   const [pos, setPos] = useState(null);
-  const [root, setRoot] = useState(null);
+  const el = anchor?.current;
+  const root = el ? el.closest('.home') || document.body : null; // the screen frame: menus are drawn inside it
   useLayoutEffect(() => {
-    const el = anchor?.current; if (!el) return;
-    const host = el.closest('.home') || document.body; // the screen frame: menus are placed inside it
-    if (root !== host) { setRoot(host); return; } // render into the host first, then measure and place
+    if (!el || !root) return;
+    let raf = 0;
     const update = () => {
-      const r = rect ? rect() : el.getBoundingClientRect(), R = host.getBoundingClientRect();
-      const me = host.querySelector(`[data-owner="${owner}"][data-name="${name}"]`);
-      const w = me?.offsetWidth || width || 0, h = me?.offsetHeight || 0, vw = window.innerWidth, vh = window.innerHeight, M = 8;
-      // preferred side first; flip when it does not fit; then keep the whole menu on screen
-      let side = place;
-      if (side === 'up' && r.top - GAP - h < M && r.bottom + GAP + h <= vh - M) side = 'down';
-      if (side === 'down' && r.bottom + GAP + h > vh - M && r.top - GAP - h >= M) side = 'up';
-      let x, y;
-      if (side === 'right') { x = r.right + GAP + w > vw - M ? r.left - GAP - w : r.right + GAP; y = r.top; }
-      else { x = r.left; y = side === 'down' ? r.bottom + GAP : r.top - GAP - h; }
-      x = Math.max(M, Math.min(x, vw - M - w)); y = Math.max(M, Math.min(y, vh - M - h));
-      setPos({ top: y - R.top, left: x - R.left, side });
+      raf = 0;
+      const r = rect ? rect() : el.getBoundingClientRect(), R = root.getBoundingClientRect();
+      const me = root.querySelector(`[data-owner="${owner}"][data-name="${name}"]`);
+      const doc = document.documentElement;
+      const p = place(r, me?.offsetWidth || width || 0, me?.offsetHeight || 0, { placement: SIDE[where], align: 'start', gap: GAP, margin: 8, vw: doc.clientWidth, vh: doc.clientHeight });
+      setPos({ top: p.top - R.top, left: p.left - R.left, side: p.side === 'top' ? 'up' : p.side === 'bottom' ? 'down' : p.side });
     };
+    const queue = () => { if (!raf) raf = requestAnimationFrame(update); };
     update();
-    window.addEventListener('resize', update); window.addEventListener('scroll', update, true);
-    return () => { window.removeEventListener('resize', update); window.removeEventListener('scroll', update, true); };
-  }, [anchor, rect, place, owner, name, width, root]);
+    window.addEventListener('resize', queue); window.addEventListener('scroll', queue, true);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', queue); window.removeEventListener('scroll', queue, true); };
+  }, [el, root, rect, where, owner, name, width]);
   if (!root) return null;
   const t = tk(name, { bg: 'surface/tertiary', border: 'border/tertiary', radius: 'xl', fx: 'inner-shade', light: 'cursor' }, { width });
-  const side = pos?.side || place;
+  const side = pos?.side || where;
   const motion = { '--motion-pop-from': side === 'up' ? '4px' : side === 'down' ? '-4px' : '0px', '--motion-pop-origin': side === 'up' ? 'bottom left' : side === 'down' ? 'top left' : 'top left' };
   const { side: _s, ...at } = pos || {};
   return createPortal(

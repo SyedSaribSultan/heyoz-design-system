@@ -8,7 +8,8 @@ import useIndicator from '@/lib/useIndicator';
 // once to the target instead of stepping through every section the page passes on the way.
 export default function Toc({ items }) {
   const [active, setActive] = useState(items[0]?.[1]);
-  const ref = useRef(null), lock = useRef(null);
+  const ref = useRef(null), lock = useRef(null), fallback = useRef(0);
+  useEffect(() => () => clearTimeout(fallback.current), []);
   const { vars, ready } = useIndicator(ref, '[aria-current="true"]', [active]);
   useEffect(() => {
     const els = items.map(([, id]) => document.getElementById(id)).filter(Boolean);
@@ -25,11 +26,13 @@ export default function Toc({ items }) {
     // The scroll a click started has ended: let the observer mark sections again.
     let t = 0;
     const release = () => { clearTimeout(t); t = setTimeout(() => { lock.current = null; }, 120); };
+    const onScroll = () => { if (lock.current && !('onscrollend' in window)) release(); }; // browsers without scrollend
     window.addEventListener('scrollend', release);
-    window.addEventListener('scroll', () => { if (lock.current && !('onscrollend' in window)) release(); }, { passive: true });
-    return () => { io.disconnect(); window.removeEventListener('scrollend', release); clearTimeout(t); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { io.disconnect(); window.removeEventListener('scrollend', release); window.removeEventListener('scroll', onScroll); clearTimeout(t); };
   }, [items]);
-  const go = (id) => { lock.current = id; setActive(id); setTimeout(() => { if (lock.current === id) lock.current = null; }, 2000); };
+  // The lock ends with the scroll; the 2 s timer is the fallback for a click that scrolls nothing (that section is already in place).
+  const go = (id) => { lock.current = id; setActive(id); clearTimeout(fallback.current); fallback.current = setTimeout(() => { if (lock.current === id) lock.current = null; }, 2000); };
   return (
     <nav ref={ref} className="d-toc" aria-label="On this page" data-indicator-ready={ready || undefined}>
       <span className="d-toc-ind motion-indicator" style={vars} aria-hidden />

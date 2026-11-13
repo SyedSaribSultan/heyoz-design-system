@@ -1,5 +1,5 @@
 'use client';
-import { cloneElement, isValidElement, useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { cloneElement, isValidElement, useCallback, useEffect, useId, useLayoutEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import c from '@/tokens/components.json';
 import '@/styles/components.css';
@@ -8,8 +8,10 @@ import Light from '@/lib/Light';
 import Lucide from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
 import useIndicator from '@/lib/useIndicator';
+import useDismiss from '@/lib/useDismiss';
 import cssTime from '@/lib/cssTime';
 import { rec } from '@/lib/rec';
+import { useAnchored } from './floating';
 
 // Menu, built from its spec: components/menu.json → (npm run tokens) → components.json + components.css (--mn-*).
 // Change the spec, not this file. Docs: docs/components/menu.md.
@@ -28,6 +30,7 @@ import { rec } from '@/lib/rec';
 // side      'bottom' (default) | 'top': the preferred side; it flips when it does not fit.
 // align     'start' | 'end': which edge of the trigger the surface lines up with.
 // open / defaultOpen / onOpenChange   control it from outside. onSelect(item) runs for every chosen item.
+// label (or aria-label)  the list's name; without one the trigger names it · className  on the surface
 // MenuPanel is the same surface, drawn in place and not floating (docs specimens): active = the label to highlight, force = 'hover' | 'pressed' | 'focus'.
 //
 // The pieces below (Surface, List, normalize, leaves, useTypeahead) are exported for Select, which is built on this surface and these items.
@@ -77,37 +80,12 @@ export function stepKey(key, items, active) {
   return undefined;
 }
 
-// ─── Placement ──────────────────────────────────────────────────────────────
-// Sets left, top and max-height straight on the element, from the anchor's rectangle; no render in between.
-// Below or above (flips to the roomier side when the preferred one is too short), or beside (flips left); always inside the viewport.
-const num = (el, name) => parseFloat(getComputedStyle(el).getPropertyValue(name)) || 0;
-function place(el, r, { side, align, attached, matchWidth }) {
-  const M = num(el, '--mn-surface-viewport-margin'), cap = num(el, '--mn-surface-max-height');
-  const gap = num(el, side === 'right' ? '--mn-surface-sub-offset' : attached ? '--mn-surface-offset-attached' : '--mn-surface-offset');
-  const vw = document.documentElement.clientWidth, vh = window.innerHeight;
-  el.style.maxHeight = ''; el.style.width = matchWidth ? `${r.width}px` : '';
-  const w = el.offsetWidth, natural = el.offsetHeight;
-  let x, y, used = side, avail;
-  if (side === 'right') {
-    used = r.right + gap + w > vw - M && r.left - gap - w >= M ? 'left' : 'right';
-    x = used === 'right' ? r.right + gap : r.left - gap - w;
-    avail = vh - 2 * M; y = r.top - num(el, '--mn-surface-padding');
-    y = Math.max(M, Math.min(y, vh - M - Math.min(natural, Math.min(cap, avail))));
-  } else {
-    const below = vh - M - (r.bottom + gap), above = r.top - gap - M;
-    used = side;
-    if (side === 'bottom' && natural > below && above > below) used = 'top';
-    else if (side === 'top' && natural > above && below > above) used = 'bottom';
-    avail = used === 'bottom' ? below : above;
-    const h = Math.min(natural, cap, avail);
-    y = used === 'bottom' ? r.bottom + gap : r.top - gap - h;
-    x = align === 'end' ? r.right - w : r.left;
-    x = Math.max(M, Math.min(x, vw - M - w));
-  }
-  if (side === 'right') x = Math.max(M, Math.min(x, vw - M - w));
-  el.style.maxHeight = `${Math.max(0, Math.min(cap, avail))}px`;
-  el.style.left = `${x}px`; el.style.top = `${y}px`;
-  el.dataset.side = used; el.dataset.placed = '';
+// ─── Highlight ──────────────────────────────────────────────────────────────
+// The highlighted item and how it got there ('kb' | 'pointer'): one state, shared by every Menu level and by Select.
+// set(uid, how): how left out keeps the current one.
+export function useHighlight() {
+  const [s, dispatch] = useReducer((cur, n) => ({ active: n.active, how: n.how ?? cur.how }), { active: null, how: 'pointer' });
+  return { active: s.active, how: s.how, set: (active, how) => dispatch({ active, how }) };
 }
 
 // ─── Surface ────────────────────────────────────────────────────────────────
@@ -115,18 +93,19 @@ function place(el, r, { side, align, attached, matchWidth }) {
 //   rect: () => the anchor's DOMRect · side: 'bottom' | 'top' | 'right' · align: 'start' | 'end' · attached: the gap of a field's list
 //   matchWidth: as wide as the anchor (Select) · inline: not floating, drawn where it is (docs) · leaving: from usePresence
 export function Surface({ rect, side = 'bottom', align = 'start', attached, matchWidth, inline, leaving, owner, name = 'menu', className = '', children, ...rest }) {
-  const ref = useRef(null);
-  useLayoutEffect(() => {
-    if (inline) return;
-    const el = ref.current;
-    const run = () => { const r = rect(); if (r) place(el, r, { side, align, attached, matchWidth }); };
-    run();
-    const onScroll = (e) => { if (!el.contains(e.target)) run(); };
-    window.addEventListener('resize', run); window.addEventListener('scroll', onScroll, true);
-    return () => { window.removeEventListener('resize', run); window.removeEventListener('scroll', onScroll, true); };
-  }, [inline, side, align, attached, matchWidth]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [el, setEl] = useState(null);
+  // Placement is floating.js (the same as Popover and Tooltip). A submenu lines up with its item's first row: its top is lifted by the surface padding.
+  const beside = side === 'right';
+  const anchor = inline ? undefined : () => {
+    const r = rect();
+    if (!r || !beside || !el) return r;
+    const pad = parseFloat(getComputedStyle(el).getPropertyValue('--mn-surface-padding')) || 0;
+    return { left: r.left, right: r.right, top: r.top - pad, bottom: r.bottom - pad, width: r.width, height: r.height };
+  };
+  useAnchored({ float: inline ? null : el, rect: anchor, placement: side, align, attached, matchWidth, offset: beside ? '--mn-surface-sub-offset' : '--mn-surface-offset', offsetAttached: '--mn-surface-offset-attached',
+    margin: '--mn-surface-viewport-margin', maxHeight: '--mn-surface-max-height' });
   const node = (
-    <Light ref={ref} className={`mn ${inline ? '' : 'motion-pop'} ${className}`.trim()} data-floating={inline ? undefined : ''} data-attached={attached || undefined} data-align={align}
+    <Light ref={setEl} className={`mn ${inline ? '' : 'motion-pop'} ${className}`.trim()} data-floating={inline ? undefined : ''} data-attached={attached || undefined} data-align={align}
       data-side={inline ? undefined : side} data-owner={owner} data-leaving={leaving || undefined}
       data-component="menu" {...rec(name, SURFACE_ROWS)} {...rest}>
       <Sheen />
@@ -211,8 +190,10 @@ function Item({ e, mode, active, last, expanded, selected, onHover, onItem }) {
 }
 
 // ─── One level: the items, their keys and their submenu ─────────────────────
+// States of one level: idle · item highlighted (pointer or keyboard) · submenu pending open (hover delay) · submenu open · pending close · submenu leaving.
+// Each open of the menu mounts a fresh level (the owner keys it by usePresence's gen), so nothing here outlives an open.
 function MenuLevel({ tree, level, owner, leaving, autoFocus, onChoose, onCloseAll, onCloseSelf, force, listId, label, labelledBy }) {
-  const [active, setActive] = useState(null), [how, setHow] = useState('pointer');
+  const hl = useHighlight(), { active, how } = hl;
   const [sub, setSub] = useState(null);
   const subLast = useRef(null); if (sub) subLast.current = sub;
   const subPresence = usePresence(!!sub);
@@ -223,7 +204,7 @@ function MenuLevel({ tree, level, owner, leaving, autoFocus, onChoose, onCloseAl
   const node = (uid) => document.getElementById(uid);
   useEffect(() => () => clearTimeout(timer.current), []);
 
-  const go = (uid, h = 'kb') => { setActive(uid); setHow(h); if (h === 'kb' && uid) node(uid)?.focus(); };
+  const go = (uid, h = 'kb') => { hl.set(uid, h); if (h === 'kb' && uid) node(uid)?.focus(); };
   useEffect(() => { // where focus lands when the level opens
     if (autoFocus === 'first') go(items[0]?.uid);
     else if (autoFocus === 'last') go(items[items.length - 1]?.uid);
@@ -236,15 +217,15 @@ function MenuLevel({ tree, level, owner, leaving, autoFocus, onChoose, onCloseAl
     timer.current = setTimeout(() => { pend.current = null; fn(); }, cssTime('--duration-fast', 120));
   };
   const cancel = () => { clearTimeout(timer.current); pend.current = null; };
-  const openSub = (e, how2) => { cancel(); setSub({ uid: e.uid, entry: e, focus: how2 === 'pointer' ? 'none' : 'first' }); setActive(e.uid); };
+  const openSub = (e, how2) => { cancel(); setSub({ uid: e.uid, entry: e, focus: how2 === 'pointer' ? 'none' : 'first' }); hl.set(e.uid); };
   const choose = (e, h) => {
-    if (e.disabled) return;
+    if (e.disabled || leaving) return; // a menu that is fading out answers nothing
     if (e.items) { if (h === 'click' && sub?.uid === e.uid) setSub(null); else openSub(e, h); return; }
     onChoose(e);
   };
   const hover = (e, el) => {
-    if (!e) { setActive(null); setHow('pointer'); if (sub) delay('close', () => setSub(null)); else cancel(); return; }
-    setActive(e.uid); setHow('pointer');
+    if (!e) { hl.set(null, 'pointer'); if (sub) delay('close', () => setSub(null)); else cancel(); return; }
+    hl.set(e.uid, 'pointer');
     if (document.activeElement !== el) el?.focus({ preventScroll: true });
     if (e.items) { if (sub?.uid !== e.uid) delay(e.uid, () => openSub(e, 'pointer')); else cancel(); }
     else if (sub) delay('close', () => setSub(null)); else cancel();
@@ -253,6 +234,7 @@ function MenuLevel({ tree, level, owner, leaving, autoFocus, onChoose, onCloseAl
 
   const onKeyDown = (ev) => {
     if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
+    if (leaving) { if (ev.key !== 'Tab') ev.preventDefault(); return; } // fading out: keys do nothing (Enter must not choose twice)
     const k = ev.key, cur = byUid(active);
     if (k === 'Escape') { ev.preventDefault(); level ? onCloseSelf() : onCloseAll(true); return; }
     if (k === 'Tab') { onCloseAll(true); return; } // focus goes to the trigger first, then Tab moves on from it
@@ -267,7 +249,7 @@ function MenuLevel({ tree, level, owner, leaving, autoFocus, onChoose, onCloseAl
   return (
     <>
       <List tree={tree} mode="menu" hl={active ?? sub?.uid ?? null} how={how} onHover={hover} onItem={(e) => choose(e, 'click')} expanded={sub?.uid} listRef={listRef} force={force}
-        listId={listId} label={label} labelledBy={labelledBy} onKeyDown={onKeyDown} onLeave={() => { cancel(); setActive(null); }} />
+        listId={listId} label={label} labelledBy={labelledBy} onKeyDown={onKeyDown} onLeave={() => { cancel(); hl.set(null); }} />
       {subPresence.mounted && subLast.current && (
         <Surface owner={owner} side="right" name="submenu" leaving={leaving || subPresence.leaving} rect={() => node(subLast.current.uid)?.getBoundingClientRect()}>
           <MenuLevel tree={subTree} level={level + 1} owner={owner} leaving={leaving} autoFocus={subLast.current.focus} onChoose={onChoose} onCloseAll={onCloseAll} onCloseSelf={closeSub} labelledBy={subLast.current.uid} />
@@ -278,26 +260,21 @@ function MenuLevel({ tree, level, owner, leaving, autoFocus, onChoose, onCloseAl
 }
 
 // ─── Menu ───────────────────────────────────────────────────────────────────
-export default function Menu({ trigger, items, side = 'bottom', align = 'start', onSelect, open: openProp, defaultOpen = false, onOpenChange, label }) {
+export default function Menu({ trigger, items, side = 'bottom', align = 'start', onSelect, open: openProp, defaultOpen = false, onOpenChange, label, 'aria-label': ariaLabel, className = '' }) {
   const id = useId(), anchor = useRef(null), listId = `${id}-menu`;
   const [openState, setOpenState] = useState(defaultOpen), open = openProp ?? openState;
   const [focus, setFocus] = useState('list');
   const [client, setClient] = useState(false);
   useEffect(() => setClient(true), []);
-  const { mounted, leaving } = usePresence(open);
+  const { mounted, leaving, gen } = usePresence(open);
   const tree = useMemo(() => normalize(items, id), [items, id]);
   const set = (v) => { if (openProp === undefined) setOpenState(v); onOpenChange?.(v); };
   const focusTrigger = () => anchor.current?.querySelector('button, a[href], input, [tabindex]:not([tabindex="-1"])')?.focus();
   const close = (returnFocus = true) => { set(false); if (returnFocus) focusTrigger(); };
   const openWith = (f) => { setFocus(f); set(true); };
 
-  // Clicking anywhere outside the trigger, the menu and its submenu closes it.
-  useEffect(() => {
-    if (!open) return;
-    const off = (e) => { if (!anchor.current?.contains(e.target) && !e.target.closest?.(`[data-owner="${id}"]`)) set(false); };
-    document.addEventListener('pointerdown', off, true);
-    return () => document.removeEventListener('pointerdown', off, true);
-  }, [open, id]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Esc, or a press outside the trigger, the menu and its submenu (the shared rule, lib/useDismiss). Esc inside the list is handled there first.
+  useDismiss({ open, inside: (t) => !!anchor.current?.contains(t) || !!t?.closest?.(`[data-owner="${id}"]`), onDismiss: (reason) => (reason === 'escape' ? close(true) : set(false)) });
 
   const chosen = (e) => { e.onSelect?.(e); onSelect?.(e); if (!e.keepOpen) close(true); };
   const p = {
@@ -319,8 +296,8 @@ export default function Menu({ trigger, items, side = 'bottom', align = 'start',
     <>
       <span ref={anchor} className="mn-anchor" data-component="menu-trigger">{node}</span>
       {mounted && client && (
-        <Surface owner={id} side={side} align={align} leaving={leaving} rect={() => anchor.current?.getBoundingClientRect()}>
-          <MenuLevel tree={tree} level={0} owner={id} leaving={leaving} autoFocus={focus} onChoose={chosen} onCloseAll={close} listId={listId} label={label} labelledBy={label ? undefined : `${id}-trigger`} />
+        <Surface key={gen} owner={id} side={side} align={align} leaving={leaving} className={className} rect={() => anchor.current?.getBoundingClientRect()}>
+          <MenuLevel tree={tree} level={0} owner={id} leaving={leaving} autoFocus={focus} onChoose={chosen} onCloseAll={close} listId={listId} label={ariaLabel ?? label} labelledBy={ariaLabel ?? label ? undefined : `${id}-trigger`} />
         </Surface>
       )}
     </>

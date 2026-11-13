@@ -1,16 +1,13 @@
-import { DocPage, Section, Panel, Token, Table, Meta, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Table, Meta, Info, SpecTable, RuleTable, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
-import t from '@/tokens/tokens.resolved.json';
 import { MenuPanel } from '@/components/Menu';
-import { MenuPlayground, LongMenu, EdgeMenu, SubmenuDemo } from '@/docs/MenuDemos';
-import '@/docs/menu-docs.css';
+import { MenuPlayground, LongMenu, EdgeMenu, SubmenuDemo } from './MenuDemos';
 
 export const metadata = meta('/components/menu');
 const SPEC = c.menu; // the spec, read here: a client module's exports are not values on the server
 // A spec value in px: a set number, or the token it points at.
-const val = (key) => { const x = SPEC.vars.find((v) => v.key === key); return x.px ?? t.numbers.find((n) => n.name === x.ref).px; };
-const ref = (key) => SPEC.vars.find((v) => v.key === key).ref;
+const { px: val, ref } = specOf(SPEC);
 const rule = (k) => SPEC.rules[k];
 
 const SHARE = [{ label: 'Copy link', icon: 'link' }, { label: 'Email…', icon: 'mail' }, { label: 'Invite people', disabled: true, description: 'Needs the Team plan' }];
@@ -51,8 +48,6 @@ const KEYS = [
   ['Esc', 'Close the submenu, or the menu. Focus returns to the trigger.'],
   ['Tab', 'Close the menu and move on from the trigger.'],
 ];
-const RuleTable = ({ keys }) => <Table first={160} cols={['Topic', 'Rule']} rows={keys.map(([k, title]) => [<span key="t" className="type-label-lg-medium">{title}</span>, rule(k)])} />;
-const px = (r) => t.numbers.find((n) => n.name === r)?.px;
 
 export default function MenuPage() {
   return (
@@ -85,14 +80,14 @@ export default function MenuPage() {
             ))}
           </div>
         </Panel>
-        <RuleTable keys={[['highlight', 'The indicator'], ['disabled', 'Disabled'], ['motion', 'Motion'], ['sheen', 'Sheen'], ['light', 'Light']]} />
+        <RuleTable spec={SPEC} keys={[['highlight', 'The indicator'], ['disabled', 'Disabled'], ['motion', 'Motion'], ['sheen', 'Sheen'], ['light', 'Light']]} />
       </Section>
 
       <Section title="Submenu" desc="One level. It opens beside its parent item after a short hover, or with a click, Enter, Space or ArrowRight, and closes with ArrowLeft or Esc. Open this one and go to Export as or Share.">
         <Panel tone="surface/primary" pad={24}>
           <SubmenuDemo />
         </Panel>
-        <RuleTable keys={[['submenu', 'Submenu']]} />
+        <RuleTable spec={SPEC} keys={[['submenu', 'Submenu']]} />
       </Section>
 
       <Section title="Placement and long lists" desc={<>Below the trigger, {val('surface-offset')}px away, and inside the window ({val('surface-viewport-margin')}px from every edge). It flips above when below is too short, and lines up on the end edge when asked. Past {val('surface-max-height')}px it scrolls inside. <Info info={`Width ${val('surface-min-width')} to ${val('surface-max-width')}\nOne scrollbar (D-037), stroke/${val('surface-scroll-room')} of clip room\nOverscroll stays inside the menu`}>The details</Info></>}>
@@ -102,25 +97,20 @@ export default function MenuPage() {
             <div className="mnd-cell" style={{ flex: 1, minWidth: 240 }}><div className="mnd-end"><EdgeMenu items={KINDS.slice(0, 1)} /></div><Meta>Align end: the right edges line up</Meta></div>
           </div>
         </Panel>
-        <RuleTable keys={[['placement', 'Placement'], ['scroll', 'Scroll']]} />
+        <RuleTable spec={SPEC} keys={[['placement', 'Placement'], ['scroll', 'Scroll']]} />
       </Section>
 
       <Section title="When to use" desc="A menu is for actions and settings behind one trigger.">
-        <RuleTable keys={[['when', 'Use it when'], ['trigger', 'Trigger'], ['tier', 'Surface tier']]} />
+        <RuleTable spec={SPEC} keys={[['use', 'Use it when'], ['trigger', 'Trigger'], ['tier', 'Surface tier']]} />
       </Section>
 
       <Section title="Keyboard and screen readers" desc="Focus moves onto each item (roving), so screen readers read it. The trigger names the menu.">
         <Table first={220} cols={['Key', 'Does']} rows={KEYS.map(([k, d]) => [<Token key="k">{k}</Token>, d])} />
-        <RuleTable keys={[['pointer', 'Pointer'], ['aria', 'Roles and names']]} />
+        <RuleTable spec={SPEC} keys={[['pointer', 'Pointer'], ['aria', 'Roles and names']]} />
       </Section>
 
       <Section title="The details" desc={<>Every value the menu is made of. <Info info="Source: components/menu.json, checked by npm run tokens\nEach value is a --mn-* variable; plain numbers are set values, not tokens">How to read this</Info></>}>
-        <Table first={300} cols={['Variable', 'Value']} rows={[
-          ...SPEC.vars.map((x) => [<Token key="k">--mn-{x.key}</Token>, x.ref
-            ? <span key="v" className="d-row" style={{ gap: 'var(--space-8)' }}><Token>{x.ref}</Token>{px(x.ref) != null && <Meta>{px(x.ref)}px</Meta>}</span>
-            : x.none ? 'none' : <span key="v">{x.px}px <Meta>set, not a token</Meta></span>]),
-          ...Object.entries(SPEC.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls.replaceAll('-', '/')}</Token>]),
-        ]} />
+        <SpecTable spec={SPEC} prefix="mn" />
       </Section>
     </DocPage>
   );

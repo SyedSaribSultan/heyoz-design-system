@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { RadioGroup, Radio } from '@/components/Radio';
 import Switch from '@/components/Switch';
 import Segmented from '@/components/Segmented';
-import './selection-docs.css';
 
 const PLANS = [['free', 'Free', 'One brand, 20 credits a month.'], ['pro', 'Pro', 'Five brands, 500 credits a month.'], ['team', 'Team', 'Unlimited brands, shared credits.']];
 

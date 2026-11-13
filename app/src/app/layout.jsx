@@ -4,6 +4,7 @@ import '@/styles/motion.css';
 import './globals.css';
 import Inspector from '@/lib/Inspector';
 import LightField from '@/lib/LightField';
+import { Toaster } from '@/components/Toast';
 import t from '@/tokens/tokens.resolved.json';
 import { SITE_URL } from '@/lib/site';
 import { FONT_VARIABLES } from '@/lib/fonts';
@@ -28,7 +29,7 @@ export const viewport = { themeColor: t.semantic.find((s) => s.name === 'backgro
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={FONT_VARIABLES} data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="type-body-md-regular">{children}<Inspector /><LightField /></body>
+      <body className="type-body-md-regular">{children}<Inspector /><LightField /><Toaster /></body>
     </html>
   );
 }

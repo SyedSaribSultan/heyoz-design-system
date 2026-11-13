@@ -19,7 +19,7 @@
     "stacking": "When two thumbs sit on the same value the one last used is on top; at the start of the range the maximum thumb is on top and at the end the minimum thumb, so one can always be pulled away.",
     "motion": "State changes (halo, fill, border) run at duration/fast, easing/standard (D-031). The thumb and the filled part follow the pointer with no easing: they are the pointer position. Reduced motion keeps the fades and drops the tag's rise.",
     "disabled": "Track fill/primary with border/secondary-disabled, range content/primary-disabled, thumb fill/inverse-disabled, label and value content/primary-disabled. No halo, no tag, the cursor stays an arrow, and the inputs leave the Tab order.",
-    "when": "Use a slider for a value on a continuous or finely stepped scale where the rough position matters more than the exact number: volume, opacity, duration, strength. Add the number field when people need the exact value. Use a segmented control for 2 to 5 named choices, a number field alone for an exact value on a wide range, and a switch for on / off.",
+    "use": "Use a slider for a value on a continuous or finely stepped scale where the rough position matters more than the exact number: volume, opacity, duration, strength. Add the number field when people need the exact value. Use a segmented control for 2 to 5 named choices, a number field alone for an exact value on a wide range, and a switch for on / off.",
     "grid": "Set values are on the 4px grid with 2px half-steps (D-025). Thumb 20, track 8, halo 4, tick 2 by 4, tag 24, field 72 wide."
   },
   "parts": {

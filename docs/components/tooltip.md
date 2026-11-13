@@ -2,7 +2,7 @@
 
 > Generated from `components/tooltip.json` by `app/scripts/build-tokens.mjs`. Do not edit.
 
-Tooltip: a short label that names or explains one control. One look for the whole system: the side nav's rail tooltips and the docs site's info tips switch to this component. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-002, D-025).
+Tooltip: a short label that names or explains one control. One look for the whole system: the side nav and the docs site use this component. Every value is a token reference, a plain number (a set value in px, not a token), 'none' or a rule (D-002, D-025).
 
 Status: **draft**
 
@@ -23,7 +23,7 @@ One bubble: a label of one short sentence, then an optional keyboard shortcut (o
 - **motion**: Enter: fade, a 4 slide towards its final place from the control's side, scale from 0.98: duration/base, easing/enter (motion-pop, D-031). Left and right placements fade and scale only (motion-pop moves vertically). Leave: fade, duration/fast, easing/exit; it stays mounted until it has faded (usePresence). Reduced motion keeps the fade and drops the movement.
 - **aria**: role=tooltip on the bubble, with an id. While it is open, the control gets aria-describedby pointing at it (added to any the control already has). A tooltip is a description, never the name: an icon-only Button keeps its own label (aria-label); when the tooltip text repeats that label, pass describe={false} so screen readers do not hear it twice. The control must be focusable: a disabled control gets no events, so wrap it in a focusable span or use aria-disabled.
 - **api**: <Tooltip content="Save" shortcut="Ctrl S" placement="top"><Button .../></Tooltip>. The child is one element that accepts a ref (Button, a link, a native element). Props: content, shortcut (a string split on spaces, or an array of keys), placement, wide, delay, disabled, describe. TooltipBubble draws the same bubble inline, for documentation specimens.
-- **migrate**: The side nav (data-tip, ::before, useTips) and the docs info tips (InfoTips, data-info) become <Tooltip> wrappers; both then lose their own tooltip code.
+- **migrate**: Done: the side nav (collapsed items, the logo, open and close buttons) and the docs site's token and info notes use <Tooltip>; neither has tooltip code of its own.
 
 ## Values
 

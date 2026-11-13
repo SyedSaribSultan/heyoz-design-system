@@ -1,6 +1,6 @@
 import t from '@/tokens/tokens.resolved.json';
+import { PopupDemo, SwapDemo, SelectionDemo } from './MotionDemos';
 import { DocPage, Section, Grid, Token, Table, Panel, Info } from '@/docs/ui';
-import { PopupDemo, SwapDemo, SelectionDemo } from '@/docs/MotionDemos';
 import { meta } from '@/docs/nav';
 
 export const metadata = meta('/foundations/motion');

@@ -1,7 +1,6 @@
 import Chip from '@/components/Chip';
 import { CHIP } from '@/components/chip-data';
-import { DocPage, Section, Token, Meta, Table } from '@/docs/ui';
-import { SpecTable, Matrix } from '@/docs/display-docs';
+import { DocPage, Section, Token, Meta, Table, SpecTable, Matrix, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import { ChipPlayground, ChipKinds, ChipChoices } from './ChipDemos';
 
@@ -9,7 +8,7 @@ export const metadata = meta('/components/chip');
 
 const LOGO = '/home/openai-selected.svg';
 const STATES = [['rest', {}], ['hover', { state: 'hover' }], ['pressed', { state: 'active' }], ['selected', { selected: true }], ['disabled', { disabled: true }], ['focus', { state: 'focus' }]];
-const ref = (key) => CHIP.vars.find((v) => v.key === key)?.ref;
+const { ref } = specOf(CHIP);
 const KEYS = [
   ['Tab', 'Moves to the next chip. In a choice group it stops once, on the chosen chip.'],
   ['Space, Enter', 'Presses an action chip. Toggles a filter chip. Chooses the focused chip in a choice group.'],
@@ -56,7 +55,7 @@ export default function ChipPage() {
         <Table first={200} cols={['Key', 'What it does']} rows={KEYS.map(([k, v]) => [<Token key="k">{k}</Token>, v])} />
       </Section>
 
-      <Section title="Usage" desc={CHIP.rules.usage}>
+      <Section title="Usage" desc={CHIP.rules.use}>
         <Table first={260} cols={['Use a Chip for', 'Use something else for']} rows={[
           ['A compact setting that opens a menu or does one thing', <span key="a">An action on the page: <Token>Button</Token></span>],
           ['A filter that toggles on and off', <span key="a">A mode switch between two or three tools: <Token>Segmented</Token></span>],

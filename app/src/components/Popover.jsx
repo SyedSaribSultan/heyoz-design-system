@@ -6,6 +6,7 @@ import Button from './Button';
 import Light from '@/lib/Light';
 import { lucide } from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
+import useDismiss from '@/lib/useDismiss';
 import { rec } from '@/lib/rec';
 import { useAnchored, tabbables } from './floating';
 import '@/styles/components.css';
@@ -19,6 +20,7 @@ import './popover.css';
 // title:      the header title (names the dialog) · label: the name when there is no title · closable: false hides the close button
 // size:       sm 240 | md 320 (default) | lg 400 · placement: bottom (default) | top | left | right · align: start (default) | center | end
 // children, footer: nodes, or functions of { close } · open + onOpenChange (controlled) or defaultOpen
+// className: on the panel · aria-label: the name when there is no title (label is the same thing)
 // Focus: opened by keyboard, it moves into the popover (data-autofocus, else the first control, else the panel); opened by pointer,
 //        it stays on the trigger. It returns to the trigger on Esc, close button or close(). Tab never traps: it leaves for the next
 //        thing after the trigger. Esc closes the newest popover; a press or focus outside closes it too. Rules: spec rules.
@@ -26,7 +28,6 @@ import './popover.css';
 const TY = c.popover.types;
 
 const Tree = createContext(''); // the ids of the popovers around this one: a press inside a nested popover is not "outside" its parent
-const stack = []; // open popovers, newest last: Esc closes the top one
 
 const call = (x, arg) => (typeof x === 'function' ? x(arg) : x);
 
@@ -46,14 +47,14 @@ export function PopoverPanel({ as: Tag = 'div', title, titleId, closable = true,
   );
 }
 
-export default function Popover({ trigger, title, label, size = 'md', placement = 'bottom', align = 'start', closable = true, open: openProp, defaultOpen = false, onOpenChange, footer, children }) {
+export default function Popover({ trigger, title, label, 'aria-label': ariaLabel, className = '', size = 'md', placement = 'bottom', align = 'start', closable = true, open: openProp, defaultOpen = false, onOpenChange, footer, children }) {
   const id = useId(), titleId = `${id}-title`, panelId = `${id}-panel`;
   const parentTree = useContext(Tree);
   const [inner, setInner] = useState(defaultOpen);
   const open = openProp ?? inner;
   const [node, setNode] = useState(null); // the trigger
   const [panel, setPanel] = useState(null);
-  const { mounted, leaving } = usePresence(open);
+  const { mounted, leaving, gen } = usePresence(open);
   const viaPointer = useRef(false), wantFocus = useRef(false), was = useRef(open);
   const childRef = useRef(null); childRef.current = isValidElement(trigger) ? trigger.props.ref : null;
   const live = useRef({}); live.current = { open, onOpenChange, controlled: openProp !== undefined, node, panel };
@@ -86,23 +87,16 @@ export default function Popover({ trigger, title, label, size = 'md', placement 
     target.focus({ preventScroll: true });
   }, [open, panel]);
 
-  // Esc (the newest only), a press outside, a focus move outside.
+  // Esc (the newest layer only), a press outside, a focus move outside: the shared rule (lib/useDismiss).
+  const inside = (t) => !!node?.contains(t) || !!t?.closest?.('[data-pop-tree]')?.getAttribute('data-pop-tree').split(' ').includes(id);
+  useDismiss({ open, inside, focus: true, onDismiss: (reason) => close(reason === 'escape') });
+
+  // The trigger left the page while the popover was open: there is nothing to follow, so it closes.
+  const hadNode = useRef(false);
   useEffect(() => {
-    if (!open) return;
-    const self = { close };
-    stack.push(self);
-    const inside = (t) => !!node?.contains(t) || !!t?.closest?.('[data-pop-tree]')?.getAttribute('data-pop-tree').split(' ').includes(id);
-    const key = (e) => { if (e.key === 'Escape' && !e.defaultPrevented && stack[stack.length - 1] === self) close(true); };
-    const press = (e) => { if (!inside(e.target)) close(false); };
-    const focus = (e) => { if (!inside(e.target)) close(false); };
-    document.addEventListener('keydown', key);
-    document.addEventListener('pointerdown', press, true);
-    document.addEventListener('focusin', focus);
-    return () => {
-      stack.splice(stack.indexOf(self), 1);
-      document.removeEventListener('keydown', key); document.removeEventListener('pointerdown', press, true); document.removeEventListener('focusin', focus);
-    };
-  }, [open, close, node, id]);
+    if (node) hadNode.current = true;
+    else if (open && hadNode.current) close(false);
+  }, [node, open, close]);
 
   // Tab leaves for the next thing after the trigger, never trapped. From the trigger, Tab goes in.
   const onPanelKey = (e) => {
@@ -134,9 +128,9 @@ export default function Popover({ trigger, title, label, size = 'md', placement 
     <>
       {control}
       {mounted && createPortal(
-        <Tree.Provider value={`${id} ${parentTree}`.trim()}>
-          <PopoverPanel as={Light} ref={setPanel} id={panelId} role="dialog" aria-labelledby={title ? titleId : undefined} aria-label={title ? undefined : label} tabIndex={-1}
-            className="pop-floating motion-pop" data-pop-tree={`${id} ${parentTree}`.trim()} data-leaving={leaving || undefined} onKeyDown={onPanelKey}
+        <Tree.Provider key={gen} value={`${id} ${parentTree}`.trim()}>
+          <PopoverPanel as={Light} ref={setPanel} id={panelId} role="dialog" aria-labelledby={title ? titleId : undefined} aria-label={title ? undefined : ariaLabel ?? label} tabIndex={-1}
+            className={`pop-floating motion-pop ${className}`.trim()} data-pop-tree={`${id} ${parentTree}`.trim()} data-leaving={leaving || undefined} onKeyDown={onPanelKey}
             title={title} titleId={titleId} closable={closable} onClose={() => close(true)} size={size} footer={footer && call(footer, ctx)}>
             {call(children, ctx)}
           </PopoverPanel>

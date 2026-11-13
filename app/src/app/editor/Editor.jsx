@@ -2,8 +2,9 @@
 // The editor shell (D-034, D-036). Default = preview, one video strip and a five-button action bar;
 // the inspector only on selection; lanes only with content. Layout in editor.css.
 import { useEffect, useRef } from 'react';
+import usePresence from '@/lib/usePresence';
 import Button from '@/components/Button';
-import { S, useEd, bump, track, select, selClip, openTab, closeSheet, openPop, undo, redo, canUndo, canRedo, split, dup, del, captions, play, stop, jog, setTime, tick, toastAct, toast, checkpoint, markSaved, scene, M } from './store';
+import { S, useEd, bump, track, select, selClip, openTab, closeSheet, closeLayers, openInsp, openPop, undo, redo, canUndo, canRedo, split, dup, del, captions, play, stop, jog, setTime, tick, toastAct, toast, editStep, holdEdit, endEdit, markSaved, scene, reset, escape, layerOpen, M } from './store';
 import { Ic, BarButton, iconUrl } from './parts/parts';
 import Preview from './Preview';
 import Timeline, { fitTimeline, zoomBy } from './Timeline';
@@ -21,16 +22,17 @@ export default function Editor() {
   const ref = useRef(null);
   const v = useEd();
   const narrow = S.narrow, sel = selClip(), insp = !!sel;
+  const panel = usePresence(S.sheet === 'panel');
 
   useEffect(() => {
     const asked = new URLSearchParams(window.location.search).get('scene');
     root.el = ref.current; scene(SCENES.includes(asked) ? asked : 'none'); track('editor_opened', { clips: vclips(S.project).length });
-    const ro = new ResizeObserver(() => { const n = ref.current.clientWidth < 820; if (n !== S.narrow) { S.narrow = n; S.sheet = null; S.pop = null; bump(); } });
+    const ro = new ResizeObserver(() => { const n = ref.current.clientWidth < 820; if (n !== S.narrow) { S.narrow = n; closeLayers(); } });
     ro.observe(ref.current);
     let raf; const loop = (ts) => { tick(ts); raf = requestAnimationFrame(loop); }; raf = requestAnimationFrame(loop);
     // The preview and timeline are sized from the window, so they stay hidden until measured, then fade in in place (no layout shift).
     let r1 = requestAnimationFrame(() => { r1 = requestAnimationFrame(() => { if (ref.current) ref.current.dataset.ready = ''; }); });
-    return () => { ro.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(r1); };
+    return () => { ro.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(r1); reset(); };
   }, []);
   useEffect(() => { const k = (e) => onKey(e); document.addEventListener('keydown', k); return () => document.removeEventListener('keydown', k); }, []);
 
@@ -44,7 +46,7 @@ export default function Editor() {
       {insp && <aside className="ed-insp" aria-label="Inspector" data-open={(narrow && S.sheet === 'insp') || undefined}><Inspector /></aside>}
       <Timeline />
       <ActionBar />
-      {S.sheet === 'panel' && <Panel />}
+      {panel.mounted && <Panel leaving={S.sheet !== 'panel'} />}
       {sheetOpen && <div className="ed-scrim" data-dim={narrow || undefined} onClick={closeSheet} aria-hidden />}
       <Popovers />
       <Toast />
@@ -53,7 +55,6 @@ export default function Editor() {
   );
 }
 
-let armed = true; // one undo step per rename
 // ─── Top bar ─────────────────────────────────────────────────────────────────
 function TopBar() {
   useEd(); const P = S.project, tot = total(P), n = S.narrow;
@@ -63,7 +64,7 @@ function TopBar() {
     <header className="ed-top" data-name="top bar" data-tokens={JSON.stringify([['background', 'background'], ['padding x', 'space/4'], ['gap', 'space/12']])}>
       <Button type="ghost" size="xs" icon={iconUrl('chevron-left')} label="Back to projects" title="Back to projects" onClick={() => toast('Back to projects is not part of the design system app')} />
       <input className="ed-pname type-heading-xs-semibold" value={P.name} aria-label="Project name" spellCheck={false} maxLength={60}
-        onFocus={() => { armed = true; }} onChange={(e) => { if (armed) { checkpoint(); armed = false; } P.name = e.target.value; markSaved(); bump(); }}
+        onFocus={() => holdEdit(true)} onBlur={endEdit} onChange={(e) => { editStep('project:name'); P.name = e.target.value; markSaved(); bump(); }}
         data-name="project name (draft)" data-tokens={JSON.stringify([['type', 'type/heading/xs/semibold'], ['background · hover', 'fill/secondary'], ['background · focus', 'surface/secondary'], ['radius', 'radius/md']])} />
       <span className="ed-save type-body-sm-regular" role="status"><Ic n={S.saved === 'saving' ? 'ellipsis' : 'check'} />{S.saved === 'saving' ? 'Saving…' : 'Saved'}</span>
       <span className="grow" />
@@ -110,7 +111,7 @@ function ActionBar() {
         <BarButton icon="chevron-left" label="Done" onClick={() => select(null)} />
         <i className="ed-bsep" />
         <BarButton icon="scissors" label="Split" onClick={() => { track('tool_used', { tool: 'split', via: 'bar' }); split(); }} />
-        {S.narrow && <BarButton icon="sliders-horizontal" label="Edit" pressed={S.sheet === 'insp'} onClick={() => { S.sheet = 'insp'; bump(); }} />}
+        {S.narrow && <BarButton icon="sliders-horizontal" label="Edit" pressed={S.sheet === 'insp'} onClick={openInsp} />}
         {c.kind !== 'text' && <BarButton icon="sparkles" label="AI" pressed={tab('ai')} onClick={() => openTab('ai')} />}
         <BarButton icon="copy" label="Duplicate" onClick={dup} />
         <BarButton icon="trash" label="Delete" danger onClick={del} />
@@ -134,8 +135,10 @@ function onKey(e) {
   const tg = e.target, typing = /^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName) && tg.type !== 'range' || tg.isContentEditable;
   const mod = e.metaKey || e.ctrlKey, k = e.key, kl = k.toLowerCase();
   if (mod && kl === 'k') { e.preventDefault(); track('tool_used', { tool: 'palette', via: 'shortcut' }); return openPop('cmd', null, 'center'); }
-  if (k === 'Escape') { if (S.pop) { S.pop = null; S.ai = null; bump(); } else if (S.sheet) closeSheet(); else if (S.sel) select(null); return; }
-  if (S.pop?.type === 'cmd' || typing) return;
+  // One Esc closes the top layer. In a text field with nothing open, Esc only leaves the field.
+  if (k === 'Escape') { if (typing && !layerOpen() && !S.drag) return tg.blur?.(); escape(); return; }
+  // Behind any open popover or sheet (palette and AI included) the shortcuts do nothing.
+  if (layerOpen() || typing) return;
   if (mod && kl === 'z') { e.preventDefault(); return e.shiftKey ? redo() : undo(); }
   if (mod && kl === 'y') { e.preventDefault(); return redo(); }
   if (mod && kl === 'd') { e.preventDefault(); track('tool_used', { tool: 'duplicate', via: 'shortcut' }); return dup(); }

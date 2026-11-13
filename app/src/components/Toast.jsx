@@ -12,7 +12,7 @@ import './toast.css';
 // Toast, built from its spec: components/toast.json → (npm run tokens) → components.json + components.css.
 // Change the spec, not this file. Docs: docs/components/toast.md.
 //
-//   <Toaster />                              once, in the root layout (a second one renders nothing)
+//   <Toaster />                              once, in the root layout (a second one renders nothing) · className, aria-label optional
 //   toast('Saved')                           neutral · toast.success / .warning / .critical / .info set the type
 //   toast.success('Clip added', { description, action: { label: 'Undo', onClick }, duration, icon, id, dismissible })
 //   toast.dismiss(id) · toast.dismiss()      close one · close all
@@ -115,7 +115,7 @@ function Item({ t, offset, paused, restore, onSize }) {
   const up = () => {
     if (!drag.current) return;
     const { dx } = drag.current; drag.current = null; delete card.current.dataset.dragging;
-    if (Math.abs(dx) > TOAST.swipe) { card.current.style.setProperty('--tst-drag', `${Math.sign(dx) * TOAST.swipe}px`); dismiss(t.id); }
+    if (Math.abs(dx) > TOAST.swipe) { card.current.style.setProperty('--tst-drag', `${Math.sign(dx) * TOAST.swipe}px`); close(); } // through close(): focus is given back like any other dismissal
     else card.current.style.removeProperty('--tst-drag');
   };
   const key = (e) => { if (e.key === 'Escape') { e.preventDefault(); close(); } };
@@ -131,7 +131,7 @@ function Item({ t, offset, paused, restore, onSize }) {
 
 // ─── The toaster: one fixed corner region ────────────────────────────────────────────────────────────────────
 let host = null; // only the first mounted Toaster renders
-export function Toaster() {
+export function Toaster({ className = '', 'aria-label': ariaLabel = 'Notifications (F8)' }) {
   const list = useSyncExternalStore(subscribe, () => items, () => EMPTY);
   const [mine, setMine] = useState(false), [hover, setHover] = useState(false), [focus, setFocus] = useState(false), [hidden, setHidden] = useState(false);
   const [heights, setHeights] = useState({});
@@ -143,6 +143,12 @@ export function Toaster() {
     document.addEventListener('visibilitychange', vis); vis();
     return () => document.removeEventListener('visibilitychange', vis);
   }, []);
+  // A removed toast (dismiss, overflow, swipe) takes its focused button with it, and no blur reaches the region: without this the
+  // toaster would stay "focused" and paused for good. Same for a pointer that was over a toast that left.
+  useEffect(() => {
+    if (focus && !region.current?.contains(document.activeElement)) setFocus(false);
+    if (hover && !list.length) setHover(false);
+  }, [list, focus, hover]);
   const restore = useCallback(() => { const el = back.current; if (el && el.isConnected) el.focus({ preventScroll: true }); back.current = null; }, []);
   // F8: move focus into the toaster, newest toast first.
   useEffect(() => {
@@ -168,7 +174,7 @@ export function Toaster() {
     return [t, `calc(var(--tst-region-gap) * ${above.length} + ${above.reduce((n, a) => n + (heights[a.id] || 0), 0)}px)`];
   });
   return (
-    <section ref={region} className="tst tst-region" aria-label="Notifications (F8)" aria-live="polite" aria-relevant="additions text" data-focus-allow="" data-component="toast" data-name="toaster"
+    <section ref={region} className={`tst tst-region ${className}`.trim()} aria-label={ariaLabel} aria-live="polite" aria-relevant="additions text" data-focus-allow="" data-component="toast" data-name="toaster"
       onPointerEnter={() => setHover(true)} onPointerLeave={() => setHover(false)}
       onFocus={(e) => { if (!region.current.contains(e.relatedTarget)) back.current = e.relatedTarget; setFocus(true); }}
       onBlur={(e) => { if (!region.current.contains(e.relatedTarget)) setFocus(false); }}

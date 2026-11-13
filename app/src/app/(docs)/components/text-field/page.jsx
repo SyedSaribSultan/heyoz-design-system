@@ -1,17 +1,14 @@
 import { TextField, TextArea } from '@/components/TextField';
-import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
+import { DocPage, Section, Panel, Token, Meta, Table, Info, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import c from '@/tokens/components.json';
-import t from '@/tokens/tokens.resolved.json';
 import TextFieldDemo from './TextFieldDemo';
 import './page.css';
 
 export const metadata = meta('/components/text-field');
 
-// A spec value in px: a set number, or the token it points at (components/textfield.json).
-const V = Object.fromEntries(c.textfield.vars.map((v) => [v.key, v]));
-const px = (key) => V[key].px ?? t.numbers.find((n) => n.name === V[key].ref).px;
-const ref = (key) => V[key].ref;
+// Spec values (components/textfield.json): px resolves a set number or the token it points at.
+const { px, ref } = specOf(c.textfield);
 const cell = (val, tok) => <div className="d-stack" style={{ gap: 0 }}><span>{val}</span><Meta>{tok}</Meta></div>;
 const Cell = ({ name, meta: m, children }) => (
   <div className="tfd-cell"><div className="tfd-cap"><span className="type-label-lg-medium">{name}</span>{m && <Meta>{m}</Meta>}</div>{children}</div>

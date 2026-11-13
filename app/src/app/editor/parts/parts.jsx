@@ -19,11 +19,11 @@ export function Kbd({ children }) {
 }
 
 // Slider: native range input, so keyboard and screen readers work as-is.
-export function Slider({ value, min = 0, max = 1, step = 0.01, onChange, onCommit, label, disabled }) {
+export function Slider({ value, min = 0, max = 1, step = 0.01, onChange, onStart, onCommit, label, disabled }) {
   const p = ((value - min) / (max - min)) * 100;
   return (
     <input className="ed-range" type="range" min={min} max={max} step={step} value={value} aria-label={label} disabled={disabled}
-      style={{ '--p': `${p}%` }} onChange={(e) => onChange(+e.target.value)} onPointerUp={onCommit} onKeyUp={onCommit}
+      style={{ '--p': `${p}%` }} onChange={(e) => onChange(+e.target.value)} onPointerDown={onStart} onPointerUp={onCommit} onKeyUp={onCommit} onBlur={onCommit}
       data-name="slider (draft)" data-tokens={T([['track', 'fill/tertiary'], ['track · filled', 'content/secondary'], ['thumb', 'content/primary'], ['height', 'layout · 20px'], ['focus', 'border/focus']])} />
   );
 }
@@ -37,13 +37,15 @@ export function Switch({ checked, onChange, children }) {
   );
 }
 
-export function NumberField({ label, value, onChange, step = 0.1, min = 0 }) {
+// onStart on focus and onCommit on blur or Enter bracket one undo step.
+export function NumberField({ label, value, onChange, onStart, onCommit, step = 0.1, min = 0 }) {
   const id = useId();
   return (
     <label className="ed-field ed-num" htmlFor={id} data-name="number field (draft)"
       data-tokens={T([['background', 'surface/secondary'], ['border', 'border/primary'], ['border · focus', 'border/focus'], ['radius', 'radius/md'], ['height', 'size/control/xs'], ['label', 'content/tertiary']])}>
       <span className="type-label-md-medium">{label}</span>
       <input id={id} type="number" step={step} min={min} value={(+value).toFixed(1)} className="type-body-md-regular"
+        onFocus={onStart} onBlur={onCommit} onKeyDown={(e) => { if (e.key === 'Enter') onCommit?.(); }}
         onChange={(e) => { const v = parseFloat(e.target.value); if (!Number.isNaN(v)) onChange(v); }} />
     </label>
   );

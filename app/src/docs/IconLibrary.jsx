@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { fatIcons } from './icon-index';
 import Lucide from '@/lib/Lucide';
+import { LinkButton } from '@/components/Button';
 
 // Searchable icon grid. Single-colour icons are drawn from a sprite with <use>, so they take the
 // text colour; colour icons (logos, flags, emoji) are drawn as images, as designed.
@@ -13,13 +14,15 @@ const BATCH = 240;
 
 export default function IconLibrary({ lib, initial, total: totalAll, sprite, dir, groupBy, placeholder }) {
   const [all, setAll] = useState(() => fatIcons(lib, initial));
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false), [failed, setFailed] = useState(false);
   const [q, setQ] = useState('');
   const [limit, setLimit] = useState(BATCH);
   const root = useRef(null), more = useRef(null), loading = useRef(null);
 
+  // States: preview (the first icons) · loading · loaded · failed (a retry link is shown; load() again starts over)
   const load = () => {
-    loading.current ??= fetch(`/icon-index/${lib}`).then((r) => r.json()).then((rows) => { setAll(fatIcons(lib, rows)); setLoaded(true); }).catch(() => { loading.current = null; });
+    setFailed(false);
+    loading.current ??= fetch(`/icon-index/${lib}`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((rows) => { setAll(fatIcons(lib, rows)); setLoaded(true); }).catch(() => { loading.current = null; setFailed(true); });
     return loading.current;
   };
   // Fetch the index once the library is within a screen or so of the viewport.
@@ -50,7 +53,7 @@ export default function IconLibrary({ lib, initial, total: totalAll, sprite, dir
     return { groups, total: list.length, shown: Math.min(list.length, limit) };
   }, [q, all, groupBy, limit]);
 
-  const searching = q.trim() && !loaded;
+  const searching = q.trim() && !loaded && !failed;
   const count = loaded || q.trim() ? total : totalAll;
   return (
     <div className="il" ref={root}>
@@ -79,7 +82,7 @@ export default function IconLibrary({ lib, initial, total: totalAll, sprite, dir
           </div>
         </div>
       ))}
-      {(shown < total || !loaded) && <div ref={more} className="il-more type-label-lg-regular d-dim">{loaded ? `Showing ${shown.toLocaleString('en')} of ${total.toLocaleString('en')}` : 'Loading icons…'}</div>}
+      {(shown < total || !loaded) && <div ref={more} className="il-more type-label-lg-regular d-dim" role={failed ? 'alert' : undefined}>{loaded ? `Showing ${shown.toLocaleString('en')} of ${total.toLocaleString('en')}` : failed ? <>Could not load the full list. <LinkButton size="sm" onClick={load}>Try again</LinkButton></> : 'Loading icons…'}</div>}
       {loaded && total === 0 && <p className="d-dim type-body-md-regular">No icon matches “{q}”.</p>}
     </div>
   );

@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import Switch from '@/components/Switch';
 import Segmented from '@/components/Segmented';
-import './selection-docs.css';
 
 // Playground: one live switch and the knobs that change it.
 export function SwitchPlayground({ sm, md }) {

@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import c from '@/tokens/components.json';
 import Light from '@/lib/Light';
 import usePresence from '@/lib/usePresence';
+import useDismiss from '@/lib/useDismiss';
 import { rec } from '@/lib/rec';
 import { useAnchored } from './floating';
 import '@/styles/components.css';
@@ -11,7 +12,7 @@ import './tooltip.css';
 import { DELAY, WARM, GRACE } from './tooltip-timing';
 
 // Tooltip, built from its spec: components/tooltip.json → (npm run tokens) → --tt-* variables. Docs: docs/components/tooltip.md.
-// One look for the whole system (the side nav's and the docs info tips' values).
+// One look for the whole system: the side nav and the docs site use it.
 //
 // <Tooltip content="Save" shortcut="Ctrl S" placement="top"><Button …/></Tooltip>
 // children:   one element that accepts a ref (Button, a link, a native element). A disabled control gets no events:
@@ -20,7 +21,7 @@ import { DELAY, WARM, GRACE } from './tooltip-timing';
 // placement:  top (default) | bottom | left | right: flips and clamps to the window, fixed to it (never clipped)
 // wide:       the 320 max width instead of 240 (a token's details) · delay: ms before a hover opens it (DELAY)
 // ...rest:     any other props (a Popover trigger adds its own) go to the control: <Popover trigger={<Tooltip …><Button/></Tooltip>}>
-// disabled:   never shows · describe: false when the text repeats the control's own label (no aria-describedby)
+// className:  on the bubble · disabled: never shows · describe: false when the text repeats the control's own label (no aria-describedby)
 // Hover opens after DELAY; while "warm" (another is open, or one closed within WARM) it opens at once. Keyboard
 // focus opens at once. Closes on leave (after GRACE), blur, Esc, press. Never on touch. Rules: spec rules.
 const TY = c.tooltip.types;
@@ -43,7 +44,7 @@ export function TooltipBubble({ as: Tag = 'div', content, shortcut, wide, classN
   );
 }
 
-export default function Tooltip({ content, shortcut, placement = 'top', wide, delay = DELAY, disabled, describe = true, children, ref: outerRef, ...rest }) {
+export default function Tooltip({ content, shortcut, placement = 'top', wide, delay = DELAY, disabled, describe = true, className = '', children, ref: outerRef, ...rest }) {
   const id = useId();
   const [node, setNode] = useState(null); // the control
   const [bubble, setBubble] = useState(null); // the floating bubble
@@ -98,13 +99,8 @@ export default function Tooltip({ content, shortcut, placement = 'top', wide, de
     };
   }, [node, disabled, show, hide]);
 
-  // Esc closes the tooltip and nothing else: it runs first (window, capture) and stops there.
-  useEffect(() => {
-    if (!open) return;
-    const esc = (e) => { if (e.key === 'Escape') { e.stopPropagation(); hide(); } };
-    window.addEventListener('keydown', esc, true);
-    return () => window.removeEventListener('keydown', esc, true);
-  }, [open, hide]);
+  // Esc closes the tooltip and nothing else: it is read first (window, capture) and stops there. Not on the layer stack.
+  useDismiss({ open, press: false, capture: true, stacked: false, onDismiss: () => hide() });
 
   // stable, so React never detaches and re-attaches it between renders
   const ref = useCallback((el) => { setNode(el); for (const r of refs.current) { if (typeof r === 'function') r(el); else if (r) r.current = el; } }, []);
@@ -117,7 +113,7 @@ export default function Tooltip({ content, shortcut, placement = 'top', wide, de
     <>
       {control}
       {mounted && !disabled && createPortal(
-        <TooltipBubble as={Light} ref={setBubble} id={id} role="tooltip" content={content} shortcut={shortcut} wide={wide} className="tt-floating motion-pop"
+        <TooltipBubble as={Light} ref={setBubble} id={id} role="tooltip" content={content} shortcut={shortcut} wide={wide} className={`tt-floating motion-pop ${className}`.trim()}
           data-leaving={leaving || undefined} onPointerEnter={() => clearTimeout(timer.current)} onPointerLeave={() => hide(GRACE)} />,
         document.body)}
     </>

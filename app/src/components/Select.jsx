@@ -5,8 +5,9 @@ import '@/styles/components.css';
 import './select.css';
 import Lucide from '@/lib/Lucide';
 import usePresence from '@/lib/usePresence';
+import useDismiss from '@/lib/useDismiss';
 import { rec } from '@/lib/rec';
-import { Surface, List, normalize, leaves, stepKey, isChar, useTypeahead } from './Menu';
+import { Surface, List, normalize, leaves, stepKey, isChar, useTypeahead, useHighlight } from './Menu';
 
 // Select, built from its spec: components/select.json → (npm run tokens) → components.json + components.css (--sel-*).
 // The list is the Menu's surface, list and items (Menu.jsx, components/menu.json). Change the specs, not this file. Docs: /components/select.
@@ -19,7 +20,7 @@ import { Surface, List, normalize, leaves, stepKey, isChar, useTypeahead } from 
 // placeholder  shown when nothing is chosen · hint · error (shows in the hint's place and marks the field invalid; '' = none yet) · invalid (red border, no message)
 // size         'xs' (32, default) | 'sm' (40) | 'md' (48) · icon: a Lucide name shown in the well when nothing is chosen
 // disabled · name (adds a hidden input so the value posts with a form) · id
-// state        'hover' | 'open' | 'focus' forces a look, for the docs
+// state        'hover' | 'open' | 'focus' forces a look, for the docs · className  on the root · aria-label  the name when there is no label
 export const SELECT = c.select;
 export const SIZE_NAMES = ['xs', 'sm', 'md'];
 const TY = SELECT.types;
@@ -28,14 +29,15 @@ const WELL_ROWS = (size) => [['height', `size/control/${size}`], ['radius', { xs
   ['gap', 'space/8'], ['type', TY[`size-${size}`].replaceAll('-', '/')], ['background', 'fill/primary'], ['border', 'border/primary'], ['border · hover', 'border/primary-hover'],
   ['border · open', 'border/primary-active'], ['border · invalid', 'border/critical'], ['effect', 'effect · inner-shade'], ['focus ring', 'border/focus'], ['text colour', 'content/primary'], ['placeholder', 'content/tertiary'], ['chevron', 'content/secondary']];
 
-export default function Select({ label, hint, error, invalid, placeholder = 'Select…', size = 'xs', options, value, defaultValue, onChange, disabled, name, icon, id, state, 'aria-label': ariaLabel }) {
+export default function Select({ label, hint, error, invalid, placeholder = 'Select…', size = 'xs', options, value, defaultValue, onChange, disabled, name, icon, id, state, className = '', 'aria-label': ariaLabel }) {
   const uid = useId(), fid = id || `sel-${uid}`, listId = `${fid}-list`, labelId = `${fid}-label`, valueId = `${fid}-value`, noteId = `${fid}-note`;
   const [inner, setInner] = useState(defaultValue);
   const cur = value !== undefined ? value : inner;
-  const [open, setOpen] = useState(false), [act, setAct] = useState(null), [how, setHow] = useState('pointer');
+  const [open, setOpen] = useState(false);
+  const hl = useHighlight(), act = hl.active, how = hl.how;
   const [client, setClient] = useState(false);
   useEffect(() => setClient(true), []);
-  const { mounted, leaving } = usePresence(open);
+  const { mounted, leaving, gen } = usePresence(open);
   const anchor = useRef(null), btn = useRef(null);
   const type = useTypeahead();
 
@@ -44,25 +46,20 @@ export default function Select({ label, hint, error, invalid, placeholder = 'Sel
   const sel = all.find((e) => e.value === cur);
   const showError = !!error, bad = invalid || showError;
 
-  const openList = (h) => { if (disabled) return; setAct(sel && !sel.disabled ? sel.uid : h === 'last' ? items[items.length - 1]?.uid : items[0]?.uid ?? null); setHow(h === 'pointer' ? 'pointer' : 'kb'); setOpen(true); };
-  const close = () => { setOpen(false); setAct(null); };
+  const openList = (h) => { if (disabled) return; hl.set(sel && !sel.disabled ? sel.uid : h === 'last' ? items[items.length - 1]?.uid : items[0]?.uid ?? null, h === 'pointer' ? 'pointer' : 'kb'); setOpen(true); };
+  const close = () => setOpen(false); // the highlight stays while the list fades; openList sets it again
   const choose = (e) => { if (e.disabled) return; if (e.value !== cur) { if (value === undefined) setInner(e.value); onChange?.(e.value); } close(); btn.current?.focus(); };
-  const go = (to) => { setAct(to.uid); setHow('kb'); requestAnimationFrame(() => document.getElementById(to.uid)?.scrollIntoView({ block: 'nearest' })); };
+  const go = (to) => { hl.set(to.uid, 'kb'); requestAnimationFrame(() => document.getElementById(to.uid)?.scrollIntoView({ block: 'nearest' })); };
 
-  // Clicking outside the field and its list closes it.
-  useEffect(() => {
-    if (!open) return;
-    const off = (e) => { if (!anchor.current?.contains(e.target) && !e.target.closest?.(`[data-owner="${fid}"]`)) close(); };
-    document.addEventListener('pointerdown', off, true);
-    return () => document.removeEventListener('pointerdown', off, true);
-  }, [open, fid]);
+  // Esc, or a press outside the field and its list, closes it (the shared rule, lib/useDismiss). Esc on the field is handled below first.
+  useDismiss({ open, inside: (t) => !!anchor.current?.contains(t) || !!t?.closest?.(`[data-owner="${fid}"]`), onDismiss: close });
 
   // The list opens with the chosen option in the middle of the view.
   useLayoutEffect(() => {
     if (!mounted || !client) return;
     const el = sel && document.getElementById(sel.uid), box = el?.closest('.mn-scroll');
     if (box) box.scrollTop = el.offsetTop - (box.clientHeight - el.offsetHeight) / 2;
-  }, [mounted, client]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [mounted, client, gen]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onKeyDown = (e) => {
     if (disabled || e.altKey || e.ctrlKey || e.metaKey) return;
@@ -83,7 +80,7 @@ export default function Select({ label, hint, error, invalid, placeholder = 'Sel
 
   const hasNote = hint !== undefined || error !== undefined;
   return (
-    <div className="sel" data-size={size} data-disabled={disabled || undefined} data-invalid={bad || undefined} data-component="select" data-name={`select · ${size}`} data-tokens={JSON.stringify(WELL_ROWS(size))}>
+    <div className={`sel ${className}`.trim()} data-size={size} data-disabled={disabled || undefined} data-invalid={bad || undefined} data-component="select" data-name={`select · ${size}`} data-tokens={JSON.stringify(WELL_ROWS(size))}>
       {label && <span id={labelId} className={`sel-label ${TY.label}`} onClick={() => btn.current?.focus()}>{label}</span>}
       <span ref={anchor} className="sel-anchor">
         <button ref={btn} id={fid} type="button" role="combobox" className={`sel-well ${TY[`size-${size}`]}`} disabled={disabled} data-state={state}
@@ -102,9 +99,9 @@ export default function Select({ label, hint, error, invalid, placeholder = 'Sel
       )}
       {name && <input type="hidden" name={name} value={cur ?? ''} />}
       {mounted && client && (
-        <Surface owner={fid} side="bottom" attached matchWidth leaving={leaving} name="select list" rect={() => anchor.current?.getBoundingClientRect()} onMouseDown={(e) => e.preventDefault()}>
+        <Surface key={gen} owner={fid} side="bottom" attached matchWidth leaving={leaving} name="select list" rect={() => anchor.current?.getBoundingClientRect()} onMouseDown={(e) => e.preventDefault()}>
           <List tree={tree} mode="listbox" listId={listId} labelledBy={label ? labelId : undefined} label={label ? undefined : ariaLabel} hl={act} how={how} selected={sel?.uid}
-            onHover={(e) => { setAct(e ? e.uid : null); setHow('pointer'); }} onLeave={() => setAct(null)} onItem={choose} />
+            onHover={(e) => hl.set(e ? e.uid : null, 'pointer')} onLeave={() => hl.set(null)} onItem={choose} />
         </Surface>
       )}
     </div>

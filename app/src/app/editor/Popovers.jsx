@@ -2,15 +2,17 @@
 // Popovers: ratio, export, account, more, shortcuts, context menu, AI, ⌘K.
 // Placed against their anchor inside the editor, clamped to it; a bottom sheet when narrow.
 // They sit on the popover layer (above the light and media) and carry their own light.
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import usePresence from '@/lib/usePresence';
 import Light from '@/lib/Light';
 import Button from '@/components/Button';
 import Segmented from '@/components/Segmented';
-import { S, useEd, bump, closePop, openPop, openAI, aiGo, aiBlocked, selClip, split, dup, del, setRatio, addText, genAudio, toast, track, captions, openTab, M } from './store';
+import { S, useEd, bump, closePop, openPop, openAI, aiGo, exportStart, exportRes, aiBlocked, selClip, split, dup, del, setRatio, addText, genAudio, toast, track, captions, openTab, M } from './store';
 import { Ic, MenuItem, Sep, Kbd, Label, Hint, Callout, Progress, TextArea, iconUrl } from './parts/parts';
 import { ModelList, ModelPick } from './Panels';
 import { root } from './dom';
 import { fitTimeline } from './Timeline';
+import { newExport } from './logic.js';
 
 const { AR, RATIO_USE, RATIO_ICON, ACTIONS, MODELS, support, kindOf, idsOf, costOf, canDo, total, durS, cend, findClip, clamp } = M;
 
@@ -28,14 +30,20 @@ const DEFERRED = [['Stickers and shapes', 'sparkles'], ['Effects and filters', '
 const deferred = (l) => { closePop(); track('deferred_item_clicked', { item: l }); toast(`${l} is deferred`); };
 
 export default function Popovers() {
-  useEd(); const P = S.pop, ref = useRef(null);
+  useEd(); const live = S.pop, ref = useRef(null), last = useRef(null);
+  // Keep the closed popover on screen for its leave fade (D-031).
+  const { mounted } = usePresence(!!live); if (live) last.current = live; else if (!mounted) last.current = null;
+  const P = live || last.current, leaving = !live;
+  const sheet = !!P && S.narrow && !['ratio', 'account', 'more'].includes(P.type);
   useLayoutEffect(() => {
-    const el = ref.current?.closest('.ed-pop'); if (!P || !el) return;
-    if (!sheet) place(el, P.rect, P.type === 'cmd' || P.type === 'keys' ? 'center' : P.mode);
-    if (P.fresh) { P.fresh = false; (el.querySelector('[data-autofocus]') || el).focus({ preventScroll: true }); }
+    const el = ref.current?.closest('.ed-pop'); if (!live || !el) return;
+    if (!sheet) place(el, live.rect, live.type === 'cmd' || live.type === 'keys' ? 'center' : live.mode);
+    if (live.fresh) { live.fresh = false; (el.querySelector('[data-autofocus]') || el).focus({ preventScroll: true }); }
   });
-  if (!P) return null;
-  const sheet = S.narrow && !['ratio', 'account', 'more'].includes(P.type);
+  // An AI popover whose clip is gone closes itself.
+  const gone = live?.type === 'ai' && !findClip(S.project, live.data.clipId);
+  useEffect(() => { if (gone) closePop(); });
+  if (!P || gone) return null;
   let body = null, width = 240, pad = false, scrim = false, label = 'Menu';
 
   if (P.type === 'ratio') {
@@ -43,19 +51,15 @@ export default function Popovers() {
     body = <><h5 className="ed-h5 type-label-md-semibold">Canvas</h5>{Object.keys(AR).map((r) => mi(RATIO_ICON[r], r, () => setRatio(r), { role: 'menuitemradio', checked: S.project.ratio === r, sub: RATIO_USE[r] }))}</>;
   }
   if (P.type === 'export') {
-    label = 'Export'; pad = true; width = 300; const E = (S.exp ||= { res: '1080p', p: 0, run: false, done: false });
-    const go = () => {
-      E.run = true; E.p = 0; track('export_started', { res: E.res, ratio: S.project.ratio }); bump();
-      const iv = setInterval(() => { E.p = Math.min(1, E.p + 0.08); if (E.p >= 1) { clearInterval(iv); E.run = false; E.done = true; track('export_completed', { res: E.res }); } if (S.pop?.type === 'export') bump(); else clearInterval(iv); }, 150);
-    };
+    label = 'Export'; pad = true; width = 300; const E = S.exp || newExport(), run = E.phase === 'running';
     body = (<>
       <Title>Export</Title>
       <KV k="Length" v={durS(total(S.project))} /><KV k="Canvas" v={S.project.ratio} /><KV k="Format" v="MP4" />
       <Label>Resolution</Label>
-      <Segmented label="Resolution" size="xs" items={[['720p', '720p'], ['1080p', '1080p']]} value={E.res} off={E.run ? ['720p', '1080p'] : []} onChange={(v) => { E.res = v; bump(); }} />
-      {E.run ? <><Progress value={E.p} /><Hint>Rendering… {Math.round(E.p * 100)}%</Hint></>
-        : E.done ? <><Callout icon="check">Rendered. The design system app does not produce a file.</Callout><div className="ed-foot"><Button type="primary" size="xs" block icon={iconUrl('download')} onClick={closePop}>Download MP4</Button></div></>
-          : <div className="ed-foot"><span className="ed-dim type-body-sm-regular">{E.res === '1080p' ? '~14 MB' : '~7 MB'}</span><span className="grow" /><Button type="primary" size="xs" data-autofocus disabled={!total(S.project)} onClick={go}>Export video</Button></div>}
+      <Segmented label="Resolution" size="xs" items={[['720p', '720p'], ['1080p', '1080p']]} value={E.res} off={run ? ['720p', '1080p'] : []} onChange={exportRes} />
+      {run ? <><Progress value={E.p} /><Hint>Rendering… {Math.round(E.p * 100)}%</Hint></>
+        : E.phase === 'done' ? <><Callout icon="check">Rendered. The design system app does not produce a file.</Callout><div className="ed-foot"><Button type="primary" size="xs" block icon={iconUrl('download')} onClick={closePop}>Download MP4</Button></div></>
+          : <div className="ed-foot"><span className="ed-dim type-body-sm-regular">{E.res === '1080p' ? '~14 MB' : '~7 MB'}</span><span className="grow" /><Button type="primary" size="xs" data-autofocus disabled={!total(S.project)} onClick={exportStart}>Export video</Button></div>}
     </>);
   }
   if (P.type === 'more') {
@@ -92,7 +96,7 @@ export default function Popovers() {
     } else body = <Hint>Select a clip first.</Hint>;
   }
   if (P.type === 'ai') {
-    const A = S.ai, c = A && findClip(S.project, A.clipId); if (!c) { S.pop = null; return null; }
+    const A = P.data, c = findClip(S.project, A.clipId); if (!c) return null;
     label = 'AI actions'; pad = true; width = 420; scrim = true;
     const m = MODELS[A.model], s = support(A.model, A.action), kind = kindOf(c), act = ACTIONS.find((a) => a.id === A.action);
     const alt = idsOf(kind).find((i) => support(i, A.action).ok);
@@ -131,8 +135,8 @@ export default function Popovers() {
 
   return (
     <div className="ed-popwrap">
-      <div className={scrim || sheet ? 'ed-scrim' : 'ed-catch'} data-dim={scrim || sheet || undefined} onClick={closePop} aria-hidden />
-      <Light className="ed-pop motion-pop" data-pad={pad || undefined} data-sheet={sheet || undefined} role="dialog" aria-label={label} tabIndex={-1} style={{ width: sheet ? undefined : width }}
+      <div className={scrim || sheet ? 'ed-scrim motion-fade' : 'ed-catch'} data-leaving={leaving || undefined} style={leaving ? { pointerEvents: 'none' } : undefined} data-dim={scrim || sheet || undefined} onClick={closePop} aria-hidden />
+      <Light className="ed-pop motion-pop" data-leaving={leaving || undefined} data-pad={pad || undefined} data-sheet={sheet || undefined} role="dialog" aria-label={label} tabIndex={-1} style={{ width: sheet ? undefined : width }}
         data-name={`popover · ${P.type} (draft)`} data-tokens={JSON.stringify([['background', 'surface/tertiary'], ['border', 'border/tertiary'], ['radius', 'radius/xl'], ['effect', 'effect · inner-shade'], ['effect', 'effect · drop-md'], ['padding', pad ? 'space/16' : 'space/6']])}>
         <div ref={ref} className="ed-pop-col">{body}</div>
       </Light>

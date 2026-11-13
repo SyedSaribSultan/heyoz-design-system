@@ -4,7 +4,6 @@ import Menu from '@/components/Menu';
 import Button from '@/components/Button';
 import Segmented from '@/components/Segmented';
 import { lucide } from '@/lib/Lucide';
-import './menu-docs.css';
 
 // Live menus for the Menu page.
 const SIZES = [['comfortable', 'Comfortable'], ['compact', 'Compact']];

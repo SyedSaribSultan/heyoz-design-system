@@ -3,8 +3,7 @@ import Avatar from '@/components/Avatar';
 import Button from '@/components/Button';
 import Lucide, { lucide } from '@/lib/Lucide';
 import t from '@/tokens/tokens.resolved.json';
-import { DocPage, Section, Panel, Token, Meta, Table } from '@/docs/ui';
-import { SpecTable, Matrix } from '@/docs/display-docs';
+import { DocPage, Section, Token, Meta, Table, SpecTable, Matrix, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
 import BadgeDemo from './BadgeDemo';
 
@@ -12,9 +11,9 @@ export const metadata = meta('/components/badge');
 
 // Heights are worked out from the spec: label line height + padding y twice (never typed).
 const lh = (size) => t.type.styles.find((s) => s.role === 'label' && s.size === size).lh;
-const py = (size) => BADGE.vars.find((v) => v.key === `${size}-padding-y`).px;
+const { px, ref } = specOf(BADGE);
+const py = (size) => px(`${size}-padding-y`);
 const H = { sm: lh('sm') + 2 * py('sm'), md: lh('md') + 2 * py('md') };
-const ref = (key) => BADGE.vars.find((v) => v.key === key)?.ref;
 
 export default function BadgePage() {
   return (
@@ -49,7 +48,7 @@ export default function BadgePage() {
         </div>
       </Section>
 
-      <Section title="Usage" desc={BADGE.rules.usage}>
+      <Section title="Usage" desc={BADGE.rules.use}>
         <Table first={260} cols={['Use a Badge for', 'Use something else for']} rows={[
           ['A status: Live, Failed, Draft', <span key="a">A message the user must read: Toast or Callout</span>],
           ['A count on a nav item or an icon', <span key="a">An action: <Token>Button</Token></span>],

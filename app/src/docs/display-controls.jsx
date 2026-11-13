@@ -1,4 +1,3 @@
-import './display-docs.css';
 
 // Playground: a stage with the live specimen, then a labelled row per control.
 export function Playground({ children, controls }) {

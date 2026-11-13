@@ -19,7 +19,7 @@
     "keyboard": "Tab reaches every chip. Space and Enter press an action chip and toggle a filter chip. In a choice group Tab stops once, on the chosen chip (roving tabindex); arrow keys move and choose, Home and End jump. On an input chip Backspace and Delete remove it; the cross Button is for the mouse and touch, so it is out of the Tab order and the chip is one stop. After removing, focus moves to the next chip, or the previous one.",
     "aria": "Action: a button. Filter: a button with aria-pressed. Choice: a radiogroup with radio chips (aria-checked). Input: a group labelled with its text and aria-keyshortcuts Backspace Delete; its cross Button is named 'Remove <label>'. A chip with only an icon needs a label. Disabled chips stay in the DOM and keep their place.",
     "motion": "Every state change (fill, border, icon colour, shadow) fades at duration/fast (D-031). Reduced motion keeps the fades and drops the slides.",
-    "usage": "Use a Chip for a compact setting, a filter, one choice among a few short options, or a value the user typed or picked. Use a Button for an action on the page, a Segmented control for a mode that reads as a tool switch, a Badge for a status that is not clickable, a Menu or Select for more than about six options."
+    "use": "Use a Chip for a compact setting, a filter, one choice among a few short options, or a value the user typed or picked. Use a Button for an action on the page, a Segmented control for a mode that reads as a tool switch, a Badge for a status that is not clickable, a Menu or Select for more than about six options."
   },
   "parts": {
     "xs": {

@@ -1,12 +1,12 @@
 import Switch from '@/components/Switch';
 import c from '@/tokens/components.json';
-import { DocPage, Section, Panel } from '@/docs/ui';
+import { DocPage, Section, Panel, SpecTable, RuleTable, Matrix, RowName, specOf } from '@/docs/ui';
 import { meta } from '@/docs/nav';
-import { SpecTable, RuleTable, Matrix, num } from '@/docs/SelectionDocs';
-import { SwitchPlayground, SettingsDemo } from '@/docs/SwitchDemo';
+import { SwitchPlayground, SettingsDemo } from './SwitchDemo';
 
 export const metadata = meta('/components/switch');
 const SWITCH = c.switch; // the spec, read here: a client module's exports are not values on the server
+const { px } = specOf(SWITCH);
 const TONE = 'surface/secondary'; // a well (fill/primary) reads as a well on a raised surface
 const STATES = [['Rest', {}], ['Hover', { state: 'hover' }], ['Pressed', { state: 'pressed' }], ['Focus', { state: 'focus' }], ['Disabled', { disabled: true }]];
 const ROWS = [['Off', 'fill/primary', {}], ['On', 'fill/inverse', { defaultChecked: true }]];
@@ -15,13 +15,11 @@ export default function SwitchPage() {
   return (
     <DocPage href="/components/switch">
       <Section title="Playground" desc="A live switch. Click it or press Space on it: the thumb slides across (duration/base, easing/standard). Change it with the knobs.">
-        <Panel tone={TONE} pad={24}><SwitchPlayground sm={num(SWITCH, 'track-width-sm')} md={num(SWITCH, 'track-width-md')} /></Panel>
+        <Panel tone={TONE} pad={24}><SwitchPlayground sm={px('track-width-sm')} md={px('track-width-md')} /></Panel>
       </Section>
 
       <Section title="States" desc="Two values, five states. Off is a well (fill/primary, border/secondary) with a grey thumb. On is white (fill/inverse) with a dark thumb. Hover is the -hover fill and border; pressed is one step stronger. Hover and press work on the label too. Nothing moves.">
-        <Panel tone={TONE} pad={24}>
-          <Matrix head={STATES.map(([n]) => n)} rows={ROWS.map(([n, sub, p]) => [n, sub, STATES.map(([s, sp]) => <Switch key={s} size="md" label="Label" aria-label={`${n} ${s}`} {...p} {...sp} />)])} />
-        </Panel>
+        <Matrix tone={TONE} first="" cols={STATES.map(([n]) => n)} rows={ROWS.map(([n, sub, p]) => [<RowName key="n" title={n} sub={sub} />, ...STATES.map(([s, sp]) => <Switch key={s} size="md" label="Label" aria-label={`${n} ${s}`} {...p} {...sp} />)])} />
       </Section>
 
       <Section title="Label side" desc={SWITCH.rules.label}>
@@ -38,11 +36,9 @@ export default function SwitchPage() {
         <Panel tone={TONE} pad={24}><SettingsDemo /></Panel>
       </Section>
 
-      <Section title="Two sizes" desc={`Small is a ${num(SWITCH, 'track-width-sm')} × ${num(SWITCH, 'track-height-sm')} track with a ${num(SWITCH, 'thumb-sm')} thumb. Medium is ${num(SWITCH, 'track-width-md')} × ${num(SWITCH, 'track-height-md')} with a ${num(SWITCH, 'thumb-md')} thumb, and the default. The thumb sits ${num(SWITCH, 'track-padding')} from the edge. Both have a ${num(SWITCH, 'track-target')} × ${num(SWITCH, 'track-target')} invisible hit area (size/target).`}>
-        <Panel tone={TONE} pad={24}>
-          <Matrix head={['Off', 'On']} rows={[['Small', `${num(SWITCH, 'track-width-sm')} × ${num(SWITCH, 'track-height-sm')}`, [{}, { defaultChecked: true }].map((p, i) => <Switch key={i} size="sm" label="Label" {...p} />)],
-            ['Medium', `${num(SWITCH, 'track-width-md')} × ${num(SWITCH, 'track-height-md')}`, [{}, { defaultChecked: true }].map((p, i) => <Switch key={i} size="md" label="Label" {...p} />)]]} />
-        </Panel>
+      <Section title="Two sizes" desc={`Small is a ${px('track-width-sm')} × ${px('track-height-sm')} track with a ${px('thumb-sm')} thumb. Medium is ${px('track-width-md')} × ${px('track-height-md')} with a ${px('thumb-md')} thumb, and the default. The thumb sits ${px('track-padding')} from the edge. Both have a ${px('track-target')} × ${px('track-target')} invisible hit area (size/target).`}>
+        <Matrix tone={TONE} first="" cols={['Off', 'On']} rows={[[<RowName key="n" title="Small" sub={`${px('track-width-sm')} × ${px('track-height-sm')}`} />, ...[{}, { defaultChecked: true }].map((p, i) => <Switch key={i} size="sm" label="Label" {...p} />)],
+            [<RowName key="n" title="Medium" sub={`${px('track-width-md')} × ${px('track-height-md')}`} />, ...[{}, { defaultChecked: true }].map((p, i) => <Switch key={i} size="md" label="Label" {...p} />)]]} />
       </Section>
 
       <Section title="When to use" desc="Pick the control by what the choice does.">

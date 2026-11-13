@@ -3,7 +3,6 @@ import t from '@/tokens/tokens.resolved.json';
 import { NAV } from '@/docs/nav';
 import Button from '@/components/Button';
 import { TypeSummary } from '@/lib/TypeCopy';
-import { rec } from '@/docs/ui';
 import Lucide, { lucide } from '@/lib/Lucide';
 import Badge from '@/components/Badge';
 import Chip from '@/components/Chip';
@@ -21,6 +20,7 @@ import Switch from '@/components/Switch';
 import TextField from '@/components/TextField';
 import Select from '@/components/Select';
 import Segmented from '@/components/Segmented';
+import { rec } from '@/docs/ui';
 // Tiles record their tokens for the inspector; each tile is a lit surface, the page frame is not (D-020).
 const TILE = rec('page tile · lit', [['background', 'surface/primary'], ['background · hover', 'surface/secondary'], ['border', 'border/primary'], ['border · hover', 'border/primary-hover'], ['radius', 'radius/xl'], ['effect', 'effect · inner-shade'], ['light', 'light/cursor']]);
 

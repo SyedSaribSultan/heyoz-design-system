@@ -1,4 +1,3 @@
-import t from '@/tokens/tokens.resolved.json';
 import icons from '@/icons/icons.json';
 import { DocPage, Section, Panel, Token, Meta, Table, Info } from '@/docs/ui';
 import { meta } from '@/docs/nav';

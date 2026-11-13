@@ -7,10 +7,12 @@ import { slug } from './slug';
 import Lucide from '@/lib/Lucide';
 import { TypeSummary } from '@/lib/TypeCopy';
 import { rec } from '@/lib/rec';
+import t from '@/tokens/tokens.resolved.json';
+import { Token, Info } from './Info';
 
 export const v = (name) => `var(--${name.replaceAll('/', '-')})`;
 export { rec }; // records tokens for the inspector (Ctrl + Alt), lib/rec.js
-export { slug };
+export { slug, Token, Info };
 
 export function DocPage({ href, children }) {
   const p = pageFor(href), toc = p.toc || [];
@@ -59,10 +61,6 @@ export function Grid({ min = 200, gap = 12, children }) {
   return <div className="d-grid" style={{ gridTemplateColumns: `repeat(auto-fill, minmax(${min}px, 1fr))`, gap: v(`space/${gap}`) }}>{children}</div>;
 }
 
-// A token name (click copies it). info: the details shown in the tooltip (reference, value).
-export function Token({ children, info }) { return <code className="d-token type-label-lg-medium" data-info={info}>{children}</code>; }
-// Plain words with a detail tooltip.
-export function Info({ info, children }) { return <span className="d-has-info" data-info={info}>{children}</span>; }
 export function Meta({ children }) { return <span className="d-dim type-label-lg-regular">{children}</span>; }
 
 // A simple, aligned spec table. cols: header labels. rows: arrays of cells.
@@ -74,4 +72,56 @@ export function Table({ cols, rows, first = 160 }) {
       {rows.map((r, i) => <div className="d-tr" style={grid} key={i}>{r.map((c, j) => <div key={j}>{c}</div>)}</div>)}
     </div>
   );
+}
+
+// ─── Spec helpers: every number on a docs page comes from the spec, never typed ───────────────
+// px of a number token by its reference name ('size/control/xs' → 32).
+export const px = (name) => t.numbers.find((n) => n.name === name)?.px;
+// The helpers bound to one component spec. ref(key): the token a variable points at. px(keyOrRef): a variable's px
+// (a set number, or the token it points at), or, when it is not a variable key, the px of that token.
+export function specOf(spec) {
+  const find = (key) => spec.vars.find((x) => x.key === key);
+  return {
+    ref: (key) => find(key)?.ref,
+    px: (keyOrRef) => { const x = find(keyOrRef); return x ? (x.px ?? px(x.ref)) : px(keyOrRef); },
+  };
+}
+
+// The value of a spec variable: the token and its px when it is a number token; a set number is marked as set.
+const value = (x) => x.none ? 'none' : x.px != null
+  ? <span>{x.px}px <Meta>set, not a token</Meta></span>
+  : <span className="d-row" style={{ gap: 'var(--space-8)' }}><Token>{x.ref}</Token>{px(x.ref) != null && <Meta>{px(x.ref)}px</Meta>}</span>;
+
+// "The details": every variable a parts spec writes (and its type classes) as a table. filter: keep only some variables.
+// extra: more rows (set values, effects, layers) after the spec's own.
+export function SpecTable({ spec, prefix, filter, extra = [] }) {
+  const vars = filter ? spec.vars.filter((x) => filter(x.key)) : spec.vars;
+  return (
+    <Table first={300} cols={['Variable', 'Value']} rows={[
+      ...vars.map((x) => [<Token key="k">--{prefix}-{x.key}</Token>, value(x)]),
+      ...Object.entries(filter ? {} : spec.types).map(([k, cls]) => [`type · ${k}`, <Token key="v">{cls.replaceAll('-', '/')}</Token>]),
+      ...extra,
+    ]} />
+  );
+}
+
+// Named rules from the spec, as a table. keys: a rule key, or [ruleKey, title].
+export function RuleTable({ spec, keys, cols = ['Topic', 'Rule'] }) {
+  return <Table first={160} cols={cols} rows={keys.map((k) => { const [key, title] = [].concat(k); return [<span key="t" className="type-label-lg-medium">{title ?? key}</span>, spec.rules[key]]; })} />;
+}
+
+// A panel of specimens: a header row, then a row per name. rows: [name, ...cells]. first: the first column's title.
+export function Matrix({ cols, first = 'Name', rows, width = 140, tone }) {
+  const style = { '--dx-cols': cols.length, '--dx-first': `${width}px` };
+  return (
+    <Panel lit pad={8} tone={tone} className="dx-matrix">
+      <div className="dx-row dx-head type-label-lg-medium d-dim" style={style}><span>{first}</span>{cols.map((c) => <span key={c}>{c}</span>)}</div>
+      {rows.map(([name, ...cells], i) => <div className="dx-row" style={style} key={i}><span className="dx-name">{name}</span>{cells.map((cell, j) => <span key={j} className="dx-cell">{cell}</span>)}</div>)}
+    </Panel>
+  );
+}
+
+// A row's name with a line under it (a value, a token): the first cell of a Matrix row.
+export function RowName({ title, sub }) {
+  return <><span className="type-label-lg-medium">{title}</span>{sub && <Meta>{sub}</Meta>}</>;
 }
