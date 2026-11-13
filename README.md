@@ -37,6 +37,7 @@ If a screenshot and these docs disagree, follow the screenshot and flag the drif
 | Icons (docs site `/foundations/icons`) | Icon grid, rules, 1,077 HeyOz icons, 2,019 Lucide icons on the grid | `icons/heyoz/` + `lucide-static` | Stable v1 |
 | [Button](docs/components/button.md) | 8 types, icon buttons, 2 links, 7 sizes, squircle and pill | `components/button.json` | Draft |
 | [Sidebar](docs/components/sidenav.md) | Side nav: expanded / collapsed, states, collapse motion, Ctrl+B, scrolling; every sidebar uses it | `components/sidenav.json` | Stable |
+| More components (docs/components/*.md) | Text field, Checkbox, Radio, Switch, Segmented, Tabs, Menu, Select, Tooltip, Popover, Dialog, Toast, Badge, Chip, Avatar, Slider, Progress (D-040 to D-047) | `components/<name>.json` | Draft |
 | Tokens Studio export | All tokens as Figma variables (optional) | `figma/tokens-studio.json` (generated) | Stable v1 |
 | [shadcn/ui](docs/shadcn.md) | HeyOz in shadcn's variable names: paste-ready `globals.css` for Tailwind v4 | `exports/shadcn/map.json` → `exports/shadcn/globals.css` (generated) | Stable v1 |
 | [Decisions](docs/decisions.md) | The judgment calls and why | – | Live |
@@ -79,7 +80,7 @@ heyoz-design-system/
 ├── README.md                     ← you are here
 ├── .claude/                      ← Claude Code review gate: agents/repo-sync-reviewer.md, hooks/repo-review-gate.mjs, settings.json (not deployed)
 ├── tokens/                       ← SOURCE: colors, typography, number, motion, light (.json)
-├── components/                   ← SOURCE: component specs (button.json, sidenav.json): token references + rules
+├── components/                   ← SOURCE: component specs (button.json, sidenav.json and 17 more): token references + rules
 ├── icons/                        ← SOURCE: HeyOz icons exported from Figma (Icons, 25:48) + heyoz.json index
 ├── docs/
 │   ├── decisions.md, changelog.md        ← written by hand
@@ -97,7 +98,7 @@ heyoz-design-system/
 │       ├── tokens/, icons/       ← generated JSON: tokens.resolved.json (server only), components.json (browser), icons.json (icon index)
 │       ├── lib/                  ← tk() (applies tokens, records them), rec() (records them), Lucide (the one icon helper), LightField (cursor light)
 │       │                            + Light (popover light root), useIndicator (sliding selection), usePresence (exit animations), Inspector (Ctrl + Alt), TypeSwitcher
-│       ├── components/           ← components built from their spec: Button, SideNav; Segmented (built on Button)
+│       ├── components/           ← components built from their spec: Button, SideNav, Segmented, Tabs, TextField, Menu, Select, Dialog, …
 │       ├── docs/                 ← the docs frame: nav.js (the site map + each page's sections), Sidebar, Shell, DocsChrome (search, copy), ui blocks
 │       └── app/                  ← routes: / · foundations/* · components/* · screens: home, editor, dashboard
 ├── archive/                      ← kept for reference, never deployed (old assets, the archived Figma colour export)

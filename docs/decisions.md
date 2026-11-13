@@ -107,11 +107,49 @@ Developers on shadcn/ui get HeyOz through one file. `exports/shadcn/map.json` fi
 **D-039 · Oz dashboard (prototype screen)** · 2026-11-13
 `/dashboard` is Home, agent version: a prompt box (Oz), the one next move Oz suggests under it, then what Oz knows, in plain words. It uses Home's side nav, top nav and prompt box, plus Button, Segmented, tk(), and the editor's icon part, as they are. One orange fill per view: the Ask Oz button. Every yes is a primary (white) button. Thinking is free and automatic; anything that costs credits, money or changes the brand waits for a yes, and shows its cost as pills first. One picture, one sentence and one button per card; one number per stat tile; no jargon on screen. Sections appear only when they have something in them, ordered by what matters now. Oz's answer opens right under the prompt and enters like a popup (D-031). Five demo states (keys 1–5); in production the state comes from data, never asked. The pill, stat tile, idea card and competitor card are drafts, like the editor parts (D-034). Drawn ads are media: they use the primitive ramps and their own type, as a real ad would, and the light skips them (D-020). Data sources and ship order: `app/src/app/dashboard/README.md`.
 
+**D-040 · Text field (draft)** · 2026-11-13
+One component for one line and many (`components/textfield.json`): sizes xs 32, sm 40, md 48 with radius lg, xl, 2xl and Button's padding. The field is a well (D-036): `fill/primary`, `border/primary`, inner shade; hover `-hover`; focus `border/primary-active` plus the `border/focus` ring; invalid `border/critical`; disabled and read-only. Clear and show/hide are ghost Buttons one size smaller, inset evenly so corners stay parallel; Esc clears. The textarea grows from 3 to 8 rows. An error replaces the hint, with an icon, in a polite live region; a count turns critical at the limit.
+*Cost:* the textarea's growing height does not animate (it would lag the caret), the one exception to D-031.
+
+**D-041 · Checkbox, Radio and Switch (draft)** · 2026-11-13
+Three selection controls with their own specs. Off is a well (`fill/primary`, `border/secondary`); on is white (`fill/inverse`, mark `content/inverse-primary`), as in D-038, so orange stays for the main action. Hover and press work on the whole row, label included (D-035); nothing moves. Box and circle are the icon frame (16 or 20); the switch track is 28 × 16 or 36 × 20. The tick draws in, the dot grows, the thumb slides at `duration/base`. Every one has a 44 × 44 hit area (`size/target`) and a focus ring outside. Checkbox and Switch are native inputs; Radio is a radiogroup with one Tab stop and arrow keys.
+*Cost:* disabled-on uses the disabled primary Button colours, because `fill/inverse-disabled` hides the mark.
+
+**D-042 · Segmented and Tabs (draft)** · 2026-11-13
+Segmented sets a value from 2 to 6 visible options; its options are Buttons and one tertiary indicator slides behind the chosen one (D-032). It is one Tab stop with arrow keys, takes icon-only and icon + label options, and fills or hugs. Tabs switch views of content: labels on a 1px `border/primary` baseline, one 2px `content/primary` underline that slides; sizes 40 and 32; counts, icons, automatic or manual activation, sideways scroll with clip room (D-037).
+*Why:* the two look different on purpose, so a view switch is never mistaken for a setting.
+
+**D-043 · Menu and Select (draft)** · 2026-11-13
+Menu opens from any Button: action, checkbox, radio and submenu items, groups, separators, danger and disabled items. Its card is the Home menu's: `surface/tertiary`, `border/tertiary`, inner shade, the sheen, a light root (D-020); radius xl, items radius lg, padding 4; 192–320 wide, scrolls past 320 tall. One highlight slides behind the items (D-032). Select uses the same card and items as a listbox; its trigger is the text field's well (D-040), and the list is as wide as the trigger.
+*Cost:* no diagonal "safe triangle" for submenus; items stay 32 tall in every Select size.
+
+**D-044 · Tooltip and Popover (draft)** · 2026-11-13
+One tooltip look, the side nav's: `surface/secondary`, `border/secondary`, radius md, padding 8/4, 8 from its control, `label/lg/medium`. It opens after 500ms on hover, at once on keyboard focus or when another tooltip was just open, never on touch; it flips and stays 8 inside the window. Popover is a non-modal card (`surface/tertiary`, radius xl, inner shade, drop-md) 240, 320 or 400 wide, opened by click; focus goes in when opened by keyboard and returns on close; Esc or a press outside closes it. Both are light roots fixed to the window, so no scroll area clips them.
+*Cost:* the side nav and docs info tips still use their own tooltips until they move to this one.
+
+**D-045 · Dialog and Toast (draft)** · 2026-11-13
+Dialog is the one modal: the search dialog's scrim (background at 72%, `space/4` blur) and a `surface/primary` panel, radius 2xl, inner shade; widths 400, 520, 640. It traps focus, closes on Esc or a scrim press, gives focus back to its opener and locks the page without shifting it. Below 640 it becomes a bottom sheet. Alert dialog confirms or cancels. Toast: one toaster, bottom right (full width below 640); five types, the status shows on the icon only, the card stays `surface/tertiary`. Gone after 5s, 10s with an action; critical stays. Up to 3 stack; hover and focus pause them; F8 reaches them.
+*Cost:* the destructive confirm is styled locally until Button has a critical type (Open, Q-6).
+
+**D-046 · Badge, Chip and Avatar (draft)** · 2026-11-13
+Badge is a status label you cannot press: 6 tones, soft (`fill/*-secondary` + `content/*`) or solid (`fill/*` + `content/on-*`), 18 or 24 tall from padding, `radius/full`, plus counts (99+) and a dot. Chip is the Home prompt chip made a component: tertiary fill, inner shade, 32 or 28 tall; action, filter (selected = the pressed look held, D-035), choice (one sliding indicator) and input (removable). Avatar: picture, then initials, then an icon; 6 sizes from 20 to 56 on existing tokens; circle for people, squircle for brands; status dot and overlapping groups. The picture is media (D-020).
+*Why:* one badge replaces the editor badge and the dashboard pills; one chip replaces Home's chips.
+
+**D-047 · Slider and Progress (draft)** · 2026-11-13
+Slider: native range inputs over a drawn 8-tall well track, a 20 white thumb (the primary Button look), a value tag while dragging or focused, ticks, range with two thumbs, an optional number field; a 44-tall hit row; arrows, Shift × 10, Page Up/Down, Home and End. Progress: a bar 2, 4 or 8 tall, determinate or indeterminate, neutral (white) by default, brand only when it is the screen's main event. The Spinner is an icon on the icon grid (D-028) at the five icon sizes; reduced motion slows it.
+*Cost:* the Spinner has round caps; Button's own spinner keeps butt caps until it uses this one.
+
 ---
 
 ## Open
 
-Nothing open.
+Draft components (D-040 to D-047) wait for the owner's sign-off. The defaults below are in place.
+
+- **Q-5 · Scroll in pop-ups.** Dialog hides its scrollbar and fades the edge; Popover and Menu use the one scrollbar (D-037). Default: as built. Pick one rule for every pop-up.
+- **Q-6 · A critical Button type.** Destructive confirms need one (fill/critical, content/on-critical). Default: a local style in the dialog.
+- **Q-7 · White or orange for "on".** Checkbox, Radio, Switch and the Tabs underline are white (D-038). Default: white.
+- **Q-8 · The main action in a dialog.** Brand (orange) or primary (white, as D-039). Default: brand.
+- **Q-9 · Inner shade on small controls.** The 16–20px checkbox and radio carry Button's shade. Default: on.
 
 ---
 

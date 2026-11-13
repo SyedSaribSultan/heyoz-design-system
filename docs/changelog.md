@@ -16,6 +16,23 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 ## 2026-11-13
 
 ```
+feat(components): 17 draft components, each with a spec, a component and a docs page (D-040 to D-047)
+
+Why:    the owner wants the baseline components, built to the Button and Sidebar standard.
+What:   Text field (+ textarea, field frame), Checkbox, Radio, Switch, Segmented (spec and page for the
+        existing control; one Tab stop, icons, hug), Tabs, Menu, Select, Tooltip, Popover, Dialog (+ alert,
+        bottom sheet), Toast, Badge, Chip, Avatar, Slider, Progress (+ Spinner). Each has
+        components/<name>.json (generated docs/components/<name>.md and --<prefix>-* variables), a component
+        in app/src/components and a page under /components/. Pages read every number from the spec.
+        Segmented's CSS moved out of button.css into segmented.css. Selection docs classes renamed sc-* so
+        they never meet Select's sel-*. Open choices: Q-5 to Q-9.
+Checks: npm run tokens (19 components); npm test 9/9; production build passes with every route;
+        browser checks of Tabs, Checkbox, Text field, Slider, Popover and Dialog
+```
+
+- fix(sidenav): the search box no longer shrinks when the link list is longer than the screen; only the list gives way.
+
+```
 fix(repo): everything documented once, in sync, no duplicates
 
 Why:    the owner asked for the repository to be well documented, synced and free of redundancy.
