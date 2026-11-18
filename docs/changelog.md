@@ -15,6 +15,8 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ## 2026-11-19
 
+- docs(figma): the `shadcn` collection is built in the Figma file: 51 colours, 8 radii and 3 fonts, each an alias of the HeyOz variable `exports/shadcn/map.json` names (59 of 59 checked against `exports/shadcn/globals.css`); the swatches and radius boxes in chapter 14 are linked to it. The Button chapter in Figma now shows nine types: `critical` added to the two state tables and to Colour details, and every row is linked to the tokens `components/button.json` names for that type and state.
+
 ```
 docs(figma): the repository tokens are Figma variables; the old variables are gone
 
