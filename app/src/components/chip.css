@@ -5,7 +5,7 @@
 .chp {
   box-sizing: border-box; flex: none; outline: none;
   display: inline-flex; align-items: center; justify-content: center; gap: var(--chp-gap);
-  height: var(--chp-h); padding: 0 var(--chp-px); border-radius: var(--chp-r);
+  height: var(--chp-h); padding: 0 calc(var(--chp-px) + var(--stroke-1)); border-radius: var(--chp-r); /* inside the border, D-048 */
   white-space: nowrap; cursor: pointer; user-select: none;
   --chp-fill-now: var(--chp-rest-fill); --chp-border-now: var(--chp-rest-border);
   --chp-label-now: var(--chp-rest-label); --chp-icon-colour: var(--chp-rest-icon);
@@ -17,7 +17,9 @@
 .chp[data-size='xs'] { --chp-h: var(--chp-xs-height); --chp-px: var(--chp-xs-padding-x); --chp-pe: var(--chp-xs-padding-end-input); --chp-gap: var(--chp-xs-gap); --chp-r: var(--chp-xs-radius); }
 .chp[data-size='2xs'] { --chp-h: var(--chp-2xs-height); --chp-px: var(--chp-2xs-padding-x); --chp-pe: var(--chp-2xs-padding-end-input); --chp-gap: var(--chp-2xs-gap); --chp-r: var(--chp-2xs-radius); }
 .chp[data-kind='input'] { padding-right: var(--chp-pe); }
-/* The remove Button is a 2xs Button: it keeps its own size, so the chip end is padding 2 + 28 (xs) or 0 + 28 (2xs). */
+/* The remove Button is a 2xs Button (28): it keeps its own size and is centred in the chip's height, so its end padding
+   equals the room above and below it, (height − 28) / 2: 2 for xs (1 clear inside the border on three sides), 0 for 2xs
+   (it covers the chip's end, border included). */
 
 .chp-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .chp .lu { width: var(--chp-icon); height: var(--chp-icon); color: var(--chp-icon-colour); transition: color var(--duration-fast) var(--easing-standard), opacity var(--duration-fast) var(--easing-standard), transform var(--duration-base) var(--easing-standard); }

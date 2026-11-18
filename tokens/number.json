@@ -1,11 +1,11 @@
 {
   "$about": "HeyOz number tokens: space, radius, size and stroke. Source of truth. All values are px. Names say the size: space/16 is 16px, stroke/1 is 1px. Radius runs none, xs to 3xl, full; size uses t-shirt names (icon xs to xl; control adds 2xs and 2xl).",
   "space": {
-    "$about": "Gaps and padding. 4px grid; 2 and 6 are half-steps for tight UI. The name is the value.",
+    "$about": "Gaps and padding. 4px grid; 2 and 6 are half-steps for tight UI. The name is the value. Padding is the clear space inside a border: a bordered surface adds stroke/1 to it, because the border is an inset shadow that takes no room (D-048).",
     "values": [0, 2, 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96]
   },
   "radius": {
-    "$about": "Corner rounding. Nested corners: inner radius = outer radius minus the gap between them.",
+    "$about": "Corner rounding. Nested corners: inner radius = outer radius minus the gap between them. The gap is the padding; a 1px border is not counted (D-048).",
     "values": { "none": 0, "xs": 4, "sm": 6, "md": 8, "lg": 12, "xl": 16, "2xl": 20, "3xl": 24, "full": 9999 }
   },
   "size": {

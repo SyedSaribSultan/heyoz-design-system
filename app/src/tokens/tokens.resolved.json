@@ -5007,7 +5007,7 @@
       "rules": {
         "kinds": "Action: a plain button, optionally with a menu or a trailing icon. Filter: aria-pressed, toggles on click, Space and Enter. Choice: role radio in a radiogroup, one selected, arrow keys move. Input: a value the user added; the trailing cross Button removes it.",
         "sizes": "Two sizes on the Button scale: xs 32 (the everyday size, the Home prompt box) and 2xs 28. Label is label/md/medium at xs (12/16, as Home) and label/sm/medium at 2xs (11/14). The icon frame is size/icon/sm (16) in both.",
-        "radius": "Squircle like Button: xs radius/lg (12), 2xs 10 (set, like Button 2xs). Nesting: the remove Button is a 2xs Button (28, radius 10); inside an xs chip it sits 2 from the end, and 2 + 10 = 12 keeps the corners parallel. Inside a 2xs chip it fills the end.",
+        "radius": "Squircle like Button: xs radius/lg (12), 2xs 10 (set, like Button 2xs). Nesting: the remove Button is a 2xs Button (28, radius 10); it is centred in the chip's height, so inside an xs chip it sits 2 from the end, top and bottom (1 clear inside the border), and 2 + 10 = 12 keeps the corners parallel. Inside a 2xs chip it fills the end, covering the border there. Every other chip padding is measured inside the border (D-048).",
         "states": "Rest, hover, pressed, selected, disabled, plus a focus ring. Hover: fill/tertiary-hover, border/tertiary-hover, icon content/brand (as the Button tertiary type). Pressed: fill/tertiary-active, border/tertiary-active, icon content/brand (D-035). Selected is the pressed look held: the -active fill and border, icon content/brand, plus a check where there is no leading icon. Hover on a selected chip keeps the selected look. Choice chips in a group rest as outlines (no fill, border/tertiary) so the indicator can be seen sliding under them; the chosen one takes the selected look. Disabled uses the -disabled fill and border and content/primary-disabled.",
         "border": "Always stroke/1 and inset, drawn as a box-shadow, so nothing moves or changes size on hover or press (D-035).",
         "shade": "The inner shade (0, -4, blur 10, #000 50%) on every state that has a fill (not the outlined choice rest). An effect, not a token (D-021).",
@@ -5263,7 +5263,7 @@
         "use": "Use a dialog when the answer must come before anything else happens: a short form, a confirmation, a choice that is hard to undo. Do not use it for a message that needs no answer (use a toast), for help text on one control (use a tooltip or popover), for a menu or a pick from a list (use a menu or select), or for anything the person may want to look at while working (use a panel in the page).",
         "variants": "Dialog (role dialog) and alert dialog (role alertdialog). The alert dialog has no close button, does not close on a scrim press, is sm wide, and is for one question: confirm or cancel. When the confirm action is destructive the focus starts on Cancel, never on the destructive action.",
         "size": "sm 400, md 520, lg 640. The panel is never wider than the window minus 2 x panel.inset. Height follows the content up to the window height minus 2 x panel.inset (100dvh); beyond that only the body scrolls.",
-        "layout": "Panel: surface/primary, border/primary, radius/2xl, the inner shade (0, -4, blur 10, #000 50%), the same panel as the search dialog, so there is one modal look. Header: title (heading/sm/semibold) and the close button on one line, 32 tall; the description (body/md/regular, content/secondary) sits under the title. The text starts 24 from the left edge. Body: body/md/regular. Footer: actions on the right, gap 8; an optional note or checkbox on the left. Order: the safe action first, the main action last.",
+        "layout": "Panel: surface/primary, border/primary, radius/2xl, the inner shade (0, -4, blur 10, #000 50%), the same panel as the search dialog, so there is one modal look. Header: title (heading/sm/semibold) and the close button on one line, 32 tall; the description (body/md/regular, content/secondary) sits under the title. The text starts 24 inside the border (D-048). Body: body/md/regular. Footer: actions on the right, gap 8; an optional note or checkbox on the left. Order: the safe action first, the main action last.",
         "actions": "The main action is a primary Button (white): a dialog is a quiet place and orange stays for the screen's one main action (D-045). A destructive confirm is a critical Button (fill/critical). Cancel is ghost. Other actions are secondary. Buttons are size sm (40), size md (48) in the sheet so every target is at least 44.",
         "scrim": "color-mix of background at 72% and transparent, with a backdrop blur of scrim.blur (space/4): the same values as the search dialog. 72% is a set value, not a token (D-021). The scrim fades in at duration/base and out at duration/fast (motion-fade). A press (pointerdown) on the scrim closes the dialog unless the dialog is blocking or scrimClose is off; a press inside the panel that ends on the scrim does not.",
         "motion": "Enter: the scrim fades; the panel fades, drops 4px and scales from 0.98 at duration/base, easing/enter (motion-pop, origin centre). Leave: both fade at duration/fast, easing/exit; the panel stays mounted until the fade ends (usePresence). Sheet: enters by sliding up from its own height at duration/slow, easing/enter, and leaves with the fade. Reduced motion keeps every fade and drops the scale, the drop and the slide (D-031). While it leaves, the dialog is inert and focus is already back on the element that opened it; opening again during the fade starts a fresh dialog.",
@@ -5522,7 +5522,7 @@
           "blur": 38
         },
         "item": {
-          "$about": "32 tall (6 + 20 + 6). Radius lg (12) inside a 4 padding gives the surface's xl (16) corner: inner + padding = outer. With a description it grows to fit.",
+          "$about": "32 tall (6 + 20 + 6). Radius lg (12) inside a 4 padding gives the surface's xl (16) corner: inner + padding = outer. The padding is clear space inside the 1px border, which the nesting rule does not count (D-048). With a description it grows to fit.",
           "height": "{size/control/xs}",
           "padding-x": "{space/12}",
           "padding-y": "{space/6}",
@@ -5819,7 +5819,7 @@
       "rules": {
         "use": "Use it for a small task or a detail that belongs to one control: a setting group, an export panel, a share box, a colour picker. Not for a list of commands (Menu), not for a one-line label (Tooltip), and not when the user must answer before going on (Dialog). Keep it to one task; if it needs a lot of scrolling, it wants a page or a sheet.",
         "surface": "surface/tertiary, border/tertiary, radius/xl, inner shade and drop shadow (D-021): the floating-card tier of D-036, which is what the editor's popovers and Home's menus already use. Tertiary is one step above the secondary panels and cards it opens from, so it reads as raised without a heavier shadow. It is a light root (<Light>, D-020): it carries its own light wherever it opens. Inside, wells go darker (fill/primary) and raised things lighter, as in D-036.",
-        "layout": "A column. Padding 16 (space/16), gap 12 (space/12) between header, body and footer. No dividers: space tells the parts apart (D-036). Header: the title in heading/xs/semibold, content/primary; the close button is a ghost Button, size 2xs, icon x, label Close. Body: body/md/regular, content/secondary; it brings its own controls and colours. Footer: right-aligned Buttons, size xs, 8 apart, wrapping when narrow; the one main action is primary or brand (one brand fill per view), the other is ghost or secondary. Header and footer are optional; with no title, give the popover a label (aria-label).",
+        "layout": "A column. Padding 16 (space/16) inside the border (D-048), gap 12 (space/12) between header, body and footer. No dividers: space tells the parts apart (D-036). Header: the title in heading/xs/semibold, content/primary; the close button is a ghost Button, size 2xs, icon x, label Close. Body: body/md/regular, content/secondary; it brings its own controls and colours. Footer: right-aligned Buttons, size xs, 8 apart, wrapping when narrow; the one main action is primary or brand (one brand fill per view), the other is ghost or secondary. Header and footer are optional; with no title, give the popover a label (aria-label).",
         "sizes": "Three fixed widths: sm 240, md 320 (default), lg 400, all set values. The width never depends on where the popover sits. It never exceeds the window minus 8 on each side. Height follows the content up to the window height minus 16; past that the body scrolls (header and footer stay) with the one minimal scrollbar (D-037), and keeps a stroke/2 margin for focus rings so they are never clipped.",
         "placement": "bottom (default), top, left, right, with align start (default), center or end along the trigger's edge. 8 from the trigger (space/8). It flips to the opposite side when the preferred side has no room and the other has; if neither fits it takes the side with more room. It is then clamped 8 inside the window on every side. It follows the trigger while the page scrolls or resizes. position: fixed in a portal on the document: no scroll container clips it and no lit surface traps it beneath another layer. Layer z-index 1080 (set value), below tooltips.",
         "open": "A click (or Enter / Space) on the trigger toggles it. Esc, a press outside, a focus move outside, the close button and any action that calls close() shut it. One Esc closes one popover: the newest (nested popovers close from the inside out). Controlled (open, onOpenChange) or not (defaultOpen). If the trigger leaves the page while it is open, it closes.",
@@ -6375,8 +6375,8 @@
       "anatomy": "A frame holding 2 to 6 options in a row (or a grid, or a column). Each option is a Button of the frame's size: a label, an icon, or an icon and a label. One indicator sits behind the chosen option and slides to the next one.",
       "rules": {
         "use": "Segmented sets a value: unit, alignment, speed, framing, resolution. The options are the whole answer, all visible, one always chosen. To switch between views of content (a page, a list, a panel), use Tabs. For more than 6 options, or long labels, use Select.",
-        "sizes": "The sizes are Button's: 2xs 28, xs 32 (the everyday size), sm 40, md 48, lg 56, xl 64, 2xl 72. Every option is a Button of that size, so its height, label, icon frame and padding come from Button's spec. The frame adds the padding below on top.",
-        "radius": "Nesting rule: frame radius = the option's Button radius (squircle, Button's rule) + frame padding, so inner and outer corners stay parallel. xs: 12 + 4 = 16.",
+        "sizes": "The sizes are Button's: 2xs 28, xs 32 (the everyday size), sm 40, md 48, lg 56, xl 64, 2xl 72. Every option is a Button of that size, so its height, label, icon frame and padding come from Button's spec. The frame adds the padding below on top, measured inside its 1px border (D-048).",
+        "radius": "Nesting rule: frame radius = the option's Button radius (squircle, Button's rule) + frame padding, so inner and outer corners stay parallel. xs: 12 + 4 = 16. The 1px border is not counted (D-048).",
         "options": "Label only, icon only, or icon and label. An icon-only option is square (the size's height) and needs an accessible name, passed as label. Pass the options as [value, label, extra]: extra is { icon, label, off }.",
         "indicator": "One element behind the chosen option: a real tertiary Button surface (fill/tertiary, border/tertiary, inner shade, D-021). It is not a style on each option. The chosen option paints no fill of its own, so nothing flashes. Until the indicator is placed (first paint, no JavaScript), the chosen option wears the same tertiary look itself.",
         "states": "Option: rest (ghost Button), hover, pressed, disabled, chosen. Hover and pressed on a ghost option are Button's: fill, an inset border in its own family (border/secondary-hover, then border/secondary-active, D-035) and the icon turning content/brand. Hover and pressed on the chosen option style the indicator (tertiary hover, tertiary pressed), but only once it has landed: while it travels it keeps the plain chosen look (D-032). Nothing moves or changes size on hover.",
@@ -6501,7 +6501,7 @@
           "color": "{content/critical}"
         },
         "well": {
-          "$about": "The trigger's surface. Border is an inset ring.",
+          "$about": "The trigger's surface. Border is an inset ring; padding x is measured inside it (D-048).",
           "fill": "{fill/primary}",
           "border": "{border/primary}",
           "gap": "{space/8}",
@@ -7415,7 +7415,7 @@
         "hover": "Hover is the -hover fill and border of the track's own family (D-035); the off thumb lights to content/primary. Pressed is one step stronger, the -active fill and border. Hover and press work on the whole row, label included. Nothing moves or changes size: the border is an inset box-shadow.",
         "shade": "No inner shade, unlike Button: at 16–20px the shade greys the white out, so on stays a flat, solid fill that pops (D-041). The track is a lit surface (D-020).",
         "motion": "The thumb slides from one end of the track to the other, duration/base, easing/standard (D-031). Track colour and thumb colour change at duration/fast. The first paint never animates. Reduced motion: no slide, the thumb and track fade to the new state.",
-        "size": "sm: track 28 x 16, thumb 12. md: track 36 x 20, thumb 16. md is the default. The thumb sits 2 from the track's edge on every side. The thumb's travel is the track width minus the thumb minus 4. Text is the same in both: label body/md/regular, description body/sm/regular.",
+        "size": "sm: track 28 x 16, thumb 10. md: track 36 x 20, thumb 14. md is the default. The thumb sits 2 inside the 1px border on every side, in both states (D-048): 3 from the outer edge, so thumb = track height - 6. Its travel is the track width minus the thumb minus 6. Text is the same in both: label body/md/regular, description body/sm/regular.",
         "label": "Right of the switch by default. On the left (labelPosition start), the row can span the full width (block) so the switch sits at the far edge, as in a settings list.",
         "colours": "Label content/primary, description content/tertiary. Disabled: label content/primary-disabled, description content/tertiary-disabled, track -disabled fill and border, thumb content/primary-disabled; a disabled on track uses fill/secondary-disabled, like a disabled primary Button, because fill/inverse-disabled is the same grey as the thumb.",
         "focus": "Keyboard focus (focus-visible only) draws a ring outside the track: border/focus, stroke/2. The row never clips it. A scroll or clip container around a switch keeps stroke/2 of room (D-037).",
@@ -7439,9 +7439,9 @@
           "focus-ring": "{stroke/2}"
         },
         "thumb": {
-          "$about": "The slider inside the track: track height minus 2 x padding.",
-          "sm": "{size/icon/xs}",
-          "md": "{size/icon/sm}",
+          "$about": "The knob inside the track: track height minus 2 x (padding + border), so it sits 2 inside the border on every side (D-048). Set values, not tokens.",
+          "sm": 10,
+          "md": 14,
           "off": "{content/secondary}",
           "off-hover": "{content/primary}",
           "off-disabled": "{content/primary-disabled}",
@@ -7543,11 +7543,11 @@
         },
         {
           "key": "thumb-sm",
-          "ref": "size/icon/xs"
+          "px": 10
         },
         {
           "key": "thumb-md",
-          "ref": "size/icon/sm"
+          "px": 14
         },
         {
           "key": "thumb-off",
@@ -7894,7 +7894,7 @@
       "anatomy": "A column: label row (label + optional marker), the control, the message row (hint or error on the left, character count on the right). The control is one frame, a well: [icon] [prefix] value [suffix] [trailing icon] [action button]. Single line: fixed height. Textarea: the same frame, min height of its rows, grows with the text up to its max rows, then scrolls inside.",
       "rules": {
         "height": "size/control/{size}: xs 32 (everyday), sm 40, md 48. Fixed for a single line. A textarea has this as the height of one row's frame; its min height is rows × line height + 2 × padding y.",
-        "radius": "Squircle like Button: height × 0.375 rounded to 4. xs 12 (radius/lg), sm 16 (radius/xl), md 20 (radius/2xl). Padding x is the Button's for the size: xs space/12, sm space/16, md space/20.",
+        "radius": "Squircle like Button: height × 0.375 rounded to 4. xs 12 (radius/lg), sm 16 (radius/xl), md 20 (radius/2xl). Padding x is the Button's for the size, measured inside the border (D-048): xs space/12, sm space/16, md space/20.",
         "well": "D-036: a field is a well, darker than its surface: fill/primary at rest, with border/primary and the inner shade (0, -4, blur 10, #000 50%, D-021). It is a lit surface (D-020).",
         "border": "stroke/1, drawn as an inset box-shadow, so no state moves anything.",
         "states": "Rest: fill/primary, border/primary. Hover: fill/primary-hover, border/primary-hover. Focus: the border steps up to border/primary-active, nothing else: subtle, no ring (D-040). Invalid: border/critical (hover border/critical-hover, focus border/critical-active). Disabled: fill/primary-disabled, border/primary-disabled, value, placeholder, icons and label content/primary-disabled; not focusable. Read-only: looks like rest and does not change on hover, still focusable, value selectable and submitted, no clear button.",
@@ -7902,11 +7902,11 @@
         "value": "body/md/regular for xs and sm, body/lg/regular for md, content/primary. Placeholder content/tertiary. A placeholder is an example, never the label: it disappears when you type.",
         "icons": "Leading and trailing icons are Lucide at size/icon/sm (xs, sm) and size/icon/md (md), content/secondary, 8 from the text. They are decoration and are hidden from screen readers. The control carries the meaning.",
         "affix": "Prefix and suffix are text (https://, $, .com, USD) in the value's type and content/tertiary, inside the frame, 8 from the value. Clicking them focuses the input. They are read out with the field (aria-describedby).",
-        "action": "Clear and show/hide password are Button: ghost, icon-only, one step smaller than the frame, so it sits inside with equal room on three sides: xs field 28 (2xs) with 2 around it, sm field 28 with 6, md field 32 (xs) with 8. The inner radius is the frame radius minus that room, so corners stay parallel. Clear shows only when there is a value (fades at duration/fast, keeps its slot so nothing shifts), clears, and gives focus back to the input. Password: starts hidden, eye / eye-off, aria-pressed, label Show password / Hide password; the value never leaves the field.",
+        "action": "Clear and show/hide password are Button: ghost, icon-only, one step smaller than the frame, so it sits inside with equal room on three sides: xs field 28 (2xs) with 2 around it, sm field 28 with 6, md field 32 (xs) with 8. Centred, so this room is measured from the outer edge (D-048). The inner radius is the frame radius minus that room, so corners stay parallel. Clear shows only when there is a value (fades at duration/fast, keeps its slot so nothing shifts), clears, and gives focus back to the input. Password: starts hidden, eye / eye-off, aria-pressed, label Show password / Hide password; the value never leaves the field.",
         "label": "label/md/medium, content/secondary, space/6 above the control. A label is always present: visible, or aria-label when the design truly has none. 'optional' follows the label in label/md/regular, content/tertiary. Required fields get no marker; mark the optional ones instead.",
         "message": "Hint and error use body/sm/regular, space/6 below the control. Hint content/tertiary. An error replaces the hint in the same row, content/critical, with a 12 alert icon so colour is not the only signal, and sets aria-invalid; the control points at it with aria-describedby. The row is a polite live region, so a new error is read out. When a field has a hint, an error swaps into the same height and nothing moves.",
         "count": "Character count 'n / max' on the right of the message row, body/sm/regular, content/tertiary, tabular numbers, tied to the control with aria-describedby. It shows only when there is a max length, and the browser stops typing at max. It turns content/critical at max.",
-        "textarea": "Rows (min) default 3, max rows default 8. It grows with the text, one line at a time, as you type: the height follows the text with no animation, since an animated height would lag behind the caret. At max rows it scrolls inside with the global scrollbar (D-037). Padding y puts the first line where a single line sits: xs 6, sm 10, md 12. With auto grow off, the user resizes vertically with the corner handle.",
+        "textarea": "Rows (min) default 3, max rows default 8. It grows with the text, one line at a time, as you type: the height follows the text with no animation, since an animated height would lag behind the caret. At max rows it scrolls inside with the global scrollbar (D-037). Padding y puts the first line where a single line sits: xs 6, sm 10, md 12 (from the outer edge, like the centred single line it matches; D-048). With auto grow off, the user resizes vertically with the corner handle.",
         "motion": "Fill, border, ring and colours animate at duration/fast, easing/standard (D-031). The clear button fades at duration/fast. Reduced motion keeps the fades; there is no movement to drop.",
         "keyboard": "Tab enters and leaves. Esc clears a field that has a clear button and a value; it does nothing else. Enter submits the form, as a native input does; in a textarea it adds a line. The clear and show buttons are in the Tab order after the input (not while hidden).",
         "aria": "Native input and textarea, label via htmlFor. aria-invalid on an error. aria-describedby: hint or error, count, prefix, suffix. disabled and readOnly are the native attributes. The password toggle is a button with aria-pressed, not a checkbox.",
@@ -8286,7 +8286,7 @@
           "travel": "{space/12}"
         },
         "card": {
-          "$about": "One toast. Padding is 12 and 16 on the left so the icon sits where the text of a dialog would.",
+          "$about": "One toast. Padding is 12 and 16 on the left, inside the border (D-048), so the icon sits where the text of a dialog would.",
           "background": "{surface/tertiary}",
           "border": "{border/tertiary}",
           "radius": "{radius/xl}",
@@ -8432,7 +8432,7 @@
       },
       "parts": {
         "bubble": {
-          "$about": "The tooltip. Same values as the side nav's tooltip (surface/secondary, border/secondary, radius/md, padding 8 / 4, offset 8, label/lg/medium). Max widths 240 and 320 are set values.",
+          "$about": "The tooltip. Same values as the side nav's tooltip (surface/secondary, border/secondary, radius/md, padding 8 / 4 inside the border (D-048), offset 8, label/lg/medium). Max widths 240 and 320 are set values.",
           "background": "{surface/secondary}",
           "border": "{border/secondary}",
           "color": "{content/primary}",

@@ -59,6 +59,8 @@ The name says what the token is *for*, never what colour it is. `content/seconda
 
 **Names everywhere are the same.** `gray/3` in the docs is `gray.3` in Tokens Studio, `gray/3` in Figma and `--gray-3` in CSS.
 
+**Padding is inside the border.** A padding is the clear space you see, measured from the inside of the 1px border. Borders are inset shadows, so a bordered surface adds `stroke/1` to its padding in CSS; Figma does the same with strokes included in layout. Things centred in a fixed height, and radius nesting, are measured from the outer edge ([D-048](docs/decisions.md)).
+
 **Writing.** Plain words, short sentences, numbers instead of adjectives ("4.5:1", not "good contrast"). Every rule says why once.
 
 ---

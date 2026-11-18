@@ -8,6 +8,7 @@
   --sw-w: var(--sw-track-width-md); --sw-h: var(--sw-track-height-md); --sw-thumb-size: var(--sw-thumb-md);
   --sw-fill: var(--sw-off-rest-fill); --sw-border: var(--sw-off-rest-border); --sw-thumb-colour: var(--sw-thumb-off);
   --sw-ring: 0 0 transparent; --sw-lh: var(--type-body-md-line-height);
+  --sw-inset: calc(var(--sw-track-padding) + var(--sw-track-stroke)); /* clear space is measured inside the border (D-048) */
 }
 .sw-row[data-size='sm'] { --sw-w: var(--sw-track-width-sm); --sw-h: var(--sw-track-height-sm); --sw-thumb-size: var(--sw-thumb-sm); }
 .sw-row[data-position='start'] { flex-direction: row-reverse; }
@@ -26,13 +27,14 @@
 /* Hit area: an invisible layer, at least size/target (44) square, centred on the track. Takes no room. */
 .sw-track::before { content: ''; position: absolute; inset: calc((var(--sw-h) - var(--sw-track-target)) / 2) calc((var(--sw-w) - var(--sw-track-target)) / 2); }
 
-/* The thumb sits track-padding from the edge and slides the track width minus the thumb minus 2 paddings. */
+/* The thumb sits track-padding inside the border (D-048): padding + stroke from the outer edge, on every side.
+   It slides the track width minus the thumb minus 2 × (padding + stroke). */
 .sw-thumb {
-  position: absolute; left: var(--sw-track-padding); top: var(--sw-track-padding); width: var(--sw-thumb-size); height: var(--sw-thumb-size); border-radius: var(--radius-full);
+  position: absolute; left: var(--sw-inset); top: var(--sw-inset); width: var(--sw-thumb-size); height: var(--sw-thumb-size); border-radius: var(--radius-full);
   background: var(--sw-thumb-colour);
   transition: transform var(--duration-base) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard);
 }
-.sw-input:checked ~ .sw-track .sw-thumb { transform: translateX(calc(var(--sw-w) - var(--sw-thumb-size) - 2 * var(--sw-track-padding))); }
+.sw-input:checked ~ .sw-track .sw-thumb { transform: translateX(calc(var(--sw-w) - var(--sw-thumb-size) - 2 * var(--sw-inset))); }
 
 .sw-text { display: flex; flex-direction: column; gap: var(--sw-row-text-gap); min-width: 0; }
 .sw-label { color: var(--sw-label-color); transition: color var(--duration-fast) var(--easing-standard); }

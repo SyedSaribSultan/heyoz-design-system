@@ -12,7 +12,7 @@
 .tst-item::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: var(--tst-region-gap); }
 
 .tst-card { box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--tst-card-gap);
-  padding: var(--tst-card-padding-y) var(--tst-card-padding-right) var(--tst-card-padding-y) var(--tst-card-padding-left);
+  padding: calc(var(--tst-card-padding-y) + var(--stroke-1)) calc(var(--tst-card-padding-right) + var(--stroke-1)) calc(var(--tst-card-padding-y) + var(--stroke-1)) calc(var(--tst-card-padding-left) + var(--stroke-1)); /* inside the border, D-048 */
   border-radius: var(--tst-card-radius); background: var(--tst-card-background); color: var(--tst-message-color);
   box-shadow: inset 0 0 0 var(--stroke-1) var(--tst-card-border), var(--fx-inner-shade), var(--fx-drop-md);
   translate: var(--tst-drag, 0) 0; transition: translate var(--duration-base) var(--easing-standard);

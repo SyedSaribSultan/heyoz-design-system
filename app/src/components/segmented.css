@@ -2,8 +2,9 @@
    read the --seg-* variables generated from the spec. Sizes (--btn-h, --btn-r …) come from Button's size rules on
    .seg[data-size] (src/styles/components.css). The inner shade is an effect, not a token (D-021). */
 
-/* Frame. Radius: the option's squircle radius + the frame padding, so inner and outer corners are parallel. */
-.seg { position: relative; display: grid; gap: var(--seg-frame-gap); padding: var(--seg-frame-padding); background: var(--seg-frame-background);
+/* Frame. Padding is the clear space inside the border (D-048). Radius: the option's squircle radius + the frame padding,
+   so inner and outer corners are parallel (the 1px border is not counted in the nesting rule). */
+.seg { position: relative; display: grid; gap: var(--seg-frame-gap); padding: calc(var(--seg-frame-padding) + var(--seg-frame-border-width)); background: var(--seg-frame-background);
   box-shadow: inset 0 0 0 var(--seg-frame-border-width) var(--seg-frame-border), var(--fx-inner-shade);
   border-radius: calc(var(--btn-r) + var(--seg-frame-padding)); }
 /* Hug: as wide as the options, each option as wide as its own content. */

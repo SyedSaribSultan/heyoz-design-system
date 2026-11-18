@@ -48,7 +48,7 @@
       "blur": 38
     },
     "item": {
-      "$about": "32 tall (6 + 20 + 6). Radius lg (12) inside a 4 padding gives the surface's xl (16) corner: inner + padding = outer. With a description it grows to fit.",
+      "$about": "32 tall (6 + 20 + 6). Radius lg (12) inside a 4 padding gives the surface's xl (16) corner: inner + padding = outer. The padding is clear space inside the 1px border, which the nesting rule does not count (D-048). With a description it grows to fit.",
       "height": "{size/control/xs}",
       "padding-x": "{space/12}",
       "padding-y": "{space/6}",

@@ -5,7 +5,7 @@
 .btn {
   box-sizing: border-box; position: relative; flex: none;
   display: inline-flex; align-items: center; justify-content: center; gap: var(--btn-gap);
-  height: var(--btn-h); padding: 0 var(--btn-px); border-radius: var(--btn-r);
+  height: var(--btn-h); padding: 0 calc(var(--btn-px) + var(--stroke-1)); border-radius: var(--btn-r); /* padding x is the clear space inside the border, which every type keeps, transparent or not (D-048) */
   white-space: nowrap; cursor: pointer;
   --btn-fill: var(--btn-rest-fill); --btn-border: var(--btn-rest-border);
   --btn-label: var(--btn-rest-label); --btn-icon-colour: var(--btn-rest-icon);

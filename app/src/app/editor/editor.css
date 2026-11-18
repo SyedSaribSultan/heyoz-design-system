@@ -1,5 +1,6 @@
 /* Editor layout. Colours, type, space, radius and motion come from tokens; set values are marked.
-   Layers: content → light (100) → media (101) → popovers, sheets, toast (102+). */
+   Layers: content → light (100) → media (101) → popovers, sheets, toast (102+).
+   Padding on a bordered surface adds the 1px stroke, so it is the clear space inside the border (D-048). */
 .ed-light { position: fixed; inset: 0; background: var(--background); --light-layer: 100; --ed-pop-layer: calc(var(--light-layer) + 2);
   --ed-drop: 0 14px 36px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.4); /* Figma effect, not a token (D-021) */
   --ed-drop-sm: 0 1px 3px rgba(0, 0, 0, 0.4); --ed-on-media: #fff; /* text on footage is always white */ --ed-inner: var(--fx-inner-shade); }
@@ -74,7 +75,7 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 .ed-sw button { all: unset; cursor: pointer; width: var(--size-icon-lg); height: var(--size-icon-lg); display: grid; place-items: center; border-radius: var(--radius-full); box-shadow: 0 0 0 var(--stroke-1) var(--border-tertiary); }
 .ed-sw button[aria-checked='true'] { box-shadow: 0 0 0 var(--stroke-2) var(--surface-primary), 0 0 0 4px var(--content-primary); }
 .ed-sw button:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: var(--space-4); }
-.ed-aicard { padding: var(--space-4); border-radius: var(--radius-xl); background: var(--surface-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-tertiary); margin-bottom: var(--space-12); }
+.ed-aicard { padding: calc(var(--space-4) + var(--stroke-1)); border-radius: var(--radius-xl); background: var(--surface-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-tertiary); margin-bottom: var(--space-12); }
 .ed-arow { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: var(--space-12); width: 100%; padding: var(--space-8); border-radius: var(--radius-lg); text-align: left; }
 .ed-arow:hover { background: var(--fill-tertiary-hover); }
 .ed-arow:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: calc(var(--stroke-2) * -1); }
@@ -141,7 +142,7 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
   padding: 0 var(--space-12); border: 1.5px dashed var(--border-tertiary); border-radius: var(--radius-lg); color: var(--content-secondary); }
 
 /* Action bar */
-.ed-bar { grid-area: bar; justify-self: center; display: flex; justify-content: center; align-items: stretch; gap: var(--space-8); padding: var(--space-6);
+.ed-bar { grid-area: bar; justify-self: center; display: flex; justify-content: center; align-items: stretch; gap: var(--space-8); padding: calc(var(--space-6) + var(--stroke-1));
   border-radius: var(--radius-2xl); background: var(--surface-secondary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-secondary); }
 .ed-bsep { width: var(--stroke-1); margin: var(--space-12) var(--space-4); background: var(--border-secondary); flex: none; }
 
@@ -169,10 +170,10 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 .ed-pre > span { font-size: 22px; line-height: 1; } /* a sample of the video text, not UI type */
 .ed-pre-cap { font-size: 15px !important; padding: 3px 6px; border-radius: var(--radius-xs); background: rgba(0, 0, 0, 0.6); color: var(--ed-on-media); } /* caption on footage: media, set values */
 .ed-pre em { font-style: normal; color: var(--content-tertiary); }
-.ed-card { margin-top: var(--space-16); padding: var(--space-12); border-radius: var(--radius-xl); background: var(--surface-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); }
+.ed-card { margin-top: var(--space-16); padding: calc(var(--space-12) + var(--stroke-1)); border-radius: var(--radius-xl); background: var(--surface-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); }
 .ed-card > b { display: block; margin-bottom: var(--space-2); }
 .ed-card > p { margin: 0 0 var(--space-12); color: var(--content-tertiary); }
-.ed-mpick { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: var(--space-8); width: 100%; height: var(--size-control-xs); padding: 0 var(--space-12);
+.ed-mpick { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: var(--space-8); width: 100%; height: var(--size-control-xs); padding: 0 calc(var(--space-12) + var(--stroke-1));
   border-radius: var(--radius-md); background: var(--fill-tertiary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-tertiary), var(--ed-inner); transition: background var(--duration-fast) var(--easing-standard); }
 .ed-mpick:hover { background: var(--fill-tertiary-hover); }
 .ed-mpick:focus-visible { outline: var(--stroke-2) solid var(--border-focus); outline-offset: var(--stroke-2); }
@@ -203,7 +204,7 @@ details.ed-sec[open] summary .ed-ic { transform: rotate(180deg); }
 .ed-kv { display: flex; justify-content: space-between; gap: var(--space-16); padding: var(--space-4) 0; color: var(--content-secondary); }
 .ed-kv b { color: var(--content-primary); font-weight: var(--font-weight-medium); }
 .ed-foot { display: flex; align-items: center; gap: var(--space-8); margin-top: var(--space-16); }
-.ed-atabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); padding: var(--space-4); margin-bottom: var(--space-12);
+.ed-atabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); padding: calc(var(--space-4) + var(--stroke-1)); margin-bottom: var(--space-12);
   border-radius: calc(var(--radius-lg) + var(--space-4)); background: var(--surface-primary); box-shadow: inset 0 0 0 var(--stroke-1) var(--border-primary); }
 .ed-atabs .btn[data-off] { --btn-label: var(--content-primary-disabled); --btn-icon-colour: var(--content-secondary-disabled); cursor: default; }
 .ed-cmd { display: flex; align-items: center; gap: var(--space-8); margin: calc(var(--space-6) * -1) calc(var(--space-6) * -1) var(--space-6); padding: var(--space-4) var(--space-12);

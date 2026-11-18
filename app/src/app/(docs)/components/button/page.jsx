@@ -73,7 +73,7 @@ export default function ButtonPage() {
         <FigmaSteps />
       </Section>
 
-      <Section title="Size details" desc={<>The exact values for each size. <Info info={`Source: components/button.json\nEvery value is on the 4px grid\nFigma: auto layout, horizontal, fixed height, centred; padding y is what is left over`}>How to read this</Info></>}>
+      <Section title="Size details" desc={<>The exact values for each size. <Info info={`Source: components/button.json\nEvery value is on the 4px grid\nFigma: auto layout, horizontal, fixed height, centred, strokes included in layout; padding x is measured inside the border (D-048); padding y is what is left over`}>How to read this</Info></>}>
         <Table first={72} cols={['Size', 'Height', 'Padding x', 'Padding y', 'Gap', 'Label', 'Icon frame', 'Radius']} rows={BUTTON.sizes.map((b) => [
           <Token key="s">{b.size}</Token>, cell(`${b.height}px`, b.heightToken), cell(`${b.paddingX}px`, b.paddingXToken || 'set, not a token'), cell(`${b.paddingY}px`, 'left over'),
           cell(`${b.gap}px`, b.gapToken), cell(`${b.font} / ${b.lineHeight}`, b.label.slice(5)), cell(`${b.icon} × ${b.icon}`, b.iconToken), cell(`${b.radius}px`, b.radiusSet ? 'set' : `height × ${BUTTON.squircle} → 4`)])} />

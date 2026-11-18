@@ -6,7 +6,7 @@ HeyOz number tokens: space, radius, size and stroke. Source of truth. All values
 
 ## space
 
-Gaps and padding. 4px grid; 2 and 6 are half-steps for tight UI. The name is the value.
+Gaps and padding. 4px grid; 2 and 6 are half-steps for tight UI. The name is the value. Padding is the clear space inside a border: a bordered surface adds stroke/1 to it, because the border is an inset shadow that takes no room (D-048).
 
 | Token | CSS variable | Value |
 |---|---|---|
@@ -28,7 +28,7 @@ Gaps and padding. 4px grid; 2 and 6 are half-steps for tight UI. The name is the
 
 ## radius
 
-Corner rounding. Nested corners: inner radius = outer radius minus the gap between them.
+Corner rounding. Nested corners: inner radius = outer radius minus the gap between them. The gap is the padding; a 1px border is not counted (D-048).
 
 | Token | CSS variable | Value |
 |---|---|---|

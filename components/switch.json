@@ -9,7 +9,7 @@
     "hover": "Hover is the -hover fill and border of the track's own family (D-035); the off thumb lights to content/primary. Pressed is one step stronger, the -active fill and border. Hover and press work on the whole row, label included. Nothing moves or changes size: the border is an inset box-shadow.",
     "shade": "No inner shade, unlike Button: at 16–20px the shade greys the white out, so on stays a flat, solid fill that pops (D-041). The track is a lit surface (D-020).",
     "motion": "The thumb slides from one end of the track to the other, duration/base, easing/standard (D-031). Track colour and thumb colour change at duration/fast. The first paint never animates. Reduced motion: no slide, the thumb and track fade to the new state.",
-    "size": "sm: track 28 x 16, thumb 12. md: track 36 x 20, thumb 16. md is the default. The thumb sits 2 from the track's edge on every side. The thumb's travel is the track width minus the thumb minus 4. Text is the same in both: label body/md/regular, description body/sm/regular.",
+    "size": "sm: track 28 x 16, thumb 10. md: track 36 x 20, thumb 14. md is the default. The thumb sits 2 inside the 1px border on every side, in both states (D-048): 3 from the outer edge, so thumb = track height - 6. Its travel is the track width minus the thumb minus 6. Text is the same in both: label body/md/regular, description body/sm/regular.",
     "label": "Right of the switch by default. On the left (labelPosition start), the row can span the full width (block) so the switch sits at the far edge, as in a settings list.",
     "colours": "Label content/primary, description content/tertiary. Disabled: label content/primary-disabled, description content/tertiary-disabled, track -disabled fill and border, thumb content/primary-disabled; a disabled on track uses fill/secondary-disabled, like a disabled primary Button, because fill/inverse-disabled is the same grey as the thumb.",
     "focus": "Keyboard focus (focus-visible only) draws a ring outside the track: border/focus, stroke/2. The row never clips it. A scroll or clip container around a switch keeps stroke/2 of room (D-037).",
@@ -33,9 +33,9 @@
       "focus-ring": "{stroke/2}"
     },
     "thumb": {
-      "$about": "The slider inside the track: track height minus 2 x padding.",
-      "sm": "{size/icon/xs}",
-      "md": "{size/icon/sm}",
+      "$about": "The knob inside the track: track height minus 2 x (padding + border), so it sits 2 inside the border on every side (D-048). Set values, not tokens.",
+      "sm": 10,
+      "md": 14,
       "off": "{content/secondary}",
       "off-hover": "{content/primary}",
       "off-disabled": "{content/primary-disabled}",

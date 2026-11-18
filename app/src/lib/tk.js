@@ -38,6 +38,9 @@ export function tk(name, spec = {}, layout = {}) {
   const paint = spec.bg || (spec.gradient && spec.gradient[0]);
   const lit = paint && paint !== 'background';
   if (lit) rows.push(['light', 'light/cursor']);
+  // D-048: padding is the clear space inside the border. The border is an inset shadow and takes no room,
+  // so a bordered surface adds the stroke to every padding side.
+  if (spec.border) for (const p of Object.keys(style)) if (p.startsWith('padding')) style[p] = `calc(${style[p]} + var(--stroke-1))`;
   if (shadows.length) style.boxShadow = shadows.join(', ');
   for (const [k, val] of Object.entries(layout)) { style[k] = typeof val === 'number' ? `${val}px` : val; rows.push([k, `layout · ${style[k]}`]); }
   // data-lit, not a class: Home often sets className after spreading tk(), which would drop a class.

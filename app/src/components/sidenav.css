@@ -72,7 +72,7 @@
 
 /* Menu item: default · hover · active (the spec's item.default / hover / active) */
 .sn-item { box-sizing: border-box; position: relative; overflow: hidden; display: flex; align-items: center; gap: var(--sn-item-gap); width: 100%; height: var(--sn-item-height); min-height: var(--sn-item-height); /* fixed height so 40 ↔ 36 animates */
-  padding: var(--sn-item-padding-y) var(--sn-item-padding-x); border-radius: var(--sn-item-radius); background: var(--sn-item-default-fill); color: var(--sn-item-color); cursor: pointer;
+  padding: calc(var(--sn-item-padding-y) + var(--stroke-1)) calc(var(--sn-item-padding-x) + var(--stroke-1)); border-radius: var(--sn-item-radius); /* inside the border, D-048 */ background: var(--sn-item-default-fill); color: var(--sn-item-color); cursor: pointer;
   box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-item-default-border);
   transition: background var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
 .sn-item .lu { width: var(--sn-item-icon); height: var(--sn-item-icon); }
@@ -88,7 +88,7 @@
 
 /* Brand picker: default · hover; the chevron doubles on hover */
 .sn-brand { box-sizing: border-box; overflow: hidden; display: flex; align-items: center; gap: var(--sn-brand-gap); width: 100%; height: var(--sn-brand-height);
-  padding: var(--sn-brand-padding) var(--sn-brand-padding-right) var(--sn-brand-padding) var(--sn-brand-padding);
+  padding: calc(var(--sn-brand-padding) + var(--stroke-1)) calc(var(--sn-brand-padding-right) + var(--stroke-1)) calc(var(--sn-brand-padding) + var(--stroke-1)) calc(var(--sn-brand-padding) + var(--stroke-1)); /* inside the border, D-048 */
   border-radius: var(--sn-brand-radius); background: var(--sn-brand-default-fill); color: var(--sn-item-color); cursor: pointer;
   box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-brand-default-border), var(--sn-shade); transition: background var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard); }
 .sn-brand:is(:hover, [data-state='hover']) { background: var(--sn-brand-hover-fill); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-brand-hover-border), var(--sn-shade); }
@@ -103,7 +103,7 @@
 .sn-brand[data-collapsed] .sn-label, .sn-brand[data-collapsed] .sn-chev { opacity: 0; }
 
 /* Community card */
-.sn-community { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sn-community-gap); padding: var(--sn-community-padding); border-radius: var(--sn-community-radius);
+.sn-community { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sn-community-gap); padding: calc(var(--sn-community-padding) + var(--stroke-1)); border-radius: var(--sn-community-radius);
   background: var(--sn-community-background); box-shadow: inset 0 0 0 var(--stroke-1) var(--sn-community-border), var(--sn-highlight); }
 .sn-community-copy { display: flex; flex-direction: column; gap: var(--sn-community-copy-gap); }
 .sn-plan { color: var(--sn-profile-muted); }

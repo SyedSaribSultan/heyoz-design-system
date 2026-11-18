@@ -109,7 +109,7 @@ One component for one line and many (`components/textfield.json`): sizes xs 32, 
 *Cost:* the textarea's growing height does not animate (it would lag the caret), the one exception to D-031.
 
 **D-041 · Checkbox, Radio and Switch (draft)** · 2026-11-13
-Three selection controls with their own specs. Off is a well (`fill/primary`, `border/secondary`); on is white (`fill/inverse`, mark `content/inverse-primary`), as in D-038, so orange stays for the main action. Hover and press work on the whole row, label included (D-035); nothing moves. Box and circle are the icon frame (16 or 20); the switch track is 28 × 16 or 36 × 20. The tick draws in, the dot grows, the thumb slides at `duration/base`. No inner shade on these small controls: it greyed the white out, so on is a flat solid fill, as in most systems (Radix, shadcn). Every one has a 44 × 44 hit area (`size/target`) and a focus ring outside. Checkbox and Switch are native inputs; Radio is a radiogroup with one Tab stop and arrow keys.
+Three selection controls with their own specs. Off is a well (`fill/primary`, `border/secondary`); on is white (`fill/inverse`, mark `content/inverse-primary`), as in D-038, so orange stays for the main action. Hover and press work on the whole row, label included (D-035); nothing moves. Box and circle are the icon frame (16 or 20); the switch track is 28 × 16 or 36 × 20, with a 10 or 14 thumb that sits 2 inside the border on every side (D-048). The tick draws in, the dot grows, the thumb slides at `duration/base`. No inner shade on these small controls: it greyed the white out, so on is a flat solid fill, as in most systems (Radix, shadcn). Every one has a 44 × 44 hit area (`size/target`) and a focus ring outside. Checkbox and Switch are native inputs; Radio is a radiogroup with one Tab stop and arrow keys.
 *Cost:* disabled-on uses the disabled primary Button colours, because `fill/inverse-disabled` hides the mark.
 
 **D-042 · Segmented and Tabs (draft)** · 2026-11-13
@@ -135,6 +135,12 @@ Badge is a status label you cannot press: 6 tones, soft (`fill/*-secondary` + `c
 **D-047 · Slider and Progress (draft)** · 2026-11-13
 Slider: native range inputs over a drawn 8-tall well track, a 20 white thumb (the primary Button look), a value tag while dragging or focused, ticks, range with two thumbs, an optional number field; a 44-tall hit row; arrows, Shift × 10, Page Up/Down, Home and End. Progress: a bar 2, 4 or 8 tall, determinate or indeterminate, neutral (white) by default, brand only when it is the screen's main event. The Spinner is an icon on the icon grid (D-028) at the five icon sizes; reduced motion slows it.
 *Cost:* the Spinner has round caps; Button's own spinner keeps butt caps until it uses this one.
+
+**D-048 · Insets are measured inside the border** · 2026-11-19
+A padding is the clear space you see, measured from the inside of the 1px border, on every side. Borders are inset box-shadows and take no room, so every bordered surface adds `stroke/1` to its padding (`calc(padding + var(--stroke-1))`): Button, Chip, Text field and Select well, Segmented frame, Menu, Popover, Dialog panel, Toast, Tooltip and its key, the side nav's items, brand picker and community card, the Slider's tag and field, Home (`tk()` does it when a `border` is set) and the docs and editor chrome. Figma's auto layout already works this way (strokes included in layout). The Switch thumb is now 10 / 14 (was 12 / 16), so it sits 2 inside the border on every side and in both states. The token values do not change.
+Two kinds of inset stay measured from the outer edge: things centred in a fixed height (the text field's action Button, the chip's remove Button, the collapsed side-nav items and brand picker, a textarea's first line), and radius nesting, which keeps inner + padding = outer without counting the 1px border.
+*Why:* the switch read 1 inside the border horizontally and 2 vertically in code, and 3 and 2 in Figma, because the border ate the padding on one axis but not the other. One rule makes code and Figma agree everywhere.
+*Cost:* buttons, chips, fields and Segmented are 2 wider; Segmented, Menu, Popover, Toast and Tooltip are 2 taller; the side nav's brand picker is now exactly its 50 height (5 + 40 + 5); a 2xs chip's remove Button covers the border at its end.
 
 ---
 

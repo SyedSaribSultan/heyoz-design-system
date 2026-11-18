@@ -13,6 +13,22 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 
 ---
 
+## 2026-11-19
+
+```
+change(all): insets are measured inside the border (D-048)
+
+Why:    the Switch thumb sat 1 inside the border horizontally and 2 vertically in code (3 and 2 in Figma), because
+        the inset-shadow border ate the padding on one axis only. The same overlap was in every bordered surface.
+What:   every bordered surface adds stroke/1 to its padding: Button, Chip, Text field, Select, Segmented, Menu,
+        Popover, Dialog panel, Toast, Tooltip and its key, side nav item, brand picker and community card, Slider
+        tag and field, Home (tk() with a border), docs and editor chrome. Switch thumb 12/16 → 10/14, so it sits 2
+        inside the border on every side in both states. Centred insets and radius nesting stay on the outer edge.
+        Specs, number.json, README conventions and docs pages say so. Token values are unchanged.
+Checks: tokens build passes, 29 tests pass; insets re-measured in the browser on 13 component pages (switch 3/3/3/3
+        from the outer edge on and off, Segmented 5 all round, side nav brand 5/5 in its 50 height); no page overflows.
+```
+
 ## 2026-11-13
 
 ```

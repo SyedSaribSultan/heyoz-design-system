@@ -28,7 +28,7 @@
       "travel": "{space/12}"
     },
     "card": {
-      "$about": "One toast. Padding is 12 and 16 on the left so the icon sits where the text of a dialog would.",
+      "$about": "One toast. Padding is 12 and 16 on the left, inside the border (D-048), so the icon sits where the text of a dialog would.",
       "background": "{surface/tertiary}",
       "border": "{border/tertiary}",
       "radius": "{radius/xl}",

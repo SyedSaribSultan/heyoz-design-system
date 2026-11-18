@@ -20,7 +20,7 @@
   },
   "parts": {
     "bubble": {
-      "$about": "The tooltip. Same values as the side nav's tooltip (surface/secondary, border/secondary, radius/md, padding 8 / 4, offset 8, label/lg/medium). Max widths 240 and 320 are set values.",
+      "$about": "The tooltip. Same values as the side nav's tooltip (surface/secondary, border/secondary, radius/md, padding 8 / 4 inside the border (D-048), offset 8, label/lg/medium). Max widths 240 and 320 are set values.",
       "background": "{surface/secondary}",
       "border": "{border/secondary}",
       "color": "{content/primary}",

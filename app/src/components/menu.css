@@ -5,7 +5,7 @@
 .mn-anchor { display: inline-flex; }
 
 /* Surface: a floating light root on the popover layer. It places itself (Menu.jsx sets left, top, max-height) and stays hidden until placed. */
-.mn { box-sizing: border-box; display: flex; flex-direction: column; padding: var(--mn-surface-padding); border-radius: var(--mn-surface-radius);
+.mn { box-sizing: border-box; display: flex; flex-direction: column; padding: calc(var(--mn-surface-padding) + var(--stroke-1)); border-radius: var(--mn-surface-radius);
   background: var(--mn-surface-background); color: var(--mn-item-color);
   box-shadow: inset 0 0 0 var(--stroke-1) var(--mn-surface-border), var(--fx-inner-shade);
   min-width: var(--mn-surface-min-width); max-width: var(--mn-surface-max-width); max-height: var(--mn-surface-max-height); }

@@ -2,7 +2,7 @@
    (src/styles/components.css). This file only says where each one goes. Inner shade and drop shadow are effects, not tokens (D-021). */
 .pop { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--pop-panel-gap);
   width: var(--pop-panel-width-md); max-width: calc(100vw - 2 * var(--pop-panel-margin)); max-height: calc(100vh - 2 * var(--pop-panel-margin)); max-height: calc(100dvh - 2 * var(--pop-panel-margin));
-  padding: var(--pop-panel-padding); border-radius: var(--pop-panel-radius); background: var(--pop-panel-background); color: var(--pop-header-color); outline: none;
+  padding: calc(var(--pop-panel-padding) + var(--stroke-1)); border-radius: var(--pop-panel-radius); background: var(--pop-panel-background); color: var(--pop-header-color); outline: none;
   box-shadow: inset 0 0 0 var(--stroke-1) var(--pop-panel-border), var(--fx-inner-shade), var(--fx-drop-md); }
 .pop[data-size='sm'] { width: var(--pop-panel-width-sm); }
 .pop[data-size='lg'] { width: var(--pop-panel-width-lg); }

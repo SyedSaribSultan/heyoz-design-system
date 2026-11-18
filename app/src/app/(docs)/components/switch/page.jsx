@@ -36,7 +36,7 @@ export default function SwitchPage() {
         <Panel tone={TONE} pad={24}><SettingsDemo /></Panel>
       </Section>
 
-      <Section title="Two sizes" desc={`Small is a ${px('track-width-sm')} × ${px('track-height-sm')} track with a ${px('thumb-sm')} thumb. Medium is ${px('track-width-md')} × ${px('track-height-md')} with a ${px('thumb-md')} thumb, and the default. The thumb sits ${px('track-padding')} from the edge. Both have a ${px('track-target')} × ${px('track-target')} invisible hit area (size/target).`}>
+      <Section title="Two sizes" desc={`Small is a ${px('track-width-sm')} × ${px('track-height-sm')} track with a ${px('thumb-sm')} thumb. Medium is ${px('track-width-md')} × ${px('track-height-md')} with a ${px('thumb-md')} thumb, and the default. The thumb sits ${px('track-padding')} inside the 1px border on every side, in both states (D-048). Both have a ${px('track-target')} × ${px('track-target')} invisible hit area (size/target).`}>
         <Matrix tone={TONE} first="" cols={['Off', 'On']} rows={[[<RowName key="n" title="Small" sub={`${px('track-width-sm')} × ${px('track-height-sm')}`} />, ...[{}, { defaultChecked: true }].map((p, i) => <Switch key={i} size="sm" label="Label" {...p} />)],
             [<RowName key="n" title="Medium" sub={`${px('track-width-md')} × ${px('track-height-md')}`} />, ...[{}, { defaultChecked: true }].map((p, i) => <Switch key={i} size="md" label="Label" {...p} />)]]} />
       </Section>

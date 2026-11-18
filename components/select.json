@@ -40,7 +40,7 @@
       "color": "{content/critical}"
     },
     "well": {
-      "$about": "The trigger's surface. Border is an inset ring.",
+      "$about": "The trigger's surface. Border is an inset ring; padding x is measured inside it (D-048).",
       "fill": "{fill/primary}",
       "border": "{border/primary}",
       "gap": "{space/8}",

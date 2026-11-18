@@ -96,7 +96,7 @@ export default function SegmentedPage() {
 
       <Section title="The details" desc={<>Every value the control is made of. <Info info="Source: components/segmented.json, checked by npm run tokens\nEach value is a --seg-* variable; the options take Button's size variables">How to read this</Info></>}>
         <SpecTable spec={SPEC} prefix="seg" extra={[
-          ['Nesting', `outer radius = option radius + ${PAD} (the frame padding); gap ${GAP}; focus ring ${RING}`],
+          ['Nesting', `padding ${PAD} inside the 1px border (D-048); outer radius = option radius + ${PAD}, border not counted; gap ${GAP}; focus ring ${RING}`],
         ]} />
         <p className="d-desc type-body-md-regular" style={{ marginTop: 'var(--space-12)' }}>{R.indicator} {R.motion} {R.light}</p>
       </Section>
