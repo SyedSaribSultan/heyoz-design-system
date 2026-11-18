@@ -38,7 +38,7 @@ If a screenshot and these docs disagree, follow the screenshot and flag the drif
 | [Button](docs/components/button.md) | 9 types, icon buttons, 2 links, 7 sizes, squircle and pill | `components/button.json` | Draft |
 | [Sidebar](docs/components/sidenav.md) | Side nav: expanded / collapsed, states, collapse motion, Ctrl+B, scrolling; every sidebar uses it | `components/sidenav.json` | Stable |
 | More components (docs/components/*.md) | Text field, Checkbox, Radio, Switch, Segmented, Tabs, Menu, Select, Tooltip, Popover, Dialog, Toast, Badge, Chip, Avatar, Slider, Progress (D-040 to D-047) | `components/<name>.json` | Draft |
-| Tokens Studio export | All tokens as Figma variables (optional) | `figma/tokens-studio.json` (generated) | Stable v1 |
+| Tokens Studio export | All tokens for a Tokens Studio import (optional; the HeyOz Figma file already has them as variables) | `figma/tokens-studio.json` (generated) | Stable v1 |
 | [shadcn/ui](docs/shadcn.md) | HeyOz in shadcn's variable names: paste-ready `globals.css` for Tailwind v4 | `exports/shadcn/map.json` → `exports/shadcn/globals.css` (generated) | Stable v1 |
 | [Decisions](docs/decisions.md) | The judgment calls and why | – | Live |
 | [Changelog](docs/changelog.md) | What changed, when, and why | – | Live |
@@ -148,7 +148,18 @@ Pages: the site map is `app/src/docs/nav.js` (add a page there). `/foundations` 
 4. Add its page: one entry in `app/src/docs/nav.js` and a route under `app/src/app/(docs)/components/`.
 5. Record the decision in [Decisions](docs/decisions.md) and log it in the [Changelog](docs/changelog.md).
 
-## Load into Figma (Tokens Studio, optional)
+## Tokens in Figma
+
+The HeyOz Figma file (`Heyoz - Design System V1`) holds every token as a Figma variable, created from this repository on 2026-11-19. The variables that were there before the repository, and their text styles, are deleted.
+
+- Collections: `Primitives` (73, hidden from publishing), `Color` (173, one mode, Dark; each an alias of a primitive), `Number` (49), `Typography` (74), `Effect` (7).
+- Text styles: 88, named `role/size/weight` (`body/md/regular`).
+- Names are the token names (`fill/primary-hover`). Each variable carries its CSS name (`var(--fill-primary-hover)`) and is limited to the properties it belongs on.
+- Letter spacing is the one exception: Figma turns a bound number into pixels, so the `font/tracking/*` variables hold the percent for reference and the text styles carry it.
+
+Figma does not follow the repository by itself. When a token changes here, change the variable with the same name in Figma.
+
+### Another file: Tokens Studio (optional)
 
 1. In Figma, open the Tokens Studio plugin.
 2. Tools → Load from file → pick `figma/tokens-studio.json`.

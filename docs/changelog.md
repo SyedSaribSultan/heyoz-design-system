@@ -16,6 +16,21 @@ Types: `feat` (new) · `fix` (correction) · `change` (alters existing behaviour
 ## 2026-11-19
 
 ```
+docs(figma): the repository tokens are Figma variables; the old variables are gone
+
+Why:    the Figma file still ran on the variables from before the repository, so nothing in it
+        carried the repository's names.
+What:   in Heyoz - Design System V1: 376 variables in Primitives, Color (Dark), Number, Typography
+        and Effect, and 88 text styles, named as here, each variable with its CSS name. The 6 old
+        collections (1,057 variables) and 75 old text styles are deleted; every page moved to the
+        new tokens (colour by role name, sizes and text by value; sizes with no token keep their
+        number). README: "Tokens in Figma" replaces "Load into Figma"; Tokens Studio stays as the
+        optional route for another file.
+Checks: 464 of 464 read back from Figma match tokens.css, tokens.resolved.json and typography.css;
+        after deleting, no link on any of the 28 pages points at a missing variable or style.
+```
+
+```
 change(all): insets are measured inside the border (D-048)
 
 Why:    the Switch thumb sat 1 inside the border horizontally and 2 vertically in code (3 and 2 in Figma), because
